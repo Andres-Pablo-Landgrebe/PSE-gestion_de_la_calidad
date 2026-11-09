@@ -1,0 +1,27 @@
+:root{--fondo:#faf7f2;--texto:#3a3228;--arena:#e8dcc4;--acento:#5b6b3a;}
+body.turismo{--acento:#b5653a;}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Open Sans',Lato,Roboto,Arial,sans-serif;font-size:16px;background:var(--fondo);color:var(--texto);line-height:1.6}
+h1,h2,h3,nav,.selector button{font-family:Montserrat,Poppins,Inter,Arial,sans-serif}
+header{background:var(--arena);padding:28px 20px;text-align:center}
+h1{font-size:36px;margin:0 0 8px;color:var(--texto)}
+h2{font-size:26px;color:var(--acento);margin-top:0}
+h3{font-size:21px;color:var(--texto)}
+.sub{margin:0 0 18px}
+.selector{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.selector button{padding:12px 18px;border:2px solid var(--acento);background:#fff;color:var(--acento);border-radius:8px;cursor:pointer;font-size:16px;font-weight:600}
+.selector button.activo{background:var(--acento);color:#fff}
+nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:14px;background:#fff;border-bottom:1px solid var(--arena);position:sticky;top:0;z-index:5}
+nav button{border:0;background:transparent;padding:10px 14px;font-size:15px;cursor:pointer;border-radius:6px;color:var(--texto)}
+nav button.activo{background:var(--acento);color:#fff}
+main{max-width:960px;margin:0 auto;padding:28px 20px 50px}
+.tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:24px 0}
+.tarjeta{background:#fff;border-left:6px solid var(--acento);padding:20px;border-radius:8px;cursor:pointer}
+.tarjeta:hover{box-shadow:0 2px 10px rgba(0,0,0,.08)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px;background:#fff}
+th,td{border:1px solid var(--arena);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--arena)}
+.doc{display:block;padding:10px 14px;background:#fff;border:1px solid var(--arena);border-radius:6px;margin:6px 0;color:var(--acento);text-decoration:none}
+.nota{background:#fff8e1;border-left:4px solid #d4a017;padding:10px 14px;border-radius:4px}
+footer{text-align:center;padding:20px;font-size:14px;background:var(--arena)}
+@media (max-width:600px){h1{font-size:32px}h2{font-size:22px}nav button{font-size:14px;padding:8px 10px}}
