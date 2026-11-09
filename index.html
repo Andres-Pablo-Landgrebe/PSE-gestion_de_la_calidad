@@ -7,9 +7,9 @@
 <style>
   :root{
     --bg:#fbfaf6; --texto:#2e2a24; --borde:#e4dccd;
-    --acc:#3f6b2e; --acc-suave:#e4eedb; --acc-osc:#2a4a1e;
+    --acc:#6A9624; --acc-suave:#BFE878; --acc-osc:#4A6B1F;
   }
-  body.turismo{ --acc:#8a5a2b; --acc-suave:#f3e6d3; --acc-osc:#5e3b1a; }
+  body.turismo{ --acc:#BA8451; --acc-suave:#DBBB9F; --acc-osc:#9A6238; }
   body.comun{ --acc:#2e5d8a; --acc-suave:#dde9f4; --acc-osc:#1d3f61; background:linear-gradient(rgba(251,250,246,.92),rgba(251,250,246,.92)),url("img/mural.jpg") center/cover fixed; }
   *{box-sizing:border-box}
   body{margin:0;font-family:"Open Sans",Lato,Roboto,Arial,sans-serif;font-size:16px;background:var(--bg);color:var(--texto);line-height:1.65}
@@ -22,6 +22,10 @@
   .logo-txt .nom{font-size:20px;font-weight:700;margin:0;line-height:1.2}
   .logo-txt .sub{font-size:14px;opacity:.9;margin-top:4px}
   .selector{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto}
+  .logos-inst{display:flex;gap:8px;align-items:center}
+  .logos-inst img{height:52px;width:auto;background:#fff;border-radius:6px;padding:4px}
+  .btn-proy{border:2px solid var(--acc);background:#fff;color:var(--acc-osc);padding:9px 16px;border-radius:6px;cursor:pointer;font-size:15px;font-weight:600}
+  .btn-proy.activo{background:var(--acc);color:#fff}
   .btn{border:2px solid #fff;background:transparent;color:#fff;padding:9px 16px;border-radius:6px;cursor:pointer;font-size:14px;font-weight:600;transition:.2s}
   .btn:hover{background:rgba(255,255,255,.15)}
   .btn.activo{background:#fff;color:var(--acc-osc)}
@@ -48,7 +52,7 @@
   .dato b{display:block;color:var(--acc-osc);font-family:Montserrat,Arial,sans-serif;font-size:15px}
   .dato span{font-size:14px;color:#554f45}
 
-  .foto{background:var(--acc-suave);border:2px dashed var(--acc);border-radius:8px;min-height:180px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--acc-osc);font-size:14px;margin:14px 0;padding:12px}
+  .foto{background:#EBE0D5;border:2px dashed var(--acc);border-radius:8px;min-height:180px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--acc-osc);font-size:14px;margin:14px 0;padding:12px}
   .galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:14px}
   .galeria figure{margin:0;background:#fff;border:1px solid var(--borde);border-radius:8px;overflow:hidden}
   .galeria .marco{height:170px;background:var(--acc-suave);display:flex;align-items:center;justify-content:center;color:var(--acc-osc);font-size:13px;text-align:center;padding:10px}
@@ -106,6 +110,17 @@
   .draw{stroke-dasharray:100;stroke-dashoffset:100;animation:draw 1.8s ease forwards}
   @keyframes draw{to{stroke-dashoffset:0}}
   #fto-panel .fto table{font-size:13px}
+  .submenu details{background:#fff;border:1px solid var(--borde);border-radius:8px;padding:10px 14px;margin:10px 0}
+  .submenu summary{cursor:pointer;font-family:Montserrat,Arial,sans-serif;font-weight:700;color:var(--acc-osc);font-size:16px}
+  .subwrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .subbtn{border:1px solid var(--acc);background:#fff;color:var(--acc-osc);padding:7px 12px;border-radius:6px;cursor:pointer;font-size:14px}
+  .subbtn.activo{background:var(--acc);color:#fff}
+  .indice{padding-left:26px}
+  .indice li{margin-bottom:8px}
+  .indice a,.selproy a{color:var(--acc-osc);text-decoration:underline;font-size:16px}
+  .indice a.act,.selproy a.act{color:var(--acc);font-weight:700}
+  .selproy{margin:6px 0 14px;font-family:Montserrat,Arial,sans-serif;font-weight:700}
+  .lfb{background:#fff;color:var(--acc-osc);padding:6px 10px;border-radius:6px;font-weight:700;font-size:13px}
   @media print{header,nav,.noprint,.selector{display:none!important} body,body.comun{background:#fff!important} main{padding:0} .card{box-shadow:none} h1.t,h2,h3{color:#000} .tag{border:1px solid #000} th{background:#eee}}
   @media(max-width:760px){
     .cards,.datos{grid-template-columns:1fr}
@@ -118,15 +133,14 @@
 <body>
 <header>
   <div class="head-in">
-    <img class="logo" id="logo" src="img/mural.jpg" alt="Logo PSE, mural de la escuela" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block'">
+    
     <svg class="logo" id="logo-fb" viewBox="0 0 120 120" style="display:none" aria-label="Logo PSE"></svg>
     <div class="logo-txt">
-      <p class="nom">Emprender e Innovar</p>
+      <p class="nom">Emprender e Innovar · 2026</p>
       <div class="sub">PSE · Escuela Albergue Raíces Huarpes N° 4-207 · Lavalle, Mendoza</div>
     </div>
-    <div class="selector">
-      <button class="btn activo" data-proy="cosmetica">Cosmética Natural</button>
-      <button class="btn" data-proy="turismo">Circuito Turístico</button>
+    <div class="logos-inst">
+      <img src="img/logo_institucional.png" alt="Logo UNCuyo · Facultad de Ingeniería" style="height:64px;padding:6px" onerror="this.outerHTML='<span class=\'lfb\'>UNCuyo · Facultad de Ingeniería</span>'">
     </div>
   </div>
 </header>
@@ -134,13 +148,11 @@
 <nav id="tabs">
   <div class="in">
     <button class="activa" data-tab="inicio">Inicio</button>
-    <button data-tab="proyecto">El Proyecto</button>
-    <button data-tab="especifico">Proyecto</button>
+    <button data-tab="escuela">La Escuela</button>
+    <button data-tab="proyectos">Proyectos</button>
     <button data-tab="galeria">Galería</button>
-    <button data-tab="simulacion">Simulación</button>
-    <button data-tab="metodo">Metodología y Herramientas</button>
     <button data-tab="conclusiones">Conclusiones y directrices</button>
-    <button data-tab="contacto">Contacto y Equipo</button>
+    <button data-tab="contacto">Equipo y contacto</button>
   </div>
 </nav>
 
@@ -245,7 +257,7 @@ const TABS = {
         <div class="dato"><b>Período 2026</b><span>Marzo a diciembre, séptima convocatoria del Programa de PSE (UNCuyo).</span></div>
         <div class="dato"><b>Articulación</b><span>Escuela, Municipalidad de Lavalle, Comunidad Huarpe, Hospital Universitario y Facultades de Ingeniería y Artes y Diseño.</span></div>
       </div>
-      <p>La propuesta vincula a estudiantes de la UNCuyo con alumnos de la escuela para fortalecer la identidad local, el cuidado del territorio y la proyección socioeconómica de los jóvenes, en una comunidad alejada de la zona urbana, sin transporte público regular y con oferta educativa y laboral limitada.</p>
+      <p>La propuesta vincula a estudiantes de la UNCuyo con alumnos de la escuela para fortalecer la identidad local, el cuidado del territorio y la proyección socioeconómica de los jóvenes, en una comunidad alejada de la zona urbana, sin transporte público regular y con oferta educativa y laboral limitada.</p><h2>Objetivo general</h2><p>Lograr un espacio para sembrar propósito de vida entre estudiantes y docentes, potenciando comportamientos y competencias para emprender e innovar en los procesos educativos, culturales y ambientales.</p><h2>Diagnóstico de situación</h2><ul><li>La comunidad de San José está lejos de la zona urbana, sin transporte público regular.</li><li>Faltan oferta educativa y oportunidades laborales; la mayoría de los alumnos son hijos de puesteros que viven lejos de la escuela.</li><li>Los jóvenes necesitan apoyo en salud emocional y mental. Los docentes trabajan estos temas, pero algunos exceden su formación.</li><li>Los proyectos existentes (turismo y cosmética) tienen potencial, pero necesitan innovación de procesos, control de calidad y comunicación visual.</li></ul>
       <h2>Elegí un proyecto</h2>
       <div class="cards">
         <div class="card" data-proy="cosmetica"><h3>Cosmética Natural de Jarilla</h3><p>Crema elaborada con plantas nativas, con procesos y controles de calidad.</p></div>
@@ -358,6 +370,40 @@ const TABS = {
       <div id="simout"></div>
       <h2>Animación del recorrido</h2>
       <div id="anim"></div>`;
+  },
+
+  escuela(){
+    return `
+      <span class="tag">Apartado común</span>
+      <h1 class="t">La Escuela</h1>
+      <h2>Organización y tipo de actividad</h2>
+      <p>El proyecto se lleva a cabo en la Escuela Rural Albergue N° 4-207 Raíces Huarpes, institución que funciona bajo modalidad de albergue, alternando semanas para la educación primaria y secundaria. Más allá de su labor formativa, la escuela actúa como núcleo de un trabajo colaborativo y multidisciplinario que busca generar impacto socioeconómico en la comunidad.</p>
+      <h2>Emplazamiento físico</h2>
+      <p>Paraje San José, departamento de Lavalle, provincia de Mendoza.</p>
+      <h2>Instalaciones</h2>
+      <p>Edificación principal y dos aulas pequeñas en el exterior, separadas por una cancha deportiva utilizada para educación física.</p>
+      <h2>Contexto cualitativo y desafíos</h2>
+      <p>La comunidad enfrenta una alta vulnerabilidad rural. Muchos jóvenes expresan el deseo de no continuar con los oficios tradicionales de sus padres, lo que exige proyectar nuevas alternativas socioeconómicas que les den mayor libertad y propósito.</p>
+      <h2>Solución y proyecto institucional</h2>
+      <p>Convergencia multidisciplinaria: la UNCuyo aporta innovación tecnológica y de diseño, mientras que el gobierno local y el hospital universitario garantizan el bienestar integral.</p>`;
+  },
+
+  proyectos(){
+    validarSub();
+    const enlace=(k,t,pr)=>`<li><a href="#" data-sub="${k}" data-proy="${pr}" class="${proy===pr&&sub===k?'act':''}">${t}</a></li>`;
+    const sel=`<div class="noprint selproy"><a href="#" data-selproy="cosmetica" class="${proy==="cosmetica"?"act":""}">Proyecto de Cosmética Natural de Jarilla</a> &nbsp;|&nbsp; <a href="#" data-selproy="turismo" class="${proy==="turismo"?"act":""}">Proyecto de Circuito Turístico</a></div>`;
+    const indice = proy==="cosmetica"
+      ? `<h2>Índice: Cosmética Natural de Jarilla</h2><ol class="indice">${SUBS_COS.map(([k,t])=>enlace(k,t,"cosmetica")).join("")}</ol>`
+      : `<h2>Índice: Circuito Turístico</h2><ol class="indice">${SUBS_TUR.map(([k,t])=>enlace(k,t,"turismo")).join("")}</ol>`;
+    return sel + indice + '<hr>' + subContent();
+  },
+  proyectosAnterior(){
+    validarSub();
+    const btns=(list,pr)=>list.map(([k,t])=>`<button class="subbtn ${proy===pr&&sub===k?'activo':''}" data-proy="${pr}" data-sub="${k}">${t}</button>`).join("");
+    const menu=`<div class="noprint" style="display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px"><button class="btn-proy ${proy==="cosmetica"?"activo":""}" data-selproy="cosmetica">Cosmética Natural</button><button class="btn-proy ${proy==="turismo"?"activo":""}" data-selproy="turismo">Circuito Turístico</button></div><div class="submenu noprint">
+      <details open><summary>Proyecto de Cosmética Natural de Jarilla</summary><div class="subwrap">${btns(SUBS_COS,"cosmetica")}</div></details>
+      <details open><summary>Proyecto de Circuito Turístico</summary><div class="subwrap">${btns(SUBS_TUR,"turismo")}</div></details></div>`;
+    return menu + subContent();
   },
 
   metodo(){
@@ -596,8 +642,47 @@ function cosInit(){
   cosPaint();
 }
 
-const COMUN = ["inicio","proyecto","metodo","conclusiones","contacto"];
-let proy = "cosmetica", tab = "inicio";
+const COMUN = ["inicio","escuela","proyecto","metodo","conclusiones","contacto"];
+let proy = "cosmetica", tab = "inicio", sub = "descripcion";
+
+const SUBS_COS = [["descripcion","Descripción de cosmética"],["politica","Política SIG"],["legal","Matriz legal y partes interesadas"],["clausulas","Cláusulas aplicables ISO 9001:2015"],["mapa","Mapa general de procesos"],["et","Especificación técnica"],["proceso","Proceso productivo con fichas FTO"],["entradas","Entradas y salidas, control de variables"],["control","Plan de control / aseguramiento de la calidad"],["qfd","Herramientas de análisis: QFD"],["costos","Costos de calidad"],["auditoria","Auditoría"],["inspeccion","Plan de inspección: laboratorio modular"]];
+const SUBS_TUR = [["descripcion","Descripción de turismo"],["recorrido","Simulación del recorrido"]];
+
+function validarSub(){
+  const lista = proy==="cosmetica" ? SUBS_COS : SUBS_TUR;
+  if(!lista.some(s=>s[0]===sub)) sub = "descripcion";
+}
+
+function docCard(t,d,a){
+  return `<div class="card"><h3>${t}</h3><p>${d}</p><p class="nota">Archivo: ${a}</p></div>`;
+}
+
+function subContent(){
+  const h=(t)=>`<span class="tag">${proy==="cosmetica"?"Proyecto A · Cosmética":"Proyecto B · Turismo"}</span><h1 class="t">${t}</h1>`;
+  const cards=(...c)=>`<div class="cards">${c.join("")}</div>`;
+  const tabla=(hd,rows)=>`<table><tr>${hd.map(x=>`<th>${x}</th>`).join("")}</tr>${rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join("")}</tr>`).join("")}</table>`;
+  if(proy==="turismo"){
+    if(sub==="recorrido") return TABS.simulacion(P.turismo);
+    const p=P.turismo;
+    return h(p.nombre)+`<p class="lead">${p.subtitulo}</p><h2>Descripción y diagnóstico</h2><p>${p.diagnostico}</p><h2>Diseño del recorrido</h2><ol>${p.proceso.map(s=>`<li>${s}</li>`).join("")}</ol><h2>Documentación específica</h2><ul class="docs">${p.docs.map(d=>`<li>${d}</li>`).join("")}</ul>`;
+  }
+  const p=P.cosmetica;
+  if(sub==="proceso") return TABS.simulacion(p);
+  switch(sub){
+    case "politica": return h("Política SIG")+cards(docCard("Política integrada SIG (TP7)","Política del sistema de gestión. El detalle legal no va en la política: está en la matriz de requisitos legales.","docs/TP7_politica_SIG.pdf"));
+    case "legal": return h("Matriz legal y partes interesadas")+cards(docCard("Matriz de requisitos legales","Normas aplicables a cosméticos (ANMAT y MERCOSUR), con número de disposición y verificación.","docs/matriz_requisitos_legales.pdf"),docCard("Matriz de partes interesadas","Clientes, comunidad, escuela, docentes y universidad, con sus necesidades y expectativas.","docs/matriz_partes_interesadas.pdf"));
+    case "clausulas": return h("Cláusulas aplicables ISO 9001:2015")+tabla(["Cláusula","Aplicación en el proceso"],[["4.1 y 4.3","Contexto y alcance: flora nativa y recursos del territorio"],["4.2","Partes interesadas"],["5.1.2 y 5.2","Enfoque al cliente y política"],["6.1","Riesgos y oportunidades (matriz de riesgos TP3)"],["7.1.3 a 7.1.5","Infraestructura, ambiente e instrumentos de medición"],["7.2 y 7.3","Competencia y toma de conciencia (roles de alumnos)"],["7.5","Información documentada"],["8.1","Planificación y control operativo"],["8.3","Diseño y desarrollo (ET-PT-001)"],["8.4","Control de proveedores y compras"],["8.5.1 y 8.5.2","Control de producción, identificación y trazabilidad"],["8.5.4","Preservación (envasado)"],["8.6 y 8.7","Liberación y control de salidas no conformes"],["9.1","Seguimiento y medición"],["9.1.2 y 10.2","Satisfacción del cliente y acciones correctivas"]]);
+    case "mapa": return h("Mapa general de procesos")+cards(docCard("Mapa general de procesos (versión corregida)","Procesos estratégicos, operativos, de soporte y cliente. Sin actores ni cláusulas: estas están en la matriz proceso–cláusula.","docs/mapa_general_procesos.pdf"))+`<h2>Secuencia del proceso operativo</h2><ol>${p.proceso.map(s=>`<li>${s}</li>`).join("")}</ol>`;
+    case "et": return h("Especificación técnica ET-PT-001")+cards(docCard("ET-PT-001 Crema de jarilla, versión 3","Requisitos del producto, fórmula de referencia, microbiología, envase, almacenamiento y criterio de aceptación.","docs/TP4_especificacion_tecnica.pdf"))+tabla(["Componente","Función","Cantidad (lote 600 g)"],[["Vaselina","Base","500 g"],["Cera de abeja","Espesante","100 g"],["Oleato de jarilla","Principio característico","100 g"],["Aceite esencial de limón","Aroma","Máx. 1 % m/m"]]);
+    case "entradas": return h("Entradas, salidas y control de variables")+cards(docCard("Entradas y salidas del circuito operativo","Análisis SIPOC del proceso de la crema y variables de control.","docs/entradas_salidas.pdf"))+tabla(["Variable","Control","Frecuencia"],[["Consistencia","Comparación con muestra patrón (masa 50 g, regla 1 mm)","Cada lote"],["Temperatura de fusión","Termómetro de cocina, menor a 80 °C","Cada lote"],["Masa neta","Balanza de cocina, 50 g por envase","Cada envase"],["Maceración del oleato","1 semana de maceración y 2 de reposo","Cada lote"]]);
+    case "control": return h("Plan de control / aseguramiento de la calidad")+cards(docCard("Plan de control (TP11)","Parámetros, método, responsable por rol, plan de reacción y registros.","docs/TP11_plan_control.pdf"),docCard("Planillas de registro","Consistencia, pesada, envasado y liberación de lote.","docs/registros/"));
+    case "qfd": return h("Herramientas de análisis: QFD")+cards(docCard("QFD: justificación y criterios de evaluación","Requisitos del cliente, características técnicas, escala de valores, fuente y responsable de medición.","docs/QFD_criterios.pdf"));
+    case "costos": return h("Costos de calidad")+cards(docCard("Identificación de costos de calidad (TP5)","Clasificación en prevención, evaluación, fallos internos y externos; voluntario o involuntario.","docs/TP5_costos_identificacion.pdf"),docCard("Análisis de costos de calidad (TP6)","Comparación de períodos, objetivo de reducción y modelo tradicional.","docs/TP6_costos_analisis.pdf"));
+    case "auditoria": return h("Auditoría")+cards(docCard("Auditoría de 2° parte (TG9)","Plan y check-list de auditoría a Centro Médico Palmares, como ejercicio de la materia.","docs/TG9_auditoria_CMP.pdf"));
+    case "inspeccion": return h("Plan de inspección: laboratorio modular")+cards(docCard("Plan de inspección","Pendiente de definir. Recursos actuales: balanza, termómetro, muestra patrón y laboratorio externo para microbiología.","docs/plan_inspeccion.pdf"));
+    default: return h(p.nombre)+`<p class="lead">${p.subtitulo}</p><h2>Diagnóstico y requisito</h2><p>${p.diagnostico}</p><h2>Documentación del proyecto</h2><ul class="docs">${p.docs.map(d=>`<li>${d}</li>`).join("")}</ul>`;
+  }
+}
 
 function render(){
   clearInterval(animTimer); animTimer = null;
@@ -607,23 +692,25 @@ function render(){
   document.querySelectorAll(".selector .btn").forEach(b=>b.classList.toggle("activo", b.dataset.proy===proy));
   document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("activa", b.dataset.tab===tab));
   const fn = TABS[tab];
-  document.getElementById("contenido").innerHTML = fn.length ? fn(p) : fn();
+  document.getElementById("contenido").innerHTML = tab==="galeria" ? TABS.galeria(P.cosmetica)+TABS.galeria(P.turismo) : (fn.length ? fn(p) : fn());
   document.getElementById("contenido").insertAdjacentHTML("afterbegin",'<div class="noprint"><button class="btn-imp" onclick="window.print()">Imprimir esta pestaña</button></div>');
-  if(tab==="simulacion"){ simRun(); if(proy==="cosmetica") cosInit(); else animInit(); }
+  if(tab==="proyectos"){ if(proy==="cosmetica" && sub==="proceso"){ simRun(); cosInit(); } if(proy==="turismo" && sub==="recorrido"){ simRun(); animInit(); } }
   window.scrollTo(0,0);
 }
 
-document.querySelector(".selector").addEventListener("click", e=>{
-  const b = e.target.closest("button"); if(!b) return;
-  proy = b.dataset.proy; render();
-});
+
 document.getElementById("tabs").addEventListener("click", e=>{
   const b = e.target.closest("button"); if(!b) return;
   tab = b.dataset.tab; render();
 });
 document.getElementById("contenido").addEventListener("click", e=>{
+  if(e.target.closest("a[href='#']")) e.preventDefault();
+  const sp = e.target.closest("[data-selproy]");
+  if(sp){ proy = sp.dataset.selproy; sub = "descripcion"; render(); return; }
+  const s = e.target.closest("[data-sub]");
+  if(s){ proy = s.dataset.proy; sub = s.dataset.sub; tab = "proyectos"; render(); return; }
   const c = e.target.closest(".card[data-proy]"); if(!c) return;
-  proy = c.dataset.proy; tab = "especifico"; render();
+  proy = c.dataset.proy; tab = "proyectos"; sub = "descripcion"; render();
 });
 
 render();
