@@ -1,25 +1,203 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>PSE Escuela Raíces Huarpes - Gestión de la Calidad</title>
-<link rel="stylesheet" href="css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSE Escuela Raíces Huarpes</title>
+<style>
+  :root{
+    --bg:#fbfaf6; --texto:#2e2a24; --borde:#e4dccd;
+    --acc:#3f6b2e; --acc-suave:#e4eedb; --acc-osc:#2a4a1e;
+  }
+  body.turismo{
+    --acc:#8a5a2b; --acc-suave:#f3e6d3; --acc-osc:#5e3b1a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Open Sans",Lato,Roboto,Arial,sans-serif;font-size:16px;background:var(--bg);color:var(--texto);line-height:1.6}
+  h1,h2,h3,nav,.btn{font-family:Montserrat,Inter,Poppins,Arial,sans-serif}
+  header{background:var(--acc-osc);color:#fff;padding:18px 20px}
+  header .sub{font-size:14px;opacity:.9}
+  header h1{margin:0;font-size:22px}
+  .selector{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .btn{border:2px solid #fff;background:transparent;color:#fff;padding:8px 14px;border-radius:6px;cursor:pointer;font-size:14px;font-weight:600}
+  .btn.activo{background:#fff;color:var(--acc-osc)}
+  nav{display:flex;gap:4px;flex-wrap:wrap;background:#fff;border-bottom:1px solid var(--borde);padding:0 12px;position:sticky;top:0;z-index:5}
+  nav button{border:0;background:none;padding:14px 12px;font-size:14px;cursor:pointer;color:var(--texto);border-bottom:3px solid transparent}
+  nav button.activa{color:var(--acc);border-bottom-color:var(--acc);font-weight:700}
+  main{max-width:960px;margin:0 auto;padding:24px 20px 60px}
+  h1.t{font-size:34px;color:var(--acc-osc);margin:8px 0 8px}
+  h2{font-size:24px;color:var(--acc-osc);margin:22px 0 8px}
+  h3{font-size:20px;color:var(--acc);margin:18px 0 6px}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  .card{background:#fff;border:2px solid var(--acc-suave);border-top:6px solid var(--acc);border-radius:10px;padding:20px;cursor:pointer}
+  .card h3{margin-top:0}
+  .foto{background:var(--acc-suave);border:2px dashed var(--acc);border-radius:8px;height:180px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--acc-osc);font-size:14px;margin:12px 0;padding:10px}
+  .pendiente{background:#fff8e1;border-left:4px solid #d4a017;padding:10px 14px;border-radius:4px;font-size:14px}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px;background:#fff}
+  th,td{border:1px solid var(--borde);padding:8px;text-align:left;vertical-align:top}
+  th{background:var(--acc-suave);color:var(--acc-osc)}
+  ul{padding-left:20px}
+  .docs li{margin-bottom:4px}
+  @media(max-width:640px){.cards{grid-template-columns:1fr}h1.t{font-size:28px}}
+</style>
 </head>
-<body class="cosmetica">
+<body>
 <header>
-  <h1>PSE Escuela Raíces Huarpes</h1>
-  <p class="sub">Vincular la universidad con la comunidad a través de la identidad local · Lavalle, Mendoza</p>
-  <div class="selector" role="group" aria-label="Seleccionar proyecto">
-    <button data-proyecto="cosmetica" class="activo">Cosmética de Jarilla</button>
-    <button data-proyecto="turismo">Circuito Turístico</button>
+  <h1>PSE · Escuela Raíces Huarpes (Lavalle, Mendoza)</h1>
+  <div class="sub">Vincular la universidad con la comunidad a través de la identidad local</div>
+  <div class="selector">
+    <button class="btn activo" data-proy="cosmetica">Cosmética Natural de Jarilla</button>
+    <button class="btn" data-proy="turismo">Circuito Turístico</button>
   </div>
 </header>
-<nav id="menu" aria-label="Secciones"></nav>
+
+<nav id="tabs">
+  <button class="activa" data-tab="inicio">Inicio</button>
+  <button data-tab="proyecto">El Proyecto</button>
+  <button data-tab="especifico">Proyecto</button>
+  <button data-tab="metodo">Metodología y Herramientas</button>
+  <button data-tab="contacto">Contacto y Equipo</button>
+</nav>
+
 <main id="contenido"></main>
-<footer>Gestión de la Calidad 2026 · Norma ISO 9001:2015 · Contenido en revisión</footer>
-<script src="data/proyectos.js"></script>
-<script src="js/app.js"></script>
+
+<script>
+const P = {
+  cosmetica: {
+    nombre: "Cosmética Natural de Jarilla",
+    subtitulo: "Crema de jarilla (Larrea divaricata) elaborada en la escuela",
+    tituloPestana: "Cosmética Natural de Jarilla",
+    diagnostico: "La jarilla es un arbusto nativo de Mendoza con uso tradicional en el cuidado de la piel. La PSE busca elaborar una crema cosmética de uso externo con criterios de calidad, sustentabilidad en la recolección y trazabilidad por lote.",
+    proceso: [
+      "Recolección sustentable de jarilla",
+      "Secado y maceración en aceite (oleato)",
+      "Filtrado y pesado en gramos",
+      "Fusión en baño María (menor a 80 °C)",
+      "Mezcla, aroma y enfriamiento",
+      "Control de consistencia frente a muestra patrón",
+      "Envasado en recipientes de 50 g y rotulado",
+      "Muestreo microbiológico y liberación del lote"
+    ],
+    docs: [
+      "Especificación técnica ET-PT-001 (TP4)",
+      "Plan de control (TP11)",
+      "Mapa general de procesos (versión corregida)",
+      "Costos de calidad: identificación y análisis (TP5 y TP6)",
+      "Matriz de requisitos legales y partes interesadas",
+      "Registros: planilla de consistencia y control de lote"
+    ],
+    colorTexto: "verde"
+  },
+  turismo: {
+    nombre: "Circuito Turístico",
+    subtitulo: "Recorrido de patrimonio natural y cultural de Lavalle",
+    tituloPestana: "Circuito Turístico",
+    diagnostico: "Contenido en elaboración por el grupo de Turismo: delimitación del territorio, enfoque sustentable y comunitario, y puesta en valor del patrimonio local.",
+    proceso: [
+      "Relevamiento del territorio y de las paradas",
+      "Diseño del recorrido e itinerario",
+      "Planificación de seguridad y logística",
+      "Salida piloto con vecinos y visitantes",
+      "Evaluación de la experiencia y mejoras"
+    ],
+    docs: [
+      "Itinerario y cronograma (pendiente de corrección)",
+      "Planes de seguridad y contingencia (pendiente)",
+      "Registros de salidas piloto (pendiente)"
+    ],
+    colorTexto: "arena"
+  }
+};
+
+const TABS = {
+  inicio(p){
+    return `
+      <h1 class="t">Bienvenidos a la PSE</h1>
+      <p>Proyecto socio educativo de la Escuela Raíces Huarpes que aplica herramientas de gestión de la calidad (ISO 9001:2015) en dos proyectos: cosmética natural y circuito turístico.</p>
+      <div class="cards">
+        <div class="card" data-proy="cosmetica"><h3>Cosmética Natural de Jarilla</h3><p>Ver el proyecto de la crema de jarilla.</p></div>
+        <div class="card" data-proy="turismo"><h3>Circuito Turístico</h3><p>Ver el proyecto del recorrido.</p></div>
+      </div>
+      <div class="foto">Imagen de la jarilla o del equipo (pendiente)</div>`;
+  },
+  proyecto(){
+    return `
+      <h1 class="t">El Proyecto / Marco institucional</h1>
+      <p><em>Apartado común a ambos proyectos.</em></p>
+      <h2>Diagnóstico de situación</h2>
+      <p>La escuela tiene recursos limitados. Los proyectos buscan que los alumnos sean protagonistas de la operación, aplicando la norma en un entorno de pocos instrumentos y envases no estandarizados.</p>
+      <h2>Objetivos</h2>
+      <ul><li>Objetivo general: aplicar un sistema de gestión de la calidad en la PSE.</li>
+      <li>Objetivo específico: desarrollar competencias de gestión en los alumnos.</li></ul>
+      <h2>Documentación obligatoria</h2>
+      <ul class="docs"><li>Proyecto Socio Educativo aprobado (PDF) (pendiente)</li><li>Convenios o cartas de intención (pendiente)</li></ul>
+      <div class="pendiente">Pendiente: PSE aprobado y convenio con la escuela.</div>`;
+  },
+  especifico(p){
+    const color = p.colorTexto;
+    return `
+      <h1 class="t">${p.tituloPestana}</h1>
+      <p><strong>${p.subtitulo}</strong></p>
+      <h2>Diagnóstico y requisito</h2>
+      <p>${p.diagnostico}</p>
+      <div class="foto">Fotos del ${color === "verde" ? "laboratorio, la jarilla y las muestras" : "territorio y la cartelería"} (pendiente)</div>
+      <h2>${color === "verde" ? "Proceso de elaboración" : "Diseño del recorrido"}</h2>
+      <ol>${p.proceso.map(s=>`<li>${s}</li>`).join("")}</ol>
+      <h2>Documentación específica</h2>
+      <ul class="docs">${p.docs.map(d=>`<li>${d}</li>`).join("")}</ul>`;
+  },
+  metodo(){
+    return `
+      <h1 class="t">Metodología y Herramientas</h1>
+      <p><em>Apartado común a ambos proyectos.</em></p>
+      <h2>Herramientas aplicadas</h2>
+      <table>
+        <tr><th>Herramienta</th><th>Uso en la PSE</th></tr>
+        <tr><td>Mapa de procesos</td><td>Define los procesos y su secuencia</td></tr>
+        <tr><td>SIPOC / entradas y salidas</td><td>Identifica proveedores, entradas, salidas y clientes</td></tr>
+        <tr><td>Matriz FODA y riesgos</td><td>Analiza el contexto y las amenazas</td></tr>
+        <tr><td>Costos de calidad</td><td>Clasifica prevención, evaluación y fallos</td></tr>
+        <tr><td>QFD</td><td>Relaciona requisitos del cliente con características técnicas</td></tr>
+      </table>`;
+  },
+  contacto(){
+    return `
+      <h1 class="t">Contacto y Equipo</h1>
+      <p><em>Apartado común a ambos proyectos.</em></p>
+      <h2>Integrantes</h2>
+      <ul><li>Grupo Cosmética: alumnos por rol (operador, control de calidad, registro)</li>
+      <li>Grupo Turismo: alumnos por rol (pendiente)</li></ul>
+      <h2>Canales</h2>
+      <ul><li>Correo institucional (pendiente)</li><li>Referente territorial (pendiente)</li></ul>
+      <div class="pendiente">Pendiente: datos de contacto y docente referente.</div>`;
+  }
+};
+
+let proy = "cosmetica", tab = "inicio";
+
+function render(){
+  const p = P[proy];
+  document.body.classList.toggle("turismo", proy === "turismo");
+  document.querySelectorAll(".selector .btn").forEach(b=>b.classList.toggle("activo", b.dataset.proy===proy));
+  document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("activa", b.dataset.tab===tab));
+  document.getElementById("contenido").innerHTML = TABS[tab](p);
+  window.scrollTo(0,0);
+}
+
+document.querySelector(".selector").addEventListener("click", e=>{
+  const b = e.target.closest("button"); if(!b) return;
+  proy = b.dataset.proy; render();
+});
+document.getElementById("tabs").addEventListener("click", e=>{
+  const b = e.target.closest("button"); if(!b) return;
+  tab = b.dataset.tab; render();
+});
+document.getElementById("contenido").addEventListener("click", e=>{
+  const c = e.target.closest(".card"); if(!c) return;
+  proy = c.dataset.proy; tab = "especifico"; render();
+});
+
+render();
+</script>
 </body>
 </html>
