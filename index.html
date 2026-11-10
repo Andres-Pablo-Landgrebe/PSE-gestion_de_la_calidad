@@ -7,15 +7,16 @@
 <style>
   :root{
     --bg:#fbfaf6; --texto:#2e2a24; --borde:#e4dccd;
-    --acc:#6A9624; --acc-suave:#BFE878; --acc-osc:#4A6B1F;
+    --acc:#6A9624; --acc-suave:#BFE878; --acc-osc:#4A6B1F; --acc-txt:#4A6B1F; --hov:#eaf5d2;
   }
-  body.turismo{ --acc:#BA8451; --acc-suave:#DBBB9F; --acc-osc:#9A6238; }
-  body.comun{ --acc:#2e5d8a; --acc-suave:#dde9f4; --acc-osc:#1d3f61; background:linear-gradient(rgba(251,250,246,.92),rgba(251,250,246,.92)),url("img/mural.jpg") center/cover fixed; }
+  /* Turismo: paleta anaranjada (#af5700 · #c06500 · #d27300 · #e48200 · #f69100 · #ffa333 · #ffba6a · #ffd19b · #ffe8cd) */
+  body.turismo{ --acc:#c06500; --acc-suave:#ffe8cd; --acc-osc:#af5700; --acc-txt:#8a4500; --hov:#ffe8cd; --borde:#f1d9bb; --bg:#fffaf3; }
+  body.comun{ --acc:#2e5d8a; --acc-suave:#dde9f4; --acc-osc:#1d3f61; --acc-txt:#1d3f61; --hov:#e8f0f8; background:linear-gradient(rgba(251,250,246,.92),rgba(251,250,246,.92)),url("img/mural.jpg") center/cover fixed; }
   *{box-sizing:border-box}
   body{margin:0;font-family:"Open Sans",Lato,Roboto,Arial,sans-serif;font-size:16px;background:var(--bg);color:var(--texto);line-height:1.65}
   h1,h2,h3,nav,.btn,.logo-txt{font-family:Montserrat,Inter,Poppins,Arial,sans-serif}
 
-  header{background:var(--acc-osc);color:#fff;padding:16px 24px}
+  header{background:var(--acc-osc);color:#fff;padding:16px 24px;transition:background-color .25s ease}
   .head-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
   .logo{width:64px;height:64px;flex:0 0 64px;border-radius:8px;object-fit:cover;background:#fff}
   .logo-txt{flex:1;min-width:220px}
@@ -32,19 +33,22 @@
 
   nav{background:#fff;border-bottom:1px solid var(--borde);position:sticky;top:0;z-index:5}
   nav .in{max-width:1080px;margin:0 auto;display:flex;gap:2px;flex-wrap:wrap;padding:0 12px}
-  nav button{border:0;background:none;padding:14px 12px;font-size:14px;cursor:pointer;color:var(--texto);border-bottom:3px solid transparent}
-  nav button.activa{color:var(--acc);border-bottom-color:var(--acc);font-weight:700}
+  nav button{border:0;background:none;padding:14px 12px;font-size:14px;cursor:pointer;color:var(--texto);border-bottom:3px solid transparent;transition:background-color .18s ease,color .18s ease,border-color .18s ease}
+  nav button:hover{background:var(--hov);color:var(--acc-osc);border-bottom-color:var(--acc-suave)}
+  nav button.activa{color:var(--acc-osc);border-bottom-color:var(--acc);font-weight:700}
+  nav button.activa:hover{border-bottom-color:var(--acc)}
 
   main{max-width:1080px;margin:0 auto;padding:28px 24px 64px}
   h1.t{font-size:36px;color:var(--acc-osc);margin:6px 0 8px;line-height:1.2}
   h2{font-size:24px;color:var(--acc-osc);margin:26px 0 8px}
   h3{font-size:20px;color:var(--acc);margin:18px 0 6px}
   .lead{font-size:18px;color:#4a443b}
-  .tag{display:inline-block;background:var(--acc-suave);color:var(--acc-osc);padding:3px 10px;border-radius:12px;font-size:13px;font-weight:600;margin-bottom:8px}
+  .tag{display:inline-block;background:var(--acc-suave);color:var(--acc-txt);padding:3px 10px;border-radius:12px;font-size:13px;font-weight:600;margin-bottom:8px}
 
   .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
-  .card{background:#fff;border:1px solid var(--borde);border-top:6px solid var(--acc);border-radius:10px;padding:22px;cursor:pointer;transition:box-shadow .2s, transform .2s}
-  .card:hover{box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(-2px)}
+  .card{background:#fff;border:1px solid var(--borde);border-top:6px solid var(--acc);border-radius:10px;padding:22px;transition:box-shadow .2s, transform .2s, background-color .2s}
+  .card[data-go]{cursor:pointer}
+  .card[data-go]:hover{box-shadow:0 8px 20px rgba(0,0,0,.12);transform:translateY(-3px);background:var(--hov)}
   .card h3{margin-top:0}
 
   .datos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
@@ -62,13 +66,16 @@
   .pendiente{background:#fff8e1;border-left:4px solid #d4a017;padding:10px 14px;border-radius:4px;font-size:14px;margin:12px 0}
   table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px;background:#fff}
   th,td{border:1px solid var(--borde);padding:8px 10px;text-align:left;vertical-align:top}
-  th{background:var(--acc-suave);color:var(--acc-osc)}
+  th{background:var(--acc-suave);color:var(--acc-txt)}
   ul,ol{padding-left:22px}
   li{margin-bottom:4px}
   .docs li{margin-bottom:6px}
   .nota{font-size:13px;color:#6b6358}
 
-  .btn-imp{background:var(--acc);color:#fff;border:0;padding:8px 14px;border-radius:6px;cursor:pointer;font-size:14px;margin-bottom:8px}
+  .btn-imp{background:var(--acc);color:#fff;border:0;padding:8px 14px;border-radius:6px;cursor:pointer;font-size:14px;margin-bottom:8px;transition:background-color .18s ease,transform .18s ease,box-shadow .18s ease}
+  .btn-imp:hover{background:var(--acc-osc);transform:translateY(-1px);box-shadow:0 3px 8px rgba(0,0,0,.18)}
+  body.turismo .btn-imp{background:var(--acc-osc)}
+  body.turismo .btn-imp:hover{background:var(--acc-txt)}
   .foto-fig{margin:14px 0}
   .foto-fig img{width:100%;max-height:340px;object-fit:cover;border-radius:8px;border:1px solid var(--borde);display:block}
   .foto-fig figcaption{font-size:13px;color:#4a443b;margin-top:4px}
@@ -77,6 +84,7 @@
   .anim-ctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}
   .anim-track{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin:10px 0}
   .anim-paso{background:#fff;border:1px solid var(--borde);border-radius:6px;padding:8px 10px;font-size:14px;cursor:pointer;opacity:.55;transition:.3s}
+  .anim-paso:hover{opacity:1;background:var(--hov);border-color:var(--acc)}
   .anim-paso .num{display:inline-block;background:var(--acc-suave);color:var(--acc-osc);border-radius:50%;width:24px;height:24px;text-align:center;line-height:24px;margin-right:6px;font-weight:700}
   .anim-paso.hecho{opacity:.85;border-color:var(--acc)}
   .anim-paso.activo-anim{opacity:1;background:var(--acc);color:#fff;transform:scale(1.03);border-color:var(--acc)}
@@ -110,16 +118,62 @@
   .draw{stroke-dasharray:100;stroke-dashoffset:100;animation:draw 1.8s ease forwards}
   @keyframes draw{to{stroke-dashoffset:0}}
   #fto-panel .fto table{font-size:13px}
-  .submenu details{background:#fff;border:1px solid var(--borde);border-radius:8px;padding:10px 14px;margin:10px 0}
-  .submenu summary{cursor:pointer;font-family:Montserrat,Arial,sans-serif;font-weight:700;color:var(--acc-osc);font-size:16px}
-  .subwrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-  .subbtn{border:1px solid var(--acc);background:#fff;color:var(--acc-osc);padding:7px 12px;border-radius:6px;cursor:pointer;font-size:14px}
-  .subbtn.activo{background:var(--acc);color:#fff}
-  .indice{padding-left:26px}
-  .indice li{margin-bottom:8px}
-  .indice a,.selproy a{color:var(--acc-osc);text-decoration:underline;font-size:16px}
-  .indice a.act,.selproy a.act{color:var(--acc);font-weight:700}
-  .selproy{margin:6px 0 14px;font-family:Montserrat,Arial,sans-serif;font-weight:700}
+  /* ---------- Menú desplegable de "Proyectos" ---------- */
+  .dd{position:relative;display:flex}
+  .dd-menu{position:absolute;top:100%;left:0;min-width:240px;max-width:calc(100vw - 24px);background:#fff;border:1px solid var(--borde);border-top:3px solid var(--acc);border-radius:0 0 10px 10px;box-shadow:0 10px 24px rgba(0,0,0,.14);display:flex;flex-direction:column;padding:4px 0;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .16s ease,transform .16s ease,visibility .16s;z-index:20}
+  .dd:hover .dd-menu,.dd:focus-within .dd-menu{opacity:1;visibility:visible;transform:none}
+  .dd.cerrado .dd-menu{opacity:0;visibility:hidden}
+  nav .dd-menu button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:12px 18px;border:0;border-left:4px solid transparent;font-size:14px;white-space:nowrap}
+  nav .dd-menu button::before{content:"";width:12px;height:12px;border-radius:50%;flex:0 0 12px}
+  nav .dd-menu button[data-go*="|turismo|"]::before{background:#d27300}
+  nav .dd-menu button[data-go*="|cosmetica|"]::before{background:#6A9624}
+  nav .dd-menu button[data-go*="|turismo|"]:hover{background:#ffe8cd;color:#8a4500;border-left-color:#d27300}
+  nav .dd-menu button[data-go*="|cosmetica|"]:hover{background:#eaf5d2;color:#4A6B1F;border-left-color:#6A9624}
+  .dd-caret{font-size:10px;margin-left:5px;opacity:.7}
+
+  /* ---------- Transición entre ventanas (fade rápido) ---------- */
+  #contenido{transition:opacity .2s ease}
+  #contenido.saliendo{opacity:0;transition-duration:.12s}
+
+  /* ---------- Vista dividida de Proyectos ---------- */
+  body.dividida main{max-width:none;padding:0}
+  .split{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 131px)}
+  .half{display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;gap:14px;padding:clamp(40px,12vh,120px) clamp(24px,6vw,84px) 56px;position:relative;overflow:hidden}
+  .half .ico{width:76px;height:76px;margin-bottom:6px}
+  .half h2{font-size:clamp(26px,3.2vw,38px);margin:0;line-height:1.15}
+  .half p{font-size:17px;max-width:460px;margin:0}
+  .half .etq{font-family:Montserrat,Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .half.tur{background:linear-gradient(155deg,#ffe8cd 0%,#ffd19b 100%);color:#4a2500}
+  .half.tur h2,.half.tur .etq{color:#8a4500}
+  .half.cos{background:linear-gradient(155deg,#f4fbe3 0%,#BFE878 100%);color:#27360f}
+  .half.cos h2,.half.cos .etq{color:#4A6B1F}
+  .ver{font-family:Montserrat,Arial,sans-serif;font-size:16px;font-weight:700;color:#fff;border:2px solid transparent;border-radius:8px;padding:12px 28px;cursor:pointer;margin-top:10px;transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+  .half.tur .ver{background:#af5700}
+  .half.cos .ver{background:#4A6B1F}
+  .half.tur .ver:hover{background:#fff;color:#af5700;border-color:#af5700;transform:translateY(-2px);box-shadow:0 6px 14px rgba(175,87,0,.25)}
+  .half.cos .ver:hover{background:#fff;color:#4A6B1F;border-color:#4A6B1F;transform:translateY(-2px);box-shadow:0 6px 14px rgba(74,107,31,.25)}
+  .half .ver .flecha{display:inline-block;transition:transform .2s ease;margin-left:6px}
+  .half .ver:hover .flecha{transform:translateX(4px)}
+
+  /* ---------- Página de cada proyecto + índice ---------- */
+  .mig{font-size:14px;margin:0 0 12px;color:#6b6358}
+  .mig a{color:var(--acc-txt);text-decoration:none;padding:2px 6px;border-radius:4px;transition:background-color .15s ease}
+  .mig a:hover{background:var(--hov);text-decoration:underline}
+  .mig .sep{margin:0 6px 0 2px;opacity:.6}
+  .indice,.indice ol{list-style:none;padding-left:0;counter-reset:n}
+  .indice ol{padding-left:30px;margin-top:6px}
+  .indice li{counter-increment:n;margin-bottom:8px}
+  .indice li::before{content:counters(n,".") "  ";font-family:Montserrat,Arial,sans-serif;font-weight:700;color:var(--acc-txt)}
+  .indice > li::before{content:counters(n,".") ".  "}
+  .indice a{display:inline-block;color:var(--acc-txt);text-decoration:none;font-size:16px;padding:3px 10px;border-radius:6px;border:1px solid transparent;transition:background-color .15s ease,border-color .15s ease,transform .15s ease}
+  .indice a:hover{background:var(--hov);border-color:var(--acc);transform:translateX(3px)}
+  .indice > li > a{font-weight:700}
+  .volver{display:block;width:fit-content;margin:6px 0 12px;font-size:14px;color:var(--acc-txt);text-decoration:none;padding:4px 10px;border-radius:6px;border:1px solid var(--acc);transition:background-color .15s ease,color .15s ease}
+  .volver:hover{background:var(--acc-osc);color:#fff}
+  body.turismo .volver:hover{background:var(--acc-osc)}
+
+  button:focus-visible,a:focus-visible,[data-go]:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+  @media (prefers-reduced-motion:reduce){#contenido,#contenido.saliendo,.dd-menu{transition:none}}
   .lfb{background:#fff;color:var(--acc-osc);padding:6px 10px;border-radius:6px;font-weight:700;font-size:13px}
   @media print{header,nav,.noprint,.selector{display:none!important} body,body.comun{background:#fff!important} main{padding:0} .card{box-shadow:none} h1.t,h2,h3{color:#000} .tag{border:1px solid #000} th{background:#eee}}
   @media(max-width:760px){
@@ -127,6 +181,10 @@
     h1.t{font-size:28px}
     .selector{margin-left:0;width:100%}
     .btn{flex:1}
+    .split{grid-template-columns:1fr;min-height:0}
+    .half{padding:40px 24px}
+    .dd{position:static}
+    .dd-menu{left:12px;right:12px;min-width:0;max-width:none}
   }
 </style>
 </head>
@@ -149,7 +207,13 @@
   <div class="in">
     <button class="activa" data-tab="inicio">Inicio</button>
     <button data-tab="escuela">La Escuela</button>
-    <button data-tab="proyectos">Proyectos</button>
+    <div class="dd" id="dd-proy">
+      <button data-tab="proyectos" aria-haspopup="true">Proyectos <span class="dd-caret" aria-hidden="true">▾</span></button>
+      <div class="dd-menu" role="menu">
+        <button role="menuitem" data-go="detalle|turismo|">Proyecto de Turismo</button>
+        <button role="menuitem" data-go="detalle|cosmetica|">Proyecto de Cosmética</button>
+      </div>
+    </div>
     <button data-tab="galeria">Galería</button>
     <button data-tab="conclusiones">Conclusiones y directrices</button>
     <button data-tab="contacto">Equipo y contacto</button>
@@ -260,10 +324,10 @@ const TABS = {
       <p>La propuesta vincula a estudiantes de la UNCuyo con alumnos de la escuela para fortalecer la identidad local, el cuidado del territorio y la proyección socioeconómica de los jóvenes, en una comunidad alejada de la zona urbana, sin transporte público regular y con oferta educativa y laboral limitada.</p><h2>Objetivo general</h2><p>Lograr un espacio para sembrar propósito de vida entre estudiantes y docentes, potenciando comportamientos y competencias para emprender e innovar en los procesos educativos, culturales y ambientales.</p><h2>Diagnóstico de situación</h2><ul><li>La comunidad de San José está lejos de la zona urbana, sin transporte público regular.</li><li>Faltan oferta educativa y oportunidades laborales; la mayoría de los alumnos son hijos de puesteros que viven lejos de la escuela.</li><li>Los jóvenes necesitan apoyo en salud emocional y mental. Los docentes trabajan estos temas, pero algunos exceden su formación.</li><li>Los proyectos existentes (turismo y cosmética) tienen potencial, pero necesitan innovación de procesos, control de calidad y comunicación visual.</li></ul>
       <h2>Elegí un proyecto</h2>
       <div class="cards">
-        <div class="card" data-proy="cosmetica"><h3>Cosmética Natural de Jarilla</h3><p>Crema elaborada con plantas nativas, con procesos y controles de calidad.</p></div>
-        <div class="card" data-proy="turismo"><h3>Circuito Turístico</h3><p>Recorrido interpretativo del patrimonio natural y cultural de Lavalle.</p></div>
+        <div class="card" data-go="detalle|cosmetica|" role="link" tabindex="0"><h3>Cosmética Natural de Jarilla</h3><p>Crema elaborada con plantas nativas, con procesos y controles de calidad.</p></div>
+        <div class="card" data-go="detalle|turismo|" role="link" tabindex="0"><h3>Circuito Turístico</h3><p>Recorrido interpretativo del patrimonio natural y cultural de Lavalle.</p></div>
       </div>
-      <div class="datos" style="grid-template-columns:1fr 1fr"><figure class="foto-fig"><img src="img/mural.jpg" alt="Mural de la Escuela Raíces Huarpes" onerror="this.style.display='none'"><figcaption>Mural de la escuela Raíces Huarpes</figcaption></figure><figure class="foto-fig"><img src="img/escuela.jpg" alt="Edificio de la Escuela Albergue Raíces Huarpes" onerror="this.style.display='none'"><figcaption>Escuela Albergue Raíces Huarpes N° 4-207, paraje San José</figcaption></figure></div><h2>Ubicación</h2><p><a href="https://share.google/NSvGsQtNPJri6qX3i" target="_blank">Abrir la ubicación en Google Maps</a></p><iframe src="https://www.google.com/maps?q=Escuela+Raices+Huarpes+San+Jose+Lavalle+Mendoza&t=k&z=15&output=embed" width="100%" height="360" style="border:1px solid #e4dccd;border-radius:8px" loading="lazy"></iframe><p class="nota">Vista satelital. Verificar que el marcador coincida con el enlace compartido.</p>`;
+      <div class="datos" style="grid-template-columns:1fr 1fr"><figure class="foto-fig"><img src="img/mural.jpg" alt="Mural de la Escuela Raíces Huarpes" onerror="this.style.display='none'"><figcaption>Mural de la escuela Raíces Huarpes</figcaption></figure><figure class="foto-fig"><img src="img/escuela.jpg" alt="Edificio de la Escuela Albergue Raíces Huarpes" onerror="this.style.display='none'"><figcaption>Escuela Albergue Raíces Huarpes N° 4-207, paraje San José</figcaption></figure></div>`;
   },
 
   proyecto(){
@@ -380,6 +444,10 @@ const TABS = {
       <p>El proyecto se lleva a cabo en la Escuela Rural Albergue N° 4-207 Raíces Huarpes, institución que funciona bajo modalidad de albergue, alternando semanas para la educación primaria y secundaria. Más allá de su labor formativa, la escuela actúa como núcleo de un trabajo colaborativo y multidisciplinario que busca generar impacto socioeconómico en la comunidad.</p>
       <h2>Emplazamiento físico</h2>
       <p>Paraje San José, departamento de Lavalle, provincia de Mendoza.</p>
+      <h2>Ubicación</h2>
+      <p><a href="https://share.google/NSvGsQtNPJri6qX3i" target="_blank" rel="noopener">Abrir la ubicación en Google Maps</a></p>
+      <iframe src="https://www.google.com/maps?q=Escuela+Raices+Huarpes+San+Jose+Lavalle+Mendoza&t=k&z=15&output=embed" width="100%" height="360" style="border:1px solid #e4dccd;border-radius:8px" loading="lazy" title="Mapa satelital de la Escuela Raíces Huarpes"></iframe>
+      <p class="nota">Vista satelital. Verificar que el marcador coincida con el enlace compartido.</p>
       <h2>Instalaciones</h2>
       <p>Edificación principal y dos aulas pequeñas en el exterior, separadas por una cancha deportiva utilizada para educación física.</p>
       <h2>Contexto cualitativo y desafíos</h2>
@@ -389,21 +457,46 @@ const TABS = {
   },
 
   proyectos(){
-    validarSub();
-    const enlace=(k,t,pr)=>`<li><a href="#" data-sub="${k}" data-proy="${pr}" class="${proy===pr&&sub===k?'act':''}">${t}</a></li>`;
-    const sel=`<div class="noprint selproy"><a href="#" data-selproy="cosmetica" class="${proy==="cosmetica"?"act":""}">Proyecto de Cosmética Natural de Jarilla</a> &nbsp;|&nbsp; <a href="#" data-selproy="turismo" class="${proy==="turismo"?"act":""}">Proyecto de Circuito Turístico</a></div>`;
-    const indice = proy==="cosmetica"
-      ? `<h2>Índice: Cosmética Natural de Jarilla</h2><ol class="indice">${SUBS_COS.map(([k,t])=>enlace(k,t,"cosmetica")).join("")}</ol>`
-      : `<h2>Índice: Circuito Turístico</h2><ol class="indice">${SUBS_TUR.map(([k,t])=>enlace(k,t,"turismo")).join("")}</ol>`;
-    return sel + indice + '<hr>' + subContent();
+    const icoTur = `<svg class="ico" viewBox="0 0 80 80" aria-hidden="true"><g stroke="#d27300" stroke-width="4" stroke-linecap="round"><path d="M40 6v8M40 54v0M14 30h8M58 30h8M21.5 11.5l5.6 5.6M58.5 11.5l-5.6 5.6"/></g><circle cx="40" cy="32" r="13" fill="#e48200"/><path d="M4 74 L26 48 L38 60 L54 40 L76 74 Z" fill="#af5700"/><path d="M4 74 L20 58 L32 74 Z" fill="#c06500"/></svg>`;
+    const icoCos = `<svg class="ico" viewBox="0 0 80 80" aria-hidden="true"><path d="M12 66 C10 32 34 10 68 12 C70 44 52 68 20 68 Z" fill="#6A9624"/><path d="M14 66 C28 50 42 36 60 22" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M30 52 L30 40 M42 42 L42 30 M38 56 L50 52" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>`;
+    return `<div class="split">
+      <section class="half tur" aria-labelledby="h-tur">
+        ${icoTur}
+        <span class="etq">Proyecto de Turismo</span>
+        <h2 id="h-tur">Circuito Turístico</h2>
+        <p>Circuito interpretativo en la Reserva Natural y Cultural Bosques Telteca, donde los alumnos se forman como futuros guías del patrimonio natural y cultural de Lavalle.</p>
+        <button class="ver" data-go="detalle|turismo|">Ver Más <span class="flecha">→</span></button>
+      </section>
+      <section class="half cos" aria-labelledby="h-cos">
+        ${icoCos}
+        <span class="etq">Proyecto de Cosmética</span>
+        <h2 id="h-cos">Cosmética Natural de Jarilla</h2>
+        <p>Crema de jarilla elaborada por los alumnos con una planta nativa de Mendoza, con procesos de calidad, recolección sustentable y trazabilidad por lote.</p>
+        <button class="ver" data-go="detalle|cosmetica|">Ver Más <span class="flecha">→</span></button>
+      </section>
+    </div>`;
   },
-  proyectosAnterior(){
+
+  detalle(){
     validarSub();
-    const btns=(list,pr)=>list.map(([k,t])=>`<button class="subbtn ${proy===pr&&sub===k?'activo':''}" data-proy="${pr}" data-sub="${k}">${t}</button>`).join("");
-    const menu=`<div class="noprint" style="display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px"><button class="btn-proy ${proy==="cosmetica"?"activo":""}" data-selproy="cosmetica">Cosmética Natural</button><button class="btn-proy ${proy==="turismo"?"activo":""}" data-selproy="turismo">Circuito Turístico</button></div><div class="submenu noprint">
-      <details open><summary>Proyecto de Cosmética Natural de Jarilla</summary><div class="subwrap">${btns(SUBS_COS,"cosmetica")}</div></details>
-      <details open><summary>Proyecto de Circuito Turístico</summary><div class="subwrap">${btns(SUBS_TUR,"turismo")}</div></details></div>`;
-    return menu + subContent();
+    const p = P[proy];
+    const mig = `<div class="mig noprint"><a href="#" data-go="proyectos||">Proyectos</a><span class="sep">›</span>` +
+      (sub ? `<a href="#" data-go="detalle|${proy}|">${p.nombre}</a><span class="sep">›</span><span>${tituloSub(sub)}</span>` : `<span>${p.nombre}</span>`) + `</div>`;
+    if(sub){
+      return mig + `<a href="#" class="volver noprint" data-go="detalle|${proy}|">← Volver al índice</a>` + subContent();
+    }
+    const enlace = (k,t) => `<a href="#" data-go="detalle|${proy}|${k}">${t}</a>`;
+    const indice = `<h2>Índice de documentación</h2><ol class="indice">${INDICE.map(([k,t,hijos]) =>
+      `<li>${enlace(k,t)}${hijos ? `<ol>${hijos.map(([k2,t2]) => `<li>${enlace(k2,t2)}</li>`).join("")}</ol>` : ""}</li>`
+    ).join("")}</ol>`;
+    return mig + `
+      <span class="tag">${proy==="cosmetica" ? "Proyecto A · Cosmética" : "Proyecto B · Turismo"}</span>
+      <h1 class="t">${p.nombre}</h1>
+      <p class="lead">${p.subtitulo}</p>
+      <h2>Descripción del proyecto</h2>
+      ${DESC[proy].map(t => `<p>${t}</p>`).join("")}
+      ${proy==="turismo" ? `<h2>Etapas del proyecto</h2><ol>${p.proceso.map(x => `<li>${x}</li>`).join("")}</ol>` : ""}
+      ${indice}`;
   },
 
   metodo(){
@@ -642,15 +735,41 @@ function cosInit(){
   cosPaint();
 }
 
-const COMUN = ["inicio","escuela","proyecto","metodo","conclusiones","contacto"];
-let proy = "cosmetica", tab = "inicio", sub = "descripcion";
+const COMUN = ["inicio","escuela","proyectos","proyecto","metodo","conclusiones","contacto"];
+let proy = "cosmetica", tab = "inicio", sub = null;
 
-const SUBS_COS = [["descripcion","Descripción de cosmética"],["politica","Política SIG"],["legal","Matriz legal y partes interesadas"],["clausulas","Cláusulas aplicables ISO 9001:2015"],["mapa","Mapa general de procesos"],["et","Especificación técnica"],["proceso","Proceso productivo con fichas FTO"],["entradas","Entradas y salidas, control de variables"],["control","Plan de control / aseguramiento de la calidad"],["qfd","Herramientas de análisis: QFD"],["costos","Costos de calidad"],["auditoria","Auditoría"],["inspeccion","Plan de inspección: laboratorio modular"]];
-const SUBS_TUR = [["descripcion","Descripción de turismo"],["recorrido","Simulación del recorrido"]];
+/* Índice de documentación de cada proyecto: [clave, título, subítems opcionales] */
+const INDICE = [
+  ["politica","Política SIG",[["legal","Matriz Legal y Partes Interesadas"],["clausulas","Cláusulas aplicables ISO 9001:2015"]]],
+  ["mapa","Mapa general de proceso"],
+  ["et","Especificación técnica"],
+  ["proceso","Proceso productivo con fichas FTO",[["entradas","Entradas y Salidas circuito operativo, control de variables"],["control","Plan de Control/Aseguramiento de la Calidad"]]],
+  ["qfd","Herramientas de Análisis y Toma de decisiones: QFD"],
+  ["costos","Costos de Calidad"],
+  ["auditoria","Auditoría"],
+  ["inspeccion","Plan de Inspección: laboratorio modular"]
+];
+const CLAVES = INDICE.flatMap(([k,t,h]) => [[k,t]].concat(h||[]));
+function tituloSub(k){ const x = CLAVES.find(c => c[0]===k); return x ? x[1] : ""; }
+
+/* Descripción extendida de cada proyecto (solo datos ya presentes en el sitio) */
+const DESC = {
+  cosmetica: [
+    "La jarilla (Larrea divaricata) es un arbusto nativo de Mendoza con uso tradicional en el cuidado de la piel, transmitido por la comunidad Huarpe. El proyecto busca elaborar una crema de uso externo con criterios de calidad, recolección sustentable y trazabilidad por lote. Desde 2022 se trabaja en la escuela, pero la producción no podía crecer: la intervención apunta a mejorar procesos, control y presentación del producto.",
+    "El producto es una crema de jarilla en envases de 50 g. La fórmula de referencia combina vaselina, cera de abeja y oleato de jarilla en proporción 500 : 100 : 100 g (lote de 600 g, equivalente a 12 envases), con aroma de limón de hasta 1 % m/m.",
+    "El proceso tiene 14 etapas, desde la recolección sustentable de la planta hasta la liberación del lote con registro y firma. Cada etapa cuenta con su ficha FTO. Los controles se realizan con los recursos disponibles en la escuela (balanza, termómetro y muestra patrón) y con un laboratorio externo para el análisis microbiológico.",
+    "Los alumnos participan por roles (operador, control de calidad, registro y responsable de calidad), de modo que sean protagonistas de la operación. El trabajo se articula con los espacios curriculares de la UNCuyo y produce la documentación del sistema de gestión que se detalla en el índice."
+  ],
+  turismo: [
+    "El proyecto Anfitrión turístico prepara a los alumnos como futuros guías. El circuito interpretativo tuvo su primera intervención en un espacio público, inaugurada el 12 de noviembre de 2025. Tras verificar su utilidad, se propone ampliarlo con un reloj solar y un mural interpretativo, y mejorar el diseño general con la UNCuyo (Facultades de Artes y Diseño e Ingeniería).",
+    "El circuito se desarrolla en la Reserva Natural y Cultural Bosques Telteca y propone un recorrido interpretativo del patrimonio natural y cultural de Lavalle, con cartelería interpretativa, paradas de flora y paisaje, y la propuesta del reloj solar y el mural.",
+    "La escuela tiene orientación en turismo y forma a los estudiantes en la atención de visitantes. El diseño del servicio contempla una recepción con charla de seguridad, tres paradas y un cierre con encuesta de satisfacción, con un criterio de un guía cada 15 personas que se valida en la salida piloto.",
+    "Están pendientes la corrección del itinerario y cronograma, los planes de seguridad y contingencia, y los registros de las salidas piloto."
+  ]
+};
 
 function validarSub(){
-  const lista = proy==="cosmetica" ? SUBS_COS : SUBS_TUR;
-  if(!lista.some(s=>s[0]===sub)) sub = "descripcion";
+  if(sub && !CLAVES.some(c => c[0]===sub)) sub = null;
 }
 
 function docCard(t,d,a){
@@ -662,9 +781,9 @@ function subContent(){
   const cards=(...c)=>`<div class="cards">${c.join("")}</div>`;
   const tabla=(hd,rows)=>`<table><tr>${hd.map(x=>`<th>${x}</th>`).join("")}</tr>${rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join("")}</tr>`).join("")}</table>`;
   if(proy==="turismo"){
-    if(sub==="recorrido") return TABS.simulacion(P.turismo);
     const p=P.turismo;
-    return h(p.nombre)+`<p class="lead">${p.subtitulo}</p><h2>Descripción y diagnóstico</h2><p>${p.diagnostico}</p><h2>Diseño del recorrido</h2><ol>${p.proceso.map(s=>`<li>${s}</li>`).join("")}</ol><h2>Documentación específica</h2><ul class="docs">${p.docs.map(d=>`<li>${d}</li>`).join("")}</ul>`;
+    if(sub==="proceso") return TABS.simulacion(p)+`<p class="nota">Para el Circuito Turístico se presenta la simulación del servicio; las fichas FTO del circuito todavía no están cargadas.</p><h2>Documentación específica</h2><ul class="docs">${p.docs.map(d=>`<li>${d}</li>`).join("")}</ul>`;
+    return h(tituloSub(sub))+`<p class="pendiente">Pendiente: este apartado se completa a medida que se carga la documentación del Circuito Turístico.</p>`;
   }
   const p=P.cosmetica;
   if(sub==="proceso") return TABS.simulacion(p);
@@ -687,30 +806,56 @@ function subContent(){
 function render(){
   clearInterval(animTimer); animTimer = null;
   const p = P[proy];
-  document.body.classList.toggle("turismo", proy === "turismo");
+  document.body.classList.toggle("turismo", tab === "detalle" && proy === "turismo");
   document.body.classList.toggle("comun", COMUN.includes(tab));
-  document.querySelectorAll(".selector .btn").forEach(b=>b.classList.toggle("activo", b.dataset.proy===proy));
-  document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("activa", b.dataset.tab===tab));
+  document.body.classList.toggle("dividida", tab === "proyectos");
+  document.querySelectorAll("#tabs button[data-tab]").forEach(b=>b.classList.toggle("activa", b.dataset.tab===tab || (tab==="detalle" && b.dataset.tab==="proyectos")));
   const fn = TABS[tab];
-  document.getElementById("contenido").innerHTML = tab==="galeria" ? TABS.galeria(P.cosmetica)+TABS.galeria(P.turismo) : (fn.length ? fn(p) : fn());
-  document.getElementById("contenido").insertAdjacentHTML("afterbegin",'<div class="noprint"><button class="btn-imp" onclick="window.print()">Imprimir esta pestaña</button></div>');
-  if(tab==="proyectos"){ if(proy==="cosmetica" && sub==="proceso"){ simRun(); cosInit(); } if(proy==="turismo" && sub==="recorrido"){ simRun(); animInit(); } }
+  const cont = document.getElementById("contenido");
+  cont.innerHTML = tab==="galeria" ? TABS.galeria(P.cosmetica)+TABS.galeria(P.turismo) : (fn.length ? fn(p) : fn());
+  if(tab !== "proyectos") cont.insertAdjacentHTML("afterbegin",'<div class="noprint"><button class="btn-imp" onclick="window.print()">Imprimir esta pestaña</button></div>');
+  if(tab==="detalle" && sub==="proceso"){ simRun(); if(proy==="cosmetica") cosInit(); else animInit(); }
   window.scrollTo(0,0);
 }
 
+/* ---------- Navegación con fade rápido entre ventanas ---------- */
+let pend = null, navTimer = null;
+function aplicar(){
+  tab = pend.tab; proy = pend.proy; sub = pend.sub; pend = null;
+  render();
+  const cont = document.getElementById("contenido");
+  requestAnimationFrame(()=>requestAnimationFrame(()=>cont.classList.remove("saliendo")));
+}
+function ir(cambios){
+  const nuevo = Object.assign({tab, proy, sub}, pend || {}, cambios);
+  if(!pend && nuevo.tab===tab && nuevo.proy===proy && nuevo.sub===sub) return;
+  pend = nuevo;
+  clearTimeout(navTimer);
+  if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches){ aplicar(); return; }
+  document.getElementById("contenido").classList.add("saliendo");
+  navTimer = setTimeout(aplicar, 130);
+}
 
-document.getElementById("tabs").addEventListener("click", e=>{
-  const b = e.target.closest("button"); if(!b) return;
-  tab = b.dataset.tab; render();
+const dd = document.getElementById("dd-proy");
+dd.addEventListener("mouseleave", ()=>dd.classList.remove("cerrado"));
+
+document.addEventListener("click", e=>{
+  const g = e.target.closest("[data-go]");
+  if(g){
+    e.preventDefault();
+    const [t, pr, s] = g.dataset.go.split("|");
+    ir(Object.assign({tab:t, sub:s || null}, pr ? {proy:pr} : {}));
+    if(g.closest(".dd")){ dd.classList.add("cerrado"); if(e.detail) g.blur(); }
+    return;
+  }
+  const b = e.target.closest("#tabs button[data-tab]");
+  if(b){
+    ir({tab:b.dataset.tab, sub:null});
+    if(b.closest(".dd")){ dd.classList.add("cerrado"); if(e.detail) b.blur(); }
+  }
 });
-document.getElementById("contenido").addEventListener("click", e=>{
-  if(e.target.closest("a[href='#']")) e.preventDefault();
-  const sp = e.target.closest("[data-selproy]");
-  if(sp){ proy = sp.dataset.selproy; sub = "descripcion"; render(); return; }
-  const s = e.target.closest("[data-sub]");
-  if(s){ proy = s.dataset.proy; sub = s.dataset.sub; tab = "proyectos"; render(); return; }
-  const c = e.target.closest(".card[data-proy]"); if(!c) return;
-  proy = c.dataset.proy; tab = "proyectos"; sub = "descripcion"; render();
+document.addEventListener("keydown", e=>{
+  if((e.key==="Enter" || e.key===" ") && e.target.matches && e.target.matches("[data-go][role=link]")){ e.preventDefault(); e.target.click(); }
 });
 
 render();
