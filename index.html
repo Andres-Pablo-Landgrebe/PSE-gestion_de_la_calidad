@@ -78,6 +78,54 @@
   .btn-imp:hover{background:var(--acc-osc);transform:translateY(-1px);box-shadow:0 3px 8px rgba(0,0,0,.18)}
   body.turismo .btn-imp{background:var(--acc-osc)}
   body.turismo .btn-imp:hover{background:var(--acc-txt)}
+
+  /* ---- Inicio: portada, datos y puertas a los proyectos ---- */
+  .portada{position:relative;border-radius:14px;overflow:hidden;min-height:380px;display:flex;align-items:flex-end;background:#2b2a26 url("img/escuela.jpg") center 30%/cover}
+  .portada::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,24,30,.88) 0%,rgba(20,24,30,.55) 45%,rgba(20,24,30,0) 80%)}
+  .portada .txt{position:relative;padding:36px 36px 32px;color:#fff;max-width:760px}
+  .portada h1{margin:0 0 10px;font-size:46px;line-height:1.1;color:#fff}
+  .portada p{margin:0;font-size:18px;line-height:1.55;color:#f1ede4}
+  .datos-fila{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:20px 0 6px;border-bottom:1px solid var(--borde)}
+  .datos-fila div{padding:6px 18px 16px 0}
+  .datos-fila b{display:block;font-family:Montserrat,Arial,sans-serif;font-size:22px;color:var(--acc-osc);line-height:1.2}
+  .datos-fila span{font-size:14px;color:#554f45}
+  .puertas{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:14px 0 28px}
+  .puerta{display:flex;flex-direction:column;background:#fff;border:1px solid var(--borde);border-radius:12px;overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .2s}
+  .puerta:hover{box-shadow:0 10px 24px rgba(0,0,0,.14);transform:translateY(-3px)}
+  .puerta img{width:100%;height:190px;object-fit:cover;display:block}
+  .puerta .cuerpo{padding:18px 20px 20px;border-top:6px solid var(--c);display:flex;flex-direction:column;flex:1}
+  .puerta .ver{margin-top:auto;align-self:flex-start}
+  .puerta h3{margin:0 0 6px;font-size:22px;color:var(--co)}
+  .puerta p{margin:0 0 14px;color:#4a443b}
+  .puerta .ver{display:inline-block;background:var(--c);color:#fff;padding:8px 16px;border-radius:6px;font-weight:600;font-size:15px}
+  .puerta.cos{--c:#6A9624;--co:#4A6B1F} .puerta.tur{--c:#b85f00;--co:#8a4500}
+  .puerta .ver{background:var(--co)}
+  .contexto{max-width:none}
+  @media(max-width:700px){.portada{min-height:320px;background-position:74% 40%}.portada .txt{padding:24px 20px}.portada h1{font-size:32px}.portada p{font-size:16px}.datos-fila{grid-template-columns:1fr 1fr}.puertas{grid-template-columns:1fr}}
+
+  /* ---- Menú del sitio (desplegable general) ---- */
+  nav{position:sticky}
+  .menu-sitio{margin-left:auto;display:flex;align-items:center;gap:9px;font-weight:700;color:var(--acc-osc);border-left:1px solid var(--borde)!important}
+  .menu-sitio svg{width:18px;height:18px;transition:transform .2s}
+  .menu-sitio[aria-expanded="true"]{background:var(--hov)}
+  #panel-menu{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:3px solid var(--acc);box-shadow:0 14px 28px rgba(0,0,0,.16);max-height:calc(100vh - 110px);overflow:auto}
+  #panel-menu[hidden]{display:none}
+  #panel-menu .cols{max-width:1080px;margin:0 auto;padding:22px 24px 26px;display:grid;grid-template-columns:.8fr 1.1fr 1.1fr;gap:34px}
+  #panel-menu h3{margin:0 0 10px;font-size:15px;padding-bottom:8px;border-bottom:3px solid var(--c);color:var(--co)}
+  #panel-menu .c-sitio{--c:#2e5d8a;--co:#1d3f61}
+  #panel-menu .c-cos{--c:#6A9624;--co:#4A6B1F}
+  #panel-menu .c-tur{--c:#c06500;--co:#8a4500}
+  #panel-menu ul{list-style:none;margin:0;padding:0}
+  #panel-menu ul ul{padding-left:16px;border-left:2px solid #eee;margin:2px 0 4px 6px}
+  #panel-menu li{margin:0}
+  #panel-menu a{display:block;padding:6px 8px;border-radius:6px;color:#2e2a24;text-decoration:none;font-size:14.5px;line-height:1.35}
+  #panel-menu a:hover,#panel-menu a:focus-visible{background:#f3efe6;color:var(--co)}
+  #panel-menu .principal{font-weight:700;color:var(--co)}
+  @media(max-width:700px){
+    nav .in > button[data-tab],nav .in > .dd{display:none}
+    .menu-sitio{margin-left:0;width:100%;justify-content:flex-start;border-left:0!important;padding:14px 18px}
+    #panel-menu .cols{grid-template-columns:1fr;gap:22px;padding:16px 18px 22px}
+  }
   .foto-fig{margin:14px 0}
   .foto-fig img{width:100%;max-height:340px;object-fit:cover;border-radius:8px;border:1px solid var(--borde);display:block}
   .foto-fig figcaption{font-size:13px;color:#4a443b;margin-top:4px}
@@ -279,7 +327,9 @@
     <button data-tab="galeria">Galería</button>
     <button data-tab="conclusiones">Conclusiones y directrices</button>
     <button data-tab="contacto">Equipo y contacto</button>
+    <button class="menu-sitio" id="btn-menu" aria-expanded="false" aria-controls="panel-menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span>Menú</span></button>
   </div>
+  <div id="panel-menu" hidden></div>
 </nav>
 
 <main id="contenido"></main>
@@ -394,21 +444,36 @@ const P = {
 const TABS = {
   inicio(){
     return `
-      <span class="tag">Apartado común</span>
-      <h1 class="t">Emprender e Innovar</h1>
-      <p class="lead">“Emprender e Innovar, formando competencias educativas, culturales y ambientales en los estudiantes de la Escuela Raíces Huarpes y comunidad de Lavalle junto con la Universidad”.</p>
-      <div class="datos">
-        <div class="dato"><b>Escuela Albergue Raíces Huarpes N° 4-207</b><span>Nivel secundario, orientación turismo. Paraje San José, Ferrocarril Belgrano Km 976, Lavalle. Matrícula de 67 alumnos.</span></div>
-        <div class="dato"><b>Período 2026</b><span>Marzo a diciembre, séptima convocatoria del Programa de PSE (UNCuyo).</span></div>
-        <div class="dato"><b>Articulación</b><span>Escuela, Municipalidad de Lavalle, Comunidad Huarpe, Hospital Universitario y Facultades de Ingeniería y Artes y Diseño.</span></div>
+      <section class="portada" aria-label="Presentación">
+        <div class="txt">
+          <h1>Emprender e Innovar</h1>
+          <p>Formando competencias educativas, culturales y ambientales en los estudiantes de la Escuela Raíces Huarpes y la comunidad de Lavalle, junto con la Universidad.</p>
+        </div>
+      </section>
+      <div class="datos-fila">
+        <div><b>67</b><span>alumnos en la Escuela Albergue Raíces Huarpes N° 4-207</span></div>
+        <div><b>Km 976</b><span>Ferrocarril Belgrano, paraje San José, Lavalle</span></div>
+        <div><b>Marzo a diciembre</b><span>2026, séptima convocatoria de PSE (UNCuyo)</span></div>
+        <div><b>Articulación</b><span>Escuela, Municipalidad, Comunidad Huarpe, Hospital Universitario y Facultades de Ingeniería y de Artes y Diseño</span></div>
       </div>
-      <p>La propuesta vincula a estudiantes de la UNCuyo con alumnos de la escuela para fortalecer la identidad local, el cuidado del territorio y la proyección socioeconómica de los jóvenes, en una comunidad alejada de la zona urbana, sin transporte público regular y con oferta educativa y laboral limitada.</p><h2>Objetivo general</h2><p>Lograr un espacio para sembrar propósito de vida entre estudiantes y docentes, potenciando comportamientos y competencias para emprender e innovar en los procesos educativos, culturales y ambientales.</p><h2>Diagnóstico de situación</h2><ul><li>La comunidad de San José está lejos de la zona urbana, sin transporte público regular.</li><li>Faltan oferta educativa y oportunidades laborales; la mayoría de los alumnos son hijos de puesteros que viven lejos de la escuela.</li><li>Los jóvenes necesitan apoyo en salud emocional y mental. Los docentes trabajan estos temas, pero algunos exceden su formación.</li><li>Los proyectos existentes (turismo y cosmética) tienen potencial, pero necesitan innovación de procesos, control de calidad y comunicación visual.</li></ul>
       <h2>Elegí un proyecto</h2>
-      <div class="cards">
-        <div class="card" data-go="detalle|cosmetica|" role="link" tabindex="0"><h3>Cosmética Natural de Jarilla</h3><p>Crema elaborada con plantas nativas, con procesos y controles de calidad.</p></div>
-        <div class="card" data-go="detalle|turismo|" role="link" tabindex="0"><h3>Circuito Turístico</h3><p>Recorrido interpretativo del patrimonio natural y cultural de Lavalle. Circuito Renacer (plaza, flora nativa, estación y artesana) y Circuito San José, guiados por los alumnos.</p></div>
+      <div class="puertas">
+        <div class="puerta cos" data-go="detalle|cosmetica|" role="link" tabindex="0">
+          <img src="img/portada_cosmetica.jpg" alt="Ungüento de Cosmética Natural de la Escuela 4-207 Raíces Huarpes">
+          <div class="cuerpo"><h3>Cosmética Natural de Jarilla</h3><p>Crema elaborada con plantas nativas, con procesos y controles de calidad.</p><span class="ver">Ver proyecto</span></div>
+        </div>
+        <div class="puerta tur" data-go="detalle|turismo|" role="link" tabindex="0">
+          <img src="img/portada_turismo.jpg" alt="Cartel de los Circuitos de San José hecho por los alumnos">
+          <div class="cuerpo"><h3>Circuito Turístico</h3><p>Recorrido interpretativo del patrimonio natural y cultural de Lavalle, guiado por los alumnos: Circuito Renacer y Circuito San José.</p><span class="ver">Ver proyecto</span></div>
+        </div>
       </div>
-      <div class="datos" style="grid-template-columns:1fr 1fr"><figure class="foto-fig"><img src="img/mural.jpg" alt="Mural de la Escuela Raíces Huarpes" onerror="this.style.display='none'"><figcaption>Mural de la escuela Raíces Huarpes</figcaption></figure><figure class="foto-fig"><img src="img/escuela.jpg" alt="Edificio de la Escuela Albergue Raíces Huarpes" onerror="this.style.display='none'"><figcaption>Escuela Albergue Raíces Huarpes N° 4-207, paraje San José</figcaption></figure></div>`;
+      <div class="contexto">
+        <p>La propuesta vincula a estudiantes de la UNCuyo con alumnos de la escuela para fortalecer la identidad local, el cuidado del territorio y la proyección socioeconómica de los jóvenes, en una comunidad alejada de la zona urbana, sin transporte público regular y con oferta educativa y laboral limitada.</p>
+        <h2>Objetivo general</h2>
+        <p>Lograr un espacio para sembrar propósito de vida entre estudiantes y docentes, potenciando comportamientos y competencias para emprender e innovar en los procesos educativos, culturales y ambientales.</p>
+        <h2>Diagnóstico de situación</h2>
+        <ul><li>La comunidad de San José está lejos de la zona urbana, sin transporte público regular.</li><li>Faltan oferta educativa y oportunidades laborales; la mayoría de los alumnos son hijos de puesteros que viven lejos de la escuela.</li><li>Los jóvenes necesitan apoyo en salud emocional y mental. Los docentes trabajan estos temas, pero algunos exceden su formación.</li><li>Los proyectos existentes (turismo y cosmética) tienen potencial, pero necesitan innovación de procesos, control de calidad y comunicación visual.</li></ul>
+      </div>`;
   },
 
   proyecto(){
@@ -914,7 +979,7 @@ function render(){
   const fn = TABS[tab];
   const cont = document.getElementById("contenido");
   cont.innerHTML = tab==="galeria" ? TABS.galeria(P.cosmetica)+TABS.galeria(P.turismo) : (fn.length ? fn(p) : fn());
-  if(tab !== "proyectos") cont.insertAdjacentHTML("afterbegin",'<div class="noprint"><button class="btn-imp" onclick="window.print()">Imprimir esta pestaña</button></div>');
+  if(tab !== "proyectos") cont.insertAdjacentHTML(tab==="inicio"?"beforeend":"afterbegin",'<div class="noprint"><button class="btn-imp" onclick="window.print()">Imprimir esta pestaña</button></div>');
   if(tab==="detalle" && sub==="proceso"){ simRun(); if(proy==="cosmetica") cosInit(); else { animInit(); turInit(); } }
   if(tab==="detalle" && proy==="turismo" && sub && sub!=="proceso") turSubInit();
   window.scrollTo(0,0);
@@ -1754,6 +1819,30 @@ function turSubInit(){
 }
 
 render();
+
+/* ---------- Menú del sitio: panel desplegable con todo el contenido ---------- */
+(function(){
+  const btn=document.getElementById("btn-menu"), panel=document.getElementById("panel-menu");
+  if(!btn||!panel) return;
+  const li=(go,t,cls)=>`<li><a href="#" data-go="${go}"${cls?` class="${cls}"`:""}>${t}</a></li>`;
+  const docs=(pr,items)=>items.map(([k,t,h])=>`<li><a href="#" data-go="detalle|${pr}|${k}">${t}</a>${h?`<ul>${h.map(([k2,t2])=>li(`detalle|${pr}|${k2}`,t2)).join("")}</ul>`:""}</li>`).join("");
+  panel.innerHTML=`<div class="cols">
+    <div class="c-sitio"><h3>El sitio</h3><ul>
+      ${li("inicio||","Inicio")}${li("escuela||","La Escuela")}${li("galeria||","Galería")}${li("conclusiones||","Conclusiones y directrices")}${li("contacto||","Equipo y contacto")}
+    </ul></div>
+    <div class="c-cos"><h3>Cosmética Natural de Jarilla</h3><ul>
+      ${li("detalle|cosmetica|","Descripción del proyecto","principal")}${docs("cosmetica",INDICE)}
+    </ul></div>
+    <div class="c-tur"><h3>Circuito Turístico</h3><ul>
+      ${li("detalle|turismo|","Descripción del proyecto","principal")}${docs("turismo",INDICE.filter(x=>x[0]!=="qfd").concat(INDICE_TUR_EXTRA))}
+    </ul></div>
+  </div>`;
+  const cerrar=(volver)=>{panel.hidden=true;btn.setAttribute("aria-expanded","false"); if(volver) btn.focus();};
+  btn.addEventListener("click",()=>{const abrir=panel.hidden;panel.hidden=!abrir;btn.setAttribute("aria-expanded",String(abrir)); if(abrir){const a=panel.querySelector("a"); if(a) a.focus({preventScroll:true});}});
+  panel.addEventListener("click",e=>{ if(e.target.closest("a[data-go]")) cerrar(false); });
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape" && !panel.hidden) cerrar(true); });
+  document.addEventListener("click",e=>{ if(!panel.hidden && !e.target.closest("#panel-menu") && !e.target.closest("#btn-menu")) cerrar(false); });
+})();
 </script>
 </body>
 </html>
