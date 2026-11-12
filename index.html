@@ -23,8 +23,10 @@
   .logo-txt .nom{font-size:20px;font-weight:700;margin:0;line-height:1.2}
   .logo-txt .sub{font-size:14px;opacity:.9;margin-top:4px}
   .selector{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto}
-  .logos-inst{display:flex;gap:8px;align-items:center}
-  .logos-inst img{height:52px;width:auto;background:#fff;border-radius:6px;padding:4px}
+  .logos-inst{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+  .logos-inst img{height:56px;width:auto}
+  .logos-inst img.pse{height:68px}
+  @media(max-width:600px){.logos-inst{flex:1 1 100%;gap:14px}.logos-inst img{height:38px}.logos-inst img.pse{height:46px}}
   .btn-proy{border:2px solid var(--acc);background:#fff;color:var(--acc-osc);padding:9px 16px;border-radius:6px;cursor:pointer;font-size:15px;font-weight:600}
   .btn-proy.activo{background:var(--acc);color:#fff}
   .btn{border:2px solid #fff;background:transparent;color:#fff;padding:9px 16px;border-radius:6px;cursor:pointer;font-size:14px;font-weight:600;transition:.2s}
@@ -256,7 +258,9 @@
       <div class="sub">PSE · Escuela Albergue Raíces Huarpes N° 4-207 · Lavalle, Mendoza</div>
     </div>
     <div class="logos-inst">
-      <img src="img/logo_institucional.png" alt="Logo UNCuyo · Facultad de Ingeniería" style="height:64px;padding:6px" onerror="this.outerHTML='<span class=\'lfb\'>UNCuyo · Facultad de Ingeniería</span>'">
+      <img src="img/logo_pse_7.png" alt="Prácticas Sociales Educativas · 7.ª convocatoria" class="pse">
+      <img src="img/logo_fing.png" alt="Facultad de Ingeniería · UNCuyo">
+      <img src="img/logo_uncuyo.png" alt="Universidad Nacional de Cuyo">
     </div>
   </div>
 </header>
