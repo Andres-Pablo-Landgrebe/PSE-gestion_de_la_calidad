@@ -534,6 +534,53 @@
 
   /* A · Mosaico sobrio: solo el cuadrito en los títulos */
   header{border-bottom:0}
+
+  /* ===== Turismo · animación sobre el afiche original del Circuito Renacer ===== */
+  #tur-anim .escena{background:#f5e8cc;border:1px solid var(--borde);border-radius:12px;overflow:hidden;box-shadow:0 10px 28px rgba(65,45,19,.11)}
+  #tur-anim .escena svg{display:block;width:100%;max-width:100%;height:auto;margin:0}
+  #tur-anim .tur-anim-caption{margin:10px 0 6px;font-size:14px;line-height:1.5;color:#5b4d3b}
+  #tur-anim .tur-leyenda{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:7px 0 12px}
+  #tur-anim .tur-leyenda span{background:#fff9ed;border:1px solid #e3d4bc;border-radius:100px;padding:4px 10px;font-size:13px;color:#59442a}
+  #tur-anim .tur-leyenda b{color:#754311}
+  #tur-anim .anim-track{grid-template-columns:repeat(auto-fill,minmax(215px,1fr))}
+  #tur-anim .anim-paso{font-family:inherit;line-height:1.4;text-align:left;color:inherit}
+  #tur-anim .anim-paso.activo-anim{color:#fff}
+  #tur-anim .anim-paso:focus-visible{outline:3px solid #b8730f;outline-offset:3px}
+  #tur-anim .tur-caminante{stroke-linecap:round;stroke-linejoin:round}
+  #tur-anim .tur-brazo-a{transform-box:fill-box;transform-origin:center top}
+  #tur-anim .tur-brazo-b{transform-box:fill-box;transform-origin:center top}
+  #tur-anim .tur-pierna-a{transform-box:fill-box;transform-origin:center top}
+  #tur-anim .tur-pierna-b{transform-box:fill-box;transform-origin:center top}
+  #tur-anim .tur-caminando .tur-brazo-a{animation:tur-brazo-a .55s ease-in-out infinite alternate}
+  #tur-anim .tur-caminando .tur-brazo-b{animation:tur-brazo-b .55s ease-in-out infinite alternate}
+  #tur-anim .tur-caminando .tur-pierna-a{animation:tur-pierna-a .55s ease-in-out infinite alternate}
+  #tur-anim .tur-caminando .tur-pierna-b{animation:tur-pierna-b .55s ease-in-out infinite alternate}
+  #tur-anim .tur-caminando .tur-caminante:nth-of-type(2) *{animation-delay:-.18s}
+  #tur-anim .tur-caminando .tur-caminante:nth-of-type(3) *{animation-delay:-.35s}
+  @keyframes tur-brazo-a{from{transform:rotate(-24deg)}to{transform:rotate(26deg)}}
+  @keyframes tur-brazo-b{from{transform:rotate(26deg)}to{transform:rotate(-24deg)}}
+  @keyframes tur-pierna-a{from{transform:rotate(22deg)}to{transform:rotate(-22deg)}}
+  @keyframes tur-pierna-b{from{transform:rotate(-22deg)}to{transform:rotate(22deg)}}
+  @media(max-width:650px){#tur-anim .escena.tur-escena-renacer{overflow-x:auto}#tur-anim .escena.tur-escena-renacer svg{min-width:690px}}
+  @media(max-width:600px){#tur-anim .tur-anim-caption{font-size:13px}#tur-anim .anim-track{grid-template-columns:1fr 1fr}#tur-anim .anim-paso{font-size:12px;padding:7px}}
+  @media(max-width:380px){#tur-anim .anim-track{grid-template-columns:1fr}}
+  /* Comparación dinámica entre datos ingresados y límites del Renacer. */
+  #tur-anim .tur-evaluacion{margin:16px 0 18px;border:1px solid #e5d5ba;border-radius:12px;background:#fffdf8;overflow:hidden}
+  #tur-anim .tur-evaluacion-cab{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:13px 16px;background:#fbf3e5;border-bottom:1px solid #e8d9c2}
+  #tur-anim .tur-evaluacion-cab h3{font-size:17px;margin:0;color:#7a4118}
+  #tur-anim .tur-estado-general{font-size:13px;font-weight:800;border-radius:100px;padding:5px 12px;letter-spacing:.01em}
+  #tur-anim .tur-estado-general.apto{background:#e1f2e1;color:#24652a}
+  #tur-anim .tur-estado-general.no-apto{background:#fbe1da;color:#992e1c}
+  #tur-anim .tur-evaluacion .tscroll{margin:0}
+  #tur-anim .tur-evaluacion table{margin:0;border:0;min-width:590px}
+  #tur-anim .tur-evaluacion th{background:#fff6e8;font-size:13px;color:#633d22}
+  #tur-anim .tur-evaluacion td{font-size:13.5px;padding:10px 12px;vertical-align:middle}
+  #tur-anim .tur-evaluacion th,#tur-anim .tur-evaluacion td{border-left:0;border-right:0}
+  #tur-anim .tur-estado-item{font-size:12px;font-weight:800;white-space:nowrap}
+  #tur-anim .tur-estado-item.apto{color:#2c7132}
+  #tur-anim .tur-estado-item.no-apto{color:#9b3424}
+  #tur-anim .tur-evaluacion .tur-explicacion{margin:0;padding:11px 16px 15px;font-size:13px;line-height:1.6;color:#594b3a}
+  @media(prefers-reduced-motion:reduce){#tur-anim .tur-caminando *{animation:none!important}#tur-anim .anim-paso{transition:none!important}}
 </style>
 </head>
 <body>
@@ -1298,6 +1345,7 @@ function subContent(){
 
 function render(){
   clearInterval(animTimer); animTimer = null;
+  turStop();
   const p = P[proy];
   document.body.classList.toggle("turismo", tab === "detalle" && proy === "turismo");
   document.body.classList.toggle("comun", COMUN.includes(tab));
@@ -1507,6 +1555,62 @@ const hhmm = m => String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padS
 const nprCls = v => v>=200 ? "npr-i" : v>=100 ? "npr-m" : "npr-a";
 
 /* ====================== Simulación del servicio ====================== */
+/* El afiche y el panel de control consultan exactamente la misma evaluación. */
+function turNumeroIngreso(id){
+  const input=document.getElementById(id);
+  if(!input || input.value.trim()==='') return NaN;
+  return Number(input.value);
+}
+function turEvaluarRenacer(){
+  const visitantesIngresados=turNumeroIngreso('ngr');
+  const temp=turNumeroIngreso('tur-temp');
+  const viento=turNumeroIngreso('tur-viento');
+  const agua=turNumeroIngreso('tur-agua');
+  const cantidadValida=Number.isInteger(visitantesIngresados)&&visitantesIngresados>=1;
+  const visitantes=cantidadValida?visitantesIngresados:0;
+  const guias=visitantes?Math.ceil(visitantes/STD.nMax):0;
+  const porGuia=guias?Math.ceil(visitantes/guias):0;
+  const minimo=visitantes?(visitantes+guias)*STD.aguaMl/1000:NaN;
+  const cupoOK=cantidadValida && visitantes>=STD.nMin && Math.floor(visitantes/guias)>=STD.nMin && porGuia<=STD.nMax;
+  const tempOK=Number.isFinite(temp)&&temp<STD.tMax;
+  const vientoOK=Number.isFinite(viento)&&viento>=0&&viento<STD.vMax;
+  const aguaOK=Number.isFinite(agua)&&Number.isFinite(minimo)&&agua>=minimo;
+  return {
+    visitantesIngresados,visitantes,guias,porGuia,temp,viento,agua,minimo,
+    cupoOK,tempOK,vientoOK,aguaOK,
+    aceptado:cupoOK&&tempOK&&vientoOK&&aguaOK
+  };
+}
+function turFormato(n,max=1){
+  return Number.isFinite(n)?n.toLocaleString('es-AR',{maximumFractionDigits:max}):'—';
+}
+function turEvaluacionHTML(){
+  const r=turEvaluarRenacer();
+  const etiqueta=ok=>`<span class="tur-estado-item ${ok?'apto':'no-apto'}">${ok?'✓ Aceptada':'✕ No aceptada'}</span>`;
+  const filas=[
+    ['Grupo de visitantes',`${turFormato(r.visitantesIngresados,0)} visitantes · ${r.guias} guía${r.guias===1?'':'s'} · ${r.porGuia||'—'} por guía`,`${STD.nMin}–${STD.nMax} visitantes por guía`,r.cupoOK],
+    ['Temperatura',`${turFormato(r.temp)} °C`,`Menor que ${STD.tMax} °C`,r.tempOK],
+    ['Viento',`${turFormato(r.viento)} km/h`,`Menor que ${STD.vMax} km/h`,r.vientoOK],
+    ['Agua potable disponible',`${turFormato(r.agua,2)} L`, `Mínimo ${turFormato(r.minimo,2)} L (${STD.aguaMl} ml por visitante y guía)`,r.aguaOK]
+  ];
+  const motivos=[];
+  if(!r.cupoOK) motivos.push('revisar el cupo y la cantidad de guías');
+  if(!r.tempOK) motivos.push('esperar una temperatura admisible');
+  if(!r.vientoOK) motivos.push('suspender por viento o corregir el valor ingresado');
+  if(!r.aguaOK) motivos.push('reponer agua potable suficiente');
+  return `<section class="tur-evaluacion" aria-label="Comparación de condiciones actuales con límites del Circuito Renacer">
+    <div class="tur-evaluacion-cab"><h3>Condiciones de salida · Renacer (PCC-1)</h3>
+      <span class="tur-estado-general ${r.aceptado?'apto':'no-apto'}" role="status">${r.aceptado?'✓ CONDICIONES ACEPTADAS':'✕ CONDICIONES NO ACEPTADAS'}</span></div>
+    <div class="tscroll"><table>
+      <thead><tr><th>Condición</th><th>Valor ingresado</th><th>Límite definido</th><th>Resultado</th></tr></thead>
+      <tbody>${filas.map(f=>`<tr><td><b>${f[0]}</b></td><td>${f[1]}</td><td>${f[2]}</td><td>${etiqueta(f[3])}</td></tr>`).join('')}</tbody>
+    </table></div>
+    <p class="tur-explicacion">${r.aceptado?
+      `Los valores ingresados cumplen los cuatro criterios evaluados. Se contemplan <b>${r.guias} guía${r.guias===1?'':'s'}</b> para el grupo; la salida todavía requiere la verificación presencial del sendero, botiquín y demás puntos del checklist.`:
+      `<b>No se acepta la salida con estos datos.</b> Para corregirla: ${motivos.join('; ')}. La evaluación cambia automáticamente al modificar los valores del formulario.`}
+    </p>
+  </section>`;
+}
 function simTurHTML(){
   return `
     <span class="tag">Proyecto B</span>
@@ -1531,94 +1635,391 @@ function simTur(){
   const el=document.getElementById("simout"); if(!el) return;
   turCirc = document.getElementById("tur-circ").value;
   const C = CIRCUITOS[turCirc];
-  const g = Math.max(1, Math.round(+document.getElementById("ngr").value||1));
+  const evaluacionRenacer=turEvaluarRenacer();
+  const g = evaluacionRenacer.visitantes;
   const t0 = +document.getElementById("tur-turno").value;
-  const temp = +document.getElementById("tur-temp").value;
-  const vto = +document.getElementById("tur-viento").value;
-  const agua = +document.getElementById("tur-agua").value;
-  const guias = Math.ceil(g/STD.nMax), sub = Math.ceil(g/guias);
-  const aguaReq = (g+guias)*STD.aguaMl/1000;
-  const clima = temp < STD.tMax && vto < STD.vMax;
-  const hidr = agua >= aguaReq;
+  const temp = evaluacionRenacer.temp;
+  const vto = evaluacionRenacer.viento;
+  const agua = evaluacionRenacer.agua;
+  const guias = evaluacionRenacer.guias, sub = evaluacionRenacer.porGuia;
+  const aguaReq = evaluacionRenacer.minimo;
+  const clima = evaluacionRenacer.tempOK && evaluacionRenacer.vientoOK;
+  const hidr = evaluacionRenacer.aguaOK;
   let t=t0, filas="";
   C.paradas.forEach(([nom,min,nota])=>{ filas+=`<tr><td>${hhmm(t)}</td><td>${nom}</td><td>${min} min</td><td class="nota">${nota||""}</td></tr>`; t+=min; });
   const total=C.paradas.reduce((s,x)=>s+x[1],0);
   const enStd = total>=STD.tNom-STD.tTol && total<=STD.tNom+STD.tTol;
   const fin = t0===570 ? 660 : 1110;
   const ok = (b,si,no) => `<span class="${b?"ok":"no"}">${b?"✔ "+si:"✖ "+no}</span>`;
-  const libera = clima && hidr;
+  const libera = turCirc==='renacer' ? evaluacionRenacer.aceptado : clima && hidr;
   el.innerHTML = `<p class="lead" style="margin:6px 0"><b>${C.nombre}</b> · <span class="nota">${C.estado}</span></p>
     ${tblT(["Horario","Actividad","Duración","Control"],[])}`.replace("</table></div>","")+filas+`</table></div>
     <div class="kpis">
       <div class="kpi"><b>${total} min</b><span>Duración total · fin ${hhmm(t)}</span></div>
       <div class="kpi"><b>${guias}</b><span>Guías (${guias>1?guias+" subgrupos de hasta "+sub:"1 grupo"})</span></div>
       <div class="kpi"><b>${aguaReq.toFixed(1)} L</b><span>Agua requerida (${g} visitantes + ${guias} guías)</span></div>
-      <div class="kpi ${libera?"kpi-ok":"kpi-no"}"><b>${libera?"PASO":"NO PASO"}</b><span>Liberación de la salida (PCC-1)</span></div>
+      <div class="kpi ${libera?"kpi-ok":"kpi-no"}"><b>${libera?"PASO":"NO PASO"}</b><span>${turCirc==='renacer'?'Evaluación de datos del PCC-1 (sujeta a checklist)':'Liberación de la salida (PCC-1)'}</span></div>
     </div>
-    <ul class="checks">
+    ${turCirc==='renacer'
+      ? '<p class="nota">La comparación entre valores ingresados y límites, con su aceptación o rechazo, aparece junto al afiche animado.</p>'
+      : `<ul class="checks">
       <li>${ok(clima,`Clima apto (${temp} °C, ${vto} km/h)`,`Suspender: ${temp>=STD.tMax?"temperatura ≥ 38 °C ":""}${vto>=STD.vMax?"viento ≥ 50 km/h (Zonda)":""} — aplicar protocolo de contingencias climáticas`)}</li>
       <li>${ok(hidr,`Agua suficiente (${agua} L ≥ ${aguaReq.toFixed(1)} L)`,`Faltan ${(aguaReq-agua).toFixed(1)} L de agua: reponer antes de salir`)}</li>
       <li>${ok(g<=STD.nMax,`Grupo dentro del cupo (${g} ≤ 15)`,`${g} personas: dividir en ${guias} subgrupos con un guía cada uno`)}</li>
       ${g<STD.nMin?`<li><span class="parcial">⚠ Grupo menor al mínimo de ${STD.nMin} personas: evaluar unirlo a otro turno</span></li>`:""}
       <li>${ok(enStd,`Ciclo dentro de ${STD.tNom} ± ${STD.tTol} min`,`Ciclo de ${total} min fuera del estándar del Renacer (${STD.tNom-STD.tTol}–${STD.tNom+STD.tTol} min): se rige por su propio tiempo estándar`)}</li>
       <li>${ok(t<=fin,`Termina dentro de la ventana operativa (hasta ${hhmm(fin)})`,`Termina a las ${hhmm(t)}, fuera de la ventana operativa (hasta ${hhmm(fin)})`)}</li>
-    </ul>
+      </ul>`}
     <p class="nota">Tiempos por parada del tiempo estándar inicial. Se ajustan con las planillas R-ST-05 de las salidas piloto.</p>`;
   turAnimInit();
 }
 
-/* Animación con mapa esquemático del recorrido */
-let turTimer=null, turIdx=0;
-const POS_REN = [[50,128],[105,92],[150,58],[250,44],[322,112],[200,140],[60,132]];
+/* Animación del Renacer sobre su afiche y circuitos ilustrados para San José y Telteca.
+   Son representaciones didácticas; no se presentan como cartografía real. */
+let turTimer=null, turIdx=0, turPlaying=false, turMoving=false;
+let turPhase=0, turFrameTime=0, turRest=0, turSegment=0;
+const TUR_RENACER_POS = [
+  [318,582], // Recepción en la escuela (salida)
+  [143,530], // Caminata hacia la plaza
+  [142,497], // A: flora autóctona
+  [541,303], // B: estación ferroviaria
+  [865,514], // C: taller artesanal
+  [774,570], // Regreso por el camino del afiche
+  [318,582]  // Escuela: puesta en común y despedida
+];
+/* Curvas dibujadas sobre la calzada ya ilustrada en el afiche A4.
+   La última curva pasa POR DETRÁS de la escuela, ocultando el grupo
+   al cruzar el edificio, como corresponde a la perspectiva. */
+const TUR_RENACER_TRAMOS = [
+  'M318 582 C250 580 202 560 158 539 S140 533 143 530',
+  'M143 530 Q134 511 142 497',
+  'M142 497 C183 416 280 355 403 318 S508 298 541 303',
+  'M541 303 C687 313 815 403 859 482 Q872 497 865 514',
+  'M865 514 C872 541 827 565 774 570',
+  'M774 570 C685 611 575 617 491 609 S382 591 318 582'
+];
+const TUR_ESCENAS = {
+  sanjose:{
+    viewBox:'760 330',
+    pts:[
+      [110,270], // recepción en la escuela
+      [172,255], // caminata al inicio
+      [256,226], // flora del secano
+      [372,195], // bañado
+      [523,160], // cementerio
+      [648,126], // capilla
+      [430,262], // regreso
+      [110,270]  // cierre en la escuela
+    ],
+    tramos:[
+      'M110 270 C135 268 152 261 172 255',
+      'M172 255 C195 247 225 236 256 226',
+      'M256 226 C288 215 330 204 372 195',
+      'M372 195 C414 186 468 172 523 160',
+      'M523 160 C560 149 607 136 648 126',
+      'M648 126 C607 176 540 227 430 262',
+      'M430 262 C315 293 208 287 110 270'
+    ],
+    fondo:`
+      <defs>
+        <linearGradient id="sj-cielo" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#d7ecff"/>
+          <stop offset="100%" stop-color="#f7efe0"/>
+        </linearGradient>
+        <linearGradient id="sj-suelo" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#f3dfb1"/>
+          <stop offset="100%" stop-color="#e7c47c"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="760" height="330" fill="url(#sj-cielo)"/>
+      <circle cx="655" cy="56" r="22" fill="#ffd476" opacity=".95"/>
+      <path d="M0 170 Q90 124 160 154 T310 151 T485 138 T760 158 V330 H0Z" fill="#cfb487"/>
+      <path d="M0 210 Q90 172 170 188 T330 194 T520 179 T760 197 V330 H0Z" fill="#b99062" opacity=".62"/>
+      <path d="M0 255 Q170 212 325 248 T760 233 V330 H0Z" fill="url(#sj-suelo)"/>
+      <path d="M110 270 C172 255 236 229 302 213 S488 166 648 126" fill="none" stroke="#d5a26d" stroke-width="30" stroke-linecap="round" opacity=".95"/>
+      <path d="M648 126 C605 180 528 229 430 262 S209 288 110 270" fill="none" stroke="#d5a26d" stroke-width="30" stroke-linecap="round" opacity=".95"/>
+      <path d="M110 270 C172 255 236 229 302 213 S488 166 648 126" fill="none" stroke="#fff6e6" stroke-width="4" stroke-dasharray="12 11" stroke-linecap="round"/>
+      <path d="M648 126 C605 180 528 229 430 262 S209 288 110 270" fill="none" stroke="#fff6e6" stroke-width="4" stroke-dasharray="12 11" stroke-linecap="round"/>
+      <g aria-hidden="true">
+        <rect x="46" y="218" width="85" height="52" rx="4" fill="#ebd6b7" stroke="#8c5a33" stroke-width="2"/>
+        <path d="M42 220 L88 190 L136 220 Z" fill="#a04e2a"/>
+        <rect x="78" y="238" width="18" height="32" fill="#536b86"/>
+        <rect x="56" y="234" width="15" height="14" fill="#a7bfd3"/>
+        <rect x="104" y="234" width="15" height="14" fill="#a7bfd3"/>
+        <text x="89" y="286" font-size="12" text-anchor="middle" font-weight="700" fill="#6c3b12">Escuela</text>
+      </g>
+      <g aria-hidden="true" transform="translate(232 196)">
+        <rect x="-18" y="38" width="46" height="6" fill="#7c5b37"/>
+        <path d="M0 38 L0 0" stroke="#8a6e47" stroke-width="4"/>
+        <path d="M0 8 C-16 8 -24 18 -24 31 C-10 28 -2 28 0 22 C2 28 10 28 24 31 C24 18 16 8 0 8Z" fill="#7ea84b"/>
+        <path d="M-22 44 q-8 -14 0 -28 M18 44 q8 -12 0 -25" stroke="#9dbb69" stroke-width="3" fill="none"/>
+      </g>
+      <g aria-hidden="true" transform="translate(360 176)">
+        <ellipse cx="0" cy="26" rx="46" ry="20" fill="#80bfd7"/>
+        <ellipse cx="0" cy="26" rx="44" ry="18" fill="#a6d8e5" opacity=".7"/>
+        <g stroke="#7d9b4b" stroke-width="3"><path d="M-28 18 L-28 -4"/><path d="M-18 16 L-18 -2"/><path d="M22 18 L22 -5"/><path d="M33 17 L33 1"/></g>
+        <g fill="#99bb57"><circle cx="-30" cy="-6" r="4"/><circle cx="-18" cy="-4" r="4"/><circle cx="22" cy="-7" r="4"/><circle cx="33" cy="0" r="4"/></g>
+      </g>
+      <g aria-hidden="true" transform="translate(518 132)">
+        <rect x="-20" y="18" width="54" height="6" fill="#6d5237"/>
+        <path d="M-10 18 L-10 -10" stroke="#7f7f7f" stroke-width="3"/><path d="M2 18 L2 -6" stroke="#8b8b8b" stroke-width="3"/><path d="M14 18 L14 -12" stroke="#7d7d7d" stroke-width="3"/>
+        <path d="M25 18 L25 -2" stroke="#8a8a8a" stroke-width="3"/>
+        <path d="M-18 0 L-2 0 M6 4 L22 4" stroke="#8a8a8a" stroke-width="2"/>
+      </g>
+      <g aria-hidden="true" transform="translate(640 88)">
+        <rect x="-30" y="30" width="72" height="48" rx="3" fill="#f1e5d0" stroke="#8e5d34" stroke-width="2"/>
+        <path d="M-36 32 L5 0 L48 32 Z" fill="#a14d2a"/>
+        <rect x="-6" y="48" width="14" height="30" fill="#8c633d"/>
+        <rect x="18" y="44" width="15" height="14" fill="#8fb2c8"/>
+        <path d="M-6 18 Q5 -6 16 18" fill="none" stroke="#c79c55" stroke-width="5"/>
+        <rect x="2" y="-10" width="6" height="28" fill="#c79c55"/>
+      </g>
+      <text x="380" y="34" text-anchor="middle" font-family="Arial" font-weight="700" font-size="20" fill="#6d3c12">Circuito San José</text>
+      <text x="380" y="54" text-anchor="middle" font-family="Arial" font-size="12" fill="#7b5b35">flora del secano · Bañado · cementerio · capilla · regreso a la escuela</text>
+    `,
+    labels:[['Escuela',90,201],['Flora',248,190],['Bañado',360,153],['Cementerio',524,112],['Capilla',645,73]]
+  },
+  telteca:{
+    viewBox:'760 330',
+    pts:[
+      [98,256],  // recepción
+      [215,228], // cartelería
+      [360,184], // flora y paisaje
+      [560,150], // reloj solar y mural
+      [98,256]   // cierre / preguntas en el punto de partida
+    ],
+    tramos:[
+      'M98 256 C125 246 168 238 215 228',
+      'M215 228 C256 216 309 196 360 184',
+      'M360 184 C420 172 490 160 560 150',
+      'M560 150 C613 244 475 298 330 294 C217 291 143 279 98 256'
+    ],
+    fondo:`
+      <defs>
+        <linearGradient id="te-cielo" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#cfe6ff"/>
+          <stop offset="100%" stop-color="#f6ebd6"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="760" height="330" fill="url(#te-cielo)"/>
+      <circle cx="624" cy="52" r="24" fill="#ffd165"/>
+      <path d="M0 182 Q75 140 150 160 T315 154 T495 138 T760 162 V330 H0Z" fill="#d1b180"/>
+      <path d="M0 232 Q170 189 302 210 T540 185 T760 205 V330 H0Z" fill="#c39a69" opacity=".72"/>
+      <path d="M0 265 Q180 233 330 258 T760 242 V330 H0Z" fill="#ecd39e"/>
+      <path d="M98 256 C165 238 230 220 305 198 S470 158 560 150" fill="none" stroke="#d8a66c" stroke-width="28" stroke-linecap="round" opacity=".96"/>
+      <path d="M560 150 C613 244 475 298 330 294 C217 291 143 279 98 256" fill="none" stroke="#d8a66c" stroke-width="28" stroke-linecap="round" opacity=".96"/>
+      <path d="M98 256 C165 238 230 220 305 198 S470 158 560 150" fill="none" stroke="#fff6e8" stroke-width="4" stroke-dasharray="12 11" stroke-linecap="round"/>
+      <path d="M560 150 C613 244 475 298 330 294 C217 291 143 279 98 256" fill="none" stroke="#fff6e8" stroke-width="4" stroke-dasharray="12 11" stroke-linecap="round"/>
+      <g aria-hidden="true" transform="translate(88 212)">
+        <rect x="-34" y="28" width="92" height="38" rx="4" fill="#f1e2c8" stroke="#91653b" stroke-width="2"/>
+        <path d="M-40 30 L6 2 L64 30 Z" fill="#9d522d"/>
+        <rect x="-6" y="44" width="18" height="22" fill="#486784"/>
+        <text x="12" y="82" font-size="12" text-anchor="middle" font-weight="700" fill="#6f3f17">Acceso</text>
+      </g>
+      <g aria-hidden="true" transform="translate(215 193)">
+        <rect x="-10" y="6" width="12" height="38" fill="#7a5b38"/>
+        <rect x="2" y="6" width="12" height="38" fill="#7a5b38"/>
+        <rect x="-24" y="-6" width="54" height="18" rx="4" fill="#f8f3e6" stroke="#8e6a44" stroke-width="2"/>
+        <path d="M34 44 q8 -12 0 -26" stroke="#8ba852" stroke-width="3" fill="none"/>
+      </g>
+      <g aria-hidden="true" transform="translate(360 152)">
+        <path d="M-70 52 Q-24 14 10 30 T90 18" fill="none" stroke="#8ba94d" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-34 58 q-8 -16 0 -34 M-4 54 q-8 -15 0 -30 M34 52 q-8 -14 0 -29" stroke="#84a34a" stroke-width="4" fill="none"/>
+        <g fill="#7aa04b"><circle cx="-34" cy="20" r="12"/><circle cx="4" cy="18" r="14"/><circle cx="40" cy="22" r="12"/></g>
+        <path d="M72 58 q-8 -14 0 -31" stroke="#8ba852" stroke-width="4" fill="none"/>
+      </g>
+      <g aria-hidden="true" transform="translate(560 106)">
+        <circle cx="-24" cy="42" r="21" fill="none" stroke="#a55b31" stroke-width="4"/>
+        <path d="M-24 42 L-24 18 M-24 42 L-8 32" stroke="#a55b31" stroke-width="4" stroke-linecap="round"/>
+        <path d="M8 62 L72 62 L72 10 L8 10 Z" fill="#e9dbc2" stroke="#8e6540" stroke-width="2"/>
+        <path d="M16 52 Q28 26 40 52 T64 52" fill="none" stroke="#b75f39" stroke-width="5"/>
+        <path d="M20 18 H60 M20 28 H48" stroke="#9a7a57" stroke-width="3"/>
+      </g>
+      <g aria-hidden="true" transform="translate(675 218)">
+        <path d="M0 44 L0 3 M0 24 L-13 11 M0 34 L15 20" stroke="#719047" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="0" cy="2" r="8" fill="#91ae5d"/>
+        <circle cx="-14" cy="11" r="7" fill="#8aa657"/>
+        <circle cx="15" cy="20" r="7" fill="#8aa657"/>
+      </g>
+      <text x="380" y="34" text-anchor="middle" font-family="Arial" font-weight="700" font-size="20" fill="#6d3c12">Propuesta Bosques Telteca</text>
+      <text x="380" y="54" text-anchor="middle" font-family="Arial" font-size="12" fill="#7b5b35">cartelería interpretativa · flora y paisaje · reloj solar · mural</text>
+    `,
+    labels:[['Inicio y cierre',98,187],['Cartelería',216,165],['Flora y paisaje',361,120],['Reloj solar y mural',559,84]]
+  }
+};
 function turPos(i,n){
-  if(turCirc==="renacer") return POS_REN[i];
-  const a = Math.PI + i/(n-1)*Math.PI*1.7;
-  return [190+140*Math.cos(a), 92+56*Math.sin(a)];
+  if(turCirc==='renacer') return TUR_RENACER_POS[i];
+  const sc=TUR_ESCENAS[turCirc];
+  return sc?sc.pts[i]:[380,165];
+}
+function turPersona(dx,dy,color,skin,scale){
+  return `<g class="tur-caminante" transform="translate(${dx} ${dy}) scale(${scale})">
+    <ellipse cx="0" cy="2" rx="8" ry="3" fill="#432b1a" opacity=".24"/>
+    <g class="tur-pierna-a"><path d="M-2 -12 L-7 0" stroke="#233b49" stroke-width="5"/></g>
+    <g class="tur-pierna-b"><path d="M2 -12 L7 0" stroke="#233b49" stroke-width="5"/></g>
+    <path d="M0 -28 L0 -12" stroke="#fff" stroke-width="11"/>
+    <path d="M0 -28 L0 -12" stroke="${color}" stroke-width="8"/>
+    <g class="tur-brazo-a"><path d="M-4 -25 L-12 -16" stroke="${skin}" stroke-width="4"/></g>
+    <g class="tur-brazo-b"><path d="M4 -25 L12 -16" stroke="${skin}" stroke-width="4"/></g>
+    <circle cx="0" cy="-35" r="6" fill="${skin}" stroke="#fff4dd" stroke-width="1.4"/>
+    <path d="M-5 -37 Q-4 -43 2 -42 Q7 -41 5 -37" fill="none" stroke="#39291f" stroke-width="3.5"/>
+  </g>`;
+}
+function turGrupo(){
+  return `<g id="tur-walkers" class="tur-caminantes" aria-hidden="true">
+    <ellipse cx="0" cy="3" rx="38" ry="8" fill="#fff3d4" opacity=".72"/>
+    ${turPersona(-20,-2,'#387b5c','#e9ba8e',.85)}
+    ${turPersona(20,-1,'#416f94','#bb7959',.92)}
+    ${turPersona(0,0,'#ad4f2d','#edc49f',1.08)}
+  </g>`;
+}
+function turParadasSVG(pts){
+  // Telteca comienza y termina en el mismo sitio: un único marcador 1/5.
+  const cerrada=turCirc==='telteca' && pts.length>1 &&
+    pts[0][0]===pts[pts.length-1][0] && pts[0][1]===pts[pts.length-1][1];
+  return pts.map((p,i)=>{
+    if(cerrada && i===pts.length-1) return '';
+    const num=cerrada && i===0 ? '1/5' : String(i+1);
+    return `<g aria-hidden="true">
+      <circle cx="${p[0]}" cy="${p[1]}" r="17" fill="#fffaf0" stroke="#b5691d" stroke-width="3"/>
+      <text x="${p[0]}" y="${p[1]+5}" font-family="Arial,sans-serif" font-weight="700" font-size="${num==='1/5'?13:18}" text-anchor="middle" fill="#6b390d">${num}</text>
+    </g>`;
+  }).join('');
+}
+/* Valores del afiche en el mismo lugar de sus tres campos originales.
+   Se calculan a partir del formulario de simulación (sin modificar la imagen fuente). */
+function turAficheValores(){
+  const r=turEvaluarRenacer();
+  const txt=(x,y,t,size=10,bold=false,color='#59442a')=>`<text x="${x}" y="${y}" text-anchor="middle" font-family="Arial,sans-serif" font-size="${size}" font-weight="${bold?700:500}" fill="${color}">${t}</text>`;
+  const card=(x,w,titulo,valor,limite,apto)=>{
+    const cx=x+w/2;
+    const color=apto?'#2e7132':'#a33d29';
+    const fondo=apto?'#f0faed':'#fff0e9';
+    return `<g>
+      <rect x="${x}" y="403" width="${w}" height="72" rx="7" fill="${fondo}" stroke="${color}" stroke-width="1"/>
+      ${txt(cx,418,titulo,10.5,true,'#6b4a2d')}
+      ${txt(cx,437,valor,16,true,'#382b21')}
+      ${txt(cx,451,limite,10,false,'#59442a')}
+      <rect x="${cx-31}" y="458" width="62" height="14" rx="7" fill="${color}"/>
+      ${txt(cx,468,apto?'ACEPTA':'RECHAZA',9,true,'#fff')}
+    </g>`;
+  };
+  return `<g id="tur-afiche-valores" role="group" aria-label="Valores actuales, límites y aceptación de personas por guía, temperatura, viento y agua potable">
+    <rect x="375" y="398" width="351" height="82" rx="7" fill="#fff8ea"/>
+    ${card(380,83,Number.isFinite(r.visitantesIngresados)?`${turFormato(r.visitantesIngresados,0)} VISIT.`:'VISITANTES',r.porGuia?`${r.porGuia}/guía`:'—',`${STD.nMin}–${STD.nMax} /guía`,r.cupoOK)}
+    ${card(467,83,'TEMP.',`${turFormato(r.temp)} °C`,`&lt; ${STD.tMax} °C`,r.tempOK)}
+    ${card(554,83,'VIENTO',`${turFormato(r.viento)} km/h`,`&lt; ${STD.vMax} km/h`,r.vientoOK)}
+    ${card(641,81,'AGUA',`${turFormato(r.agua,2)} L`,`≥ ${turFormato(r.minimo,2)} L`,r.aguaOK)}
+  </g>`;
 }
 function turAnimInit(){
-  clearInterval(turTimer); turTimer=null; turIdx=0;
-  const el=document.getElementById("tur-anim"); if(!el) return;
-  const P0 = CIRCUITOS[turCirc].paradas, n=P0.length;
-  const pts = P0.map((_,i)=>turPos(i,n));
-  const ruta = "M"+pts.map(p=>p.join(",")).join(" L");
-  const lbl = turCirc==="renacer" ? ["Escuela","","A · Flora","B · Estación","C · Taller","",""] : P0.map((_,i)=>String(i+1));
-  el.innerHTML = `<div class="escena"><svg id="tur-svg" viewBox="0 0 380 170" role="img" aria-label="Mapa esquemático del recorrido">
-      <rect width="380" height="170" rx="12" fill="#ffe8cd"/>
-      <path d="M0,150 Q90,120 190,150 T380,140 V170 H0 Z" fill="#ffd19b" opacity=".7"/>
-      ${turCirc==="renacer" ? `<g class="sway"><circle cx="140" cy="38" r="9" fill="#6A9624"/><circle cx="168" cy="70" r="7" fill="#4A6B1F"/></g>
-        <rect x="236" y="20" width="30" height="16" fill="#af5700"/><path d="M232,20 L250,10 L270,20 Z" fill="#8a4500"/>
-        <rect x="312" y="122" width="22" height="16" fill="#c06500"/><rect x="34" y="112" width="34" height="22" fill="#8a4500"/>` : ""}
-      <path d="${ruta}" fill="none" stroke="#af5700" stroke-width="3" stroke-dasharray="6 5"/>
-      ${pts.map((p,i)=>`<g><circle cx="${p[0]}" cy="${p[1]}" r="6" fill="#fff" stroke="#af5700" stroke-width="2"/>${lbl[i]?`<text x="${p[0]}" y="${p[1]-11}" font-size="10" text-anchor="middle" fill="#4a2500" font-family="Arial">${lbl[i]}</text>`:""}</g>`).join("")}
-      <g id="tur-dot" style="transition:transform .9s ease"><circle r="9" fill="#e48200" stroke="#fff" stroke-width="2"/><text y="4" font-size="10" text-anchor="middle" fill="#fff" font-family="Arial">●</text></g>
+  turStop(); turIdx=0;
+  const el=document.getElementById('tur-anim'); if(!el) return;
+  const paradas=CIRCUITOS[turCirc].paradas, ren=turCirc==='renacer';
+  const pts=paradas.map((_,i)=>turPos(i,paradas.length));
+  const scene=!ren ? TUR_ESCENAS[turCirc] : null;
+  const segmentos=ren?TUR_RENACER_TRAMOS:(scene?scene.tramos:pts.slice(0,-1).map((p,i)=>{
+    const q=pts[i+1]; return `M${p[0]} ${p[1]} L${q[0]} ${q[1]}`;
+  }));
+  const fondo=ren ? `<image href="img/afiche_circuito_renacer.png" x="0" y="0" width="1024" height="724" preserveAspectRatio="none"/>` : scene.fondo;
+  const ruta='';
+  const rutaInvisible=segmentos.map((s,i)=>`<path id="tur-tramo-${i}" d="${s}" fill="none" stroke="none" pointer-events="none"/>`).join('');
+  const labels=!ren && scene && scene.labels ? scene.labels.map(l=>`<g aria-hidden="true"><rect x="${l[1]-36}" y="${l[2]-16}" width="72" height="18" rx="8" fill="#fff7ea" opacity=".92"/><text x="${l[1]}" y="${l[2]-3}" font-size="11" font-family="Arial" text-anchor="middle" fill="#6d3c12" font-weight="700">${l[0]}</text></g>`).join('') : '';
+  /* Sólo el Renacer usa el afiche. La escuela se dibuja por encima de
+     los caminantes para que nunca parezca que caminan sobre el techo. */
+  const mascaraEscuela=ren?`<defs><clipPath id="tur-escuela-clip">
+      <path d="M348 640 L510 610 L663 668 L663 724 L368 724 L348 640Z"/>
+    </clipPath></defs>`:'';
+  const escuelaFrente=ren?`<image href="img/afiche_circuito_renacer.png" x="0" y="0" width="1024" height="724" preserveAspectRatio="none" clip-path="url(#tur-escuela-clip)" pointer-events="none"/>`:'';
+  el.innerHTML=`<div class="escena ${ren?'tur-escena-renacer':''}">
+    <svg id="tur-svg" viewBox="0 0 ${ren?'1024 724':scene.viewBox}" role="img" aria-label="${ren?'Afiche original del Circuito Renacer, con visitantes guiados desde la escuela hasta A: flora autóctona, B: estación ferroviaria, C: taller artesanal y regreso':(turCirc==='sanjose'?'Ilustración del Circuito San José, con visitantes guiados por flora del secano, Bañado, cementerio y capilla, y regreso a la escuela':'Ilustración de la propuesta Bosques Telteca, con visitantes guiados por cartelería interpretativa, flora y paisaje, reloj solar y mural')} ">
+      ${fondo}${ren?turAficheValores():''}${ruta}${rutaInvisible}${ren?'':labels+turParadasSVG(pts)}${mascaraEscuela}${turGrupo()}${escuelaFrente}
     </svg></div>
-    <div class="anim-ctrl noprint"><button class="btn-imp" id="tur-play">Reproducir</button><button class="btn-imp" id="tur-reset">Reiniciar</button></div>
-    <div class="anim-track">${P0.map((s,i)=>`<div class="anim-paso" data-i="${i}"><span class="num">${i+1}</span>${s[0]} <span class="nota">(${s[1]} min)</span></div>`).join("")}</div>
-    <div class="anim-barra"><div id="tur-bar" style="height:100%;width:0;background:var(--acc);transition:width .5s"></div></div>
-    <p class="nota" id="tur-msg"></p>`;
-  document.getElementById("tur-play").onclick=turToggle;
-  document.getElementById("tur-reset").onclick=()=>{ clearInterval(turTimer); turTimer=null; turIdx=0; document.getElementById("tur-play").textContent="Reproducir"; turPaint(); };
-  el.querySelectorAll(".anim-paso").forEach(p=>p.onclick=()=>{ turIdx=+p.dataset.i; turPaint(); });
+    <p class="tur-anim-caption">${ren?'<b>Recorrido sobre el afiche original con datos del formulario:</b> escuela → A (flora autóctona) → B (estación ferroviaria) → C (taller artesanal) → escuela. El afiche también muestra las <b>7 operaciones del servicio</b> (consulta, pago, preparación, recepción, caminata, cierre y documentación); la lista interactiva de abajo presenta las <b>etapas cronometradas de la visita</b>.':(turCirc==='sanjose' ? '<b>Recorrido ilustrado del Circuito San José:</b> escuela → inicio del sendero → flora del secano → Bañado → cementerio → capilla → regreso → cierre. Se mantienen todas las paradas y los tiempos originales del circuito.' : '<b>Recorrido cerrado de la propuesta Bosques Telteca:</b> inicio → cartelería interpretativa → flora y paisaje → reloj solar y mural → regreso al mismo punto de partida para el cierre, las preguntas y la encuesta. Se mantienen las cinco etapas y sus tiempos originales.')} </p>
+    ${ren?turEvaluacionHTML():''}
+    ${ren?'<div class="tur-leyenda"><span><b>A</b> Flora autóctona</span><span><b>B</b> Estación ferroviaria</span><span><b>C</b> Taller artesanal</span></div>':(turCirc==='sanjose'?'<div class="tur-leyenda"><span><b>3</b> Flora del secano</span><span><b>4</b> Bañado</span><span><b>5</b> Cementerio</span><span><b>6</b> Capilla San José</span></div>':'<div class="tur-leyenda"><span><b>1/5</b> Inicio y cierre</span><span><b>2</b> Cartelería interpretativa</span><span><b>3</b> Flora y paisaje</span><span><b>4</b> Reloj solar y mural</span></div>')}
+    <div class="anim-ctrl noprint"><button type="button" class="btn-imp" id="tur-play">Reproducir</button><button type="button" class="btn-imp" id="tur-reset">Reiniciar</button></div>
+    <div class="anim-track" aria-label="Paradas del circuito">${paradas.map((s,i)=>`<button type="button" class="anim-paso" data-i="${i}" aria-pressed="false"><span class="num">${i+1}</span>${s[0]} <span class="nota">(${s[1]} min)</span></button>`).join('')}</div>
+    <div class="anim-barra" role="progressbar" aria-label="Progreso de la simulación" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="tur-bar" style="height:100%;width:0;background:var(--acc);transition:width .5s"></div></div>
+    <p class="nota" id="tur-msg" aria-live="polite"></p>`;
+  document.getElementById('tur-play').onclick=turToggle;
+  document.getElementById('tur-reset').onclick=()=>{turStop();turIdx=0;turPaint();};
+  el.querySelectorAll('.anim-paso').forEach(b=>b.onclick=()=>{turStop();turIdx=+b.dataset.i;turPaint();});
   turPaint();
 }
+function turStop(){
+  if(turTimer!==null) cancelAnimationFrame(turTimer);
+  turTimer=null;turPlaying=false;turMoving=false;turPhase=0;turRest=0;turFrameTime=0;
+  const b=document.getElementById('tur-play');if(b) b.textContent='Reproducir';
+  const p=document.getElementById('tur-walkers');if(p) p.classList.remove('tur-caminando');
+}
+function turPlace(x,y){
+  const p=document.getElementById('tur-walkers');
+  if(p) p.setAttribute('transform',`translate(${x} ${y})`);
+}
 function turPaint(){
-  const P0=CIRCUITOS[turCirc].paradas, n=P0.length;
-  const d=document.getElementById("tur-dot"); if(!d){ clearInterval(turTimer); turTimer=null; return; }
-  const p=turPos(Math.min(turIdx,n-1),n);
-  d.setAttribute("transform",`translate(${p[0]},${p[1]})`); d.style.transform=`translate(${p[0]}px,${p[1]}px)`;
-  document.querySelectorAll("#tur-anim .anim-paso").forEach((x,i)=>{ x.classList.toggle("hecho",i<turIdx); x.classList.toggle("activo-anim",i===turIdx); });
-  const acum = P0.slice(0,turIdx+1).reduce((s,x)=>s+x[1],0), tot=P0.reduce((s,x)=>s+x[1],0);
-  document.getElementById("tur-bar").style.width=(acum/tot*100)+"%";
-  document.getElementById("tur-msg").textContent=`Paso ${turIdx+1} de ${n}: ${P0[turIdx][0]} · minuto acumulado ${acum} de ${tot}${P0[turIdx][2]?" · "+P0[turIdx][2]:""}`;
-  const fp=document.getElementById("fto-panel");
-  if(fp && turCirc==="renacer"){ const map=[3,4,4,4,4,5,5]; ftoTurPaint(map[turIdx]); }
+  const p=CIRCUITOS[turCirc].paradas,n=p.length;
+  if(!document.getElementById('tur-walkers')){turStop();return;}
+  turPlace(...turPos(Math.min(turIdx,n-1),n));
+  document.querySelectorAll('#tur-anim .anim-paso').forEach((x,i)=>{
+    x.classList.toggle('hecho',i<turIdx);
+    x.classList.toggle('activo-anim',i===turIdx);
+    x.setAttribute('aria-pressed',String(i===turIdx));
+  });
+  const acumulado=p.slice(0,turIdx+1).reduce((s,x)=>s+x[1],0);
+  const total=p.reduce((s,x)=>s+x[1],0);
+  document.getElementById('tur-bar').style.width=(acumulado/total*100)+'%';
+  document.querySelector('#tur-anim .anim-barra').setAttribute('aria-valuenow',String(Math.round(acumulado/total*100)));
+  document.getElementById('tur-msg').textContent=`Paso ${turIdx+1} de ${n}: ${p[turIdx][0]} · minuto acumulado ${acumulado} de ${total}${p[turIdx][2]?' · '+p[turIdx][2]:''}`;
+  const fp=document.getElementById('fto-panel');
+  if(fp && turCirc==='renacer'){const map=[3,4,4,4,4,5,5];ftoTurPaint(map[turIdx]);}
+}
+function turStartTramo(){
+  const n=CIRCUITOS[turCirc].paradas.length;
+  if(turIdx>=n-1){turStop();return;}
+  turSegment=turIdx;turPhase=0;turMoving=true;
+  const p=document.getElementById('tur-walkers');if(p) p.classList.add('tur-caminando');
+}
+function turFrame(t){
+  if(!turPlaying) return;
+  if(!turFrameTime)turFrameTime=t;
+  const delta=Math.min(80,Math.max(0,t-turFrameTime));turFrameTime=t;
+  if(turMoving){
+    const path=document.getElementById('tur-tramo-'+turSegment);
+    if(!path){turStop();return;}
+    const dur=window.matchMedia('(prefers-reduced-motion: reduce)').matches?280:1950;
+    turPhase=Math.min(1,turPhase+delta/dur);
+    const u=turPhase<.5?2*turPhase*turPhase:1-Math.pow(-2*turPhase+2,2)/2;
+    const point=path.getPointAtLength(path.getTotalLength()*u);
+    turPlace(point.x,point.y);
+    if(turPhase>=1){
+      turIdx=turSegment+1;turMoving=false;turRest=720;
+      document.getElementById('tur-walkers').classList.remove('tur-caminando');
+      turPaint();
+    }
+  }else{
+    turRest-=delta;
+    if(turRest<=0){
+      if(turIdx>=CIRCUITOS[turCirc].paradas.length-1){turStop();return;}
+      turStartTramo();
+    }
+  }
+  turTimer=requestAnimationFrame(turFrame);
 }
 function turToggle(){
-  const b=document.getElementById("tur-play"), n=CIRCUITOS[turCirc].paradas.length;
-  if(turTimer){ clearInterval(turTimer); turTimer=null; b.textContent="Reproducir"; return; }
-  if(turIdx>=n-1) turIdx=0;
-  b.textContent="Pausar"; turPaint();
-  turTimer=setInterval(()=>{ if(turIdx>=n-1){ clearInterval(turTimer); turTimer=null; b.textContent="Reproducir"; return; } turIdx++; turPaint(); },1700);
+  const btn=document.getElementById('tur-play');
+  if(turPlaying){
+    turPlaying=false;
+    if(turTimer!==null) cancelAnimationFrame(turTimer);
+    turTimer=null;turFrameTime=0;
+    document.getElementById('tur-walkers').classList.remove('tur-caminando');
+    btn.textContent='Reanudar';return;
+  }
+  if(turIdx>=CIRCUITOS[turCirc].paradas.length-1){turIdx=0;turPaint();turMoving=false;}
+  turPlaying=true;turFrameTime=0;btn.textContent='Pausar';
+  if(!turMoving)turStartTramo();
+  else document.getElementById('tur-walkers').classList.add('tur-caminando');
+  turTimer=requestAnimationFrame(turFrame);
 }
 
 /* FTO del turismo: reutiliza la plantilla de la cosmética */
