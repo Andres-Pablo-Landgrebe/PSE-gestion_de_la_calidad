@@ -175,7 +175,65 @@
   button:focus-visible,a:focus-visible,[data-go]:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
   @media (prefers-reduced-motion:reduce){#contenido,#contenido.saliendo,.dd-menu{transition:none}}
   .lfb{background:#fff;color:var(--acc-osc);padding:6px 10px;border-radius:6px;font-weight:700;font-size:13px}
-  @media print{header,nav,.noprint,.selector{display:none!important} body,body.comun{background:#fff!important} main{padding:0} .card{box-shadow:none} h1.t,h2,h3{color:#000} .tag{border:1px solid #000} th{background:#eee}}
+
+  /* ---------- Agregados Proyecto B · Turismo ---------- */
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0}
+  .tscroll table{margin:0;min-width:560px}
+  .propuesta{background:#fff3e0;border-left:4px solid #e48200;padding:10px 14px;border-radius:4px;font-size:14px;margin:12px 0}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
+  .kpi{background:#fff;border:1px solid var(--borde);border-left:6px solid var(--acc);border-radius:8px;padding:12px 14px}
+  .kpi b{display:block;font-family:Montserrat,Arial,sans-serif;font-size:22px;color:var(--acc-osc);line-height:1.2}
+  .kpi span{font-size:13px;color:#554f45}
+  .kpi-ok{border-left-color:#3f8f3a}.kpi-ok b{color:#2f6f2b}
+  .kpi-no{border-left-color:#b5472d}.kpi-no b{color:#9a3420}
+  .kpi-m{border-left-color:#d4a017}.kpi-m b{color:#8a6a00}
+  .ok{color:#2f6f2b;font-weight:600}.no{color:#9a3420;font-weight:600}.parcial{color:#8a6a00;font-weight:600}
+  .checks{list-style:none;padding-left:0}.checks li{background:#fff;border:1px solid var(--borde);border-radius:6px;padding:8px 12px}
+  .formula{font-family:Consolas,monospace;font-size:13px;background:var(--acc-suave);padding:8px 10px;border-radius:6px}
+  .sim-in select{padding:6px;font-size:15px;border:1px solid var(--borde);border-radius:4px;background:#fff}
+  .npr{display:inline-block;min-width:38px;text-align:center;padding:2px 6px;border-radius:10px;font-weight:700}
+  .npr-i{background:#f6d3cb;color:#8a2a17}.npr-m{background:#fbeab0;color:#6f5400}.npr-a{background:#d8ecd2;color:#2f5f2b}
+  table.amfe{font-size:12.5px;min-width:1100px}
+  table.qfd td.c{text-align:center;font-size:16px;color:var(--acc-osc)}
+  table.qfd th.vert{height:150px;vertical-align:bottom;padding:6px 4px;width:44px}
+  table.qfd th.vert span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;white-space:nowrap}
+  .btn-imp.sel{outline:3px solid var(--acc-suave);outline-offset:1px}
+  .barra-f{display:grid;grid-template-columns:140px 1fr;gap:10px;align-items:center;font-size:13px;margin:6px 0}
+  .barra-f div{display:flex;flex-direction:column;gap:3px}
+  .barra-f i{display:block;height:10px;background:var(--acc);border-radius:4px;transition:width .4s}
+  .barra-f i.b2{background:#6A9624}
+  .leyenda{font-size:13px;margin:12px 0 4px}.leyenda span{display:inline-block;width:12px;height:12px;border-radius:3px;margin:0 4px 0 10px;vertical-align:-1px}
+  .leyenda .l1{background:var(--acc)}.leyenda .l2{background:#6A9624}
+  #c-tab input{width:110px;padding:4px;border:1px solid var(--borde);border-radius:4px}
+  .pmap{display:grid;grid-template-columns:170px 1fr 170px;gap:12px;margin:14px 0;font-size:13px}
+  .pm-cli{background:#fff;border:2px solid #555;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px}
+  .pm-cli span{border:1px solid var(--borde);border-radius:6px;padding:4px 6px;background:#fffaf3}
+  .pm-centro{display:flex;flex-direction:column;gap:10px}
+  .pm-caja{border-radius:10px;padding:10px 12px;border:2px solid}
+  .pm-caja b{display:block;text-align:center;font-family:Montserrat,Arial,sans-serif;margin-bottom:6px}
+  .pm-est{border-color:#c2415a;background:#fdf0f2}.pm-op{border-color:#e48200;background:#fff6e8}.pm-sop{border-color:#7b5ea7;background:#f5f0fb}
+  .pm-flujo{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+  .pm-flujo>span{background:#fff;border:1px solid #999;border-radius:6px;padding:6px 8px}
+  .pm-flujo>span:nth-child(even){border:0;background:none;font-size:18px;padding:0}
+  .pm-dos{display:flex;flex-direction:column;gap:4px}.pm-dos em{font-style:normal;border:1px solid var(--borde);border-radius:4px;padding:3px 6px;background:#fffaf3}
+  .pasos-op{counter-reset:p;list-style:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:0}
+  .pasos-op li{counter-increment:p;background:#fff8d9;border:1px solid #e0c25a;border-radius:8px;padding:8px 14px;width:min(420px,100%);text-align:center;position:relative;margin-bottom:20px}
+  .pasos-op li::before{content:counter(p)". ";font-weight:700}
+  .pasos-op li:not(:last-child)::after{content:"↓";position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);color:#999}
+  .arbol li{margin-bottom:8px}
+  details{background:#fff;border:1px solid var(--borde);border-radius:8px;padding:8px 12px;margin:12px 0}
+  details summary{cursor:pointer;font-weight:600;color:var(--acc-osc)}
+  .pdf-box{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:30px 0 6px;padding:14px 18px;background:#fff;border:1px solid var(--borde);border-left:6px solid var(--acc);border-radius:8px}
+  .pdf-box b{display:block;font-family:Montserrat,Arial,sans-serif;color:var(--acc-osc)}
+  .pdf-box span{font-size:14px;color:#554f45}
+  .pdf-box .btn-imp{margin:0;text-decoration:none;display:inline-block}
+  table.imp{font-size:12px;min-width:980px}
+  table.imp th.vert{height:140px;vertical-align:bottom;padding:6px 3px;width:34px}
+  table.imp th.vert span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:11.5px;white-space:nowrap}
+  table.imp td.ip{background:#bfe3b4;color:#235b1f;text-align:center;font-weight:700}
+  table.imp td.in{background:#f3c2b8;color:#8a2a17;text-align:center;font-weight:700}
+  @media(max-width:760px){ .pmap{grid-template-columns:1fr} .barra-f{grid-template-columns:1fr} }
+  @media print{header,nav,.noprint,.selector{display:none!important} .tscroll{overflow:visible} details{display:block} body,body.comun{background:#fff!important} main{padding:0} .card{box-shadow:none} h1.t,h2,h3{color:#000} .tag{border:1px solid #000} th{background:#eee}}
   @media(max-width:760px){
     .cards,.datos{grid-template-columns:1fr}
     h1.t{font-size:28px}
@@ -284,27 +342,44 @@ const P = {
   },
   turismo: {
     nombre: "Circuito Turístico",
-    subtitulo: "Circuito interpretativo en la Reserva Natural y Cultural Bosques Telteca",
-    diagnostico: "El proyecto Anfitrión turístico prepara a los alumnos como futuros guías. El circuito interpretativo tuvo su primera intervención en un espacio público, inaugurada el 12 de noviembre de 2025. Tras verificar su utilidad, se propone ampliarlo con un reloj solar y un mural interpretativo, y mejorar el diseño general con la UNCuyo (Facultades de Artes y Diseño e Ingeniería).",
+    subtitulo: "Circuito Renacer (plaza junto a la escuela) y Circuito San José, con propuesta de ampliación: circuito interpretativo en la Reserva Natural y Cultural Bosques Telteca",
+    diagnostico: "El proyecto Anfitrión turístico prepara a los alumnos como futuros guías. El circuito interpretativo tuvo su primera intervención en un espacio público, inaugurada el 12 de noviembre de 2025. Tras verificar su utilidad, se propone ampliarlo con un reloj solar y un mural interpretativo, y mejorar el diseño general con la UNCuyo (Facultades de Artes y Diseño e Ingeniería). Hoy la escuela presta dos circuitos guiados por sus alumnos: el Circuito Renacer, en la plaza junto a la escuela (flora nativa, estación ferroviaria abandonada y taller de la artesana), y el Circuito San José, hasta la capilla del paraje. El requisito de la cátedra es estandarizar el servicio bajo ISO 9001:2015, con foco en el Circuito Renacer.",
     proceso: [
       "Relevamiento del territorio y de los puntos de interés",
       "Diseño del recorrido e itinerario",
       "Diseño del reloj solar y del mural interpretativo (con UNCuyo)",
       "Planificación de seguridad, logística y contingencia",
       "Salida piloto con vecinos y visitantes",
-      "Evaluación de la experiencia y mejoras"
+      "Evaluación de la experiencia y mejoras",
+      "Estandarización del Circuito Renacer: ET-ST-01, P-ST-01 y FTO por operación",
+      "Gestión de riesgos con AMFE (PR-SGC-001) y protocolo de contingencias climáticas",
+      "Auditoría interna entre grupos y plan de tratamiento de no conformidades"
     ],
     docs: [
       "Itinerario y cronograma (pendiente de corrección)",
       "Planes de seguridad y contingencia (pendiente)",
-      "Registros de salidas piloto (pendiente)"
+      "Registros de salidas piloto (pendiente)",
+      "Descripción de la organización, mapa de procesos y diagrama de flujo",
+      "Requisitos ISO 9001 por proceso, objetivos e indicadores, matriz legal e impactos",
+      "Diagrama de entradas y salidas, procedimiento P-ST-01 y responsables",
+      "Especificación técnica ET-ST-01 y variables de control",
+      "Costos de calidad y de no calidad",
+      "Política integrada de gestión y análisis SIG",
+      "Procedimiento PR-SGC-001 y AMFE",
+      "Plan de control, aseguramiento e inspección del servicio",
+      "Auditoría interna: plan, check-list, informe y respuesta formal",
+      "Control estadístico de procesos: capacidad y cartas de control"
     ],
     galeria: [
       {texto:"Primera intervención del circuito (12/11/2025)"},
       {texto:"Paradas y cartelería interpretativa"},
       {texto:"Recorrido con guardaparques y alumnos"},
       {texto:"Propuesta de reloj solar"},
-      {texto:"Propuesta de mural interpretativo"}
+      {texto:"Propuesta de mural interpretativo"},
+      {texto:"Cartel del Circuito Renacer hecho por los alumnos", src:"img/cartel_renacer.jpg"},
+      {texto:"Jarilla hembra, parte del Hito A del Circuito Renacer", src:"img/jarilla_hembra.jpg"},
+      {texto:"Cartel del recorrido a la Capilla de San José", src:"img/cartel_sanjose.jpg"},
+      {texto:"Infografía del Circuito Turístico Renacer", src:"img/infografia_renacer.jpg"}
     ]
   }
 };
@@ -325,7 +400,7 @@ const TABS = {
       <h2>Elegí un proyecto</h2>
       <div class="cards">
         <div class="card" data-go="detalle|cosmetica|" role="link" tabindex="0"><h3>Cosmética Natural de Jarilla</h3><p>Crema elaborada con plantas nativas, con procesos y controles de calidad.</p></div>
-        <div class="card" data-go="detalle|turismo|" role="link" tabindex="0"><h3>Circuito Turístico</h3><p>Recorrido interpretativo del patrimonio natural y cultural de Lavalle.</p></div>
+        <div class="card" data-go="detalle|turismo|" role="link" tabindex="0"><h3>Circuito Turístico</h3><p>Recorrido interpretativo del patrimonio natural y cultural de Lavalle. Circuito Renacer (plaza, flora nativa, estación y artesana) y Circuito San José, guiados por los alumnos.</p></div>
       </div>
       <div class="datos" style="grid-template-columns:1fr 1fr"><figure class="foto-fig"><img src="img/mural.jpg" alt="Mural de la Escuela Raíces Huarpes" onerror="this.style.display='none'"><figcaption>Mural de la escuela Raíces Huarpes</figcaption></figure><figure class="foto-fig"><img src="img/escuela.jpg" alt="Edificio de la Escuela Albergue Raíces Huarpes" onerror="this.style.display='none'"><figcaption>Escuela Albergue Raíces Huarpes N° 4-207, paraje San José</figcaption></figure></div>`;
   },
@@ -403,7 +478,7 @@ const TABS = {
       <p>Fotos del trabajo en la escuela y en el territorio. Cada imagen se carga en su marco al recibirla.</p>
       <div class="galeria">
         ${p.galeria.map(f=> f.src
-          ? `<figure><div class="marco"><img src="${f.src}" alt="${f.texto}"></div><figcaption>${f.texto}</figcaption></figure>`
+          ? `<figure><div class="marco"><img src="${f.src}" alt="${f.texto}" onerror="this.outerHTML='Foto pendiente'"></div><figcaption>${f.texto}</figcaption></figure>`
           : `<figure><div class="marco">Foto pendiente</div><figcaption>${f.texto}</figcaption></figure>`
         ).join("")}
       </div>
@@ -464,7 +539,7 @@ const TABS = {
         ${icoTur}
         <span class="etq">Proyecto de Turismo</span>
         <h2 id="h-tur">Circuito Turístico</h2>
-        <p>Circuito interpretativo en la Reserva Natural y Cultural Bosques Telteca, donde los alumnos se forman como futuros guías del patrimonio natural y cultural de Lavalle.</p>
+        <p>Circuito interpretativo en la Reserva Natural y Cultural Bosques Telteca, donde los alumnos se forman como futuros guías del patrimonio natural y cultural de Lavalle. Hoy la escuela presta el Circuito Renacer, en la plaza junto a la escuela, y el Circuito San José, estandarizados con ISO 9001:2015.</p>
         <button class="ver" data-go="detalle|turismo|">Ver Más <span class="flecha">→</span></button>
       </section>
       <section class="half cos" aria-labelledby="h-cos">
@@ -486,7 +561,7 @@ const TABS = {
       return mig + `<a href="#" class="volver noprint" data-go="detalle|${proy}|">← Volver al índice</a>` + subContent();
     }
     const enlace = (k,t) => `<a href="#" data-go="detalle|${proy}|${k}">${t}</a>`;
-    const indice = `<h2>Índice de documentación</h2><ol class="indice">${INDICE.map(([k,t,hijos]) =>
+    const indice = `<h2>Índice de documentación</h2><ol class="indice">${(proy==="turismo" ? INDICE.filter(x=>x[0]!=="qfd").concat(INDICE_TUR_EXTRA) : INDICE).map(([k,t,hijos]) =>
       `<li>${enlace(k,t)}${hijos ? `<ol>${hijos.map(([k2,t2]) => `<li>${enlace(k2,t2)}</li>`).join("")}</ol>` : ""}</li>`
     ).join("")}</ol>`;
     return mig + `
@@ -521,6 +596,14 @@ const TABS = {
       <span class="tag">Apartado común</span>
       <h1 class="t">Conclusiones y directrices</h1>
       <h2>Conclusiones</h2>
+      <h3>Proyecto de Turismo · Circuito Renacer</h3>
+      <ul>
+        <li>El servicio pasó de un recorrido informal a un servicio estandarizado: especificación técnica ET-ST-01, procedimiento P-ST-01, siete FTO y tiempo estándar de 80 ± 15 minutos.</li>
+        <li>El ID único de visita (VT-2026-NNN) da trazabilidad de punta a punta, desde la reserva hasta el archivo de la encuesta (ISO 9001, 8.5.2).</li>
+        <li>Los mayores riesgos son climáticos y de salud (Zonda, calor, hidratación): el AMFE y el protocolo de contingencias los llevan de inaceptables a aceptables con controles simples y baratos.</li>
+        <li>La auditoría mostró que lo diseñado todavía no está implementado del todo: la capacitación de los guías (7.2), el control documental (7.5) y la aplicación del guión (8.5.1) son las prioridades.</li>
+        <li>Quedan pendientes la habilitación turística, las autorizaciones de acceso a los sitios y la medición real de los indicadores en las salidas piloto.</li>
+      </ul>
       <p class="pendiente">Pendiente: se completa al cerrar el ciclo de la PSE 2026.</p>
       <h2>Opiniones</h2>
       <div class="cards">
@@ -538,6 +621,10 @@ const TABS = {
         <li>Documentar con códigos y versiones cada especificación, plan y registro.</li>
         <li>Resolver con laboratorio externo los ensayos que la escuela no puede hacer, y aplicar buenas prácticas mientras tanto.</li>
         <li>Verificar la normativa vigente de cada producto antes de publicar textos, rótulos o declaraciones.</li>
+        <li>En los servicios, definir desde el inicio un tiempo estándar y un tamaño de grupo, y medirlos en cada salida con una planilla simple.</li>
+        <li>Asignar un ID único a cada visita o lote para asegurar la trazabilidad desde el primer día.</li>
+        <li>Incluir el clima como variable de liberación (Paso / No paso) en toda actividad al aire libre en zona árida.</li>
+        <li>Validar con la comunidad Huarpe los contenidos culturales antes de usarlos en carteles o guiones.</li>
       </ol>`;
   },
 
@@ -554,6 +641,9 @@ const TABS = {
         <li><b>Facultad de Artes y Diseño:</b> Guillermo Lago, Mariana Gordillo</li>
         <li><b>Hospital Universitario:</b> Nicolena Andrioli Vazquez, Cecilia Lis Torres</li>
         <li><b>Estudiantes:</b> alumnos de Gestión de la Calidad y de los espacios curriculares participantes (por rol)</li>
+        <li><b>Gestión de la Calidad · Grupo N°3 (Proyecto de Turismo):</b> Sabrina Mataloni, Isabella Morandini, Tomás Raby y Juan Pablo Siracusa</li>
+        <li><b>Gestión de la Calidad · Proyecto de Cosmética:</b> Bernardo Costarelli, Franco La Motta, Tomás Aliaga y Andrés Landgrebe</li>
+        <li><b>Cátedra de Gestión de la Calidad:</b> Ing. Leticia Simoncini, Ing. Jorge Nózica e Ing. Fabrizio Perazzo</li>
       </ul>
       <h2>Canales</h2>
       <div class="pendiente">Pendiente: correo institucional del proyecto y redes sociales.</div>
@@ -575,6 +665,7 @@ function simRun(){
       <p class="nota">Proporción de la fórmula de referencia 500 : 100 : 100 g. Pesar siempre en gramos.</p>`;
     return;
   }
+  if(document.getElementById("tur-circ")){ simTur(); return; }
   const g=Math.max(1,+document.getElementById("ngr").value||20);
   const paradas=[["Recepción y charla de seguridad",10],["Parada 1: cartelería interpretativa",15],["Parada 2: flora y paisaje",15],["Parada 3: reloj solar y mural (propuesta)",15],["Cierre, preguntas y encuesta de satisfacción",10]];
   let t=9*60, filas="";
@@ -665,12 +756,13 @@ const FTO = [
 ];
 
 function ftoHTML(i){
-  const f = FTO[i], cod = 'FTO_CRE_' + String(i+1).padStart(2,'0');
+  const esTur = proy==="turismo";
+  const f = (esTur ? FTO_TUR : FTO)[i], cod = (esTur ? 'FTO_ST_' : 'FTO_CRE_') + String(i+1).padStart(2,'0');
   const fila = (arr) => arr.map(r => '<tr>' + r.map(x => '<td>' + x + '</td>').join('') + '</tr>').join('');
   return `<div class="fto">
 <table><tr><th colspan="4">INFORMACIÓN GENERAL</th></tr>
 <tr><td><b>Código FTO</b></td><td>${cod}</td><td><b>Fecha</b></td><td>[completar]</td></tr>
-<tr><td><b>Proceso</b></td><td>Elaboración de crema de jarilla</td><td><b>Autor/es FTO</b></td><td>Alumnos del Grupo 10 (por rol)</td></tr>
+<tr><td><b>Proceso</b></td><td>${esTur ? 'Servicio turístico · Circuito Renacer' : 'Elaboración de crema de jarilla'}</td><td><b>Autor/es FTO</b></td><td>${esTur ? 'Alumnos guías (por rol)' : 'Alumnos del Grupo 10 (por rol)'}</td></tr>
 <tr><td><b>Nombre de la operación</b></td><td colspan="3">${f.n}</td></tr>
 <tr><td><b>Objetivo</b></td><td colspan="3">${f.o}</td></tr>
 <tr><td><b>Descripción</b></td><td colspan="3">${f.d}</td></tr></table>
@@ -694,7 +786,7 @@ function ftoDescargar(i){
   const html = '<html xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><style>table{border-collapse:collapse;width:100%;margin-bottom:12px}td,th{border:1px solid #000;padding:4px;font-size:10pt;vertical-align:top;text-align:left}th{background:#e4eedb}</style></head><body>' + ftoHTML(i) + '</body></html>';
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob(['\ufeff', html], {type:'application/msword'}));
-  a.download = 'FTO_CRE_' + String(i+1).padStart(2,'0') + '.doc';
+  a.download = (proy==="turismo" ? 'FTO_ST_' : 'FTO_CRE_') + String(i+1).padStart(2,'0') + '.doc';
   a.click();
 }
 
@@ -764,12 +856,16 @@ const DESC = {
     "El proyecto Anfitrión turístico prepara a los alumnos como futuros guías. El circuito interpretativo tuvo su primera intervención en un espacio público, inaugurada el 12 de noviembre de 2025. Tras verificar su utilidad, se propone ampliarlo con un reloj solar y un mural interpretativo, y mejorar el diseño general con la UNCuyo (Facultades de Artes y Diseño e Ingeniería).",
     "El circuito se desarrolla en la Reserva Natural y Cultural Bosques Telteca y propone un recorrido interpretativo del patrimonio natural y cultural de Lavalle, con cartelería interpretativa, paradas de flora y paisaje, y la propuesta del reloj solar y el mural.",
     "La escuela tiene orientación en turismo y forma a los estudiantes en la atención de visitantes. El diseño del servicio contempla una recepción con charla de seguridad, tres paradas y un cierre con encuesta de satisfacción, con un criterio de un guía cada 15 personas que se valida en la salida piloto.",
-    "Están pendientes la corrección del itinerario y cronograma, los planes de seguridad y contingencia, y los registros de las salidas piloto."
+    "Están pendientes la corrección del itinerario y cronograma, los planes de seguridad y contingencia, y los registros de las salidas piloto.",
+    "<b>Circuito Renacer (eje de este informe).</b> Recorrido de 80 ± 15 minutos que parte de la escuela y recorre tres hitos: <b>A · Flora autóctona</b> de la plaza (algarrobo dulce, chañar, jarilla hembra, retamo, pichanilla, yaoyín y atamisqui, con carteles y códigos QR), <b>B · Estación ferroviaria abandonada</b> del Ferrocarril Belgrano, con su relato sobre el poblamiento local, y <b>C · Taller de la artesana</b>, con una demostración de cerámica o tejido y venta de productos de la comunidad y de la cosmética natural de la escuela.",
+    "<b>Circuito San José.</b> Recorrido rural de unos 194 minutos con flora del secano, el Bañado, el cementerio de los antiguos pobladores y la Capilla San José. Sobre este circuito se realizó el primer AMFE del servicio.",
+    "<b>Sistema de gestión.</b> Junto con la cátedra de Gestión de la Calidad (UNCuyo) se estandarizó el servicio con la especificación técnica ET-ST-01, el procedimiento P-ST-01 y una ficha FTO por operación; se definieron dos objetivos de calidad (satisfacción ≥ 90 % y ≥ 95 % de servicios en tiempo estándar); se analizaron los riesgos con AMFE y los costos de calidad, y el sistema pasó por una auditoría interna. La trazabilidad (ISO 9001, 8.5.2) se asegura con un ID único por visita (VT-2026-NNN)."
   ]
 };
 
 function validarSub(){
   if(sub && !CLAVES.some(c => c[0]===sub)) sub = null;
+  if(proy==="turismo" && sub==="qfd") sub = null;
 }
 
 function docCard(t,d,a){
@@ -782,8 +878,7 @@ function subContent(){
   const tabla=(hd,rows)=>`<table><tr>${hd.map(x=>`<th>${x}</th>`).join("")}</tr>${rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join("")}</tr>`).join("")}</table>`;
   if(proy==="turismo"){
     const p=P.turismo;
-    if(sub==="proceso") return TABS.simulacion(p)+`<p class="nota">Para el Circuito Turístico se presenta la simulación del servicio; las fichas FTO del circuito todavía no están cargadas.</p><h2>Documentación específica</h2><ul class="docs">${p.docs.map(d=>`<li>${d}</li>`).join("")}</ul>`;
-    return h(tituloSub(sub))+`<p class="pendiente">Pendiente: este apartado se completa a medida que se carga la documentación del Circuito Turístico.</p>`;
+    return subTurismo(sub)+pdfTur(sub);
   }
   const p=P.cosmetica;
   if(sub==="proceso") return TABS.simulacion(p);
@@ -814,7 +909,8 @@ function render(){
   const cont = document.getElementById("contenido");
   cont.innerHTML = tab==="galeria" ? TABS.galeria(P.cosmetica)+TABS.galeria(P.turismo) : (fn.length ? fn(p) : fn());
   if(tab !== "proyectos") cont.insertAdjacentHTML("afterbegin",'<div class="noprint"><button class="btn-imp" onclick="window.print()">Imprimir esta pestaña</button></div>');
-  if(tab==="detalle" && sub==="proceso"){ simRun(); if(proy==="cosmetica") cosInit(); else animInit(); }
+  if(tab==="detalle" && sub==="proceso"){ simRun(); if(proy==="cosmetica") cosInit(); else { animInit(); turInit(); } }
+  if(tab==="detalle" && proy==="turismo" && sub && sub!=="proceso") turSubInit();
   window.scrollTo(0,0);
 }
 
@@ -857,6 +953,799 @@ document.addEventListener("click", e=>{
 document.addEventListener("keydown", e=>{
   if((e.key==="Enter" || e.key===" ") && e.target.matches && e.target.matches("[data-go][role=link]")){ e.preventDefault(); e.target.click(); }
 });
+
+
+/* =====================================================================
+   PROYECTO B · TURISMO — Contenido completo (Gestión de la Calidad 2026)
+   Circuito Renacer (eje del informe), Circuito San José y propuesta Telteca.
+   Fuentes: documentación del servicio turístico (ET-ST-01, P-ST-01, PR-SGC-001, planes de control) e infografía.
+   Lo marcado como "Propuesta" fue redactado para completar el índice y debe validarse con la cátedra.
+   ===================================================================== */
+
+/* Ítems extra del índice que solo se muestran en Turismo */
+const INDICE_TUR_EXTRA = [
+  ["objetivos","Objetivos de calidad e indicadores"],
+  ["amfe","Gestión de riesgos: AMFE (PR-SGC-001)"],
+  ["sig","Sistema Integrado de Gestión: análisis de contingencia climática"],
+  ["impactos","Impactos sociales y ambientales"],
+  ["cartas","Control estadístico: capacidad y cartas de control"]
+];
+INDICE_TUR_EXTRA.forEach(x => CLAVES.push(x));
+
+/* Estándares oficiales del servicio (ET-ST-01 Rev. 02) */
+const STD = { tNom:80, tTol:15, nMin:5, nMax:15, isv:90, pst:95, aguaMl:250, tMax:38, vMax:50 };
+
+/* Circuitos: [actividad, minutos, nota/PCC] */
+const CIRCUITOS = {
+  renacer: { nombre:"Circuito Renacer (plaza junto a la escuela)", estado:"Circuito principal del informe · estandarizado en ET-ST-01",
+    paradas:[
+      ["Recepción, registro con ID de visita y charla de seguridad",15,"PCC-1 · despacho: N ≤ 15, clima, agua y botiquín"],
+      ["Caminata hasta la plaza",10,""],
+      ["Hito A · Flora autóctona de la plaza",10,"Cartelería a 1,10–1,40 m con QR"],
+      ["Hito B · Estación ferroviaria abandonada",10,"PCC-2 · control de tiempo intermedio, cordón a 1,50 m"],
+      ["Hito C · Taller y demostración de la artesana",15,"Asientos para el 100 % del grupo"],
+      ["Regreso a la escuela",10,""],
+      ["Puesta en común, encuesta y despedida",10,"PCC-3 · encuesta ISV (cláusula 9.1.2)"]
+    ]},
+  sanjose: { nombre:"Circuito San José (llegada a la Capilla)", estado:"Segundo circuito de la escuela · base del AMFE original",
+    paradas:[
+      ["Recepción, registro con ID de visita y charla de seguridad",15,"PCC-1"],
+      ["Caminata hasta el inicio del circuito",10,""],
+      ["Explicación de flora del secano",10,""],
+      ["Parada del Bañado",28,"Control pos lluvia"],
+      ["Cementerio",48,"Pautas de respeto"],
+      ["Capilla San José",53,"Ingreso por turnos"],
+      ["Regreso a la escuela",20,""],
+      ["Puesta en común y cierre",10,"Encuesta ISV"]
+    ]},
+  telteca: { nombre:"Propuesta de ampliación · Reserva Bosques Telteca", estado:"Propuesta original del sitio (reloj solar y mural con UNCuyo)",
+    paradas:[
+      ["Recepción y charla de seguridad",10,""],
+      ["Parada 1: cartelería interpretativa",15,""],
+      ["Parada 2: flora y paisaje",15,""],
+      ["Parada 3: reloj solar y mural (propuesta)",15,""],
+      ["Cierre, preguntas y encuesta de satisfacción",10,""]
+    ]}
+};
+let turCirc = "renacer";
+
+/* Flora nativa del monte (infografía) */
+const FLORA = [
+  ["Algarrobo dulce","Prosopis (Neltuma) flexuosa","Árbol emblema del monte; sombra, alimento (patay, añapa) y madera."],
+  ["Chañar","Geoffroea decorticans","Corteza que se desprende en tiras; frutos comestibles (arrope)."],
+  ["Jarilla","Larrea spp.","Arbusto aromático de uso medicinal; base del proyecto de cosmética. En la plaza se muestra la “jarilla hembra”."],
+  ["Retamo","Bulnesia retama","Arbusto de tallos verdes casi sin hojas, adaptado a la aridez."],
+  ["Pichanilla","Senna aphylla","Arbusto sin hojas, usado tradicionalmente como escoba."],
+  ["Yaoyín","Lycium chilense","Arbusto espinoso de frutos rojos pequeños, alimento de aves."],
+  ["Atamisqui","Atamisquea emarginata","Arbusto aromático, refugio de fauna y uso medicinal."]
+];
+
+/* ---------- FTO del servicio turístico (una por operación del Mapa Operativo) ---------- */
+const FTO_TUR = [
+{n:'Consulta y registro del turno',o:'Registrar la visita completa y asignarle un ID único para la trazabilidad (8.5.2)',d:'Se recibe la consulta, se verifica disponibilidad y se registra la visita con código VT-2026-NNN.',q:'Registro de la solicitud y asignación del ID de visita',c:'Se cargan fecha, horario, circuito, cantidad de visitantes, procedencia, contacto y requisitos especiales; se verifica disponibilidad de guías e infraestructura',con:'Google Forms / Excel / correo institucional, agenda de guías',qu:'Responsable de Registro (alumno), supervisado por docente',do:'Administración de la escuela o en línea',cu:'Una solicitud por grupo',cn:'Al recibir cada consulta (incluidas las de WhatsApp)',t:'10 min',e:[['Consulta o solicitud del visitante','1'],['Disponibilidad de fecha, guías e infraestructura','agenda']],s:[['Solicitud registrada con ID VT-2026-NNN','1 registro'],['Estado CONFORME: datos completos, fecha y guías disponibles','—']],eq:[['Formulario digital','Registrar la visita','Respaldo en papel si no hay conexión']],doc:[['P-ST-01 Procedimiento del servicio turístico','Rev. 01','Procedimiento','Nube institucional'],['R-ST-01 Registro de turno','Rev. 01','Registro','Nube / carpeta física']]},
+{n:'Pago del servicio',o:'Cobrar la tarifa oficial y vincular el comprobante al ID de visita',d:'Se registra el pago y se emite el comprobante asociado al ID.',q:'Cobro y emisión de comprobante',c:'Se informa la tarifa vigente, se cobra por el medio elegido y se registra el comprobante con el ID de la visita',con:'Tarifario visible, efectivo / transferencia / QR, talonario o comprobante digital',qu:'Responsable Administrativo',do:'Recepción de la escuela',cu:'Un comprobante por visita',cn:'Antes de la fecha del recorrido o al llegar',t:'5 min',e:[['Datos del visitante e ID de visita','1'],['Información de pago','monto según tarifario']],s:[['Comprobante de pago asociado al ID','1']],eq:[['Medio de cobro digital','Cobrar','Plan B en efectivo ante cortes de señal']],doc:[['R-ST-02 Comprobante y control de pago','Rev. 01','Registro','Carpeta administrativa']]},
+{n:'Preparar el servicio',o:'Liberar la salida solo si se cumplen las condiciones de seguridad (PCC-1)',d:'Verificación de sendero, estación, taller, clima, agua y botiquín antes de cada turno.',q:'Checklist de preparación y liberación de la salida',c:'Se recorre el sendero (scouting), se revisa el cordón de la estación, se consulta SMN/Defensa Civil 30 min antes y se controla stock de agua y botiquín',con:'Checklist R-ST-03, termómetro, app SMN, reglilla, botiquín tipo A, bidones de agua',qu:'Coordinador de Operaciones y Guía a cargo',do:'Escuela, plaza, estación y taller',cu:'Un checklist por turno',cn:'30 min antes de cada salida (inspección de sendero: diaria)',t:'20 a 30 min',e:[['Visita programada e información del circuito','1'],['Recursos e infraestructura','—']],s:[['Salida liberada (Paso) o suspendida (No paso)','checklist firmado']],eq:[['Botiquín tipo A','Primeros auxilios, antiofídico/picaduras y sales de rehidratación','Reponer tras cada visita'],['Bidones/botellas térmicas','Hidratación','≥ 250 ml por persona']],doc:[['ET-ST-01 Especificación técnica del servicio','Rev. 02','Especificación','Nube institucional'],['R-ST-03 Checklist de salida','Rev. 01','Registro','Carpeta de campo']]},
+{n:'Recepción del visitante y charla inicial',o:'Recibir al grupo y comunicar las pautas de seguridad y convivencia',d:'Concentración en la escuela, conteo del grupo y charla con guión estandarizado.',q:'Recepción, conteo y charla de seguridad',c:'Se cuenta al grupo contra la nómina, se divide si supera 15 personas y se da la charla con soporte impreso',con:'Nómina de visitantes, guión impreso de la charla',qu:'Guía a cargo (alumno) acompañado por docente',do:'Patio de la escuela, a la sombra',cu:'Grupos de 5 a 15 personas por guía',cn:'Al inicio de cada turno',t:'15 min',e:[['Visitantes programados e ID de visita','N personas'],['Pautas de seguridad','guión']],s:[['Grupo preparado, registrado e informado','R-ST-04']],eq:[['Guión impreso','Asegurar que no se omita la charla','Versión vigente']],doc:[['R-ST-04 Nómina y registro de charla','Rev. 01','Registro','Carpeta de campo']]},
+{n:'Caminata por el Circuito Renacer',o:'Prestar el recorrido por los hitos A, B y C dentro del tiempo estándar',d:'Recorrido guiado: flora de la plaza, estación ferroviaria y taller artesanal.',q:'Guiado e interpretación en los hitos A, B y C',c:'El guía recorre los hitos con el grupo, apoya la explicación en carteles y QR, registra la hora en cada parada y controla el tiempo en la estación (PCC-2)',con:'Cartelería con QR, tarjetas de apoyo del guía, cronómetro, botiquín, agua',qu:'Guía a cargo (alumno) y docente acompañante; artesana en el hito C',do:'Plaza, estación abandonada y taller de la artesana',cu:'Un recorrido por grupo',cn:'En la franja 09:30–11:00 o 17:00–18:30',t:'45 min de hitos dentro del ciclo de 80 ± 15 min',e:[['Grupo registrado, información de flora e historia','—']],s:[['Recorrido realizado con todos los hitos','R-ST-05 con tiempos']],eq:[['Cronómetro','Medir tiempos por parada','Registrar hora de llegada y salida'],['Teléfono con lector QR','Verificar audioguía','Prueba semanal']],doc:[['R-ST-05 Planilla de tiempos por parada','Rev. 01','Registro','Carpeta de campo']]},
+{n:'Regreso a la escuela y cierre',o:'Cerrar la experiencia y medir la satisfacción del visitante (9.1.2)',d:'Puesta en común, encuesta de satisfacción y despedida.',q:'Puesta en común y encuesta',c:'Se comparte una reflexión sobre la cultura Huarpe, se entrega la encuesta (QR o papel) y se despide al grupo',con:'Encuesta digital por QR y lote de encuestas en papel (plan B)',qu:'Guía a cargo y Coordinador de Calidad',do:'Escuela',cu:'Una encuesta por visitante adulto',cn:'Al finalizar cada recorrido',t:'10 min',e:[['Visitantes que finalizaron, registros de tiempos','—']],s:[['Encuestas respondidas','R-ST-06'],['Recorrido cerrado','—']],eq:[['Formulario QR','Encuesta','Papel ante cortes de Wi-Fi']],doc:[['R-ST-06 Encuesta de satisfacción','Rev. 01','Registro','Nube institucional']]},
+{n:'Control y almacenamiento de documentación',o:'Conservar registros completos, vigentes y trazables por ID de visita (7.5 y 8.5.2)',d:'Verificación y archivo en la nube de todos los registros de la visita.',q:'Verificación y archivo de registros',c:'Se comprueba que estén R-ST-01 a R-ST-06, se digitalizan los papeles y se archivan en la carpeta del ID; se pasan a solo lectura',con:'Nube institucional, lista maestra de documentos',qu:'Responsable Documental del SGC',do:'Administración de la escuela',cu:'Todos los registros de cada visita',cn:'Dentro de las 48 h posteriores a la visita',t:'15 min por visita',e:[['Registros de todas las etapas y encuestas','—']],s:[['Servicio trazable, historial de visita completo','carpeta VT-2026-NNN']],eq:[['Nube institucional','Archivo y control de permisos','Historial de versiones activo']],doc:[['Lista maestra de documentos','Rev. 01','Control documental','Nube institucional']]}
+];
+
+/* ---------- AMFE · Circuito San José (original, 30/09/2026) ---------- */
+/* [paso, modo de fallo, efecto, G, causa, O, control actual, D, acción, responsable, G2, O2, D2] */
+const AMFE_SJ = [
+["Concentración inicial","Llegada con retraso severo del contingente","Desfasaje del cronograma, superposición de grupos",5,"Tráfico, mala logística del transporte",6,"Contacto telefónico informal",4,"Fijar tolerancia máxima y solicitar ubicación en tiempo real","Docente a cargo",5,6,1],
+["Concentración inicial","Omitir o recortar la charla inicial","Desconocimiento de normas de conducta",4,"Apuro por retrasos, inexperiencia del guía",5,"Memoria del guía",6,"Soporte impreso para la charla inicial","Estudiante guía",4,2,6],
+["Concentración inicial","Iniciar sin verificar el reporte meteorológico","Contingencias climáticas, accidentes",10,"Falta de protocolo estricto, mala señal",4,"Observación del cielo antes de salir",6,"Revisión obligatoria del clima la tarde anterior","Docente a cargo",10,3,2],
+["Concentración inicial","Despacho con botiquín incompleto o sin agua suficiente","Falta de insumos de primeros auxilios",9,"No se repuso stock tras la última visita",4,"Revisión visual rápida",5,"Auditoría y control de stock obligatorio post-visita","Docente a cargo",9,1,5],
+["Concentración inicial","Obstáculos, zanjas o raíces expuestas > 2 cm","Lesión de una persona en la caminata",7,"Erosión, falta de mantenimiento",5,"Revisión visual rápida",6,"Inspección (scouting) previa al primer grupo del día","Estudiante guía",7,4,3],
+["Inicio de la caminata","Dispersión o desorientación de visitantes","Persona perdida",7,"Falta de señalética, grupos muy grandes",4,"Conteo manual y visual",6,"Mejora de la señalética inicial","Docente a cargo",7,2,6],
+["Inicio de la caminata","Salir en horario de alta radiación sin protección","Lesión / deshidratación",9,"Visitante desinformado, retraso de horario",5,"Advertencia verbal",6,"Instructivo de indumentaria previo, stock de sombreros, inspección antes de salir","Docente a cargo",9,2,4],
+["Inicio de la caminata","Ritmo de marcha acelerado, fatiga prematura","Lesión / descompensación",9,"Inexperiencia del guía, presión por recuperar tiempo",5,"Percepción visual del grupo",6,"Marcha cronometrada","Estudiante guía",9,3,3],
+["Explicación de flora","Falla de lectura QR por deterioro o enlace caído","Falta de información, cliente insatisfecho",5,"Sol/lluvia, falta de recambio",4,"Inspección visual",5,"Revisión quincenal y plastificado de alta densidad","Docente a cargo",5,3,1],
+["Explicación de flora","Información botánica/patrimonial errónea o incompleta","Cliente insatisfecho",6,"Falta de retención, nervios del guía",4,"Evaluaciones teóricas en aula",5,"Tarjetas mnemotécnicas de apoyo","Docente a cargo",6,2,5],
+["Explicación de flora","Exceder el tiempo estandarizado de la parada","Llegada tardía, superposición de turnos",5,"Exceso de preguntas, mala gestión del tiempo",5,"Reloj personal del guía",6,"Temporizador con alarma vibratoria","Estudiante guía",5,3,2],
+["Explicación de flora","Parada bajo sol directo continuo","Lesión / descompensación",9,"Mala elección del punto de detención",3,"Sentido común del guía",6,"Demarcar puntos de sombra obligatorios en el mapa","Docente a cargo",9,1,6],
+["Explicación de flora","Anegamiento o barro excesivo","Lesión / descompensación",8,"Lluvias recientes",3,"Inspección visual",4,"Controles obligatorios pos lluvia","Docente a cargo",8,3,1],
+["Parada del Bañado","Tránsito fuera de la huella","Lesión / persona perdida",6,"Falta de límites físicos",5,"Advertencia verbal reiterada",5,"Delimitación física sutil con piedras","Docente a cargo",6,3,5],
+["Parada del Bañado","Falta de claridad en el relato","Cliente insatisfecho",4,"Ruido ambiental, voz baja",4,"Preguntar si escuchan",4,"Amplificador de voz portátil","Estudiante guía",4,1,4],
+["Parada del Bañado","Abandono de residuos","Contaminación de la zona",3,"Descuido del visitante",6,"Inspección visual",4,"Bolsita individual de residuos al inicio","Docente a cargo",3,4,4],
+["Parada del Bañado","Anegamiento o barro excesivo","Lesión / descompensación",9,"Lluvias, desborde natural",3,"Inspección visual",4,"Controles obligatorios pos lluvia","Docente a cargo",9,3,1],
+["Cementerio","Relato histórico vago o desvinculado","Cliente insatisfecho",4,"Falta de retención, nervios",4,"Evaluaciones en aula",5,"Tarjetas mnemotécnicas de apoyo","Docente a cargo",4,2,5],
+["Cementerio","Acumulación de visitantes en vías estrechas","Cliente insatisfecho",5,"Grupo demasiado numeroso",6,"Inspección visual",6,"Subdividir en dos subgrupos con rotación","Estudiante guía",5,2,6],
+["Cementerio","Extensión excesiva de la parada","Llegada tardía, superposición",5,"Exceso de preguntas",5,"Reloj del guía",6,"Temporizador con alarma vibratoria","Estudiante guía",5,3,2],
+["Cementerio","Anegamiento o barro excesivo","Lesión / descompensación",10,"Lluvias, desborde",3,"Inspección visual",4,"Controles obligatorios pos lluvia","Docente a cargo",10,3,1],
+["Capilla San José","Saturación del espacio interior o falta de ventilación","Lesión / descompensación",8,"Ingreso simultáneo sin respetar capacidad",6,"Inspección visual",4,"Cartel de capacidad máxima e ingreso por turnos","Estudiante guía",8,3,4],
+["Capilla San José","Omisión del relato sobre devoción","Cliente insatisfecho",4,"Apuro por regresar",4,"Evaluaciones en aula",5,"Tarjetas mnemotécnicas de apoyo","Docente a cargo",4,2,5],
+["Vuelta a la escuela","Omitir el espacio de reflexión","Cliente insatisfecho",3,"Cansancio, apuro",5,"Control del docente",4,"Integrar la reflexión durante el refrigerio","Docente a cargo",3,2,4],
+["Vuelta a la escuela","Falla de Wi-Fi para encuesta digital","Pérdida de respuestas",3,"Red inestable en zona rural",5,"Control del docente",4,"Lote de encuestas en papel como plan B","Docente a cargo",1,5,4],
+["Vuelta a la escuela","Llegada fuera de tolerancia de tiempo","Desajuste con el transporte",4,"Micropérdidas de tiempo en paradas",7,"Control de hora de inicio y fin",5,"Rediseñar el recorrido con holgura","Docente a cargo",4,2,5]
+];
+
+/* ---------- AMFE · Circuito Renacer (adaptado) ---------- */
+const AMFE_REN = [
+["Recepción y despacho","Iniciar sin verificar el reporte meteorológico (Zonda ≥ 50 km/h o T ≥ 38 °C)","Contingencia climática, accidentes",10,"Falta de protocolo, mala señal",4,"Observación del cielo",6,"Consulta SMN/Defensa Civil 30 min antes, registrada en R-ST-03","Coordinador de Operaciones",10,3,2],
+["Recepción y despacho","Botiquín incompleto o agua < 250 ml por persona","Sin insumos de primeros auxilios o hidratación",9,"Stock no repuesto",4,"Revisión visual rápida",5,"Checklist R-ST-03 y reposición post-visita","Guía a cargo",9,1,3],
+["Recepción y despacho","Grupo mayor a 15 personas por guía","Relato ininteligible, saturación del taller",6,"Reserva sin control de cupo",4,"Conteo manual",5,"Cupo en el formulario y división en subgrupos","Responsable de Registro",6,2,2],
+["Recepción y despacho","Omitir o recortar la charla de seguridad","Desconocimiento de pautas",4,"Apuro por retrasos",5,"Memoria del guía",6,"Guión impreso y registro en R-ST-04","Guía a cargo",4,2,4],
+["Caminata a la plaza","Salir en horario de radiación alta (UV > 8)","Golpe de calor, deshidratación",9,"Retraso del turno",5,"Advertencia verbal",6,"Franjas fijas 09:30–11:00 y 17:00–18:30, sombrero y agua","Coordinador de Operaciones",9,2,4],
+["Hito A · Flora","Obstáculos o raíces expuestas > 2 cm en el sendero","Caída o lesión",7,"Erosión, falta de mantenimiento",5,"Revisión visual",6,"Inspección diaria con reglilla al abrir","Operario de mantenimiento",7,3,3],
+["Hito A · Flora","Tránsito fuera del sendero sobre la flora nativa","Daño a la jarilla hembra y otras especies",6,"Falta de límites físicos",5,"Advertencia verbal",5,"Borde del sendero con piedras y cartel de no pisar","Guía a cargo",6,3,4],
+["Hito A · Flora","Código QR ilegible o enlace caído","Falta de información, visitante insatisfecho",5,"Deterioro por sol",4,"Inspección visual",5,"Prueba semanal con celular y QR grabado láser o film UV","Encargado técnico",5,3,1],
+["Hito A · Flora","Información botánica errónea (nombre científico o uso)","Pérdida de credibilidad",6,"Falta de retención, nervios",4,"Evaluaciones en aula",5,"Tarjetas de apoyo validadas con la comunidad","Docente a cargo",6,2,4],
+["Hito B · Estación","Ingreso a zona no delimitada (cornisas, chapas sueltas, pozos)","Lesión grave por desprendimiento o caída",9,"Falta de barrera física",3,"Indicación verbal",6,"Cordón a ≥ 1,50 m y checklist estructural semanal firmado","Responsable de Seguridad e Higiene",9,1,3],
+["Hito B · Estación","Exceder el tiempo de la parada (PCC-2)","Ciclo fuera de 80 ± 15 min",5,"Exceso de preguntas",5,"Reloj del guía",6,"Control de hora en R-ST-05 y temporizador","Guía a cargo",5,3,2],
+["Hito B · Estación","Relato histórico del ferrocarril vago","Visitante insatisfecho",4,"Falta de preparación",4,"Evaluación en aula",5,"Guión con fechas clave del Ferrocarril Belgrano","Docente a cargo",4,2,4],
+["Hito C · Taller","Asientos insuficientes para el grupo","Pérdida de confort, baja valoración",5,"Grupo mayor al previsto",4,"Observación al llegar",5,"Conteo previo y aviso a la artesana con el ID de visita","Guía a cargo",5,2,3],
+["Hito C · Taller","Demostración que supera 15 minutos","Retraso del ciclo",5,"Sin pauta acordada con la artesana",5,"Ninguno",7,"Pauta escrita de 15 min y aviso a los 12 min","Guía a cargo",5,3,3],
+["Hito C · Taller","Precios no visibles o cobro sin comprobante","Reclamo, falta de transparencia",6,"Lista informal",4,"Ninguno",6,"Lista de precios visible y medios de pago (efectivo, transferencia, QR)","Responsable Administrativo",6,2,3],
+["Hito C · Taller","Falla del pago digital por falta de señal","Demora, reclamo",4,"Conectividad rural",6,"Ninguno",4,"Aviso previo de llevar efectivo y transferencia diferida","Responsable Administrativo",4,6,2],
+["Cierre","Falla de Wi-Fi para la encuesta digital","Pérdida de respuestas para el ISV",3,"Red inestable",5,"Control del docente",4,"Encuestas en papel como plan B","Coordinador de Calidad",3,5,2],
+["Cierre","Llegada fuera de tolerancia de tiempo","Ciclo fuera de estándar (PST)",4,"Suma de micropérdidas",7,"Control de hora de inicio y fin",5,"Registro por parada (R-ST-05) y holgura de 5 min","Guía a cargo",4,3,3]
+];
+
+/* ---------- Costos de calidad: modelo de análisis (valores ilustrativos) ---------- */
+const COSTOS = [ // [categoría, ítem, temporada 1, temporada 2]
+  ["Prevención","Capacitación de guías (RCP, primeros auxilios, patrimonio)",20000,60000],
+  ["Prevención","Cartelería interpretativa y QR de alta durabilidad",15000,40000],
+  ["Prevención","Mantenimiento de sendero y cordón en la estación",10000,30000],
+  ["Prevención","Diseño de procedimientos, FTO y guión",5000,15000],
+  ["Evaluación","Checklist de salida y control meteorológico (horas)",5000,20000],
+  ["Evaluación","Encuestas de satisfacción (impresión y análisis)",3000,8000],
+  ["Evaluación","Verificación semanal de QR y auditoría documental",2000,10000],
+  ["Fallas internas","Reprogramación por omisión del chequeo de seguridad",30000,8000],
+  ["Fallas internas","Reconstrucción de registros extraviados",15000,4000],
+  ["Fallas internas","Reposición urgente de QR ilegibles",12000,3000],
+  ["Fallas externas","Compensación o reprogramación por suspensión tardía (Zonda)",60000,15000],
+  ["Fallas externas","Atención de incidentes (caídas, deshidratación)",40000,10000],
+  ["Fallas externas","Reclamos por cobro o falta de comprobante",20000,5000]
+];
+
+/* ====================== Utilidades ====================== */
+const tblT = (hd,rows,cls) => `<div class="tscroll"><table${cls?` class="${cls}"`:""}><tr>${hd.map(x=>`<th>${x}</th>`).join("")}</tr>${rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join("")}</tr>`).join("")}</table></div>`;
+const hT = t => `<span class="tag">Proyecto B · Turismo</span><h1 class="t">${t}</h1>`;
+const prop = (t) => `<p class="propuesta"><b>Propuesta del equipo.</b> ${t||"Contenido redactado para completar el informe a partir de los TPs; validar con la cátedra y con la escuela."}</p>`;
+const hhmm = m => String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0");
+const nprCls = v => v>=200 ? "npr-i" : v>=100 ? "npr-m" : "npr-a";
+
+/* ====================== Simulación del servicio ====================== */
+function simTurHTML(){
+  return `
+    <span class="tag">Proyecto B</span>
+    <h1 class="t">Simulación del servicio del circuito</h1>
+    <p>Simulá una salida con los estándares de la <b>ET-ST-01</b>: tamaño de grupo de ${STD.nMin} a ${STD.nMax} personas por guía, ciclo de ${STD.tNom} ± ${STD.tTol} min, agua ≥ ${STD.aguaMl} ml por persona y suspensión con viento ≥ ${STD.vMax} km/h o temperatura ≥ ${STD.tMax} °C.</p>
+    <div class="sim-in noprint">
+      <label>Circuito: <select id="tur-circ">
+        <option value="renacer">Circuito Renacer</option>
+        <option value="sanjose">Circuito San José</option>
+        <option value="telteca">Propuesta Telteca</option></select></label>
+      <label>Turno: <select id="tur-turno"><option value="570">Mañana 09:30</option><option value="1020">Media tarde 17:00</option></select></label>
+      <label>Personas: <input id="ngr" type="number" min="1" value="20"></label>
+      <label>Temperatura (°C): <input id="tur-temp" type="number" value="31"></label>
+      <label>Viento (km/h): <input id="tur-viento" type="number" value="20"></label>
+      <label>Agua disponible (L): <input id="tur-agua" type="number" step="0.5" value="6"></label>
+    </div>
+    <div id="simout"></div>
+    <h2>Animación del recorrido</h2>
+    <div id="tur-anim"></div>`;
+}
+function simTur(){
+  const el=document.getElementById("simout"); if(!el) return;
+  turCirc = document.getElementById("tur-circ").value;
+  const C = CIRCUITOS[turCirc];
+  const g = Math.max(1, Math.round(+document.getElementById("ngr").value||1));
+  const t0 = +document.getElementById("tur-turno").value;
+  const temp = +document.getElementById("tur-temp").value;
+  const vto = +document.getElementById("tur-viento").value;
+  const agua = +document.getElementById("tur-agua").value;
+  const guias = Math.ceil(g/STD.nMax), sub = Math.ceil(g/guias);
+  const aguaReq = (g+guias)*STD.aguaMl/1000;
+  const clima = temp < STD.tMax && vto < STD.vMax;
+  const hidr = agua >= aguaReq;
+  let t=t0, filas="";
+  C.paradas.forEach(([nom,min,nota])=>{ filas+=`<tr><td>${hhmm(t)}</td><td>${nom}</td><td>${min} min</td><td class="nota">${nota||""}</td></tr>`; t+=min; });
+  const total=C.paradas.reduce((s,x)=>s+x[1],0);
+  const enStd = total>=STD.tNom-STD.tTol && total<=STD.tNom+STD.tTol;
+  const fin = t0===570 ? 660 : 1110;
+  const ok = (b,si,no) => `<span class="${b?"ok":"no"}">${b?"✔ "+si:"✖ "+no}</span>`;
+  const libera = clima && hidr;
+  el.innerHTML = `<p class="lead" style="margin:6px 0"><b>${C.nombre}</b> · <span class="nota">${C.estado}</span></p>
+    ${tblT(["Horario","Actividad","Duración","Control"],[])}`.replace("</table></div>","")+filas+`</table></div>
+    <div class="kpis">
+      <div class="kpi"><b>${total} min</b><span>Duración total · fin ${hhmm(t)}</span></div>
+      <div class="kpi"><b>${guias}</b><span>Guías (${guias>1?guias+" subgrupos de hasta "+sub:"1 grupo"})</span></div>
+      <div class="kpi"><b>${aguaReq.toFixed(1)} L</b><span>Agua requerida (${g} visitantes + ${guias} guías)</span></div>
+      <div class="kpi ${libera?"kpi-ok":"kpi-no"}"><b>${libera?"PASO":"NO PASO"}</b><span>Liberación de la salida (PCC-1)</span></div>
+    </div>
+    <ul class="checks">
+      <li>${ok(clima,`Clima apto (${temp} °C, ${vto} km/h)`,`Suspender: ${temp>=STD.tMax?"temperatura ≥ 38 °C ":""}${vto>=STD.vMax?"viento ≥ 50 km/h (Zonda)":""} — aplicar protocolo de contingencias climáticas`)}</li>
+      <li>${ok(hidr,`Agua suficiente (${agua} L ≥ ${aguaReq.toFixed(1)} L)`,`Faltan ${(aguaReq-agua).toFixed(1)} L de agua: reponer antes de salir`)}</li>
+      <li>${ok(g<=STD.nMax,`Grupo dentro del cupo (${g} ≤ 15)`,`${g} personas: dividir en ${guias} subgrupos con un guía cada uno`)}</li>
+      ${g<STD.nMin?`<li><span class="parcial">⚠ Grupo menor al mínimo de ${STD.nMin} personas: evaluar unirlo a otro turno</span></li>`:""}
+      <li>${ok(enStd,`Ciclo dentro de ${STD.tNom} ± ${STD.tTol} min`,`Ciclo de ${total} min fuera del estándar del Renacer (${STD.tNom-STD.tTol}–${STD.tNom+STD.tTol} min): se rige por su propio tiempo estándar`)}</li>
+      <li>${ok(t<=fin,`Termina dentro de la ventana operativa (hasta ${hhmm(fin)})`,`Termina a las ${hhmm(t)}, fuera de la ventana operativa (hasta ${hhmm(fin)})`)}</li>
+    </ul>
+    <p class="nota">Tiempos por parada del tiempo estándar inicial. Se ajustan con las planillas R-ST-05 de las salidas piloto.</p>`;
+  turAnimInit();
+}
+
+/* Animación con mapa esquemático del recorrido */
+let turTimer=null, turIdx=0;
+const POS_REN = [[50,128],[105,92],[150,58],[250,44],[322,112],[200,140],[60,132]];
+function turPos(i,n){
+  if(turCirc==="renacer") return POS_REN[i];
+  const a = Math.PI + i/(n-1)*Math.PI*1.7;
+  return [190+140*Math.cos(a), 92+56*Math.sin(a)];
+}
+function turAnimInit(){
+  clearInterval(turTimer); turTimer=null; turIdx=0;
+  const el=document.getElementById("tur-anim"); if(!el) return;
+  const P0 = CIRCUITOS[turCirc].paradas, n=P0.length;
+  const pts = P0.map((_,i)=>turPos(i,n));
+  const ruta = "M"+pts.map(p=>p.join(",")).join(" L");
+  const lbl = turCirc==="renacer" ? ["Escuela","","A · Flora","B · Estación","C · Taller","",""] : P0.map((_,i)=>String(i+1));
+  el.innerHTML = `<div class="escena"><svg id="tur-svg" viewBox="0 0 380 170" role="img" aria-label="Mapa esquemático del recorrido">
+      <rect width="380" height="170" rx="12" fill="#ffe8cd"/>
+      <path d="M0,150 Q90,120 190,150 T380,140 V170 H0 Z" fill="#ffd19b" opacity=".7"/>
+      ${turCirc==="renacer" ? `<g class="sway"><circle cx="140" cy="38" r="9" fill="#6A9624"/><circle cx="168" cy="70" r="7" fill="#4A6B1F"/></g>
+        <rect x="236" y="20" width="30" height="16" fill="#af5700"/><path d="M232,20 L250,10 L270,20 Z" fill="#8a4500"/>
+        <rect x="312" y="122" width="22" height="16" fill="#c06500"/><rect x="34" y="112" width="34" height="22" fill="#8a4500"/>` : ""}
+      <path d="${ruta}" fill="none" stroke="#af5700" stroke-width="3" stroke-dasharray="6 5"/>
+      ${pts.map((p,i)=>`<g><circle cx="${p[0]}" cy="${p[1]}" r="6" fill="#fff" stroke="#af5700" stroke-width="2"/>${lbl[i]?`<text x="${p[0]}" y="${p[1]-11}" font-size="10" text-anchor="middle" fill="#4a2500" font-family="Arial">${lbl[i]}</text>`:""}</g>`).join("")}
+      <g id="tur-dot" style="transition:transform .9s ease"><circle r="9" fill="#e48200" stroke="#fff" stroke-width="2"/><text y="4" font-size="10" text-anchor="middle" fill="#fff" font-family="Arial">●</text></g>
+    </svg></div>
+    <div class="anim-ctrl noprint"><button class="btn-imp" id="tur-play">Reproducir</button><button class="btn-imp" id="tur-reset">Reiniciar</button></div>
+    <div class="anim-track">${P0.map((s,i)=>`<div class="anim-paso" data-i="${i}"><span class="num">${i+1}</span>${s[0]} <span class="nota">(${s[1]} min)</span></div>`).join("")}</div>
+    <div class="anim-barra"><div id="tur-bar" style="height:100%;width:0;background:var(--acc);transition:width .5s"></div></div>
+    <p class="nota" id="tur-msg"></p>`;
+  document.getElementById("tur-play").onclick=turToggle;
+  document.getElementById("tur-reset").onclick=()=>{ clearInterval(turTimer); turTimer=null; turIdx=0; document.getElementById("tur-play").textContent="Reproducir"; turPaint(); };
+  el.querySelectorAll(".anim-paso").forEach(p=>p.onclick=()=>{ turIdx=+p.dataset.i; turPaint(); });
+  turPaint();
+}
+function turPaint(){
+  const P0=CIRCUITOS[turCirc].paradas, n=P0.length;
+  const d=document.getElementById("tur-dot"); if(!d){ clearInterval(turTimer); turTimer=null; return; }
+  const p=turPos(Math.min(turIdx,n-1),n);
+  d.setAttribute("transform",`translate(${p[0]},${p[1]})`); d.style.transform=`translate(${p[0]}px,${p[1]}px)`;
+  document.querySelectorAll("#tur-anim .anim-paso").forEach((x,i)=>{ x.classList.toggle("hecho",i<turIdx); x.classList.toggle("activo-anim",i===turIdx); });
+  const acum = P0.slice(0,turIdx+1).reduce((s,x)=>s+x[1],0), tot=P0.reduce((s,x)=>s+x[1],0);
+  document.getElementById("tur-bar").style.width=(acum/tot*100)+"%";
+  document.getElementById("tur-msg").textContent=`Paso ${turIdx+1} de ${n}: ${P0[turIdx][0]} · minuto acumulado ${acum} de ${tot}${P0[turIdx][2]?" · "+P0[turIdx][2]:""}`;
+  const fp=document.getElementById("fto-panel");
+  if(fp && turCirc==="renacer"){ const map=[3,4,4,4,4,5,5]; ftoTurPaint(map[turIdx]); }
+}
+function turToggle(){
+  const b=document.getElementById("tur-play"), n=CIRCUITOS[turCirc].paradas.length;
+  if(turTimer){ clearInterval(turTimer); turTimer=null; b.textContent="Reproducir"; return; }
+  if(turIdx>=n-1) turIdx=0;
+  b.textContent="Pausar"; turPaint();
+  turTimer=setInterval(()=>{ if(turIdx>=n-1){ clearInterval(turTimer); turTimer=null; b.textContent="Reproducir"; return; } turIdx++; turPaint(); },1700);
+}
+
+/* FTO del turismo: reutiliza la plantilla de la cosmética */
+let ftoTurSel=0;
+function ftoTurPaint(i){
+  ftoTurSel=i;
+  document.querySelectorAll("#tur-fto-lista .anim-paso").forEach((x,k)=>x.classList.toggle("activo-anim",k===i));
+  const fp=document.getElementById("fto-panel"); if(!fp) return;
+  fp.innerHTML=`<div class="noprint"><button class="btn-imp" onclick="ftoDescargar(${i})">Descargar esta FTO (Word)</button> <button class="btn-imp" onclick="window.print()">Imprimir FTO</button></div>`+ftoHTML(i);
+}
+function turInit(){
+  ["tur-circ","tur-turno","ngr","tur-temp","tur-viento","tur-agua"].forEach(id=>{ const x=document.getElementById(id); if(x) x.oninput=x.onchange=simTur; });
+  const L=document.getElementById("tur-fto-lista");
+  if(L){ L.innerHTML='<div class="anim-track">'+FTO_TUR.map((f,i)=>`<div class="anim-paso" data-i="${i}"><span class="num">${i+1}</span>${f.n}</div>`).join("")+'</div>';
+    L.querySelectorAll(".anim-paso").forEach(p=>p.onclick=()=>ftoTurPaint(+p.dataset.i)); }
+  simTur();
+  if(L) ftoTurPaint(0);
+}
+
+/* Calculadora de indicadores */
+function indCalc(){
+  const g=id=>+document.getElementById(id).value||0;
+  const r=g("i-resp"), s=g("i-sat"), v=g("i-vis"), d=g("i-dentro");
+  const isv=r?s/r*100:0, pst=v?d/v*100:0;
+  document.getElementById("i-out").innerHTML=`<div class="kpis">
+    <div class="kpi ${isv>=STD.isv?"kpi-ok":"kpi-no"}"><b>ISV ${isv.toFixed(1)} %</b><span>Meta ≥ ${STD.isv} % · ${isv>=STD.isv?"cumple":"no cumple: analizar causas (10.2)"}</span></div>
+    <div class="kpi ${pst>=STD.pst?"kpi-ok":"kpi-no"}"><b>PST ${pst.toFixed(1)} %</b><span>Meta ≥ ${STD.pst} % · ${pst>=STD.pst?"cumple":"no cumple: revisar tiempos en R-ST-05"}</span></div></div>`;
+}
+function costosCalc(){
+  const tb=document.getElementById("c-tab"); if(!tb) return;
+  const v=[...tb.querySelectorAll("input")].map(x=>+x.value||0);
+  const cats=["Prevención","Evaluación","Fallas internas","Fallas externas"], tot=[{},{}];
+  COSTOS.forEach((c,i)=>{ [0,1].forEach(k=>{ tot[k][c[0]]=(tot[k][c[0]]||0)+v[i*2+k]; }); });
+  const T=[0,1].map(k=>cats.reduce((s,c)=>s+(tot[k][c]||0),0));
+  const fmt=n=>"$ "+Math.round(n).toLocaleString("es-AR");
+  const rows=cats.map(c=>[c,fmt(tot[0][c]||0),(T[0]?(tot[0][c]/T[0]*100):0).toFixed(1)+" %",fmt(tot[1][c]||0),(T[1]?(tot[1][c]/T[1]*100):0).toFixed(1)+" %"]);
+  rows.push(["<b>Total</b>","<b>"+fmt(T[0])+"</b>","100 %","<b>"+fmt(T[1])+"</b>","100 %"]);
+  const f0=(tot[0]["Fallas internas"]||0)+(tot[0]["Fallas externas"]||0), f1=(tot[1]["Fallas internas"]||0)+(tot[1]["Fallas externas"]||0);
+  const max=Math.max(...cats.map(c=>Math.max(tot[0][c]||0,tot[1][c]||0)),1);
+  const barras=cats.map(c=>`<div class="barra-f"><span>${c}</span><div><i style="width:${(tot[0][c]||0)/max*100}%"></i><i class="b2" style="width:${(tot[1][c]||0)/max*100}%"></i></div></div>`).join("");
+  document.getElementById("c-out").innerHTML = tblT(["Categoría","Temporada 1","% del total","Temporada 2","% del total"],rows)+
+    `<div class="leyenda"><span class="l1"></span> Temporada 1 (piloto) <span class="l2"></span> Temporada 2 (con acciones)</div>${barras}
+     <div class="kpis"><div class="kpi"><b>${fmt(T[0]-T[1])}</b><span>Variación del costo total de calidad</span></div>
+     <div class="kpi ${f0&&f1<=f0*0.5?"kpi-ok":"kpi-no"}"><b>${f0?((1-f1/f0)*100).toFixed(0):0} %</b><span>Reducción de costos de no calidad (objetivo ≥ 50 %)</span></div></div>`;
+}
+
+/* ====================== Contenido de cada apartado ====================== */
+
+/* ---------- Documentos institucionales descargables (PDF) por apartado ---------- */
+const PDF_TUR = {
+  politica:["politica_sistema_integrado_de_gestion.pdf","Política del Sistema Integrado de Gestión"],
+  legal:["matriz_de_requisitos_legales.pdf","Matriz de requisitos legales y grado de cumplimiento"],
+  clausulas:["requisitos_iso_9001_por_proceso.pdf","Requisitos ISO 9001:2015 por tipo de proceso"],
+  mapa:["mapa_general_de_procesos.pdf","Descripción de la organización y Mapa General de Procesos"],
+  et:["ET-ST-01_especificacion_tecnica.pdf","Especificación técnica ET-ST-01"],
+  proceso:["P-ST-01_procedimiento_servicio_turistico.pdf","Procedimiento P-ST-01 de prestación del servicio"],
+  entradas:["entradas_salidas_y_variables_de_control.pdf","Diagrama de entradas y salidas y variables de control"],
+  control:["plan_de_control_y_aseguramiento_de_la_calidad.pdf","Plan de control y de aseguramiento de la calidad"],
+  costos:["costos_de_la_calidad.pdf","Costos de la calidad"],
+  auditoria:["auditoria_interna.pdf","Auditoría interna del SGC"],
+  inspeccion:["plan_de_inspeccion_y_control_del_comitente.pdf","Plan de inspección y control del comitente"],
+  objetivos:["objetivos_de_calidad_e_indicadores.pdf","Objetivos de calidad e indicadores"],
+  amfe:["PR-SGC-001_gestion_de_riesgos_AMFE.pdf","Procedimiento PR-SGC-001 y AMFE"],
+  sig:["analisis_SIG_contingencia_climatica.pdf","Análisis SIG: contingencia climática"],
+  impactos:["matriz_de_impactos_sociales_y_ambientales.pdf","Matriz de impactos sociales y ambientales"],
+  cartas:["control_estadistico_de_procesos.pdf","Control estadístico de procesos"]
+};
+function pdfTur(k){
+  const d = PDF_TUR[k]; if(!d) return "";
+  return `<div class="pdf-box noprint"><div><b>Documento institucional</b><span>${d[1]} (PDF)</span></div>
+    <a class="btn-imp" href="docs/turismo/${d[0]}" target="_blank" rel="noopener" download>Descargar PDF</a></div>`;
+}
+
+/* ---------- Datos reales para gráficos ---------- */
+const COSTOS_ANIOS = [2019,2020,2021,2022,2023,2024,2025,2026];
+const COSTOS_SERIES = { // millones de $
+  FI:[6.248,5.680,4.328,3.981,4.246,3.515,3.059,2.482], FE:[5.152,4.785,3.992,3.282,2.272,1.415,1.048,1.448],
+  PR:[0.642,0.771,0.964,0.964,1.099,1.143,1.165,1.239], EV:[0.669,0.630,0.693,0.999,1.479,2.383,2.352,2.365]
+};
+const CARTA_X = [100.0,102.6,105.6,108.6,112.6,116.4,120.6,125.0,128.0,130.4];
+const CARTA_R = [4,3,3,3,3,3,3,4,4,5];
+const CARTA_P = [0.04,0.06,0.08,0.10,0.06,0.12,0.08,0.14,0.06,0.04,0.12,0.06];
+/* Matriz de impactos: [tipo, proceso, columnas positivas, columnas negativas] (columnas D..R) */
+const IMPACTOS = [
+ ["Estratégico","Diseño y planificación del circuito turístico","KMNOP",""],
+ ["Estratégico","Identificación y gestión de requisitos legales y autorizaciones","DEJKMNOPQ",""],
+ ["Estratégico","Gestión de la calidad y gestión de riesgos del servicio","JKMNOPQR",""],
+ ["Estratégico","Planificación de la conservación ambiental y cultural","JKMNOPQ",""],
+ ["Estratégico","Articulación con comunidad, instituciones y partes interesadas","MNOP",""],
+ ["Estratégico","Promoción y comunicación responsable del circuito","KMNOP",""],
+ ["Estratégico","Evaluación del desempeño y mejora del servicio","EGJKMNOPQ",""],
+ ["Operativo","Gestión de reservas, cupos e inscripción de visitantes","MNOP","JKR"],
+ ["Operativo","Recepción, acreditación y charla inicial de seguridad","MNOP","EGJKLQ"],
+ ["Operativo","Traslado y acceso al punto de inicio del circuito","MNOP","EFGJKLQR"],
+ ["Operativo","Recorrido guiado e interpretación del entorno natural","JKMNOP","EGLQ"],
+ ["Operativo","Visita e interpretación de sitios históricos y culturales","MNOP","EGJKLQ"],
+ ["Operativo","Visita y vinculación con artesanos y emprendedores locales","MNOP","EGJKLQ"],
+ ["Operativo","Cierre del recorrido y gestión de residuos generados","MNOP","GJKLQ"],
+ ["Operativo","Encuesta de satisfacción y registro de incidencias","JKMNOPQ",""],
+ ["Soporte","Gestión de proveedores y servicios externos","MNOP","EGILQR"],
+ ["Soporte","Mantenimiento y limpieza de espacios e instalaciones","JKMNOPQ","EFGIR"],
+ ["Soporte","Gestión de higiene, seguridad y emergencias","MNOP","EGILQ"],
+ ["Soporte","Capacitación de guías y personal","MNOP","I"],
+ ["Soporte","Gestión de información, documentación y comunicaciones","MNOPR","Q"],
+ ["Soporte","Gestión de recursos y coordinación con la escuela","MNOP","I"],
+ ["Soporte","Gestión de residuos y acciones de conservación","FJKMNOPQ","EGI"]
+];
+
+/* Gráfico de líneas simple en SVG (series: [[nombre, valores, color]]) */
+function lineasSVG(xs, series, yLabel, limites){
+  const W=640, H=240, l=48, r=96, t=14, b=30;
+  const all = series.flatMap(s=>s[1]).concat((limites||[]).map(x=>x[0]));
+  let lo=Math.min(...all), hi=Math.max(...all);
+  const raw=(hi-lo)/4||1, mag=Math.pow(10,Math.floor(Math.log10(raw))), step=[1,2,2.5,5,10].map(m=>m*mag).find(x=>x>=raw);
+  lo=Math.floor(lo/step)*step; hi=Math.ceil(hi/step)*step; if(lo<0 && Math.min(...all)>=0) lo=0;
+  const nT=Math.round((hi-lo)/step);
+  const X=i=>l+i*(W-l-r)/(xs.length-1), Y=v=>t+(hi-v)*(H-t-b)/(hi-lo);
+  let g="";
+  for(let k=0;k<=nT;k++){ const v=lo+step*k; g+=`<line x1="${l}" x2="${W-r}" y1="${Y(v)}" y2="${Y(v)}" stroke="#ddd"/><text x="${l-6}" y="${Y(v)+4}" font-size="10" text-anchor="end" fill="#555">${(+v.toFixed(2)).toLocaleString("es-AR")}</text>`; }
+  xs.forEach((x,i)=>{ g+=`<text x="${X(i)}" y="${H-10}" font-size="10" text-anchor="middle" fill="#555">${x}</text>`; });
+  (limites||[]).forEach(([v,n,c])=>{ g+=`<line x1="${l}" x2="${W-r}" y1="${Y(v)}" y2="${Y(v)}" stroke="${c}" stroke-dasharray="5 4"/><text x="${W-r+4}" y="${Y(v)+4}" font-size="10" fill="${c}">${n}</text>`; });
+  series.forEach(([n,v,c])=>{ g+=`<polyline fill="none" stroke="${c}" stroke-width="2.2" points="${v.map((y,i)=>X(i)+","+Y(y)).join(" ")}"/>`+v.map((y,i)=>`<circle cx="${X(i)}" cy="${Y(y)}" r="3.4" fill="${c}"><title>${n}: ${y}</title></circle>`).join(""); });
+  const ley = series.length>1 ? `<div class="leyenda">${series.map(s=>`<span style="background:${s[2]}"></span>${s[0]}`).join(" ")}</div>` : "";
+  return `<div class="tscroll"><svg viewBox="0 0 ${W} ${H}" style="width:100%;min-width:520px;background:#fff;border:1px solid var(--borde);border-radius:8px" role="img" aria-label="${yLabel}"><text x="12" y="${H/2}" font-size="10" fill="#555" transform="rotate(-90 12 ${H/2})" text-anchor="middle">${yLabel}</text>${g}</svg></div>${ley}`;
+}
+function cartaSVG(v, lbl, lim){ return lineasSVG(v.map((_,i)=>i+1), [[lbl, v, "#2E5D8A"]], lbl, lim); }
+
+function subTurismo(s){
+  const p=P.turismo;
+  switch(s){
+
+  case "politica": return hT("Política integrada de gestión")+`
+    <p class="lead">La Escuela Rural Albergue N.º 4-207 Raíces Huarpes establece los siguientes compromisos para su servicio turístico:</p>
+    <div class="cards">
+      <div class="card"><h3>Calidad del servicio</h3><p>Brindar servicios turísticos de calidad, procurando que los circuitos cumplan con los requisitos establecidos y respondan a las necesidades y expectativas de los visitantes, promoviendo su satisfacción mediante la evaluación de la experiencia y la mejora de los servicios.</p></div>
+      <div class="card"><h3>Ambiente</h3><p>Proteger el ambiente promoviendo el cuidado de la flora, fauna, paisaje y demás recursos naturales del entorno de los circuitos, previniendo y reduciendo los impactos ambientales y fomentando una adecuada gestión de los residuos.</p></div>
+      <div class="card"><h3>Seguridad y salud</h3><p>Promover condiciones seguras, especialmente para los estudiantes que participan como guías, mediante la identificación y prevención de riesgos asociados a los recorridos, las condiciones climáticas y los desplazamientos.</p></div>
+      <div class="card"><h3>Cumplimiento</h3><p>Cumplir los requisitos legales, reglamentarios, educativos, ambientales, de seguridad y de prestación del servicio, y las necesidades de las partes interesadas pertinentes.</p></div>
+      <div class="card"><h3>Identidad cultural</h3><p>Promover la participación y el respeto por la identidad cultural local, integrando los saberes de la comunidad y poniendo en valor la cultura e historia Huarpe de manera responsable y compatible con la conservación del patrimonio.</p></div>
+      <div class="card"><h3>Mejora continua</h3><p>Generar un Sistema Integrado de Gestión y mejorarlo de forma continua, usando el seguimiento de procesos, la satisfacción de los visitantes, la identificación de riesgos e impactos y los resultados obtenidos.</p></div>
+    </div>
+    <p>Esta política constituye un marco de referencia para establecer y revisar los objetivos de gestión, y será comunicada, comprendida y aplicada por las personas que participan en las actividades de la organización y puesta a disposición de las partes interesadas pertinentes (ISO 9001:2015, cláusula 5.2).</p>
+    <h2>Alcance del sistema (4.3)</h2>
+    <p>Diseño y prestación de servicios de turismo rural y cultural guiados por estudiantes de la Escuela Raíces Huarpes: <b>Circuito Renacer</b> (plaza junto a la escuela) y <b>Circuito San José</b>, desde la consulta y registro del turno hasta el archivo de la documentación de la visita. La ampliación en la Reserva Bosques Telteca (reloj solar y mural) queda fuera del alcance actual y se incorpora como cambio planificado (6.3).</p>`;
+
+  case "legal": return hT("Matriz legal y partes interesadas")+`
+    <h2>Normativa nacional</h2>`+tblT(["Norma","Tema","Aplicación al proyecto"],[
+      ["Ley 24.071 – Convenio 169 OIT","Derechos y participación indígena","Consulta a la comunidad Huarpe ante medidas que la afecten y respeto por sus valores, prácticas e instituciones."],
+      ["Ley 26.061","Protección integral de niñas, niños y adolescentes","Los alumnos son guías: integridad física, psíquica y moral, interés superior del niño y condiciones de seguridad."],
+      ["Ley 25.997","Ley Nacional de Turismo","Desarrollo sustentable, calidad y accesibilidad; incluye guías y turismo rural."],
+      ["Ley 25.643 y Ley 24.314","Turismo accesible y accesibilidad física","Caminatas, espacios públicos y edificios accesibles para personas con movilidad reducida."],
+      ["Ley 25.675","Ley General del Ambiente","Recorrido por flora autóctona: uso sustentable y evaluación de impacto cuando corresponda."],
+      ["Ley 25.197","Registro del Patrimonio Cultural","Identificación y protección de bienes culturales (estación, capilla, artesanías)."],
+      ["Ley 25.326","Protección de datos personales","El registro de visitantes exige informar finalidad, seguridad y derechos del titular."]])+`
+    <h2>Normativa provincial – Mendoza</h2>`+tblT(["Norma","Tema","Aplicación al proyecto"],[
+      ["Ley 8.845 – Decreto 1.220/2023","Marco turístico provincial (EMETUR)","Habilitación e inscripción en el Registro de Prestadores de Servicios Turísticos."],
+      ["Resolución 208/2006","Turismo rural","Predio ordenado y limpio, acceso adecuado, condiciones sanitarias, personal capacitado y horarios establecidos."],
+      ["Ley 6.034 – Decreto 1.882/2009","Patrimonio cultural provincial","Estación abandonada, cementerio, capilla y artesanías como bienes de valor histórico."],
+      ["Ley 5.961 – Decreto 2.109/1994","Evaluación de impacto ambiental","Aplica a obras, señalización permanente o intervenciones físicas (por ejemplo, reloj solar y mural)."],
+      ["Ley 8.051","Ordenamiento territorial","Zona rural no irrigada de Lavalle: agroturismo compatible con el ordenamiento."],
+      ["Res. 1000-DGE-17 y 4716-DGE","Salidas educativas","Autorización de salidas, consentimiento de tutores de los alumnos-guías y seguro escolar."],
+      ["Ley 19.587","Higiene y seguridad","Primeros auxilios ante golpes de calor y picaduras, agua segura y comunicación de emergencias."]])+`
+    <h2>Grado de cumplimiento (síntesis)</h2>`+tblT(["Grado","Situación encontrada"],[
+      ["<span class='ok'>Cumple</span>","El proceso operativo está definido y contempla la evaluación de satisfacción al cierre."],
+      ["<span class='parcial'>Parcial</span>","Administración de visitas, registro de visitantes, charla de seguridad, recorridos, participación de alumnos, higiene y seguridad, mantenimiento y gestión documental: existen en el diseño pero falta evidencia documental."],
+      ["<span class='no'>No evidenciado</span>","Autorizaciones de acceso a sitios, documentación patrimonial, habilitación turística, protocolos de emergencia y documentación de salidas escolares."]])+`
+    <h2>Matriz de partes interesadas (4.2)</h2>`+prop("Matriz elaborada a partir de los actores identificados en la descripción de la organización, la matriz legal y la política.")+tblT(["Parte interesada","Necesidades y expectativas","Cómo se atiende","Seguimiento"],[
+      ["Visitantes (turistas, escuelas, universidades)","Seguridad, explicaciones claras, duración adecuada, experiencia auténtica","ET-ST-01, guión, FTO, encuesta","ISV ≥ 90 %"],
+      ["Alumnos-guías","Formación, seguridad, protagonismo y proyección laboral","Programa de capacitación, perfil de competencia (7.2)","Registro de capacitación"],
+      ["Familias y tutores","Autorización informada y cuidado de los alumnos","Consentimiento firmado y seguro escolar","Carpeta de autorizaciones"],
+      ["Escuela y docentes","Proyecto pedagógico sostenible con la orientación en turismo","Roles definidos, P-ST-01","Revisión por la dirección"],
+      ["Comunidad Huarpe","Respeto y participación en el relato de su cultura","Validación del guión con referentes (Convenio 169)","Acta de validación"],
+      ["Artesana local","Espacio digno, venta justa y tiempos acordados","Pauta de 15 min, precios visibles","Reunión por temporada"],
+      ["Municipalidad de Lavalle","Desarrollo turístico local y registro de guías","Certificación de Informador Turístico Local","Convenio"],
+      ["DGE y EMETUR","Cumplimiento de salidas educativas y habilitación","Trámites de habilitación","Matriz legal"],
+      ["UNCuyo (Ingeniería, Artes y Diseño)","Práctica Social Educativa con impacto","Documentación del SGC y diseño gráfico","Informe final PSE"],
+      ["Proveedores (agua, botiquín, imprenta)","Pedidos claros y pagos a tiempo","Planificación de abastecimiento (8.4)","Evaluación de proveedores"]]);
+
+  case "clausulas": return hT("Cláusulas aplicables ISO 9001:2015")+`
+    <p>Vínculo entre los procesos del Mapa General y los requisitos de la norma.</p>`+tblT(["Tipo de proceso","Actividades","Requisitos ISO 9001:2015","Fundamento"],[
+      ["<b>Estratégico</b>","Estudio de mercado y marketing; implementación del SGC; cuidado ambiental e identidad Huarpe; legislación; articulación multidisciplinaria; investigación del lugar y la flora; puestos de trabajo; circuito viable; mejora de infraestructura vial y peatonal","4.1, 4.2, 4.3, 4.4 · 5.1.1, 5.1.2, 5.2, 5.3 · 6.1, 6.2, 6.3 · 7.1.1, 7.1.3, 7.1.6 · 10.1, 10.3","Definen el rumbo, cómo se alcanzan los resultados, anticipan riesgos y orientan la mejora según el ciclo PHVA."],
+      ["<b>Operativo</b>","Concentración y registro; charla inicial; Circuito Renacer y San José; flora; estación; Bañado; artesana; cementerio; capilla; regreso, puesta en común y encuesta","8.1 · 8.2.1, 8.2.2, 8.2.3 · 8.5.1, 8.5.2, 8.5.4, 8.5.5 · 8.6 · 8.7 · 9.1.2","Transforman recursos y conocimientos en el servicio que recibe el visitante; 8.5.1 controla la prestación y 9.1.2 la satisfacción."],
+      ["<b>Soporte</b>","Proveedores de insumos y souvenirs; mantenimiento y limpieza; educación de guías; turnos; higiene y seguridad; cobros; contenidos; documentación; comunicación","7.1.1 a 7.1.6 · 7.2 · 7.3 · 7.4 · 7.5 · 8.4","Proveen personas, infraestructura, conocimientos e información para que el proceso operativo funcione."]])+`
+    <h2>Evidencia por cláusula clave</h2>`+tblT(["Cláusula","Evidencia en el proyecto"],[
+      ["6.1 Riesgos y oportunidades","AMFE PR-SGC-001 (San José y Renacer)"],
+      ["6.2 Objetivos de calidad","ISV ≥ 90 % y PST ≥ 95 %"],
+      ["7.2 Competencia","Perfil del guía en ET-ST-01 y plan de la NC-01"],
+      ["7.5 Información documentada","Lista maestra, códigos ET-ST-01, P-ST-01, R-ST-01 a R-ST-07"],
+      ["8.5.1 Control de la prestación","FTO por operación, guión y tiempos estándar"],
+      ["<b>8.5.2 Identificación y trazabilidad</b> (requisito asignado al Grupo 3)","ID único de visita VT-2026-NNN desde la reserva hasta el archivo"],
+      ["8.6 Liberación","Checklist de salida (PCC-1) Paso / No paso"],
+      ["8.7 Salidas no conformes","Suspensión por clima, división de grupos, registro de contingencias R-ST-07"],
+      ["9.1.2 Satisfacción","Encuesta de 1 a 5 estrellas al cierre"],
+      ["9.2 Auditoría interna","Auditoría cruzada: plan, check-list, informe y respuesta formal"],
+      ["10.2 No conformidad y acción correctiva","Plan de tratamiento NC-01 a NC-03"]]);
+
+  case "mapa": return hT("Mapa general de procesos")+`
+    <div class="pmap">
+      <div class="pm-cli"><b>Clientes</b><span>Turistas locales y extranjeros</span><span>Visitas escolares y universitarias</span><span>Interesados en negocios turísticos</span><span>Personas con conciencia social</span></div>
+      <div class="pm-centro">
+        <div class="pm-caja pm-est"><b>Procesos estratégicos</b><div>Estudio de mercado y marketing · Implementación del SGC · Cuidado ambiental e identidad Huarpe · Legislación y normativa · Articulación multidisciplinaria · Investigación del lugar y la flora · Puestos de trabajo y actividades culturales · Circuito económicamente viable · Mejora de infraestructura vial y peatonal</div></div>
+        <div class="pm-caja pm-op"><b>Procesos operativos</b>
+          <div class="pm-flujo"><span>Concentración inicial en la escuela</span><span>→</span>
+            <span class="pm-dos"><em>Renacer: plaza · flora · estación · artesana</em><em>San José: flora · Bañado · cementerio · capilla</em></span><span>→</span><span>Vuelta a la escuela y puesta en común</span></div></div>
+        <div class="pm-caja pm-sop"><b>Soporte de la operación</b><div>Proveedores de insumos y souvenirs · Mantenimiento y limpieza · Educación de guías en flora e historia · Administración de visitas por turnos · Higiene y seguridad · Cobros y gastos · Planificación de contenidos · Información y documentación · Comunicación y marketing</div></div>
+      </div>
+      <div class="pm-cli"><b>Resultados</b><span>Circuito turístico como producto</span><span>Registro y ordenamiento territorial</span><span>Crecimiento económico y turístico</span><span>Concientización sobre recursos autóctonos</span><span>Difusión de la cultura Huarpe</span></div>
+    </div>
+    <h2>Mapa operativo principal</h2>
+    <ol class="pasos-op">${["Consulta y registro del turno","Pago del servicio","Preparar el servicio","Recepción del visitante","Caminata por el circuito elegido","Regreso a la escuela y cierre","Control y almacenamiento de documentación"].map(x=>`<li>${x}</li>`).join("")}</ol>
+    <h2>Etapas de ambos circuitos</h2>`+tblT(["Etapa","Circuito Renacer (plaza y tradición)","Circuito San José (entorno e historia)"],[
+      ["Inicio común","Concentración en la escuela: recepción, registro de visitantes y charla de seguridad y convivencia.",""],
+      ["Parada 1 · Comienzo","Partida hacia la plaza del pueblo","Partida hacia el anillo perimetral y entorno rural"],
+      ["Parada 2 · Botánica","Especies urbanas y nativas delimitadas en la plaza (jarilla hembra)","Flora autóctona adaptada al secano abierto"],
+      ["Parada 3 · Identidad","Estación abandonada: ferrocarril y poblamiento local","Bañado: interpretación geográfica, hidrológica y ambiental"],
+      ["Parada 4 · Patrimonio","Visita a la artesana: cerámica o tejidos e intercambio cultural","Cementerio: antiguos pobladores y memoria comunitaria"],
+      ["Parada 5 · Religión","—","Capilla San José: valor arquitectónico y devoción patronal"],
+      ["Cierre común","Vuelta a la escuela, puesta en común, encuesta (9.1.2) y despedida",""]]).replace(/<td><\/td><\/tr>/g,"<td>Igual que Renacer</td></tr>")+`
+    <h2>Flora nativa del monte presentada en el Hito A</h2>`+tblT(["Nombre común","Nombre científico","Interpretación"],FLORA.map(f=>[f[0],"<i>"+f[1]+"</i>",f[2]]));
+
+  case "et": return hT("Especificación técnica ET-ST-01 · Servicio Circuito Renacer")+`
+    ${tblT(["Código","Versión","Proceso","Estado"],[["ET-ST-01","01","Servicio turístico · Circuito Renacer","Elaboró, revisó y aprobó: responsables designados por la institución"]])}
+    <h2>1. Especificaciones operativas</h2>
+    <ul><li><b>Capacidad de carga por turno:</b> grupos de máximo 15 participantes por guía. Previene la degradación del sendero, asegura que se entienda el relato y no satura el taller.</li>
+    <li><b>Tiempo estándar del ciclo:</b> 80 min (± 15 min), es decir de 65 a 95 min.</li>
+    <li><b>Tiempos por hito:</b> flora autóctona 25 ± 5 min · estación ferroviaria 30 ± 5 min · taller artesanal 25 ± 5 min.</li>
+    <li><b>Ventana operativa:</b> turno mañana 09:30 a 11:00 h y media tarde 17:00 a 18:30 h, evitando radiación alta (UV > 8).</li>
+    <li><b>Protocolo de suspensión:</b> alerta por viento Zonda (ráfagas ≥ 50 km/h) o temperatura ≥ 38 °C.</li></ul>
+    <h2>2. Infraestructura, accesibilidad y seguridad</h2>
+    <ul><li>Ancho útil de sendero mínimo 1,20 m con pendiente longitudinal ≤ 6 % (circulación bidireccional, silla de ruedas y cochecitos).</li><li>Suelo natural consolidado, sin gravilla suelta excesiva, zanjas ni raíces expuestas mayores a 2 cm.</li></ul>
+    <h2>3. Señalética e interpretación botánica</h2>
+    <ul><li>Cartelería interpretativa a 1,10–1,40 m del suelo.</li><li>Contenido: nombre común, nombre científico, propiedades ecosistémicas y uso ancestral Huarpe.</li><li>Código QR de alta durabilidad (grabado láser o film UV) con audioguía bilingüe (español / inglés) y texto alternativo.</li></ul>
+    <h2>4. Preservación y seguridad en la estación abandonada</h2>
+    <ul><li>Cordón o barrera liviana a no menos de 1,50 m de cornisas, techos de chapa degradados o pozos.</li><li>Check-list visual semanal firmado de ausencia de riesgo de derrumbe o desprendimiento.</li></ul>
+    <h2>5. Seguridad y emergencias</h2>
+    <ul><li>Botiquín tipo A portado por el guía, con protocolo antiofídico y de picaduras del secano, y sales de rehidratación.</li><li>Agua potable fresca: mínimo 250 ml por persona.</li></ul>
+    <h2>6. Competencia del personal (7.2)</h2>
+    <ul><li>Título de Guía de Turismo provincial o certificación de Informador Turístico Local validada por el Municipio de Lavalle.</li><li>Capacitación en primeros auxilios y RCP con vigencia no mayor a 2 años.</li><li>Competencia comprobada en flora nativa del monte y patrimonio ferroviario.</li></ul>
+    <h2>7. Taller artesanal</h2>
+    <ul><li>Capacidad sentada para el 100 % del grupo (15 asientos).</li><li>Demostración estandarizada de 15 min (telar criollo, cestería en junquillo o cerámica).</li><li>Lista de precios visible y medios de pago transparentes (efectivo, transferencia y QR). En el taller se venden productos de cosmética natural de la escuela y artesanías de la comunidad.</li></ul>
+    <h2>Variables críticas de calidad (CTQ)</h2>
+    <p><b>Variable principal de control:</b> tiempo de ciclo por hito y duración total (80 ± 15 min), que controla la adherencia operativa y previene la fatiga del visitante en zona árida.</p>
+    <p><b>Variables de liberación (Paso / No paso):</b> límite de carga humana N de 5 a 15 personas, y umbral bioclimático (temperatura &lt; 38 °C y ráfagas &lt; 50 km/h), cuyo incumplimiento activa el protocolo de no conformidad y la suspensión de la actividad.</p>
+    <p class="nota">La primera redacción del anexo indicaba 90 ± 15 min; se unifica con el tiempo estándar del cuerpo de la especificación y del plan de control (80 ± 15 min).</p>`;
+
+  case "proceso": return simTurHTML()+`
+    <h2>Fichas técnicas de operación (FTO): tocá una operación</h2>
+    <div id="tur-fto-lista"></div>
+    <div id="fto-panel"></div>
+    <h2>Procedimiento P-ST-01 · Prestación del servicio turístico</h2>`+`
+    ${tblT(["Código","Versión","Requisito asignado","Proceso"],[["P-ST-01","01","ISO 9001:2015 · 8.5.2 Identificación y trazabilidad","Servicio turístico (Renacer y San José)"]])}
+    <h3>1. Objetivo</h3><p>Estandarizar la prestación del servicio turístico y asegurar su trazabilidad mediante un ID único de visita, desde la consulta hasta el archivo de la documentación.</p>
+    <h3>2. Alcance</h3><p>Todas las visitas guiadas de la Escuela Raíces Huarpes y todas las personas que intervienen: registro, administración, coordinación, guías y responsable documental.</p>
+    <h3>3. Referencias</h3><p>ISO 9001:2015 (7.5, 8.5.1, 8.5.2, 8.6, 9.1.2) · ET-ST-01 · PR-SGC-001 (AMFE) · Ley 25.326 · Res. 1000-DGE-17.</p>
+    <h3>4. Definiciones</h3><ul><li><b>ID de visita:</b> código VT-AAAA-NNN que acompaña a todos los registros de una visita (ej. VT-2026-001).</li><li><b>PCC:</b> punto de control crítico del servicio (PCC-1 despacho, PCC-2 parada intermedia, PCC-3 cierre).</li></ul>
+    <h3>5. Responsabilidades y competencias</h3>`+tblT(["Tarea","Responsable","Competencia técnica","¿Requisito legal?"],[
+      ["Registrar turno","Responsable de Registro","Formularios, gestión de información, atención al visitante","No"],
+      ["Verificar pago","Responsable Administrativo","Registros administrativos","No"],
+      ["Preparar servicio","Coordinador","Planificación, control de condiciones y seguridad","No"],
+      ["Guiar circuito","Guía / Alumno","Recorrido, patrimonio, comunicación y pautas de seguridad","Sí: habilitación de guías turísticos"],
+      ["Registrar recorrido","Guía / Alumno","Registros, control de tiempos y puntos de control","No"],
+      ["Determinar estado final","Coordinador","Criterios de conformidad y gestión de desvíos","No"],
+      ["Controlar documentación","Responsable documental","Control de información documentada","No"]])+`
+    <h3>6. Desarrollo</h3>`+tblT(["Paso","Actividad","Criterio de conformidad","Registro"],[
+      ["1","Consulta y registro del turno","Datos completos, ID asignado, fecha y guías disponibles","R-ST-01"],
+      ["2","Pago del servicio","Comprobante asociado al ID","R-ST-02"],
+      ["3","Preparar el servicio (PCC-1)","Clima, sendero, estación, agua y botiquín verificados","R-ST-03"],
+      ["4","Recepción y charla","Visitantes presentes, N ≤ 15 por guía, pautas comunicadas","R-ST-04"],
+      ["5","Caminata (PCC-2)","Todas las paradas realizadas, tiempo dentro del estándar","R-ST-05"],
+      ["6","Regreso y cierre (PCC-3)","Puesta en común y encuesta realizadas","R-ST-06"],
+      ["7","Control y archivo","Registros completos y localizables bajo el ID","Carpeta VT"],
+      ["—","Contingencia o desvío","Se registra la causa, la decisión y la comunicación al visitante","R-ST-07"]])+`
+    <h3>7. Control de cambios</h3><p>Toda modificación se registra con número de revisión, fecha, motivo y aprobación en la lista maestra de documentos.</p>`;
+
+  case "entradas": return hT("Entradas, salidas y control de variables")+`
+    <p>Diagrama de flujo de soporte del servicio con el estado <b>CONFORME</b> de cada salida. El ID único de visita (8.5.2) acompaña al proceso desde la programación hasta el archivo y vincula visitantes, circuito, puntos de control, tiempos, incidencias y satisfacción.</p>`+tblT(["Proceso","Entradas","Salidas","Conforme si…"],[
+      ["1. Consulta y registro del turno","Consulta, disponibilidad de fecha y horario, cantidad y procedencia, circuito, requisitos especiales","Solicitud registrada","Datos completos con ID VT-2026-NNN; hay fecha, guías y circuito disponibles"],
+      ["2. Pago del servicio","Datos de visitantes, información de pago, ID","Comprobante de pago","Pago registrado y asociado al ID"],
+      ["3. Preparar el servicio","Visita programada, información del circuito, recursos, elementos de seguridad, personal","Registros de tareas","Infraestructura, espacios limpios, información, guías y condiciones de seguridad verificadas"],
+      ["4. Recepción del visitante","Visitantes, nómina, ID, circuito, pautas","Grupo preparado","Visitantes presentes y registrados; pautas comunicadas"],
+      ["5. Caminata por el circuito","Visitantes, ID, circuito, información histórica y de flora, guía, tiempos estándar","Recorrido realizado","Todas las paradas, explicaciones brindadas, puntos de control identificados, tiempo dentro del estándar"],
+      ["6. Regreso y cierre","Visitantes que finalizaron, registros de tiempos","Recorrido finalizado","Grupo de regreso, puesta en común y encuesta realizadas"],
+      ["7. Control y almacenamiento","Registros de todas las etapas, encuestas","Servicio trazable, historial de visita","Registros completos, localizables, vigentes y controlados"]])+`
+    <h2>Variables de control del proceso (anexo de la ET-ST-01)</h2>`+tblT(["Etapa / hito","Requerimiento","Variable","Unidad","Criterio de aceptación","Método e instrumento","Frecuencia","Responsable"],[
+      ["1. Despacho","Capacidad de carga","Tamaño del grupo (N)","personas","5 ≤ N ≤ 15 por guía","Conteo contra nómina","Antes de cada salida","Guía a cargo"],
+      ["1. Despacho","Seguridad climática","Viento y temperatura","km/h · °C","Viento &lt; 50 · T &lt; 38","Alerta SMN / Defensa Civil y termómetro","30 min antes de cada turno","Coordinador de Operaciones"],
+      ["1. Despacho","Hidratación","Agua segura por persona","ml/persona","≥ 250 ml","Inspección y cubicaje de bidones","Checklist de salida","Guía"],
+      ["2. Sendero y flora","Accesibilidad","Altura de obstáculos","cm","≤ 2 cm","Inspección visual y reglilla","Diaria (apertura)","Mantenimiento / Guía"],
+      ["2. Sendero y flora","Información","QR legibles y activos","%","100 %","Escaneo con celular","Semanal","Encargado técnico"],
+      ["3. Estación","Distancia de seguridad","Retiro a cornisas y pozos","m","≥ 1,50 m","Cinta métrica y balizamiento","Semanal","Responsable de SyH"],
+      ["4. Taller","Confort","Asientos disponibles","%","100 % del grupo","Conteo previo al ingreso","Al llegar a la posta","Guía y artesana"],
+      ["Global","Ritmo operativo","Duración total","min","80 ± 15 (65 a 95)","Cronómetro y planilla R-ST-05","Cada salida","Guía"],
+      ["Cierre","Satisfacción","Visitantes con 4 o 5 estrellas","%","≥ 85 %","Encuesta QR o papel (escala 1 a 5)","Cada recorrido","Coordinador de Calidad"]]);
+
+  case "control": return hT("Plan de control y de aseguramiento de la calidad")+`
+    <p class="lead">Plan de control de calidad operativa (QC) y plan de aseguramiento de la calidad (QA) del servicio, para los circuitos Renacer y San José. Cada salida se identifica con un <b>ID único de visita</b> (VT-2026-001) que vincula todos sus registros (8.5.2).</p>
+    <h2>Procesos críticos y puntos de control</h2>`+tblT(["Proceso crítico","Por qué es crítico","Punto crítico de control"],[
+      ["Etapa 3 · Preparar el servicio","Filtro preventivo principal: en clima extremo, verificar senderos, botiquín, agua (≥ 2 L por persona) y clima 30 min antes define si la salida es segura.","<b>PCC-1 “Go / No-Go”</b>, 10 min antes de partir"],
+      ["Etapa 5 · Caminata por el circuito","Núcleo del servicio: concentra tiempo de ciclo (80 ± 15 min), 5 a 15 visitantes por guía, estado del sendero y QR.","<b>PCC-2 “Control de marcha y salud”</b>, parada intermedia (minuto 40)"],
+      ["Etapa 7 · Control de documentación","Base de la trazabilidad: el 100 % de los registros se codifica con el ID y se carga en la nube en ≤ 24 h.","<b>PCC-3 “Inspección de cierre documental”</b>, semanal"]])+`
+    <h2>Matriz de control (QC)</h2>`+tblT(["Etapa","Variable","Criterio de aceptación","Método","Frecuencia","Responsable"],[
+      ["3 · PCC-1","Viento Zonda","&lt; 50 km/h (≥ 50: suspensión)","SMN / Defensa Civil y anemómetro","30 min antes de cada turno","Encargado de Campo; decide el Guía Líder"],
+      ["3 · PCC-1","Temperatura","&lt; 38 °C","Consulta oficial y termómetro","30 min antes","Encargado de Campo"],
+      ["3 · PCC-1","Índice UV","≤ 8; si &gt; 8, hidratación adicional","Plataformas oficiales","30 min antes","Encargado de Campo"],
+      ["3 · PCC-1","Botiquín tipo A","100 % completo y vigente","Lista R-ST-03","Cada turno","Guía; Logística"],
+      ["3 · PCC-1","Agua potable","≥ 2 L por persona y turno","Control volumétrico","Cada turno","Logística e Insumos"],
+      ["3","Sendero y perímetro de la estación","Despejado; barrera a ≥ 1,50 m","Inspección a pie","Diaria y semanal","Campo; Mantenimiento"],
+      ["5 · PCC-2","Capacidad de carga","5 a 15 visitantes por guía","Conteo contra reservas","Al iniciar y en cada parada","Guía Líder"],
+      ["5 · PCC-2","Tiempo de ciclo","80 ± 15 min (65 a 95)","Cronómetro digital","Cada parada","Guía"],
+      ["5 · PCC-2","Estado físico e hidratación","Sin fatiga excesiva","Observación","Continua","Guía; Guía Líder"],
+      ["5","Códigos QR","100 % legibles y activos","Escaneo con móvil","Diaria y semanal","Encargado Técnico"],
+      ["7 · PCC-3","Tiempo de carga","≤ 24 h","Log de la nube vs. R-ST-05","Semanal","Responsable Documental"],
+      ["7 · PCC-3","Integridad del expediente","100 % completo","Lista R-DOC-01","Semanal","Responsable de Calidad"],
+      ["7 · PCC-3","Encuestas","100 % procesadas; ≥ 85 % con 4 o 5 estrellas","Cruce aplicadas / procesadas","Semanal","Responsable Documental"]])+`
+    <h2>Tratamiento de no conformidades</h2>
+    <ul><li><b>Botiquín o agua insuficientes:</b> No-Go hasta reponer; se abre una Solicitud de Acción Correctiva si fue una falla humana.</li>
+    <li><b>Zonda ≥ 50 km/h, T ≥ 38 °C o UV restrictivo:</b> suspensión, aviso a los visitantes y reprogramación o devolución.</li>
+    <li><b>Más de 15 visitantes:</b> subgrupos con un segundo guía. <b>Caída o descompensación:</b> primeros auxilios, pausa en sombra y protocolo de evacuación.</li>
+    <li><b>QR ilegible:</b> interpretación oral o folletería. <b>Planillas extraviadas o archivos sin ID:</b> reconstrucción con registros secundarios y renombrado.</li></ul>
+    <h2>Aseguramiento de la calidad (QA)</h2>`+tblT(["Riesgo","Consecuencia","Control"],[
+      ["Viento Zonda","Caída de ramas, desorientación, polvo","SMN / Defensa Civil; PCC-1"],["Calor extremo y UV","Golpe de calor, deshidratación","PCC-1; hidratación cada 20 min"],
+      ["Terreno irregular &gt; 2 cm","Tropiezos y caídas","Inspección previa y semanal"],["Desalineación pedagógica","Improvisación o paradas acortadas","Guión estandarizado; PCC-2"],
+      ["Higiene deficiente","Baños sin servicio o sin agua","Auditoría diaria previa"],["Opacidad documental","Planillas perdidas o encuestas manipuladas","PCC-3 semanal"]])+`
+    <p>El procedimiento P-ST-01 se ejecuta en tres fases: <b>previa</b> (auditoría de baños y recepción, clima, R-ST-03 y PCC-1), <b>ejecutiva</b> (conteo, charla, caminata cronometrada, QR, PCC-2, encuesta y R-ST-05) y <b>documental</b> (entrega de registros, carga en la nube por Año / Mes / Circuito, archivo de originales por 5 años y PCC-3). Los proveedores de agua deben tener habilitación bromatológica y los insumos del botiquín, vencimiento mayor a 60 días al recibirlos.</p>
+    <h3>Capacidad del proceso de guiado</h3>
+    <div class="kpis"><div class="kpi"><b>μ = 81 min</b><span>Media de 120 visitas (S = 4 min)</span></div><div class="kpi kpi-ok"><b>Cp = 1,25</b><span>(95 − 65) / (6 × 4)</span></div><div class="kpi kpi-ok"><b>Cpk = 1,17</b><span>mín(1,17 ; 1,33)</span></div><div class="kpi"><b>69 a 93 min</b><span>μ ± 3σ, dentro de 65 a 95</span></div></div>
+    <p>El proceso es capaz; Cpk &lt; Cp indica un leve descentramiento hacia el límite superior (81 frente a 80 min), que se corrige con mayor control del ritmo en las paradas. Las causas de variabilidad se analizan con las <b>6 M</b> y la mejora sigue los <b>8 pasos del ciclo PHVA</b>.</p>`;
+
+  case "objetivos": return hT("Objetivos de calidad e indicadores (6.2)")+`
+    <div class="cards">
+      <div class="card"><h3>Objetivo 1 · Satisfacción</h3><p>Alcanzar un nivel de satisfacción de los visitantes igual o superior al <b>90 %</b>. Se busca que el cliente otorgue una calificación de 4 a 5 estrellas.</p><p class="formula">ISV (%) = visitantes con 4 o 5 estrellas / visitantes que respondieron × 100</p></div>
+      <div class="card"><h3>Objetivo 2 · Tiempo estándar</h3><p>Lograr que al menos el <b>95 %</b> de los servicios planificados se desarrollen dentro del tiempo estándar del circuito, manteniendo las actividades previstas.</p><p class="formula">PST (%) = servicios dentro del intervalo / servicios realizados × 100</p></div>
+    </div>
+    <h2>Escala de evaluación (1 a 5 estrellas)</h2>`+tblT(["Estrellas","Criterio general","Ejemplo: recepción y organización al inicio"],[
+      ["⭐ 1","No cumple / inexistente / muy deficiente","No hubo recepción organizada ni indicaciones"],
+      ["⭐⭐ 2","Cumple mínimamente, con deficiencias importantes","Hubo recepción, pero indicaciones insuficientes"],
+      ["⭐⭐⭐ 3","Cumple parcialmente","Recepción con algunas indicaciones; faltó información"],
+      ["⭐⭐⭐⭐ 4","Cumple adecuadamente, con pequeñas mejoras","Recepción organizada con pequeñas deficiencias"],
+      ["⭐⭐⭐⭐⭐ 5","Cumple completamente","Recepción, registro, presentación y todas las indicaciones claras"]])+`
+    <p class="nota">Criterios objetivos de la encuesta: indicaciones y restricciones, elementos en sanitarios, señalización del camino, claridad de las explicaciones y respuestas de los guías.</p>
+    <h2>Tiempo estándar inicial por circuito</h2>`+tblT(["Etapa","Renacer","San José"],[["Recepción, registro y charla","15 min","15 min"],["Caminata hasta el inicio","10 min","10 min"],["Explicación de flora","10 min","10 min"],["Estación abandonada / Bañado","10 min","28 min"],["Artesana / cementerio","15 min","48 min"],["Capilla San José","—","53 min"],["Regreso a la escuela","10 min","20 min"],["Puesta en común y cierre","10 min","10 min"],["<b>Tiempo estándar</b>","<b>80 min</b>","<b>194 min</b>"]])+`
+    <h2>Calculadora de indicadores</h2>
+    <div class="sim-in noprint">
+      <label>Encuestas respondidas: <input id="i-resp" type="number" value="40" oninput="indCalc()"></label>
+      <label>Con 4 o 5 estrellas: <input id="i-sat" type="number" value="37" oninput="indCalc()"></label>
+      <label>Servicios realizados: <input id="i-vis" type="number" value="20" oninput="indCalc()"></label>
+      <label>Dentro del intervalo: <input id="i-dentro" type="number" value="19" oninput="indCalc()"></label>
+    </div><div id="i-out"></div>
+    <p class="nota">Valores iniciales: ejemplos del documento de objetivos (ISV = 37/40 = 92,5 %; PST = 19/20 = 95 %).</p>`;
+
+  case "costos": return hT("Costos de calidad")+`
+    <h2>Actividades de calidad y de no calidad</h2>
+    <div class="cards">
+      <div class="card"><h3>Procesos estratégicos</h3><p><b>Calidad:</b> diseñar e implementar el SGC (ISO 9001); investigar flora, historia del ferrocarril y saberes Huarpe; convenios con universidad, gobierno y salud; diseño de infraestructura accesible.</p><p><b>No calidad:</b> no aplica (la estrategia está orientada al futuro).</p></div>
+      <div class="card"><h3>Procesos operativos</h3><p><b>Calidad:</b> capacitar guías (RCP, primeros auxilios, patrimonio); procedimientos estandarizados; cartelería con QR; verificar clima y grupo ≤ 15; monitorear 80 ± 15 min y encuestas.</p><p><b>No calidad:</b> botiquín incompleto o sin agua; cancelación por Zonda o calor; caídas por irregularidades del sendero.</p></div>
+      <div class="card"><h3>Procesos de soporte</h3><p><b>Calidad:</b> mantenimiento de senderos; compra planificada de insumos; turnos ordenados; registro por ID único; auditar planillas y estado de baños y recepción.</p><p><b>No calidad:</b> errores o extravío de reservas; reclamos por pagos digitales sin señal; olvidar comprobantes.</p></div>
+    </div>
+    <h2>Tabla 1 · Costos por tipo de proceso</h2>`+tblT(["Proceso","Prevención","Evaluación","Fallas internas","Fallas externas"],[
+      ["Estratégico","Diseño del SGC; investigación de flora, ferrocarril y saberes; convenios; infraestructura accesible","No aplica","No aplica","No aplica"],
+      ["Operativo","Capacitación y certificación de guías; procedimientos y fichas; señalética y QR","Verificación meteorológica; control de carga (≤ 15); monitoreo del ciclo (80 ± 15); encuestas","Retrabajos y demoras por botiquín incompleto o falta de agua detectados antes de partir","Asistencia por caídas; cancelación por Zonda (&gt; 50 km/h) o calor (&gt; 38 °C)"],
+      ["Soporte","Mantenimiento preventivo; abastecimiento de insumos; diagramación de turnos","Archivo por ID; auditoría de cobros; inspección de baños y recepción","Corrección de reservas extraviadas o mal cargadas","Reclamos por conectividad en pagos; penalidades por no emitir comprobantes"]])+`
+    <h2>Tabla 2 · Costos por operación del proceso operativo</h2>`+tblT(["Operación","Prevención","Evaluación","Fallas internas","Fallas externas"],[
+      ["1. Consulta y registro","Herramientas estandarizadas e ID único (VT-2026-001)","Verificación de agenda, cupos y guías","Corrección de datos mal cargados; regularización de registros sin ID","Reubicación o quejas por superposición de turnos"],
+      ["2. Pago","Tarifario oficial publicado y canales formales","Control cruzado comprobante–ID–ingreso","Espera por caída de red; conciliación de pagos incompletos","Reclamos por cobros fuera del tarifario"],
+      ["3. Preparar el servicio","Mantenimiento de senderos, perímetro de estación y taller","Monitoreo meteorológico 30 min antes; checklist de botiquín e hidratación","Demoras por omisión del chequeo","Compensación por suspensión tardía; emergencias por insolación"],
+      ["4. Recepción y charla","Guión estandarizado de seguridad y convivencia","Conteo del tamaño del grupo","Reprogramación por omisión de la inducción","Demoras por contingentes fuera de horario"],
+      ["5. Caminata","Formación de guías; mantenimiento de cartelería y QR","Cronometraje en paradas; verificación de QR","Limpieza urgente de QR; reajuste por paradas omitidas","Primeros auxilios y evacuación; devoluciones por interrupción climática"],
+      ["6. Regreso y cierre","Espacio de cierre y reflexión","Encuesta de satisfacción (9.1.2)","Encuestas no enviadas por Wi-Fi; recuperación de encuestas omitidas","Quejas por cierres abruptos"],
+      ["7. Documentación","Repositorio seguro en la nube e instructivos","Auditoría del archivo bajo ID","Reconstrucción de planillas extraviadas; carga tardía","No conformidades, multas o pérdida de habilitación"]])+`
+    <h2>Análisis del reporte interanual de costos</h2>
+    <p>Se analiza el último reporte interanual de costos de calidad de la organización (2019 a 2026; 2026 es una estimación) frente al objetivo de calidad: <b>reducir 15 % los costos totales en 3 años</b> y <b>3 % por año</b>.</p>`+
+    lineasSVG(COSTOS_ANIOS,[["Costos totales",COSTOS_ANIOS.map((_,i)=>+(COSTOS_SERIES.FI[i]+COSTOS_SERIES.FE[i]+COSTOS_SERIES.PR[i]+COSTOS_SERIES.EV[i]).toFixed(2)),"#A33224"],
+      ["No calidad (fallos)",COSTOS_ANIOS.map((_,i)=>+(COSTOS_SERIES.FI[i]+COSTOS_SERIES.FE[i]).toFixed(2)),"#C06500"],
+      ["Calidad (prevención + evaluación)",COSTOS_ANIOS.map((_,i)=>+(COSTOS_SERIES.PR[i]+COSTOS_SERIES.EV[i]).toFixed(2)),"#4B6B4A"]],"Millones de $")+
+    lineasSVG(COSTOS_ANIOS,[["Fallos internos",COSTOS_SERIES.FI,"#A33224"],["Fallos externos",COSTOS_SERIES.FE,"#C06500"],["Evaluación",COSTOS_SERIES.EV,"#2E5D8A"],["Prevención",COSTOS_SERIES.PR,"#4B6B4A"]],"Millones de $")+
+    tblT(["Período","Variación de los costos totales","Objetivo anual (−3 %)"],[["2022 → 2023","−1,4 %","<span class='no'>No cumple</span>"],["2023 → 2024","−7,0 %","<span class='ok'>Cumple</span>"],["2024 → 2025","−9,8 %","<span class='ok'>Cumple</span>"],["2025 → 2026 (estimado)","−1,2 %","<span class='no'>No cumple</span>"]])+`
+    <div class="kpis"><div class="kpi kpi-ok"><b>−16,2 %</b><span>Costos totales 2023 → 2025: se cumple el objetivo de mediano plazo (≥ 15 %)</span></div></div>
+    <p><b>Modelo tradicional.</b> Las acciones redujeron los fallos internos y las curvas de costos de calidad y de no calidad se fueron aproximando: la organización opera en la zona previa al costo total mínimo, cerca del <b>punto B</b>, con margen para seguir invirtiendo de forma inteligente en calidad.</p>
+    <p><b>Cambio de estrategia.</b> Los costos de evaluación son mucho mayores que los de prevención y los fallos externos ya son bajos. Se propone <b>bajar la evaluación y aumentar la prevención</b>; en el circuito, eso significa <b>capacitar a los estudiantes guías</b> y <b>mantener los senderos</b>.</p>`;
+
+
+  case "amfe": return hT("Gestión de riesgos: AMFE")+`
+    <h2>Fundamento normativo</h2>
+    <p>La ISO 9001:2015 no exige una metodología específica, pero promueve el pensamiento basado en riesgos. El AMFE se implementa para cumplir con <b>6.1.1 y 6.1.2</b> (riesgos y oportunidades), <b>4.4.1 f</b> (riesgos en cada proceso), <b>8.5.1 g</b> (prevención de errores humanos) y <b>9.1.3 e</b> (eficacia de las acciones).</p>
+    <h2>Procedimiento PR-SGC-001</h2>
+    ${tblT(["Código","Versión","Vigencia","Proceso asociado"],[["PR-SGC-001","01","29/09/2026","Prestación del servicio de senderismo y guiado turístico"]])}
+    <ul><li><b>Objetivo:</b> metodología para identificar, evaluar, mitigar y controlar los riesgos del servicio turístico.</li>
+    <li><b>Alcance:</b> desde la concentración inicial hasta la encuesta y el archivo de la documentación.</li>
+    <li><b>Responsabilidades:</b> el docente a cargo aprueba el AMFE y audita las acciones; los estudiantes guías identifican fallos, los reportan y aplican los controles.</li>
+    <li><b>Frecuencia:</b> revisión anual o ante cambios significativos en el circuito.</li>
+    <li><b>Registro:</b> planilla “06-Planilla para AMFE.xlsx”, firmada por el Coordinador del SGC y conservada 3 años en la nube.</li></ul>
+    <h3>Umbrales de acción (NPR = G × O × D)</h3>
+    <div class="kpis"><div class="kpi kpi-no"><b>NPR ≥ 200</b><span>Inaceptable: acción correctiva antes de la próxima prestación</span></div><div class="kpi kpi-m"><b>NPR 100–199</b><span>Moderado: mejoras preventivas a corto plazo</span></div><div class="kpi kpi-ok"><b>NPR &lt; 100</b><span>Aceptable: controles de rutina</span></div></div>
+    <details><summary>Ver escalas de Gravedad, Ocurrencia y Detección (1 a 10)</summary>`+tblT(["Valor","Gravedad (G)","Ocurrencia (O)","Detección (D)"],[
+      ["1","Sin efecto perceptible","&lt; 1 en 5.000 turnos","Control preventivo obligatorio lo detecta con certeza"],
+      ["2","Inconveniente mínimo resuelto en el acto","1 en 1.000","Verificación estandarizada antes de salir"],
+      ["3","Desvío leve estético o de infraestructura","1 en 500","Controles de rutina antes del despacho"],
+      ["4","Incumplimiento menor, pequeña molestia","1 en 100","Inspección visual manual habitual"],
+      ["5","Falla en soportes de información o pérdida de confort","1 en 50","Detección media durante la preparación"],
+      ["6","Insatisfacción evidente o impacto ambiental leve","1 en 20","Se detecta al iniciar la caminata"],
+      ["7","Interrupción parcial o reclamo formal","1 en 10","Difícil de advertir antes de afectar al cliente"],
+      ["8","Pérdida total de conformidad o incumplimiento normativo crítico","1 en 5","El control casi nunca la advierte antes de la queja"],
+      ["9","Riesgo grave para la salud sin lesiones permanentes","1 en 2","Detección casi nula antes del impacto"],
+      ["10","Accidente grave o emergencia climática sin evacuación","&gt; 50 % de los turnos","Sin control: llega al cliente"]])+`</details>
+    <div class="anim-ctrl noprint"><button class="btn-imp" id="amfe-ren">AMFE Circuito Renacer (adaptado)</button><button class="btn-imp" id="amfe-sj">AMFE Circuito San José (original)</button></div>
+    <div id="amfe-out"></div>`;
+
+  case "sig": return hT("Sistema Integrado de Gestión: contingencia climática")+`
+    <h2>Situación problemática</h2>`+tblT(["Proceso","Situación","Consecuencia"],[["Prestación del servicio turístico","Durante el circuito ocurre una contingencia climática (lluvia intensa, viento Zonda o vientos fuertes) que provoca anegamiento o deterioro de caminos, caída de ramas, obstáculos o imposibilidad de acceder a puntos del circuito.","Riesgo para alumnos, docentes y visitantes; interrupción o demora del circuito; actividades incumplidas; menor satisfacción; impactos sobre suelo, flora, fauna y paisaje."]])+`
+    <h2>Análisis desde las tres normas</h2>`+tblT(["","Calidad · ISO 9001","Ambiente · ISO 14001","SST · ISO 45001"],[
+      ["<b>Relación</b>","El deterioro de caminos o la imposibilidad de acceder a paradas impide prestar el circuito según lo planificado y afecta la conformidad y la satisfacción.","El fenómeno modifica el entorno; una mala respuesta genera nuevos impactos (tránsito por zonas no previstas, residuos).","Caminos resbaladizos, caída de ramas y baja visibilidad aumentan el riesgo de accidentes."],
+      ["<b>Control propuesto</b>","Criterios para continuar, modificar, reprogramar o suspender; comunicar cambios y registrar contingencias.","Evaluar el recorrido tras la contingencia, evitar sectores sensibles, definir recorridos alternativos y controlar residuos.","Protocolo de actuación: monitoreo meteorológico, evaluación de peligros, criterios de suspensión, comunicación de emergencias y elementos de protección."]])+`
+    <h2>Propuesta de mejora</h2>`+tblT(["Elemento","Propuesta"],[
+      ["Acción / control","Protocolo de Actuación ante Contingencias Climáticas: verificar clima y estado del recorrido antes de cada salida, con criterios para continuar, modificar, reprogramar o suspender."],
+      ["Responsable","Responsable del Circuito Turístico y docente acompañante, con el responsable de Higiene y Seguridad."],
+      ["Documento o registro","Protocolo de contingencias, Lista de Verificación Previa del Circuito (R-ST-03) y Registro de Contingencias Climáticas (R-ST-07)."],
+      ["Verificación","Comprobar que cada salida tenga su lista de verificación y que las contingencias se registren y gestionen; evaluar si se protegió a las personas, se mantuvo la conformidad y se evitaron impactos."]])+`
+    <h2>Árbol de decisión del protocolo</h2>
+    <ol class="arbol"><li><b>¿Viento ≥ 50 km/h o T ≥ 38 °C?</b> Sí → suspender y reprogramar (R-ST-07).</li><li><b>¿Lluvia en las últimas 24 h?</b> Sí → control pos lluvia del sendero; si hay anegamiento, recorrido alternativo por la vereda de la plaza.</li><li><b>¿Ramas caídas o chapas sueltas en la estación?</b> Sí → cerrar el hito B y comunicar el cambio al grupo.</li><li><b>Durante el recorrido cambia el clima:</b> regreso inmediato a la escuela por el tramo más corto, conteo del grupo y registro.</li></ol>`;
+
+  case "impactos": {
+    const cols=["Agua subterránea","Calidad del aire","Olores","Nivel sonoro","Superficie intervenida","Calidad del suelo","Flora y fauna","Paisaje","Tránsito y transporte","Economía local","Empleo","Identidad y cultura Huarpe","Escuela Raíces Huarpes","Residuos","Redes de servicio"];
+    const L="DEFGHIJKLMNOPQR";
+    const fila=(pos,neg)=>{const r=Array(15).fill("");[...pos].forEach(c=>r[L.indexOf(c)]="P");[...neg].forEach(c=>r[L.indexOf(c)]="N");return r;};
+    const nP=IMPACTOS.reduce((s,x)=>s+x[2].length,0), nN=IMPACTOS.reduce((s,x)=>s+x[3].length,0);
+    return hT("Matriz de impactos sociales y ambientales")+`
+    <p>Cruza cada proceso del Mapa General con los factores del medio natural, perceptivo, socioeconómico y cultural, y de infraestructura. <span class="ok">P</span> = impacto positivo · <span class="no">N</span> = impacto negativo.</p>
+    <div class="kpis"><div class="kpi kpi-ok"><b>${nP}</b><span>Impactos positivos</span></div><div class="kpi kpi-no"><b>${nN}</b><span>Impactos negativos</span></div></div>
+    <div class="tscroll"><table class="imp"><tr><th>Tipo</th><th>Proceso</th>${cols.map(c=>`<th class="vert"><span>${c}</span></th>`).join("")}</tr>
+    ${IMPACTOS.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td>${fila(x[2],x[3]).map(v=>`<td class="${v==="P"?"ip":v==="N"?"in":""}">${v}</td>`).join("")}</tr>`).join("")}</table></div>
+    <ul><li><b>Positivos:</b> economía local, empleo, identidad y cultura Huarpe y la propia escuela, en todos los procesos; los estratégicos además favorecen flora, fauna y paisaje.</li>
+    <li><b>Negativos:</b> sobre todo en procesos operativos y de soporte: aire, ruido, flora y fauna, paisaje, tránsito y residuos, por el traslado y la circulación de visitantes.</li>
+    <li><b>Gestión:</b> grupos de 5 a 15 por guía, sendero delimitado, inspecciones previas, gestión de residuos y recorridos alternativos tras una contingencia.</li></ul>`;}
+
+  case "auditoria": return hT("Auditoría interna")+`
+    <p>Auditoría cruzada entre equipos de la cátedra (ISO 9001, cláusula 9.2): el equipo del servicio turístico auditó a otro equipo y, a su vez, fue auditado.</p>
+    <h2>Como equipo auditor</h2>`+tblT(["Dato","Detalle"],[["Tipo","Auditoría interna de primera parte"],["Equipo auditado","Grupo N° 5 (organización industrial: estación meteorológica en el plan; ensayo de probetas y dosificación de hormigón en el informe)"],["Criterios","ISO 9001:2015 y documentación interna (procedimientos, especificaciones técnicas, mapas, gestión de riesgos)"],["Duración","1 h 30 min"]])+`
+    <h3>Plan de auditoría</h3>`+tblT(["Horario","Actividad","Contenido"],[
+      ["10:00 – 10:10","Reunión de apertura","Presentación, alcance, objetivos, criterios y metodología"],
+      ["10:10 – 10:25","Sistema de gestión y planificación","Mapa de procesos, diagrama de flujo y objetivos de calidad"],
+      ["10:25 – 10:45","Recursos, competencia y control operacional","Procedimiento estandarizado y especificación técnica"],
+      ["10:45 – 11:05","Riesgos, desempeño y mejora","AMFE, variables de control y costos de calidad"],
+      ["11:05 – 11:20","Deliberación del equipo auditor","Clasificación de hallazgos en C y NC"],
+      ["11:20 – 11:30","Reunión de cierre","Resultados y plazos para el plan de acción"]])+`
+    <h3>Resultados del informe</h3>`+tblT(["Tipo","Requisito","Hallazgo"],[
+      ["<span class='ok'>C</span>","4.4","Mapa de procesos documentado"],["<span class='ok'>C</span>","8.4","Matriz de evaluación de proveedores con criterios"],
+      ["<span class='ok'>C</span>","7.1 y 7.2","Responsabilidades, autoridades y competencias por proceso"],["<span class='ok'>C</span>","8.1","Control de calibración y de peso; especificaciones documentadas"],
+      ["<span class='no'>NC 001</span>","6.2","No se encuentran objetivos de calidad identificados"],["<span class='no'>NC 002</span>","9.1","No se documenta la frecuencia ni el motivo de los ensayos"],
+      ["<span class='no'>NC 003</span>","9.1","Costos identificados pero no cuantificados ni evaluados"]])+`
+    <h2>Como equipo auditado</h2>`+tblT(["Dato","Detalle"],[["Equipo auditor","Grupo N° 7"],["Fecha de auditoría","14/10/2026"],["Fecha de respuesta","26/10/2026"],["Resultado","3 no conformidades y 5 conformidades"]])+`
+    <p><b>Conformidades que se mantienen:</b> gestión de un riesgo del AMFE (Zonda) con acción y responsable (8.1.2), registros de la visita y su almacenamiento (7.5), recepción de consultas (8.2.1), ID de visita y trazabilidad (8.5.2) y encuesta de satisfacción (9.1.2).</p>`+
+    tblT(["NC","Requisito","Hallazgo","Causa raíz","Acción correctiva","Responsable","Fecha","Eficacia"],[
+      ["NC-03","8.5.1","El guión con paradas y tiempos está planificado pero no implementado","El procedimiento no se capacitó ni se verificó","Capacitar en el guión; registrar tiempos en R-ST-05 y controlar en el PCC-2; revisión del Guía Líder tras cada visita","Guía Líder / Encargado de Campo","06/11/2026","R-ST-05 completas y ciclo de 80 ± 15 min"],
+      ["NC-01","7.2","No hay evidencia de capacitación del guía","Preparación informal, sin perfil ni registro","Perfil de competencia en P-ST-01; programa breve con evaluación práctica; registro de capacitación","Guía Líder con docentes","13/11/2026","100 % de guías capacitados y evaluados"],
+      ["NC-02","7.5","Sin control de acceso, versiones ni conservación de registros","Registros dispersos (Forms, Excel, correo, nube y papel)","Lista maestra con código y versión; permisos por rol; plazo de conservación; cargar consultas de WhatsApp","Responsable Documental","20/11/2026","Lista maestra aprobada y permisos aplicados"]])+`
+    <p class="nota">Seguimiento: se solicitó al equipo auditor verificar la eficacia de las acciones una vez cumplidas las fechas del plan.</p>`;
+
+  case "inspeccion": return hT("Plan de inspección y control del comitente (PICC)")+`
+    <p class="lead">La Inspección del Comitente supervisa el servicio <b>mientras se presta</b> (aseguramiento de la calidad) y complementa el control de calidad del Contratista. Abarca recepción y sanitarios, la red de senderos, el taller de la artesana y el perímetro de la estación abandonada, en las siete etapas del servicio.</p>
+    <h2>Tipos de punto de inspección</h2>
+    <div class="kpis"><div class="kpi"><b>R</b><span>Revisión documental, sin detener la operación</span></div><div class="kpi kpi-m"><b>W</b><span>Testigo: el Inspector presencia la actividad</span></div><div class="kpi kpi-no"><b>H</b><span>Hold Point: no se avanza sin firma del Inspector</span></div></div>`+
+    tblT(["Etapa","Control del Contratista (CC)","Verificación del Comitente (AC)","Punto"],[
+      ["1. Consulta y registro","Registro con ID; fecha, circuito y guías habilitados","Auditoría semanal de ID y cupos","R"],
+      ["2. Pago","Precios visibles; comprobante vinculado al ID","Auditoría de comprobantes y precios","R"],
+      ["3. Preparar el servicio (PCC-1)","Sendero ≤ 2 cm; cierre ≥ 1,50 m; agua y botiquín; clima; R-ST-03","Inspección en campo y contraste con el SMN; sin su firma en “Go” no se sale","<b>H</b>"],
+      ["4. Recepción y charla","Conteo por guía; charla completa según guión","Inspección sorpresa; verificación del conteo","W"],
+      ["5. Caminata (PCC-2)","Guiado, cronometraje, hidratación, QR, R-ST-05","Fiscalización en la parada intermedia","W"],
+      ["6. Regreso y cierre","Plenario y 100 % de encuestas","Tasa de encuestas y quejas","W"],
+      ["7. Documentación (PCC-3)","Carga en la nube en ≤ 24 h bajo el ID","Auditoría semanal con R-DOC-01","R"]])+`
+    <h2>Criterios de aceptación</h2>`+tblT(["Parámetro","Criterio","Instrumento","Frecuencia","Evidencia"],[
+      ["Viento Zonda","&lt; 50 km/h","SMN / Defensa Civil","T − 30 min","Reporte firmado"],["Temperatura","&lt; 38 °C a la sombra","Termómetro calibrado","T − 30 min","R-ST-03"],
+      ["Índice UV","≤ 8 (si &gt; 8, hidratación cada 20 min)","App oficial","T − 30 min","R-ST-03"],["Agua","≥ 2 L por persona y turno","Control volumétrico","Cada turno","R-ST-03"],
+      ["Botiquín tipo A","100 % precintado y vigente","Lista de chequeo","Cada turno","R-ST-03"],["Cierre de la estación","≥ 1,50 m, continuo","Cinta métrica","Semanal","R-INF-01"],
+      ["Sendero","≤ 2 cm","Regla o cinta","Diaria","R-INF-01"],["Grupo","5 a 15 por guía","Conteo","Inicio del turno","R-ST-05"],
+      ["Tiempo de ciclo","80 ± 15 min","Cronómetro","Cada turno","R-ST-05"],["QR","100 % de lectura","Smartphone","Diaria","R-ST-03"],["Carga documental","100 % en ≤ 24 h","Auditoría de la nube","Semanal","R-DOC-01"]])+`
+    <h2>Hallazgos y recepción del servicio</h2>`+tblT(["Hallazgo","Ejemplo","Efecto","Plazo"],[
+      ["Observación","Desvío menor sin impacto","Registro","5 días hábiles"],["NC Menor","Carga documental &gt; 24 h; un QR ilegible con respaldo","Contención y plan","48 h"],
+      ["NC Mayor","Partir con Zonda ≥ 50 km/h, botiquín incompleto o sin firma del PCC-1","Orden de paralización","12 h"]])+`
+    <ol><li><b>Recepción provisoria:</b> documentación completa (Plan de Calidad, Plan SST, certificaciones, habilitaciones) y comprobación de senderos y cierre.</li>
+    <li><b>Período de prueba:</b> 30 días o 120 visitas fiscalizadas, Cp ≥ 1,25, cero NC Mayores abiertas y 100 % de carga documental.</li>
+    <li><b>Recepción definitiva:</b> acta de liberación del servicio, sujeta a auditorías periódicas.</li></ol>`;
+
+  case "cartas": return hT("Control estadístico: capacidad y cartas de control")+`
+    <p class="lead">Aplicación de las herramientas de control estadístico a un caso de servicio: una distribuidora eléctrica con dos parámetros contractuales, <b>5 cortes por cliente al mes</b> como máximo y <b>120 min</b> de duración promedio máxima.</p>
+    <h2>Capacidad y desempeño (solo LSE = 120 min)</h2>
+    <div class="kpis"><div class="kpi"><b>X̿ = 114,98</b><span>Media del período (min)</span></div><div class="kpi"><b>σ = 1,505</b><span>Corto plazo: R̄ / d₂ = 3,5 / 2,326</span></div><div class="kpi"><b>σ = 10,444</b><span>Largo plazo: 50 datos</span></div><div class="kpi kpi-ok"><b>Cps = 1,112</b><span>Capacidad a corto plazo</span></div><div class="kpi kpi-no"><b>Pps = 0,160</b><span>Desempeño real a largo plazo</span></div></div>
+    <p>La enorme diferencia entre capacidad y desempeño indica que la media del proceso no es estable. Para que los índices predigan el futuro, el proceso debe estar bajo control estadístico.</p>
+    <h2>Carta X̄–R (n = 5)</h2>`+cartaSVG(CARTA_X,"Media mensual (min)",[[117.00,"LSC 117,00","#A33224"],[114.98,"LC 114,98","#4B6B4A"],[112.96,"LIC 112,96","#A33224"],[120,"LSE 120","#D4A017"]])+
+    cartaSVG(CARTA_R,"Rango mensual (min)",[[7.40,"LSC 7,40","#A33224"],[3.5,"LC 3,5","#4B6B4A"],[0,"LIC 0","#A33224"]])+`
+    <ul><li><b>Carta R:</b> rangos entre 3 y 5, dentro de 0 a 7,40: la variabilidad dentro de cada mes es estable.</li>
+    <li><b>Carta X̄:</b> proceso <b>extremadamente inestable</b>; solo el mes 6 queda dentro de los límites y hay una deriva ascendente durante los diez meses. Esa causa especial explica la diferencia entre Cps y Pps.</li></ul>
+    <h2>Carta p: sectores con cortes excesivos (n = 50)</h2>`+cartaSVG(CARTA_P,"Proporción no conforme",[[0.195,"LSC 0,195","#A33224"],[0.08,"p̄ 0,08","#4B6B4A"],[0,"LIC 0","#A33224"]])+`
+    <p>Ningún punto supera el LSC y no hay patrones: el proceso es <b>estable</b>, pero incumple el contrato de forma estructural (8 % de sectores no conformes). Un proceso puede ser estable y, a la vez, incapaz.</p>
+    <h2>Aplicación al circuito turístico</h2>
+    <p>El mismo razonamiento se aplica al <b>tiempo de ciclo del recorrido</b> (80 ± 15 min): con las planillas R-ST-05 se puede construir una carta X̄–R para verificar la estabilidad antes de interpretar la capacidad (Cp = 1,25; Cpk = 1,17), y una carta p con la proporción de salidas fuera de tiempo o suspendidas, para separar problemas estructurales de causas especiales como una jornada de viento Zonda.</p>`;
+
+  default: return hT(p.nombre)+`<p class="lead">${p.subtitulo}</p><h2>Diagnóstico y requisito</h2><p>${p.diagnostico}</p><h2>Documentación del proyecto</h2><ul class="docs">${p.docs.map(d=>`<li>${d}</li>`).join("")}</ul>`;
+  }
+}
+
+/* Tabla AMFE con colores de NPR */
+function amfeRender(cual){
+  const D = cual==="sj" ? AMFE_SJ : AMFE_REN;
+  const el=document.getElementById("amfe-out"); if(!el) return;
+  document.getElementById("amfe-ren").classList.toggle("sel",cual!=="sj");
+  document.getElementById("amfe-sj").classList.toggle("sel",cual==="sj");
+  const filas = D.map(r=>{ const n1=r[3]*r[5]*r[7], n2=r[10]*r[11]*r[12];
+    return [r[0],r[1],r[2],r[3],r[4],r[5],r[6],r[7],`<span class="npr ${nprCls(n1)}">${n1}</span>`,r[8],r[9],r[10],r[11],r[12],`<span class="npr ${nprCls(n2)}">${n2}</span>`]; });
+  const i0=D.filter(r=>r[3]*r[5]*r[7]>=200).length, m0=D.filter(r=>{const v=r[3]*r[5]*r[7];return v>=100&&v<200;}).length;
+  const i1=D.filter(r=>r[10]*r[11]*r[12]>=200).length, m1=D.filter(r=>{const v=r[10]*r[11]*r[12];return v>=100&&v<200;}).length;
+  const s0=D.reduce((s,r)=>s+r[3]*r[5]*r[7],0), s1=D.reduce((s,r)=>s+r[10]*r[11]*r[12],0);
+  el.innerHTML = `<h3>${cual==="sj"?"Recorrido turístico San José · AMFE del 30/09/2026":"Circuito Renacer · adaptación del AMFE (propuesta)"}</h3>
+   ${cual==="sj"?"":prop("Se reutilizan los modos de fallo comunes del AMFE de San José (clima, botiquín, sendero, QR, tiempos) y se agregan los propios de la plaza, la estación y el taller artesanal.")}
+   <div class="kpis"><div class="kpi"><b>${D.length}</b><span>Modos de fallo analizados</span></div>
+   <div class="kpi"><b>${i0} → ${i1}</b><span>Riesgos inaceptables (NPR ≥ 200) antes → después</span></div>
+   <div class="kpi"><b>${m0} → ${m1}</b><span>Riesgos moderados antes → después</span></div>
+   <div class="kpi kpi-ok"><b>${((1-s1/s0)*100).toFixed(0)} %</b><span>Reducción del NPR total</span></div></div>
+   `+tblT(["Paso","Modo de fallo","Efecto","G","Causa","O","Control actual","D","NPR inicial","Acción","Responsable","G'","O'","D'","NPR final"],filas,"amfe");
+}
+
+/* Prioridades del AMFE en el panel lateral se inicializan al entrar */
+function turSubInit(){
+  if(sub==="amfe"){ document.getElementById("amfe-ren").onclick=()=>amfeRender("ren"); document.getElementById("amfe-sj").onclick=()=>amfeRender("sj"); amfeRender("ren"); }
+  if(sub==="objetivos") indCalc();
+}
 
 render();
 </script>
