@@ -126,6 +126,75 @@
     .menu-sitio{margin-left:0;width:100%;justify-content:flex-start;border-left:0!important;padding:14px 18px}
     #panel-menu .cols{grid-template-columns:1fr;gap:22px;padding:16px 18px 22px}
   }
+
+  /* ---- La Escuela ---- */
+  .esc-top{display:grid;grid-template-columns:1.35fr 1fr;gap:26px;align-items:stretch;margin:6px 0 34px}
+  .esc-top figure{margin:0;border-radius:12px;overflow:hidden;min-height:300px;background:#ddd}
+  .esc-top figure img{width:100%;height:100%;object-fit:cover;object-position:35% 50%;display:block}
+  .ficha{background:#fff;border:1px solid var(--borde);border-radius:12px;padding:20px 22px;margin:0}
+  .ficha div{padding:10px 0;border-bottom:1px solid #efe9dd}
+  .ficha div:last-child{border-bottom:0}
+  .ficha dt{font-family:Montserrat,Arial,sans-serif;font-size:13px;font-weight:700;color:var(--acc-osc);margin:0 0 2px}
+  .ficha dd{margin:0;font-size:15px;line-height:1.45;color:#3a352d}
+  .esc-intro{font-size:18px;line-height:1.6;color:#3a352d;margin:0 0 8px}
+  .mapa-wrap{margin:10px 0 36px}
+  .mapa-wrap iframe{display:block;width:100%;height:420px;border:1px solid var(--borde);border-radius:12px;background:#e9e5dc}
+  .mapa-cab{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .btn-mapa{display:inline-block;background:var(--acc-osc);color:#fff;text-decoration:none;padding:9px 16px;border-radius:6px;font-weight:600;font-size:15px}
+  .btn-mapa:hover{background:var(--acc)}
+  .dos-col{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:10px}
+  .dos-col section{background:#fff;border:1px solid var(--borde);border-radius:12px;padding:22px 24px}
+  .dos-col h2{margin-top:0;font-size:21px}
+  .dos-col p{margin:0}
+  .dos-col .desafio{border-top:5px solid #b0623a}
+  .dos-col .respuesta{border-top:5px solid var(--acc)}
+  @media(max-width:760px){.esc-top,.dos-col{grid-template-columns:1fr}.esc-top figure{min-height:220px}.mapa-wrap iframe{height:320px}}
+
+  /* ---- Equipo y contacto ---- */
+  .eq-intro{font-size:17px;color:#3a352d;margin:0 0 22px;max-width:none}
+  .eq-bloque{margin:0 0 30px}
+  .eq-bloque > h2{margin:0 0 12px;font-size:20px}
+  .eq-grid{display:flex;flex-wrap:wrap;gap:16px}
+  .eq-grid > .eq-card{flex:1 1 300px}
+  .eq-card{background:#fff;border:1px solid var(--borde);border-top:5px solid var(--c,#2e5d8a);border-radius:12px;padding:18px 20px}
+  .eq-card h3{margin:0 0 4px;font-size:17px;color:var(--co,#1d3f61)}
+  .eq-card .inst{font-size:13px;color:#6b6358;margin:0 0 10px}
+  .eq-card ul{list-style:none;margin:0;padding:0}
+  .eq-card li{padding:6px 0;border-top:1px solid #f0ebe1;font-size:15px;line-height:1.4}
+  .eq-card li:first-child{border-top:0}
+  .eq-card li span{display:block;font-size:13px;color:#6b6358}
+  .eq-card .eq-mail{display:block;font-size:13px;color:var(--co,#1d3f61);text-decoration:none;word-break:break-all;margin-top:2px}
+  .eq-card .eq-mail:hover{text-decoration:underline}
+  .eq-card.tur{--c:#c06500;--co:#8a4500}
+  .eq-card.cos{--c:#6A9624;--co:#4A6B1F}
+  .eq-card.esc{--c:#b0623a;--co:#7a3f22}
+
+  /* ---- Sistema Integrado de Gestión (apartado común) ---- */
+  .sig-intro{font-size:18px;line-height:1.6;color:#3a352d;margin:0 0 18px}
+  .sig-comp{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .sig-comp li{background:#fff;border:1px solid var(--borde);border-radius:12px;padding:18px 20px;display:grid;grid-template-columns:34px 1fr;gap:4px 12px}
+  .sig-comp .n{grid-row:span 2;width:34px;height:34px;border-radius:50%;background:var(--acc-suave);color:var(--acc-osc);font:700 16px/34px Montserrat,Arial,sans-serif;text-align:center}
+  .sig-comp h3{margin:2px 0 0;font-size:17px;color:var(--acc-osc)}
+  .sig-comp p{margin:0;font-size:15px;line-height:1.5;color:#3a352d}
+  .sig-comp li.destacado{grid-column:1/-1;border:2px solid var(--acc);background:#f4f8fc}
+  .sig-comp li.destacado .n{background:var(--acc);color:#fff}
+  .sig-cierre{font-size:15px;color:#4a443b;margin:6px 0 34px}
+  .sig-alcance{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:8px 0 36px}
+  .sig-alcance div{background:#fff;border:1px solid var(--borde);border-top:5px solid var(--c);border-radius:12px;padding:18px 20px}
+  .sig-alcance h3{margin:0 0 6px;font-size:17px;color:var(--co)}
+  .sig-alcance p{margin:0;font-size:15px;line-height:1.5}
+  .sig-alcance .cos{--c:#6A9624;--co:#4A6B1F} .sig-alcance .tur{--c:#c06500;--co:#8a4500}
+  .sig-nota{font-size:14px;color:#554f45;margin:-22px 0 34px}
+  .iso-wrap{overflow-x:auto;border:1px solid var(--borde);border-radius:12px;background:#fff}
+  .iso{width:100%;border-collapse:collapse;font-size:14px;line-height:1.45;min-width:760px}
+  .iso th,.iso td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid #efe9dd}
+  .iso thead th{position:sticky;top:0;background:#f6f3ec;font-family:Montserrat,Arial,sans-serif;font-size:13px}
+  .iso thead th.c-com{color:#1d3f61} .iso thead th.c-cos{color:#4A6B1F;border-bottom:3px solid #6A9624} .iso thead th.c-tur{color:#8a4500;border-bottom:3px solid #c06500}
+  .iso thead th.c-com{border-bottom:3px solid #2e5d8a}
+  .iso td:first-child{font-weight:600;white-space:nowrap;color:#2e2a24}
+  .iso td.vacio{color:#b3aa9a}
+  .iso tr.grupo td{background:#faf8f3;font:700 12px Montserrat,Arial,sans-serif;color:#6b6358;letter-spacing:.02em;padding:8px 12px}
+  @media(max-width:760px){.sig-comp,.sig-alcance{grid-template-columns:1fr}}
   .foto-fig{margin:14px 0}
   .foto-fig img{width:100%;max-height:340px;object-fit:cover;border-radius:8px;border:1px solid var(--borde);display:block}
   .foto-fig figcaption{font-size:13px;color:#4a443b;margin-top:4px}
@@ -584,23 +653,27 @@ const TABS = {
 
   escuela(){
     return `
-      <span class="tag">Apartado común</span>
       <h1 class="t">La Escuela</h1>
-      <h2>Organización y tipo de actividad</h2>
-      <p>El proyecto se lleva a cabo en la Escuela Rural Albergue N° 4-207 Raíces Huarpes, institución que funciona bajo modalidad de albergue, alternando semanas para la educación primaria y secundaria. Más allá de su labor formativa, la escuela actúa como núcleo de un trabajo colaborativo y multidisciplinario que busca generar impacto socioeconómico en la comunidad.</p>
-      <h2>Emplazamiento físico</h2>
-      <p>Paraje San José, departamento de Lavalle, provincia de Mendoza.</p>
-      <h2>Ubicación</h2>
-      <p><a href="https://share.google/NSvGsQtNPJri6qX3i" target="_blank" rel="noopener">Abrir la ubicación en Google Maps</a></p>
-      <iframe src="https://www.google.com/maps?q=Escuela+Raices+Huarpes+San+Jose+Lavalle+Mendoza&t=k&z=15&output=embed" width="100%" height="360" style="border:1px solid #e4dccd;border-radius:8px" loading="lazy" title="Mapa satelital de la Escuela Raíces Huarpes"></iframe>
-      <p class="nota">Vista satelital. Verificar que el marcador coincida con el enlace compartido.</p>
-      <h2>Instalaciones</h2>
-      <p>Edificación principal y dos aulas pequeñas en el exterior, separadas por una cancha deportiva utilizada para educación física.</p>
-      <h2>Contexto cualitativo y desafíos</h2>
-      <p>La comunidad enfrenta una alta vulnerabilidad rural. Muchos jóvenes expresan el deseo de no continuar con los oficios tradicionales de sus padres, lo que exige proyectar nuevas alternativas socioeconómicas que les den mayor libertad y propósito.</p>
-      <h2>Solución y proyecto institucional</h2>
-      <p>Convergencia multidisciplinaria: la UNCuyo aporta innovación tecnológica y de diseño, mientras que el gobierno local y el hospital universitario garantizan el bienestar integral.</p>`;
+      <p class="esc-intro">La Escuela Rural Albergue N° 4-207 Raíces Huarpes es, además de un espacio de formación, el núcleo de un trabajo colaborativo y multidisciplinario que busca generar impacto socioeconómico en la comunidad.</p>
+      <div class="esc-top">
+        <figure><img src="img/escuela.jpg" alt="Frente de la Escuela Albergue Raíces Huarpes con el mural de la wiphala"></figure>
+        <dl class="ficha">
+          <div><dt>Modalidad</dt><dd>Albergue, alternando semanas para la educación primaria y secundaria</dd></div>
+          <div><dt>Nivel secundario</dt><dd>Orientación turismo · 67 alumnos</dd></div>
+          <div><dt>Ubicación</dt><dd>Paraje San José, Ferrocarril Belgrano Km 976, Lavalle, Mendoza</dd></div>
+          <div><dt>Instalaciones</dt><dd>Edificación principal y dos aulas pequeñas en el exterior, separadas por una cancha deportiva usada para educación física</dd></div>
+        </dl>
+      </div>
+      <div class="mapa-wrap">
+        <div class="mapa-cab"><h2>Cómo llegar</h2><a class="btn-mapa" href="https://share.google/NSvGsQtNPJri6qX3i" target="_blank" rel="noopener">Abrir en Google Maps</a></div>
+        <iframe src="https://www.google.com/maps?q=Escuela+Raices+Huarpes+San+Jose+Lavalle+Mendoza&t=k&z=15&output=embed" loading="lazy" title="Mapa satelital de la Escuela Raíces Huarpes"></iframe>
+      </div>
+      <div class="dos-col">
+        <section class="desafio"><h2>Contexto y desafíos</h2><p>La comunidad enfrenta una alta vulnerabilidad rural. Muchos jóvenes expresan el deseo de no continuar con los oficios tradicionales de sus padres, lo que exige proyectar nuevas alternativas socioeconómicas que les den mayor libertad y propósito.</p></section>
+        <section class="respuesta"><h2>Cómo responde el proyecto</h2><p>Convergencia multidisciplinaria: la UNCuyo aporta innovación tecnológica y de diseño, mientras que el gobierno local y el hospital universitario garantizan el bienestar integral.</p></section>
+      </div>`;
   },
+
 
   proyectos(){
     const icoTur = `<svg class="ico" viewBox="0 0 80 80" aria-hidden="true"><g stroke="#d27300" stroke-width="4" stroke-linecap="round"><path d="M40 6v8M40 54v0M14 30h8M58 30h8M21.5 11.5l5.6 5.6M58.5 11.5l-5.6 5.6"/></g><circle cx="40" cy="32" r="13" fill="#e48200"/><path d="M4 74 L26 48 L38 60 L54 40 L76 74 Z" fill="#af5700"/><path d="M4 74 L20 58 L32 74 Z" fill="#c06500"/></svg>`;
@@ -631,7 +704,7 @@ const TABS = {
     if(sub){
       return mig + `<a href="#" class="volver noprint" data-go="detalle|${proy}|">← Volver al índice</a>` + subContent();
     }
-    const enlace = (k,t) => `<a href="#" data-go="detalle|${proy}|${k}">${t}</a>`;
+    const enlace = (k,t) => `<a href="#" data-go="${(k==="politica"||k==="clausulas")?"sig||":`detalle|${proy}|${k}`}">${t}</a>`;
     const indice = `<h2>Índice de documentación</h2><ol class="indice">${(proy==="turismo" ? INDICE.filter(x=>x[0]!=="qfd").concat(INDICE_TUR_EXTRA) : INDICE).map(([k,t,hijos]) =>
       `<li>${enlace(k,t)}${hijos ? `<ol>${hijos.map(([k2,t2]) => `<li>${enlace(k2,t2)}</li>`).join("")}</ol>` : ""}</li>`
     ).join("")}</ol>`;
@@ -699,26 +772,85 @@ const TABS = {
       </ol>`;
   },
 
-  contacto(){
+  sig(){
+    const comp=[
+      ["Poner a los estudiantes en el centro del proyecto","Garantizar su participación activa y su rol operativo principal en todas las etapas: en el taller, como operadores, responsables de control de calidad y de registro; en los circuitos, como guías que reciben, acompañan e informan a los visitantes. Formarlos y capacitarlos antes de cada tarea, para impulsar su aprendizaje práctico y darles herramientas para descubrir su vocación técnica y profesional."],
+      ["Ofrecer productos y servicios de calidad","Elaborar productos cosméticos artesanales que cumplan las especificaciones técnicas establecidas, y brindar circuitos turísticos que respondan a los requisitos y expectativas de los visitantes, evaluando su satisfacción para mejorar la experiencia."],
+      ["Proteger el ambiente del secano lavallino","Prevenir la contaminación, hacer un uso sostenible de la flora nativa mediante una cosecha responsable, cuidar la flora, la fauna y el paisaje de los recorridos, y gestionar de forma adecuada los residuos."],
+      ["Proveer condiciones seguras y saludables","Para estudiantes, docentes, colaboradores y visitantes, identificando y previniendo los riesgos del taller (manipulación de sustancias y fuentes de calor) y de los recorridos (condiciones climáticas y desplazamientos)."],
+      ["Cumplir los requisitos aplicables","La legislación ambiental, sanitaria, laboral y turística vigente, los requisitos educativos y las necesidades de las partes interesadas pertinentes."],
+      ["Poner en valor la identidad cultural Huarpe","Integrar los saberes de la comunidad de manera respetuosa y compatible con la conservación del patrimonio, contribuyendo a su desarrollo socioeconómico."],
+      ["Mejorar continuamente el Sistema Integrado de Gestión","A partir del seguimiento de los procesos, la satisfacción de usuarios y visitantes, y la identificación de riesgos e impactos."]
+    ];
+    const g=t=>`<tr class="grupo"><td colspan="4">${t}</td></tr>`;
+    const f=(c,a,b,d)=>`<tr><td>${c}</td>${[a,b,d].map(x=>x?`<td>${x}</td>`:`<td class="vacio">—</td>`).join("")}</tr>`;
     return `
-      <span class="tag">Apartado común</span>
-      <h1 class="t">Contacto y Equipo</h1>
-      <h2>Equipo de la propuesta</h2>
-      <ul>
-        <li><b>Coordinación:</b> Roberto Haarth (Facultad de Ingeniería)</li>
-        <li><b>Comunicación:</b> Mónica García Tello (Facultad de Ingeniería)</li>
-        <li><b>Administración:</b> Leticia Simoncini (Facultad de Ingeniería)</li>
-        <li><b>Escuela Raíces Huarpes:</b> Alejandra Patricia Soria (directora), Fanny Evangelina Villegas, Mariana Sonia Lescano</li>
-        <li><b>Facultad de Artes y Diseño:</b> Guillermo Lago, Mariana Gordillo</li>
-        <li><b>Hospital Universitario:</b> Nicolena Andrioli Vazquez, Cecilia Lis Torres</li>
-        <li><b>Estudiantes:</b> alumnos de Gestión de la Calidad y de los espacios curriculares participantes (por rol)</li>
-        <li><b>Gestión de la Calidad · Grupo N°3 (Proyecto de Turismo):</b> Sabrina Mataloni, Isabella Morandini, Tomás Raby y Juan Pablo Siracusa</li>
-        <li><b>Gestión de la Calidad · Proyecto de Cosmética:</b> Bernardo Costarelli, Franco La Motta, Tomás Aliaga y Andrés Landgrebe</li>
-        <li><b>Cátedra de Gestión de la Calidad:</b> Ing. Leticia Simoncini, Ing. Jorge Nózica e Ing. Fabrizio Perazzo</li>
-      </ul>
-      <h2>Canales</h2>
-      <div class="pendiente">Pendiente: correo institucional del proyecto y redes sociales.</div>
-      <p class="nota">Los teléfonos y DNI no se publican en el sitio.</p>`;
+      <h1 class="t">Sistema Integrado de Gestión</h1>
+      <p class="sig-intro">La Escuela Rural Albergue N° 4-207 "Raíces Huarpes" gestiona sus dos proyectos bajo un único sistema que integra Calidad (ISO 9001:2015), Ambiente (ISO 14001:2015) y Seguridad y Salud en el Trabajo (ISO 45001:2018).</p>
+
+      <h2>Política Integrada de Gestión</h2>
+      <p>A través de sus proyectos de cosmética natural a base de jarilla y flora nativa y de circuitos turísticos interpretativos guiados por sus estudiantes, la Dirección y la comunidad educativa establecen los siguientes compromisos:</p>
+      <ol class="sig-comp">${comp.map(([t,d],i)=>`<li${i===0?' class="destacado"':''}><span class="n">${i+1}</span><h3>${t}</h3><p>${d}</p></li>`).join("")}</ol>
+      <p class="sig-cierre">Esta política constituye el marco de referencia para establecer y revisar los objetivos de Calidad, Ambiente y Seguridad y Salud en el Trabajo. Debe comunicarse, comprenderse y aplicarse en todos los procesos de la organización, y estar disponible para las partes interesadas pertinentes.</p>
+
+      <h2>Alcance del sistema</h2>
+      <div class="sig-alcance">
+        <div class="cos"><h3>Cosmética Natural de Jarilla</h3><p>Elaboración artesanal de productos cosméticos a base de jarilla y flora nativa, desde la recolección sustentable de la planta hasta la liberación del lote con registro y firma.</p></div>
+        <div class="tur"><h3>Circuito Turístico</h3><p>Diseño y prestación de servicios de turismo rural y cultural guiados por estudiantes, Circuito Renacer y Circuito San José, desde la consulta y registro del turno hasta el archivo de la documentación de la visita.</p></div>
+      </div>
+      <p class="sig-nota">La ampliación en la Reserva Natural y Cultural Bosques Telteca queda fuera del alcance actual y se incorpora como cambio planificado (6.3).</p>
+
+      <h2>Cláusulas aplicables ISO 9001:2015</h2>
+      <p>Las cláusulas del sistema son comunes a la escuela; las de operación se aplican según el proceso de cada proyecto.</p>
+      <div class="iso-wrap"><table class="iso">
+        <thead><tr><th>Cláusula</th><th class="c-com">Escuela (común)</th><th class="c-cos">Cosmética</th><th class="c-tur">Turismo</th></tr></thead>
+        <tbody>
+          ${g("Contexto y liderazgo")}
+          ${f("4.1 y 4.3 Contexto y alcance","Alcance único con los dos procesos","Flora nativa y recursos del territorio","Circuitos Renacer y San José")}
+          ${f("4.2 Partes interesadas","Comunidad, escuela, docentes y universidad","Clientes y consumidores","Visitantes: turistas, visitas escolares y universitarias")}
+          ${f("5.1.2 y 5.2 Enfoque al cliente y política","Política Integrada de Gestión única","","")}
+          ${f("5.3 Roles","Alumnos por rol: operador, control de calidad, registro, responsable de calidad y guía","","")}
+          ${g("Planificación y apoyo")}
+          ${f("6.1 Riesgos y oportunidades","Enfoque basado en riesgos","Matriz de riesgos (TP3)","AMFE PR-SGC-001")}
+          ${f("6.2 Objetivos","Objetivos derivados de la política","","ISV ≥ 90 % y PST ≥ 95 %")}
+          ${f("7.1 Recursos","Infraestructura de la escuela","Ambiente e instrumentos de medición","Mantenimiento, insumos y souvenirs")}
+          ${f("7.2 y 7.3 Competencia y toma de conciencia","Capacitación previa de los alumnos","Roles de alumnos en el taller","Perfil del guía (ET-ST-01) y plan NC-01")}
+          ${f("7.5 Información documentada","Codificación y control de documentos","ET-PT-001 y registros de lote","Lista maestra, ET-ST-01, P-ST-01, R-ST-01 a R-ST-07")}
+          ${g("Operación")}
+          ${f("8.1 Planificación y control operacional","","Planificación y control operativo","Planificación de cada salida")}
+          ${f("8.2 Requisitos","","","Requisitos del visitante")}
+          ${f("8.3 Diseño y desarrollo","","ET-PT-001","")}
+          ${f("8.4 Proveedores","","Control de proveedores y compras","Proveedores de insumos y souvenirs")}
+          ${f("8.5.1 Control de la producción o prestación","","Control de producción","FTO por operación, guión y tiempos estándar")}
+          ${f("8.5.2 Identificación y trazabilidad","","Identificación y trazabilidad por lote","ID único de visita VT-2026-NNN")}
+          ${f("8.5.4 Preservación","","Envasado","")}
+          ${f("8.6 Liberación","","Liberación del lote","Checklist de salida (PCC-1)")}
+          ${f("8.7 Salidas no conformes","","Control de salidas no conformes","Suspensión por clima, registro R-ST-07")}
+          ${g("Evaluación y mejora")}
+          ${f("9.1 Seguimiento y satisfacción","","Seguimiento, medición y satisfacción del cliente","Encuesta de 1 a 5 estrellas al cierre")}
+          ${f("9.2 Auditoría interna","Auditoría interna del sistema","Auditoría (TG9)","Auditoría cruzada: plan, check-list e informe")}
+          ${f("10.2 No conformidad y acción correctiva","","Acciones correctivas","Plan de tratamiento NC-01 a NC-03")}
+          ${f("10.1 y 10.3 Mejora continua","Mejora continua del SIG","","")}
+        </tbody>
+      </table></div>`;
+  },
+
+  contacto(){
+    const card=(cls,tit,inst,personas)=>`<div class="eq-card ${cls}"><h3>${tit}</h3>${inst?`<p class="inst">${inst}</p>`:""}<ul>${personas.map(([n,r,m])=>`<li>${n}${r?`<span>${r}</span>`:""}${m?`<a class="eq-mail" href="mailto:${m}">${m}</a>`:""}</li>`).join("")}</ul></div>`;
+    return `
+      <h1 class="t">Equipo y contacto</h1>
+      <p class="eq-intro">La propuesta reúne a la Escuela Raíces Huarpes, las Facultades de Ingeniería y de Artes y Diseño de la UNCuyo y el Hospital Universitario. Los alumnos de Gestión de la Calidad y de los espacios curriculares participantes intervienen por rol.</p>
+      <section class="eq-bloque"><h2>Instituciones</h2><div class="eq-grid">
+        ${card("","Facultad de Ingeniería","UNCuyo",[["Roberto Haarth","Coordinación"],["Mónica García Tello","Comunicación"],["Leticia Simoncini","Administración"]])}
+        ${card("esc","Escuela Raíces Huarpes","Escuela Albergue N° 4-207",[["Alejandra Patricia Soria","Directora"],["Fanny Evangelina Villegas",""],["Mariana Sonia Lescano",""]])}
+        ${card("","Facultad de Artes y Diseño","UNCuyo",[["Guillermo Lago",""],["Mariana Gordillo",""]])}
+        ${card("","Hospital Universitario","UNCuyo",[["Nicolena Andrioli Vazquez",""],["Cecilia Lis Torres",""]])}
+        ${card("","Cátedra de Gestión de la Calidad","Facultad de Ingeniería",[["Ing. Leticia Simoncini","","leticia.simoncini@uncuyo.edu.ar"],["Ing. Jorge Nózica","","jorge.nozica@ingenieria.uncuyo.edu.ar"],["Ing. Fabrizio Perazzo","","fabrizio.perazzo@uncuyo.edu.ar"]])}
+      </div></section>
+      <section class="eq-bloque"><h2>Equipos de Gestión de la Calidad</h2><div class="eq-grid">
+        ${card("tur","Proyecto de Turismo","Grupo N° 3",[["Sabrina Mataloni",""],["Isabella Morandini",""],["Tomás Raby",""],["Juan Pablo Siracusa",""]])}
+        ${card("cos","Proyecto de Cosmética","",[["Bernardo Costarelli",""],["Franco La Motta",""],["Tomás Aliaga",""],["Andrés Landgrebe",""]])}
+      </div></section>`;
   }
 };
 
@@ -898,7 +1030,7 @@ function cosInit(){
   cosPaint();
 }
 
-const COMUN = ["inicio","escuela","proyectos","proyecto","metodo","conclusiones","contacto"];
+const COMUN = ["inicio","escuela","sig","proyectos","proyecto","metodo","conclusiones","contacto"];
 let proy = "cosmetica", tab = "inicio", sub = null;
 
 /* Índice de documentación de cada proyecto: [clave, título, subítems opcionales] */
@@ -1825,10 +1957,11 @@ render();
   const btn=document.getElementById("btn-menu"), panel=document.getElementById("panel-menu");
   if(!btn||!panel) return;
   const li=(go,t,cls)=>`<li><a href="#" data-go="${go}"${cls?` class="${cls}"`:""}>${t}</a></li>`;
-  const docs=(pr,items)=>items.map(([k,t,h])=>`<li><a href="#" data-go="detalle|${pr}|${k}">${t}</a>${h?`<ul>${h.map(([k2,t2])=>li(`detalle|${pr}|${k2}`,t2)).join("")}</ul>`:""}</li>`).join("");
+  const dg=(pr,k)=>(k==="politica"||k==="clausulas")?"sig||":`detalle|${pr}|${k}`;
+  const docs=(pr,items)=>items.map(([k,t,h])=>`<li><a href="#" data-go="${dg(pr,k)}">${t}</a>${h?`<ul>${h.map(([k2,t2])=>li(dg(pr,k2),t2)).join("")}</ul>`:""}</li>`).join("");
   panel.innerHTML=`<div class="cols">
     <div class="c-sitio"><h3>El sitio</h3><ul>
-      ${li("inicio||","Inicio")}${li("escuela||","La Escuela")}${li("galeria||","Galería")}${li("conclusiones||","Conclusiones y directrices")}${li("contacto||","Equipo y contacto")}
+      ${li("inicio||","Inicio")}${li("escuela||","La Escuela")}${li("sig||","Sistema Integrado de Gestión")}${li("galeria||","Galería")}${li("conclusiones||","Conclusiones y directrices")}${li("contacto||","Equipo y contacto")}
     </ul></div>
     <div class="c-cos"><h3>Cosmética Natural de Jarilla</h3><ul>
       ${li("detalle|cosmetica|","Descripción del proyecto","principal")}${docs("cosmetica",INDICE)}
