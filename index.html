@@ -581,6 +581,105 @@
   #tur-anim .tur-estado-item.no-apto{color:#9b3424}
   #tur-anim .tur-evaluacion .tur-explicacion{margin:0;padding:11px 16px 15px;font-size:13px;line-height:1.6;color:#594b3a}
   @media(prefers-reduced-motion:reduce){#tur-anim .tur-caminando *{animation:none!important}#tur-anim .anim-paso{transition:none!important}}
+  /* ---- Voces de los estudiantes ---- */
+  .voces-intro{margin:-4px 0 18px;color:#3d4852}
+  #contenido ol{padding-left:30px}
+  .voces{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:26px 22px;align-items:start;margin-bottom:10px}
+  .voz{margin:0;display:block}
+  .voz blockquote{position:relative;margin:0 0 16px;padding:18px 20px;background:var(--vb);border-radius:14px 14px 14px 2px;font-size:17px;line-height:1.5;color:var(--tinta)}
+  .voz blockquote::after{content:"";position:absolute;left:0;bottom:-12px;border-left:14px solid var(--vb);border-bottom:12px solid transparent}
+  .voz figcaption{display:flex;align-items:center;gap:10px;padding-left:4px}
+  .voz .ava{flex:0 0 48px;width:48px;height:48px;display:block}
+  .voz .ava svg{width:48px;height:48px;display:block}
+  .voz .ini{flex:0 0 36px;height:36px;background:var(--vc);color:#fff;font:800 14px/36px "Archivo",Arial,sans-serif;text-align:center}
+  .voz b{display:block;font-family:"Archivo",Arial,sans-serif;font-size:15px;line-height:1.2}
+  .voz small{display:block;font-size:13px;color:#5b6570}
+  .voz.turismo{--vb:#F5E7CF;--vc:#B8730F}
+  .voz.cosmetica{--vb:#E6EBD9;--vc:#55702A}
+  /* ===== Cosmética · animación de la elaboración ===== */
+  #escena{display:grid;grid-template-columns:1.55fr 1fr;gap:0;background:#fff;border:1px solid var(--linea)}
+  #escena .ca-cuadro{position:relative;min-height:260px}
+  #escena .ca-cuadro svg{position:absolute;inset:0;display:block;width:100%;height:100%}
+  #escena .ca-info{padding:22px 24px;border-left:1px solid var(--linea);animation:ca-entra .45s ease-out}
+  #escena .ca-fase{display:block;font:700 13px "Archivo",Arial,sans-serif;color:var(--acc-osc);margin-bottom:6px}
+  #escena .ca-info h3{margin:0 0 14px;font-size:22px;line-height:1.2;color:var(--tinta)}
+  #escena dl{margin:0}#escena dl div{padding:9px 0;border-top:1px solid var(--linea)}
+  #escena dt{font:700 12.5px "Archivo",Arial,sans-serif;color:#5b6570}#escena dd{margin:2px 0 0;font-size:15px;line-height:1.45}
+  .ca-ctrl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0 10px}
+  .ca-ctrl button{font:700 14px "Archivo",Arial,sans-serif;border:1.5px solid var(--tinta);background:#fff;color:var(--tinta);border-radius:2px;padding:7px 14px;cursor:pointer}
+  .ca-ctrl #cos-play{background:var(--tinta);color:#fff;min-width:110px}
+  #cos-linea{display:grid;grid-template-columns:4fr 5fr 3fr 2fr;gap:10px;margin:6px 0 4px}
+  .ca-grupo > span{display:block;font:700 12.5px "Archivo",Arial,sans-serif;color:#5b6570;margin-bottom:5px;border-bottom:2px solid var(--linea);padding-bottom:4px}
+  .ca-grupo > div{display:flex;gap:5px}
+  .ca-grupo button{flex:1;min-width:0;height:34px;border:0;background:#EEF1E6;color:var(--acc-osc);font:700 13px "Archivo",Arial,sans-serif;cursor:pointer;border-radius:2px}
+  .ca-grupo button.hecho{background:#C9D4AE}
+  .ca-grupo button.actual{background:var(--acc);color:#fff}
+  .ca-grupo button:focus-visible,.ca-ctrl button:focus-visible{outline:3px solid var(--ocre);outline-offset:2px}
+  @keyframes ca-entra{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @keyframes ca-sway{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}}
+  @keyframes ca-tijera{0%,100%{transform:rotate(0)}50%{transform:rotate(-10deg)}}
+  @keyframes ca-cae{0%{transform:translateY(-60px);opacity:0}40%{opacity:1}100%{transform:none;opacity:1}}
+  @keyframes ca-seca{0%{fill-opacity:1}100%{fill:#A48A4E}}
+  @keyframes ca-aire{from{transform:translateX(-40px);opacity:0}50%{opacity:1}to{transform:translateX(120px);opacity:0}}
+  @keyframes ca-agita{0%,100%{transform:rotate(0)}25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+  @keyframes ca-dia{from{opacity:.15}to{opacity:1}}
+  @keyframes ca-gota{0%{transform:translateY(-6px);opacity:0}20%{opacity:1}100%{transform:translateY(40px);opacity:0}}
+  @keyframes ca-sube{from{transform:scaleY(.2)}to{transform:scaleY(1.9)}}
+  @keyframes ca-baja{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+  @keyframes ca-funde{from{transform:scaleY(1.25);fill:#F4F1EA}to{transform:scaleY(.8);fill:#F2E3A6}}
+  @keyframes ca-vapor{0%{opacity:0;transform:translateY(10px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-30px)}}
+  @keyframes ca-llama{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.15)}}
+  @keyframes ca-calienta{from{transform:scaleY(.25)}to{transform:scaleY(1)}}
+  @keyframes ca-enfria{from{transform:scaleY(2.2)}to{transform:scaleY(1)}}
+  @keyframes ca-vierte{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(-30deg)}}
+  @keyframes ca-chorro{0%,100%{opacity:0}30%,70%{opacity:1}}
+  @keyframes ca-gira{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+  @keyframes ca-mezcla{from{fill:#F4F1EA}to{fill:#E8C25A}}
+  @keyframes ca-gota2{0%{transform:none;opacity:0}20%{opacity:1}100%{transform:translateY(30px);opacity:0}}
+  @keyframes ca-aguja{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  @keyframes ca-pesa{0%{transform:translateY(-30px)}40%,100%{transform:translateY(0)}}
+  @keyframes ca-ok{0%,60%{opacity:0;transform:translate(560px,120px) scale(.5)}100%{opacity:1;transform:translate(560px,120px) scale(1)}}
+  @keyframes ca-llena{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  @keyframes ca-etiq{from{transform:translateY(-30px);opacity:0}to{transform:none;opacity:1}}
+  @keyframes ca-escribe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+  @keyframes ca-muestra{0%{transform:none}100%{transform:translateX(110px)}}
+  @keyframes ca-flecha{to{stroke-dashoffset:-36}}
+  @keyframes ca-tilde{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+  @keyframes ca-sello{0%,55%{opacity:0;transform:scale(1.6) rotate(-8deg)}75%{opacity:1;transform:scale(.95) rotate(-8deg)}100%{opacity:1;transform:scale(1) rotate(-8deg)}}
+  #escena .ca-sway{animation:ca-sway 3s ease-in-out infinite}
+  #escena .ca-tijera{animation:ca-tijera .7s ease-in-out infinite}
+  #escena .ca-cae{animation:ca-cae 1.6s ease-out both .6s}
+  #escena .ca-seca{animation:ca-seca 4s ease-in forwards}
+  #escena .ca-aire path{animation:ca-aire 2.2s linear infinite}#escena .ca-aire path:nth-child(2){animation-delay:.6s}#escena .ca-aire path:nth-child(3){animation-delay:1.2s}
+  #escena .ca-agita{animation:ca-agita 1.2s ease-in-out infinite}
+  #escena .ca-dia{animation:ca-dia .3s ease-out both}
+  #escena .ca-gota{animation:ca-gota 1.35s ease-in infinite}
+  #escena .ca-sube{transform-box:fill-box;transform-origin:bottom;animation:ca-sube 4.5s ease-out forwards}
+  #escena .ca-baja{animation:ca-baja 1.2s ease-in-out infinite}
+  #escena .ca-funde{animation:ca-funde 3.6s ease-out forwards}
+  #escena .ca-vapor{animation:ca-vapor 1.8s ease-out infinite}
+  #escena .ca-llama{transform-box:fill-box;transform-origin:bottom;animation:ca-llama .5s ease-in-out infinite}
+  #escena .ca-calienta{transform-box:fill-box;transform-origin:bottom;animation:ca-calienta 3.6s ease-out forwards}
+  #escena .ca-enfria{transform-box:fill-box;transform-origin:bottom;animation:ca-enfria 3.6s ease-out forwards}
+  #escena .ca-vierte{animation:ca-vierte 2.4s ease-in-out infinite}
+  #escena .ca-chorro{animation:ca-chorro 2.4s ease-in-out infinite}
+  #escena .ca-gira{animation:ca-gira 1s ease-in-out infinite}
+  #escena .ca-mezcla{animation:ca-mezcla 4s ease-out forwards}
+  #escena .ca-gota2{animation:ca-gota2 1.1s ease-in infinite}
+  #escena .ca-aguja{transform-box:view-box;transform-origin:0 0;animation:ca-aguja 4s linear infinite}
+  #escena .ca-pesa{animation:ca-pesa 2s ease-out both}
+  #escena .ca-ok{animation:ca-ok 3s ease-out both}
+  #escena .ca-llena{transform-box:fill-box;transform-origin:bottom;animation:ca-llena .6s ease-out both}
+  #escena .ca-etiq{animation:ca-etiq .5s ease-out both}
+  #escena .ca-escribe{animation:ca-escribe 1.4s steps(9) both .5s}
+  #escena .ca-muestra{animation:ca-muestra 2.2s ease-in-out infinite alternate}
+  #escena .ca-flecha{animation:ca-flecha .8s linear infinite}
+  #escena .ca-tilde{animation:ca-tilde .5s ease-out both}
+  #escena .ca-sello{transform-box:fill-box;transform-origin:center;animation:ca-sello 3.2s ease-out both}
+  #escena.ca-quieto *{animation:none!important}
+  @media (prefers-reduced-motion:reduce){#escena *{animation:none!important}}
+  @media(max-width:820px){#escena{grid-template-columns:1fr}#escena .ca-cuadro{min-height:0;aspect-ratio:640/340}#escena .ca-info{border-left:0;border-top:1px solid var(--linea)}#cos-linea{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){#cos-linea{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -683,7 +782,7 @@ const P = {
   },
   turismo: {
     nombre: "Circuito Turístico",
-    subtitulo: "Circuito Renacer (plaza junto a la escuela) y Circuito San José, con propuesta de ampliación: circuito interpretativo en la Reserva Natural y Cultural Bosques Telteca",
+    subtitulo: "Circuito Renacer (plaza junto a la escuela) y Circuito San José",
     diagnostico: "El proyecto Anfitrión turístico prepara a los alumnos como futuros guías. El circuito interpretativo tuvo su primera intervención en un espacio público, inaugurada el 12 de noviembre de 2025. Tras verificar su utilidad, se propone ampliarlo con un reloj solar y un mural interpretativo, y mejorar el diseño general con la UNCuyo (Facultades de Artes y Diseño e Ingeniería). Hoy la escuela presta dos circuitos guiados por sus alumnos: el Circuito Renacer, en la plaza junto a la escuela (flora nativa, estación ferroviaria abandonada y taller de la artesana), y el Circuito San José, hasta la capilla del paraje. El requisito de la cátedra es estandarizar el servicio bajo ISO 9001:2015, con foco en el Circuito Renacer.",
     proceso: [
       "Relevamiento del territorio y de los puntos de interés",
@@ -852,12 +951,10 @@ const TABS = {
       <div class="sim-in"><label>Envases de 50 g: <input id="nenv" type="number" min="1" value="12" oninput="simRun()"></label></div>
       <div id="simout"></div>
       <h2>Animación del proceso</h2>
-      <div id="escena"></div>
-      <div class="anim-ctrl noprint"><button class="btn-imp" id="cos-play">Reproducir</button><button class="btn-imp" id="cos-reset">Reiniciar</button></div>
-      <div class="anim-barra"><div id="anim-bar"></div></div>
-      <p class="nota" id="cos-msg"></p>
-      <h2>Etapas del proceso: tocá una para ver su FTO</h2>
-      <div id="cos-lista"></div>
+      <div id="escena" aria-live="polite"></div>
+      <div class="ca-ctrl noprint"><button type="button" id="cos-prev">← Anterior</button><button type="button" id="cos-play">Reproducir</button><button type="button" id="cos-next">Siguiente →</button></div>
+      <div id="cos-linea" class="noprint"></div>
+      <h2>Ficha técnica de la etapa (FTO)</h2>
       <div id="fto-panel"></div>
       <p class="nota">Tiempos de maceración y reposo tomados de la visita; se validan en la prueba piloto.</p>`;
     return `
@@ -902,7 +999,7 @@ const TABS = {
         ${icoTur}
         <span class="etq">Proyecto de Turismo</span>
         <h2 id="h-tur">Circuito Turístico</h2>
-        <p>Circuito interpretativo en la Reserva Natural y Cultural Bosques Telteca, donde los alumnos se forman como futuros guías del patrimonio natural y cultural de Lavalle. Hoy la escuela presta el Circuito Renacer, en la plaza junto a la escuela, y el Circuito San José, estandarizados con ISO 9001:2015.</p>
+        <p>Circuito interpretativo donde los alumnos se forman como futuros guías del patrimonio natural y cultural de Lavalle. Hoy la escuela presta el Circuito Renacer, en la plaza junto a la escuela, y el Circuito San José, estandarizados con ISO 9001:2015.</p>
         <button class="ver" data-go="detalle|turismo|">Ver Más <span class="flecha">→</span></button>
       </section>
       <section class="half cos" aria-labelledby="h-cos">
@@ -929,7 +1026,7 @@ const TABS = {
     const GR = [
       ["Planificar","P","Política, requisitos, diseño del proceso y riesgos",["politica","legal","mapa","et","objetivos","amfe","impactos"]],
       ["Hacer","H","Ejecución del proceso y control de variables",["proceso","entradas","control"]],
-      ["Verificar","V","Inspección, medición, costos y auditoría",["inspeccion","cartas","costos","auditoria"]],
+      ["Verificar","V","Inspección, medición y costos de la calidad",["inspeccion","cartas","costos"]],
       ["Actuar","A","Análisis, decisiones y propuestas de mejora",["sig","qfd","conclusiones"]]
     ];
     const disp0 = new Set((proy==="turismo" ? INDICE.filter(x=>x[0]!=="qfd").concat(INDICE_TUR_EXTRA) : INDICE).flatMap(([k,t,h])=>[k].concat((h||[]).map(x=>x[0]))));
@@ -987,19 +1084,11 @@ const TABS = {
         <li>El servicio pasó de un recorrido informal a un servicio estandarizado: especificación técnica ET-ST-01, procedimiento P-ST-01, siete FTO y tiempo estándar de 80 ± 15 minutos.</li>
         <li>El ID único de visita (VT-2026-NNN) da trazabilidad de punta a punta, desde la reserva hasta el archivo de la encuesta (ISO 9001, 8.5.2).</li>
         <li>Los mayores riesgos son climáticos y de salud (Zonda, calor, hidratación): el AMFE y el protocolo de contingencias los llevan de inaceptables a aceptables con controles simples y baratos.</li>
-        <li>La auditoría mostró que lo diseñado todavía no está implementado del todo: la capacitación de los guías (7.2), el control documental (7.5) y la aplicación del guión (8.5.1) son las prioridades.</li>
+        <li>Lo diseñado todavía no está implementado del todo: la capacitación de los guías (7.2), el control documental (7.5) y la aplicación del guión (8.5.1) son las prioridades para el próximo ciclo.</li>
         <li>Quedan pendientes la habilitación turística, las autorizaciones de acceso a los sitios y la medición real de los indicadores en las salidas piloto.</li>
       </ul>
-      <p class="pendiente">Pendiente: se completa al cerrar el ciclo de la PSE 2026.</p>
-      <h2>Opiniones</h2>
-      <div class="cards">
-        <div class="card"><h3>Estudiantes de la escuela</h3><p class="nota">Testimonios pendientes.</p></div>
-        <div class="card"><h3>Estudiantes universitarios</h3><p class="nota">Testimonios pendientes.</p></div>
-        <div class="card"><h3>Docentes</h3><p class="nota">Testimonios pendientes.</p></div>
-        <div class="card"><h3>Comunidad y referentes</h3><p class="nota">Testimonios pendientes.</p></div>
-      </div>
+      ${voces()}
       <h2>Nuevas directrices para próximas PSE</h2>
-      <p class="nota">Borrador para discutir con la cátedra y la escuela.</p>
       <ol>
         <li>Definir al inicio la escala real de producción de la escuela, y presentar cualquier escala mayor como proyección.</li>
         <li>Usar recursos disponibles y validados por comparación (balanza, termómetro, muestra patrón) y registrar cada excepción.</li>
@@ -1040,7 +1129,6 @@ const TABS = {
         <div class="cos"><h3>Cosmética Natural de Jarilla</h3><p>Elaboración artesanal de productos cosméticos a base de jarilla y flora nativa, desde la recolección sustentable de la planta hasta la liberación del lote con registro y firma.</p></div>
         <div class="tur"><h3>Circuito Turístico</h3><p>Diseño y prestación de servicios de turismo rural y cultural guiados por estudiantes, Circuito Renacer y Circuito San José, desde la consulta y registro del turno hasta el archivo de la documentación de la visita.</p></div>
       </div>
-      <p class="sig-nota">La ampliación en la Reserva Natural y Cultural Bosques Telteca queda fuera del alcance actual y se incorpora como cambio planificado (6.3).</p>
 
       <h2>Cláusulas aplicables ISO 9001:2015</h2>
       <p>Las cláusulas del sistema son comunes a la escuela; las de operación se aplican según el proceso de cada proyecto.</p>
@@ -1164,25 +1252,6 @@ function animReset(){
   animPaint();
 }
 
-/* ---------- Animación con dibujos y FTO por etapa (cosmética) ---------- */
-const BGESC = '<rect width="240" height="150" rx="12" fill="#e4eedb"/><rect x="0" y="122" width="240" height="28" fill="#d9c7a0" opacity=".55"/>';
-const ICO = [
- '<g class="sway"><path d="M120,122 L120,60" stroke="#6b4f2a" stroke-width="4" fill="none"/><ellipse cx="100" cy="82" rx="18" ry="8" fill="#3f6b2e" transform="rotate(-30 100 82)"/><ellipse cx="140" cy="72" rx="18" ry="8" fill="#6f8f4e" transform="rotate(30 140 72)"/><ellipse cx="110" cy="56" rx="14" ry="6" fill="#3f6b2e" transform="rotate(-20 110 56)"/></g><g class="bob"><path d="M176,38 L200,70 M200,38 L176,70" stroke="#555" stroke-width="3"/></g>',
- '<g class="spin"><circle cx="60" cy="50" r="14" fill="#d9a52b"/><path d="M60,26 V16 M60,74 V84 M36,50 H26 M84,50 H94 M42,32 L35,25 M78,68 L85,75 M78,32 L85,25 M42,68 L35,75" stroke="#d9a52b" stroke-width="3"/></g><g class="sway"><ellipse cx="160" cy="100" rx="22" ry="9" fill="#9bb37a"/><ellipse cx="192" cy="92" rx="16" ry="7" fill="#6f8f4e"/></g>',
- '<rect x="96" y="48" width="48" height="74" rx="6" fill="#fff" stroke="#555" stroke-width="2"/><rect class="wave" x="98" y="82" width="44" height="38" fill="#d9a52b" opacity=".75"/><g class="bob"><ellipse cx="120" cy="92" rx="10" ry="5" fill="#3f6b2e"/></g><rect x="92" y="40" width="56" height="10" rx="3" fill="#6b4f2a"/>',
- '<polygon points="88,44 152,44 132,84 108,84" fill="#c9c3b4" stroke="#555" stroke-width="2"/><rect x="104" y="84" width="32" height="30" fill="#d9a52b" opacity=".75"/><circle class="drip" cx="120" cy="60" r="3.5" fill="#d9a52b"/>',
- '<g class="tilt"><line x1="70" y1="58" x2="170" y2="58" stroke="#555" stroke-width="3"/><path d="M120,58 V40" stroke="#555" stroke-width="3"/><path d="M80,58 L70,84 H92 Z M160,58 L150,84 H172 Z" fill="#fff" stroke="#555" stroke-width="1.5"/></g><rect x="100" y="38" width="40" height="6" fill="#555"/>',
- '<rect x="84" y="82" width="72" height="36" rx="8" fill="#9aa3ad"/><rect x="74" y="82" width="92" height="8" rx="3" fill="#7d8690"/><path class="steam" d="M104,76 q-7,-9 0,-18 t0,-18" stroke="#9aa3ad" stroke-width="3" fill="none"/><path class="steam" style="animation-delay:.9s" d="M136,76 q-7,-9 0,-18 t0,-18" stroke="#9aa3ad" stroke-width="3" fill="none"/>',
- '<ellipse cx="120" cy="110" rx="58" ry="14" fill="#e8d9b5" stroke="#6b4f2a" stroke-width="2"/><g class="spin"><rect x="118" y="46" width="4" height="60" fill="#6b4f2a"/><ellipse cx="120" cy="44" rx="10" ry="5" fill="#c9a86a"/></g>',
- '<g class="bob"><path d="M120,40 C100,70 100,92 120,98 C140,92 140,70 120,40 Z" fill="#e8d44d" stroke="#b09a1e"/></g><circle cx="174" cy="104" r="16" fill="#f4e04d" stroke="#b09a1e" stroke-width="2"/><line x1="174" y1="88" x2="174" y2="120" stroke="#b09a1e"/>',
- '<g class="spin"><path d="M120,50 V96 M98,62 L142,84 M142,62 L98,84" stroke="#2e5d8a" stroke-width="4" stroke-linecap="round"/></g><rect x="86" y="108" width="68" height="12" rx="3" fill="#9aa3ad"/>',
-'<rect x="90" y="72" width="60" height="40" rx="6" fill="#fff" stroke="#555" stroke-width="2"/><g class="wobble"><ellipse cx="120" cy="92" rx="22" ry="12" fill="#e8d44d"/></g><g class="bob"><circle cx="120" cy="50" r="10" fill="#c9c3b4" stroke="#555"/></g>',
-'<g class="bob"><path d="M100,60 H140 L146,122 H94 Z" fill="#fff" stroke="#555" stroke-width="2"/><rect x="98" y="88" width="44" height="32" fill="#e8d44d"/></g><path d="M96,54 H144 V62 H96 Z" fill="#6b4f2a"/>',
-'<rect class="slide" x="60" y="70" width="120" height="44" rx="4" fill="#fff" stroke="#555" stroke-width="2"/><rect class="slide" x="72" y="82" width="50" height="8" fill="#2e5d8a"/><rect class="slide" x="72" y="96" width="80" height="6" fill="#9bb37a"/>',
-'<g class="blink"><path d="M110,50 V96 q0,22 10,22 q10,0 10,-22 V50" fill="#e4f4f8" stroke="#2e5d8a" stroke-width="3"/><rect x="106" y="42" width="28" height="8" fill="#555"/></g>',
-'<circle cx="120" cy="82" r="34" fill="#3f6b2e"/><path class="draw" d="M102,82 L114,94 L140,68" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" pathLength="100"/>'
-];
-
 const FTO = [
 {n:'Recolección de jarilla',o:'Obtener material vegetal de calidad de forma sustentable',d:'Cosecha de ramas y hojas de jarilla en zona autorizada, sin arrancar plantas enteras.',q:'Cosecha selectiva de ramas y hojas de jarilla',c:'Corte manual con tijera de podar, cosechando solo ramas y dejando la planta en pie',con:'Tijera de podar, guantes, bolsas de tela limpias, planilla de cosecha',qu:'Alumnos de producción (rol operador), con docente referente',do:'Monte natural de Lavalle, en zona autorizada',cu:'Cantidad necesaria para el lote (registrar en kg)',cn:'En época de cosecha definida y con clima seco',t:'Según cantidad (registrar)',e:[['Plantas de jarilla (ramas y hojas)','kg a registrar']],s:[['Material vegetal limpio, para secado','kg a registrar']],eq:[['Tijera de podar','Cortar ramas','Desinfectar antes de usar'],['Bolsas de tela','Transportar el material','Limpias y secas']],doc:[['Planilla de cosecha y origen del material','Rev. 1','Registro','Carpeta de producción'],['Autorización de cosecha en zona','A obtener','Documento','Carpeta de producción']]},
 {n:'Secado de la planta',o:'Eliminar humedad para evitar fermentación y alteraciones',d:'Secado del material en sombra y ventilado sobre superficie limpia.',q:'Secado de ramas y hojas',c:'Extendido en capa fina en lugar ventilado y a la sombra, dándolo vuelta cada día',con:'Bandejas o mallas limpias, paño limpio, planilla',qu:'Alumnos de producción (rol operador)',do:'Sector ventilado de la escuela, sin sol directo',cu:'Todo el material cosechado en el lote',cn:'Al día siguiente de la cosecha',t:'3 a 7 días según humedad (a validar)',e:[['Material vegetal cosechado','kg a registrar']],s:[['Material seco, sin humedad visible','kg a registrar']],eq:[['Bandejas o mallas','Extender el material','Limpias y secas'],['Balanza de cocina (1 g)','Registrar masa antes y después','Verificar con pesa conocida']],doc:[['Planilla de secado','Rev. 1','Registro','Carpeta de producción']]},
@@ -1235,40 +1304,135 @@ function ftoDescargar(i){
   a.click();
 }
 
-let cosIdx = 0, cosTimer = null;
+/* ---------- Animación de la elaboración de la crema (Cosmética) ----------
+   Una escena ilustrada por etapa, con el dato de control de su FTO. */
+const COS_FASES = [["Materia prima",0,3],["Elaboración",4,8],["Control y envasado",9,11],["Análisis y liberación",12,13]];
+const COS_CONTROL = [
+  "Cortar solo ramas y hojas: la planta queda en pie",
+  "A la sombra y ventilado, dando vuelta el material cada día",
+  "Frasco tapado, en lugar fresco y oscuro; agitar una vez por día",
+  "Oleato limpio, sin restos de planta",
+  "500 g de vaselina, 100 g de cera y 100 g de oleato",
+  "Temperatura siempre por debajo de 80 °C",
+  "Mezcla homogénea, sin grumos",
+  "Aroma de limón: máximo 1 % de la masa (unos 6 g en 600 g)",
+  "Enfriar a temperatura ambiente, sin frío forzado",
+  "Misma penetración que la muestra patrón (pesa de 50 g, 10 s)",
+  "50 g netos por envase: 12 envases por lote",
+  "Etiqueta con los datos obligatorios y código de lote",
+  "Muestra en envase estéril para el laboratorio externo",
+  "Registros conformes y firma del responsable de calidad"
+];
+const CA = {jar:"#55702A",jar2:"#7E9A45",flor:"#E2B53B",ocre:"#B8730F",oleo:"#D9A52B",oleo2:"#E8C25A",tinta:"#1F2A33",madera:"#B98A5A",madera2:"#9A6F44",pared:"#EFE6D4",vidrio:"#DDEBF0",metal:"#9AA3AD",metal2:"#6F7985",crema:"#F2E3A6",rojo:"#C23B26",cielo:"#DCE8F1",tierra:"#D8C29B"};
+function cosFondo(tipo){
+  if(tipo==="monte") return `<rect width="640" height="340" fill="${CA.cielo}"/><path d="M0 200 Q160 170 320 195 T640 185 V340 H0Z" fill="#CFB98F"/><rect y="250" width="640" height="90" fill="${CA.tierra}"/><circle cx="560" cy="62" r="26" fill="#F3D27A"/>`;
+  if(tipo==="galpon") return `<rect width="640" height="340" fill="${CA.cielo}"/><rect y="250" width="640" height="90" fill="${CA.tierra}"/><path d="M40 70 L320 26 L600 70 V84 H40Z" fill="${CA.madera2}"/><rect x="60" y="84" width="10" height="180" fill="${CA.madera2}"/><rect x="570" y="84" width="10" height="180" fill="${CA.madera2}"/><rect x="40" y="84" width="560" height="6" fill="#7A5634"/>`;
+  return `<rect width="640" height="340" fill="${CA.pared}"/><rect x="0" y="236" width="640" height="24" fill="${CA.madera}"/><rect x="0" y="260" width="640" height="80" fill="${CA.madera2}"/><rect x="0" y="236" width="640" height="4" fill="#CFA676"/><g opacity=".5"><rect x="470" y="40" width="120" height="84" fill="#fff"/><rect x="470" y="40" width="120" height="84" fill="none" stroke="${CA.madera2}" stroke-width="5"/><path d="M530 40 V124 M470 82 H590" stroke="${CA.madera2}" stroke-width="3"/></g>`;
+}
+function cosJarilla(x,y,s){ s=s||1; let g=`<g transform="translate(${x} ${y}) scale(${s})"><path d="M0 0 C-6 -40 -30 -70 -46 -96 M0 0 C4 -50 0 -90 6 -120 M0 0 C10 -36 34 -66 52 -88" stroke="#6B4F2A" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+  [[-46,-96],[-34,-74],[-20,-50],[6,-120],[2,-92],[4,-62],[52,-88],[38,-66],[22,-42],[-56,-110],[16,-130],[62,-100]].forEach(([a,b],i)=>{ g+=`<ellipse cx="${a}" cy="${b}" rx="11" ry="5" fill="${i%2?CA.jar2:CA.jar}" transform="rotate(${i%3*30-30} ${a} ${b})"/>`; });
+  [[-40,-104],[10,-128],[58,-96],[-24,-62],[30,-56]].forEach(([a,b])=>{ g+=`<circle cx="${a}" cy="${b}" r="4" fill="${CA.flor}"/>`; });
+  return g+`</g>`; }
+function cosFrasco(x,y,w,h,nivel,color,extra){ return `<g transform="translate(${x} ${y})"><rect x="0" y="0" width="${w}" height="${h}" rx="10" fill="${CA.vidrio}" stroke="${CA.metal2}" stroke-width="2.5"/><rect class="${extra||''}" x="3" y="${h-nivel}" width="${w-6}" height="${nivel-3}" rx="7" fill="${color}"/><rect x="-4" y="-12" width="${w+8}" height="14" rx="3" fill="${CA.madera2}"/><rect x="8" y="8" width="6" height="${h-24}" rx="3" fill="#fff" opacity=".55"/></g>`; }
+function cosOlla(x,y,w){ return `<g transform="translate(${x} ${y})"><rect x="0" y="0" width="${w}" height="70" rx="10" fill="${CA.metal}"/><rect x="-10" y="-6" width="${w+20}" height="12" rx="5" fill="${CA.metal2}"/><rect x="-26" y="10" width="20" height="8" rx="4" fill="${CA.metal2}"/><rect x="${w+6}" y="10" width="20" height="8" rx="4" fill="${CA.metal2}"/></g>`; }
+function cosHornalla(x,y){ return `<g transform="translate(${x} ${y})"><rect x="-80" y="0" width="160" height="16" rx="4" fill="${CA.tinta}"/><g class="ca-llama"><path d="M-40 0 C-44 -12 -34 -16 -36 -26 C-28 -18 -26 -8 -30 0Z M-6 0 C-10 -14 2 -18 0 -30 C8 -20 10 -10 6 0Z M30 0 C26 -12 36 -16 34 -26 C42 -18 44 -8 40 0Z" fill="#E8792E"/></g></g>`; }
+function cosTermo(x,y,frac,cls){ return `<g transform="translate(${x} ${y})"><rect x="-7" y="0" width="14" height="120" rx="7" fill="#fff" stroke="${CA.tinta}" stroke-width="2"/><circle cx="0" cy="128" r="12" fill="${CA.rojo}" stroke="${CA.tinta}" stroke-width="2"/><rect class="${cls||''}" x="-3" y="${118-110*frac}" width="6" height="${110*frac+10}" fill="${CA.rojo}" style="transform-origin:0 128px"/>${[0,1,2,3,4].map(i=>`<path d="M7 ${12+i*24} H14" stroke="${CA.tinta}" stroke-width="2"/>`).join("")}</g>`; }
+function cosEnvase(x,y,lleno,etiqueta,cls,d){ d=d||0; return `<g transform="translate(${x} ${y})"><rect x="0" y="0" width="44" height="40" rx="6" fill="#F4F1EA" stroke="${CA.metal2}" stroke-width="2"/><rect class="${cls||''}" style="animation-delay:${d}s" x="3" y="${40-lleno}" width="38" height="${Math.max(lleno-3,0)}" rx="4" fill="${CA.crema}"/>${etiqueta?`<g class="${etiqueta===true?'':etiqueta}" style="animation-delay:${d}s"><rect x="-2" y="-14" width="48" height="14" rx="3" fill="${CA.flor}"/><text x="22" y="-4" font-size="7" font-family="Archivo,Arial" font-weight="800" text-anchor="middle" fill="${CA.tinta}">COSMÉTICA</text></g>`:`<rect x="-2" y="-12" width="48" height="12" rx="3" fill="#D8D2C4"/>`}</g>`; }
+function cosEscena(i){
+  const T=(t,x,y,a)=>`<text x="${x}" y="${y}" font-family="Archivo,Arial" font-weight="800" font-size="22" fill="${CA.tinta}" text-anchor="${a||'middle'}">${t}</text>`;
+  switch(i){
+  case 0: return cosFondo("monte")+`<g class="ca-sway" style="transform-origin:220px 250px">${cosJarilla(220,250,1.15)}</g>${cosJarilla(470,254,.8)}${cosJarilla(80,256,.6)}
+    <g class="ca-tijera" style="transform-origin:300px 140px"><path d="M300 140 L340 128 M300 140 L338 154" stroke="${CA.metal2}" stroke-width="5" stroke-linecap="round"/><circle cx="350" cy="124" r="9" fill="none" stroke="${CA.rojo}" stroke-width="5"/><circle cx="348" cy="158" r="9" fill="none" stroke="${CA.rojo}" stroke-width="5"/></g>
+    <g transform="translate(372 196)"><path d="M0 0 H70 L62 70 H8Z" fill="#E9E2D0" stroke="${CA.madera2}" stroke-width="2"/><g class="ca-cae">${cosJarilla(36,10,.25)}</g></g>`;
+  case 1: return cosFondo("galpon")+`<g transform="translate(150 190)"><rect width="340" height="10" fill="${CA.madera2}"/><rect x="10" y="10" width="8" height="50" fill="${CA.madera2}"/><rect x="322" y="10" width="8" height="50" fill="${CA.madera2}"/>${Array.from({length:9},(_,k)=>`<ellipse class="ca-seca" style="animation-delay:${k*.2}s" cx="${24+k*36}" cy="-4" rx="16" ry="6" fill="${k%2?CA.jar2:CA.jar}"/>`).join("")}</g>
+    <g class="ca-aire">${[0,1,2].map(k=>`<path d="M40 ${120+k*22} q30 -10 60 0 t60 0" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9"/>`).join("")}</g>
+    <g transform="translate(540 120)"><circle r="20" fill="#F3D27A" opacity=".45"/><path d="M-30 -30 L30 30" stroke="${CA.rojo}" stroke-width="5"/></g>${T("3 a 7 días",320,300)}`;
+  case 2: return cosFondo()+`<g class="ca-agita" style="transform-origin:280px 236px">${cosFrasco(230,110,110,126,96,CA.oleo,"")}<g opacity=".85">${cosJarilla(285,226,.55)}</g></g>
+    <g transform="translate(400 120)"><rect width="170" height="104" rx="8" fill="#fff" stroke="${CA.tinta}" stroke-width="2"/><rect width="170" height="24" rx="8" fill="${CA.rojo}"/>${Array.from({length:21},(_,k)=>`<rect class="ca-dia" style="animation-delay:${k*.15}s" x="${10+(k%7)*22}" y="${32+Math.floor(k/7)*22}" width="18" height="16" rx="3" fill="${k<7?CA.oleo:CA.jar2}"/>`).join("")}</g>
+    <text x="485" y="250" font-family="Archivo,Arial" font-size="15" font-weight="700" fill="${CA.tinta}" text-anchor="middle">1 semana + 2 de reposo</text>`;
+  case 3: return cosFondo()+`<g transform="translate(270 70)"><path d="M0 0 H100 L62 70 V96 H38 V70Z" fill="${CA.metal}" stroke="${CA.metal2}" stroke-width="2"/><path d="M8 4 Q50 50 92 4" fill="#F2EEE4" stroke="#C9C1AE" stroke-width="2"/><g opacity=".9">${cosJarilla(50,26,.22)}</g></g>
+    ${[0,1,2].map(k=>`<ellipse class="ca-gota" style="animation-delay:${k*.45}s" cx="320" cy="172" rx="5" ry="7" fill="${CA.oleo}"/>`).join("")}${cosFrasco(268,176,104,60,20,CA.oleo,"ca-sube")}`;
+  case 4: return cosFondo()+`<g transform="translate(220 180)"><rect width="200" height="56" rx="10" fill="${CA.metal}"/><rect x="40" y="-8" width="120" height="10" rx="4" fill="${CA.metal2}"/><rect x="36" y="14" width="128" height="30" rx="5" fill="${CA.tinta}"/><text id="ca-balanza" x="100" y="37" font-family="Archivo,Arial" font-size="20" font-weight="800" fill="#9EE07A" text-anchor="middle">0 g</text></g>
+    <g class="ca-baja"><path d="M260 120 H380 L370 172 H270Z" fill="#fff" stroke="${CA.metal2}" stroke-width="2"/><rect id="ca-mat" x="274" y="150" width="92" height="20" fill="#F4F1EA"/></g>
+    <g font-family="Archivo,Arial" font-size="15" font-weight="700" fill="${CA.tinta}"><text x="470" y="150" id="ca-l1">Vaselina 500 g</text><text x="470" y="175" id="ca-l2" opacity=".35">Cera 100 g</text><text x="470" y="200" id="ca-l3" opacity=".35">Oleato 100 g</text></g>`;
+  case 5: return cosFondo()+cosHornalla(270,236)+`<g transform="translate(200 150)">${cosOlla(0,0,140)}<rect x="22" y="-26" width="96" height="66" rx="8" fill="#E9EEF2" stroke="${CA.metal2}" stroke-width="2"/><rect class="ca-funde" x="26" y="0" width="88" height="36" rx="6" fill="${CA.crema}" style="transform-origin:70px 36px"/></g>
+    ${[0,1,2].map(k=>`<path class="ca-vapor" style="animation-delay:${k*.6}s" d="M${238+k*32} 110 q-10 -14 0 -28 t0 -28" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>`).join("")}
+    ${cosTermo(430,90,.7,"ca-calienta")}<text x="456" y="180" font-family="Archivo,Arial" font-size="22" font-weight="800" fill="${CA.rojo}">&lt; 80 °C</text><text x="456" y="202" font-family="Archivo,Arial" font-size="13" font-weight="700" fill="${CA.tinta}">sin sobrecalentar</text>`;
+  case 6: return cosFondo()+cosHornalla(300,236)+`<g transform="translate(230 150)">${cosOlla(0,0,140)}<rect class="ca-mezcla" x="8" y="6" width="124" height="40" rx="8" fill="${CA.crema}"/></g>
+    <g class="ca-vierte" style="transform-origin:420px 110px"><path d="M380 60 H440 V120 Q440 134 426 134 H394 Q380 134 380 120Z" fill="${CA.vidrio}" stroke="${CA.metal2}" stroke-width="2"/><rect x="383" y="90" width="54" height="40" rx="6" fill="${CA.oleo}"/><path d="M380 70 L360 82" stroke="${CA.metal2}" stroke-width="4"/></g>
+    <path class="ca-chorro" d="M362 84 Q340 120 320 150" stroke="${CA.oleo}" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <g class="ca-gira" style="transform-origin:300px 170px"><rect x="296" y="96" width="8" height="80" rx="4" fill="${CA.madera2}"/></g>`;
+  case 7: return cosFondo()+`<g transform="translate(230 150)">${cosOlla(0,0,150)}<rect x="8" y="6" width="134" height="40" rx="8" fill="${CA.crema}"/></g>
+    <g transform="translate(300 40)"><rect x="-10" y="0" width="20" height="26" rx="8" fill="${CA.tinta}"/><path d="M-12 26 H12 L6 70 H-6Z" fill="#F6E9A0" stroke="${CA.metal2}" stroke-width="2"/><path d="M-3 70 H3 V84 H-3Z" fill="${CA.metal2}"/></g>
+    ${[0,1,2].map(k=>`<ellipse class="ca-gota2" style="animation-delay:${k*.4}s" cx="300" cy="130" rx="4" ry="6" fill="#E9D24A"/>`).join("")}
+    <g transform="translate(440 120)"><rect width="140" height="70" rx="8" fill="#fff" stroke="${CA.tinta}" stroke-width="2"/><text x="70" y="28" font-family="Archivo,Arial" font-size="14" font-weight="700" fill="${CA.tinta}" text-anchor="middle">10 a 20 gotas</text><text x="70" y="54" font-family="Archivo,Arial" font-size="17" font-weight="800" fill="${CA.ocre}" text-anchor="middle">máx. 1 %</text></g>`;
+  case 8: return cosFondo()+`<g transform="translate(220 150)"><rect x="0" y="0" width="150" height="86" rx="10" fill="${CA.metal}"/><rect x="-6" y="-10" width="162" height="14" rx="6" fill="${CA.metal2}"/><rect x="65" y="-22" width="20" height="12" rx="4" fill="${CA.metal2}"/></g>
+    ${cosTermo(430,90,.3,"ca-enfria")}<text x="456" y="178" font-family="Archivo,Arial" font-size="17" font-weight="800" fill="#2B5F8A">Temperatura</text><text x="456" y="200" font-family="Archivo,Arial" font-size="17" font-weight="800" fill="#2B5F8A">ambiente</text>
+    <g transform="translate(120 80)"><circle r="34" fill="#fff" stroke="${CA.tinta}" stroke-width="3"/><g class="ca-aguja"><path d="M0 0 V-24" stroke="${CA.tinta}" stroke-width="4" stroke-linecap="round"/></g><circle r="4" fill="${CA.tinta}"/></g><text x="120" y="140" font-family="Archivo,Arial" font-size="15" font-weight="700" fill="${CA.tinta}" text-anchor="middle">30 a 60 min (a validar)</text>`;
+  case 9: return cosFondo()+`<g transform="translate(150 176)"><ellipse cx="60" cy="56" rx="64" ry="12" fill="${CA.metal}"/><rect x="0" y="10" width="120" height="48" fill="${CA.crema}"/><ellipse cx="60" cy="10" rx="60" ry="12" fill="#F7EDC0"/></g><text x="210" y="290" font-family="Archivo,Arial" font-size="15" font-weight="700" fill="${CA.tinta}" text-anchor="middle">Muestra patrón</text>
+    <g transform="translate(370 176)"><ellipse cx="60" cy="56" rx="64" ry="12" fill="${CA.metal}"/><rect x="0" y="10" width="120" height="48" fill="${CA.crema}"/><ellipse cx="60" cy="10" rx="60" ry="12" fill="#F7EDC0"/></g><text x="430" y="290" font-family="Archivo,Arial" font-size="15" font-weight="700" fill="${CA.tinta}" text-anchor="middle">Lote</text>
+    ${[190,410].map(x=>`<g class="ca-pesa"><rect x="${x}" y="120" width="40" height="44" rx="4" fill="${CA.tinta}"/><text x="${x+20}" y="148" font-family="Archivo,Arial" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">50 g</text></g>`).join("")}
+    <g transform="translate(300 110)"><rect width="16" height="110" fill="${CA.flor}" stroke="${CA.tinta}" stroke-width="1.5"/>${Array.from({length:10},(_,k)=>`<path d="M0 ${10+k*10} H${k%5?6:10}" stroke="${CA.tinta}" stroke-width="1.5"/>`).join("")}</g>
+    <g class="ca-ok" transform="translate(560 120)"><circle r="26" fill="${CA.jar}"/><path d="M-12 0 L-3 10 L13 -10" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></g>`;
+  case 10: return cosFondo()+Array.from({length:12},(_,k)=>cosEnvase(56+(k%6)*92,k<6?120:190,36,false,"ca-llena",k*.3)).join("")+`<text x="320" y="300" font-family="Archivo,Arial" font-size="18" font-weight="800" fill="${CA.tinta}" text-anchor="middle">12 × 50 g</text>`;
+  case 11: return cosFondo()+Array.from({length:6},(_,k)=>cosEnvase(40+k*60,186,34,"ca-etiq","",k*.35)).join("")+`<g transform="translate(410 80)"><rect width="190" height="52" rx="6" fill="#fff" stroke="${CA.tinta}" stroke-width="2"/><text x="95" y="22" font-family="Archivo,Arial" font-size="13" font-weight="700" fill="${CA.tinta}" text-anchor="middle">Código de lote</text><text x="95" y="42" font-family="Archivo,Arial" font-size="15" font-weight="800" fill="${CA.rojo}" text-anchor="middle" class="ca-escribe">(se asigna por lote)</text></g>`;
+  case 12: return cosFondo()+cosEnvase(170,186,34,true)+`<g class="ca-muestra"><rect x="250" y="120" width="26" height="80" rx="12" fill="#fff" stroke="${CA.metal2}" stroke-width="2"/><rect x="250" y="112" width="26" height="12" rx="3" fill="${CA.rojo}"/><rect x="254" y="170" width="18" height="26" rx="8" fill="${CA.crema}"/></g>
+    <g transform="translate(420 110)"><path d="M0 40 L60 0 L120 40 V120 H0Z" fill="#fff" stroke="${CA.tinta}" stroke-width="2.5"/><path d="M40 120 V80 H80 V120" fill="${CA.cielo}" stroke="${CA.tinta}" stroke-width="2"/><rect x="18" y="52" width="84" height="18" rx="3" fill="${CA.tinta}"/><text x="60" y="65" font-family="Archivo,Arial" font-size="10" font-weight="800" fill="#fff" text-anchor="middle">LABORATORIO</text></g>
+    <path class="ca-flecha" d="M300 160 H400" stroke="${CA.ocre}" stroke-width="5" stroke-dasharray="10 8" fill="none"/><path d="M398 150 L412 160 L398 170Z" fill="${CA.ocre}"/>`;
+  case 13: return cosFondo()+`<g transform="translate(170 90)"><rect width="200" height="146" rx="6" fill="#fff" stroke="${CA.tinta}" stroke-width="2.5"/><rect width="200" height="26" rx="6" fill="${CA.jar}"/><text x="100" y="18" font-family="Archivo,Arial" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">Registros del lote</text>${["Pesado","Temperatura","Consistencia","Envasado","Laboratorio"].map((t,k)=>`<text x="44" y="${50+k*22}" font-family="Archivo,Arial" font-size="13" font-weight="700" fill="${CA.tinta}">${t}</text><path class="ca-tilde" style="animation-delay:${k*.35}s" d="M18 ${45+k*22} l5 5 l10 -10" stroke="${CA.jar}" stroke-width="3.5" fill="none" stroke-linecap="round" pathLength="1"/>`).join("")}</g>
+    <g class="ca-sello" style="transform-origin:470px 160px"><rect x="400" y="132" width="150" height="56" rx="6" fill="none" stroke="${CA.rojo}" stroke-width="5"/><text x="475" y="168" font-family="Archivo,Arial" font-size="22" font-weight="800" fill="${CA.rojo}" text-anchor="middle">LIBERADO</text></g>`;
+  }
+  return cosFondo();
+}
+let cosIdx = 0, cosTimer = null, cosCont = null;
+const COS_DUR = 5200;
+function cosQuieto(){ return window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches; }
+function cosContadores(i){
+  clearInterval(cosCont); cosCont=null;
+  const q=cosQuieto(), $=id=>document.getElementById(id);
+  const correr=(desde,hasta,ms,fmt,fin)=>{ if(q){ fmt(hasta); fin&&fin(); return; } const t0=performance.now(); cosCont=setInterval(()=>{ const k=Math.min(1,(performance.now()-t0)/ms); fmt(Math.round(desde+(hasta-desde)*k)); if(k>=1){ clearInterval(cosCont); cosCont=null; fin&&fin(); } },50); };
+  if(i===4){ const b=$("ca-balanza"),m=$("ca-mat"),L=[$("ca-l1"),$("ca-l2"),$("ca-l3")],seq=[[500,"#F4F1EA"],[600,"#E8D9A8"],[700,CA.oleo]];
+    const paso=n=>{ if(n>=3) return; L.forEach((l,k)=>l&&l.setAttribute("opacity",k===n?"1":(k<n?".6":".35"))); if(m) m.setAttribute("fill",seq[n][1]); correr(n?seq[n-1][0]:0,seq[n][0],1200,v=>{ if(b) b.textContent=v+" g"; },()=>{ if(!q) setTimeout(()=>{ if(cosIdx===4) paso(n+1); },350); }); };
+    if(q){ L.forEach(l=>l&&l.setAttribute("opacity","1")); if(b) b.textContent="700 g"; } else paso(0); }
+}
 function cosPaint(){
-  const pasos = P.cosmetica.proceso;
+  const pasos = P.cosmetica.proceso, n = pasos.length, f = FTO[cosIdx];
   const sc = document.getElementById('escena');
-  if(sc) sc.innerHTML = `<svg viewBox="0 0 240 150" role="img" aria-label="${pasos[cosIdx]}">${BGESC}${ICO[cosIdx]}</svg>`;
-  document.querySelectorAll('#cos-lista .anim-paso').forEach((p,i)=>{ p.classList.toggle('hecho', i<cosIdx); p.classList.toggle('activo-anim', i===cosIdx); });
-  const b = document.getElementById('anim-bar'); if(b) b.style.width = ((cosIdx+1)/pasos.length*100)+'%';
-  const m = document.getElementById('cos-msg'); if(m) m.textContent = 'Etapa ' + (cosIdx+1) + ' de ' + pasos.length + ': ' + pasos[cosIdx];
+  if(sc){
+    sc.innerHTML = `<div class="ca-cuadro" style="background:${cosIdx<2?CA.cielo:CA.pared}"><svg viewBox="0 0 640 340" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Etapa ${cosIdx+1}: ${pasos[cosIdx]}">${cosEscena(cosIdx)}</svg></div>
+      <div class="ca-info"><span class="ca-fase">${(COS_FASES.find(x=>cosIdx>=x[1]&&cosIdx<=x[2])||[""])[0]} · Etapa ${cosIdx+1} de ${n}</span>
+        <h3>${pasos[cosIdx]}</h3>
+        <dl><div><dt>Control</dt><dd>${COS_CONTROL[cosIdx]}</dd></div><div><dt>Tiempo</dt><dd>${f.t}</dd></div><div><dt>Quién</dt><dd>${f.qu}</dd></div></dl></div>`;
+    sc.classList.toggle('ca-quieto', cosQuieto());
+    cosContadores(cosIdx);
+  }
+  const tl = document.getElementById('cos-linea');
+  if(tl) tl.querySelectorAll('button').forEach((p,i)=>{ p.classList.toggle('hecho', i<cosIdx); p.classList.toggle('actual', i===cosIdx); p.setAttribute('aria-current', i===cosIdx?'step':'false'); });
+  const m = document.getElementById('cos-msg'); if(m) m.textContent = 'Etapa ' + (cosIdx+1) + ' de ' + n + ': ' + pasos[cosIdx];
   const fp = document.getElementById('fto-panel');
   if(fp) fp.innerHTML = `<div class="noprint"><button class="btn-imp" onclick='ftoDescargar(${cosIdx})'>Descargar esta FTO (Word)</button> <button class="btn-imp" onclick='window.print()'>Imprimir FTO</button></div>` + ftoHTML(cosIdx);
 }
+function cosIr(i){ const n=P.cosmetica.proceso.length; cosIdx=Math.max(0,Math.min(n-1,i)); cosPaint(); }
 function cosToggle(){
   const b = document.getElementById('cos-play');
   if(cosTimer){ clearInterval(cosTimer); cosTimer = null; b.textContent = 'Reproducir'; return; }
   if(cosIdx >= P.cosmetica.proceso.length-1) cosIdx = 0;
-  b.textContent = 'Pausar';
-  cosPaint();
+  b.textContent = 'Pausar'; cosPaint();
   cosTimer = setInterval(()=>{
     if(cosIdx >= P.cosmetica.proceso.length-1){ clearInterval(cosTimer); cosTimer = null; b.textContent = 'Reproducir'; return; }
     cosIdx++; cosPaint();
-  }, 2200);
+  }, COS_DUR);
 }
-function cosReset(){
-  clearInterval(cosTimer); cosTimer = null; cosIdx = 0;
-  const b = document.getElementById('cos-play'); if(b) b.textContent = 'Reproducir';
-  cosPaint();
-}
+function cosReset(){ clearInterval(cosTimer); cosTimer = null; cosIdx = 0; const b = document.getElementById('cos-play'); if(b) b.textContent = 'Reproducir'; cosPaint(); }
 function cosInit(){
   clearInterval(cosTimer); cosTimer = null; cosIdx = 0;
-  const L = document.getElementById('cos-lista'); if(!L) return;
-  L.innerHTML = '<div class="anim-track">' + P.cosmetica.proceso.map((s,i)=>`<div class="anim-paso" data-i="${i}"><span class="num">${i+1}</span>${s}</div>`).join('') + '</div>';
-  L.querySelectorAll('.anim-paso').forEach(p=>p.onclick = ()=>{ cosIdx = +p.dataset.i; cosPaint(); });
+  const L = document.getElementById('cos-linea'); if(!L) return;
+  const pasos = P.cosmetica.proceso;
+  L.innerHTML = COS_FASES.map(([nom,a,b])=>`<div class="ca-grupo"><span>${nom}</span><div>${pasos.slice(a,b+1).map((s,k)=>`<button type="button" data-i="${a+k}" title="${s}" aria-label="Etapa ${a+k+1}: ${s}">${a+k+1}</button>`).join("")}</div></div>`).join("");
+  L.querySelectorAll('button').forEach(p=>p.onclick = ()=>cosIr(+p.dataset.i));
   document.getElementById('cos-play').onclick = cosToggle;
-  document.getElementById('cos-reset').onclick = cosReset;
+  document.getElementById('cos-prev').onclick = ()=>cosIr(cosIdx-1);
+  document.getElementById('cos-next').onclick = ()=>cosIr(cosIdx+1);
   cosPaint();
 }
 
@@ -1283,7 +1447,6 @@ const INDICE = [
   ["proceso","Proceso productivo con fichas FTO",[["entradas","Entradas y Salidas circuito operativo, control de variables"],["control","Plan de Control/Aseguramiento de la Calidad"]]],
   ["qfd","Herramientas de Análisis y Toma de decisiones: QFD"],
   ["costos","Costos de Calidad"],
-  ["auditoria","Auditoría"],
   ["inspeccion","Plan de Inspección: laboratorio modular"]
 ];
 const CLAVES = INDICE.flatMap(([k,t,h]) => [[k,t]].concat(h||[]));
@@ -1299,7 +1462,7 @@ const DESC = {
   ],
   turismo: [
     "El proyecto Anfitrión turístico prepara a los alumnos como futuros guías. El circuito interpretativo tuvo su primera intervención en un espacio público, inaugurada el 12 de noviembre de 2025. Tras verificar su utilidad, se propone ampliarlo con un reloj solar y un mural interpretativo, y mejorar el diseño general con la UNCuyo (Facultades de Artes y Diseño e Ingeniería).",
-    "El circuito se desarrolla en la Reserva Natural y Cultural Bosques Telteca y propone un recorrido interpretativo del patrimonio natural y cultural de Lavalle, con cartelería interpretativa, paradas de flora y paisaje, y la propuesta del reloj solar y el mural.",
+    "El circuito propone un recorrido interpretativo del patrimonio natural y cultural de Lavalle, con cartelería interpretativa, paradas de flora y paisaje, y la propuesta del reloj solar y el mural.",
     "La escuela tiene orientación en turismo y forma a los estudiantes en la atención de visitantes. El diseño del servicio contempla una recepción con charla de seguridad, tres paradas y un cierre con encuesta de satisfacción, con un criterio de un guía cada 15 personas que se valida en la salida piloto.",
     "Están pendientes la corrección del itinerario y cronograma, los planes de seguridad y contingencia, y los registros de las salidas piloto.",
     "<b>Circuito Renacer (eje de este informe).</b> Recorrido de 80 ± 15 minutos que parte de la escuela y recorre tres hitos: <b>A · Flora autóctona</b> de la plaza (algarrobo dulce, chañar, jarilla hembra, retamo, pichanilla, yaoyín y atamisqui, con carteles y códigos QR), <b>B · Estación ferroviaria abandonada</b> del Ferrocarril Belgrano, con su relato sobre el poblamiento local, y <b>C · Taller de la artesana</b>, con una demostración de cerámica o tejido y venta de productos de la comunidad y de la cosmética natural de la escuela.",
@@ -1354,7 +1517,6 @@ function render(){
   const fn = TABS[tab];
   const cont = document.getElementById("contenido");
   cont.innerHTML = tab==="galeria" ? TABS.galeria(P.cosmetica)+TABS.galeria(P.turismo) : (fn.length ? fn(p) : fn());
-  if(tab !== "proyectos") cont.insertAdjacentHTML((tab==="inicio"||tab==="detalle")?"beforeend":"afterbegin",'<div class="noprint"><button class="btn-imp" onclick="window.print()">Imprimir esta pestaña</button></div>');
   if(tab==="detalle" && sub==="proceso"){ simRun(); if(proy==="cosmetica") cosInit(); else { animInit(); turInit(); } }
   if(tab==="detalle" && proy==="turismo" && sub && sub!=="proceso") turSubInit();
   window.scrollTo(0,0);
@@ -1403,7 +1565,7 @@ document.addEventListener("keydown", e=>{
 
 /* =====================================================================
    PROYECTO B · TURISMO — Contenido completo (Gestión de la Calidad 2026)
-   Circuito Renacer (eje del informe), Circuito San José y propuesta Telteca.
+   Circuito Renacer (eje del informe) y Circuito San José.
    Fuentes: documentación del servicio turístico (ET-ST-01, P-ST-01, PR-SGC-001, planes de control) e infografía.
    Lo marcado como "Propuesta" fue redactado para completar el índice y debe validarse con la cátedra.
    ===================================================================== */
@@ -1444,14 +1606,7 @@ const CIRCUITOS = {
       ["Regreso a la escuela",20,""],
       ["Puesta en común y cierre",10,"Encuesta ISV"]
     ]},
-  telteca: { nombre:"Propuesta de ampliación · Reserva Bosques Telteca", estado:"Propuesta original del sitio (reloj solar y mural con UNCuyo)",
-    paradas:[
-      ["Recepción y charla de seguridad",10,""],
-      ["Parada 1: cartelería interpretativa",15,""],
-      ["Parada 2: flora y paisaje",15,""],
-      ["Parada 3: reloj solar y mural (propuesta)",15,""],
-      ["Cierre, preguntas y encuesta de satisfacción",10,""]
-    ]}
+
 };
 let turCirc = "renacer";
 
@@ -1619,8 +1774,7 @@ function simTurHTML(){
     <div class="sim-in noprint">
       <label>Circuito: <select id="tur-circ">
         <option value="renacer">Circuito Renacer</option>
-        <option value="sanjose">Circuito San José</option>
-        <option value="telteca">Propuesta Telteca</option></select></label>
+        <option value="sanjose">Circuito San José</option></select></label>
       <label>Turno: <select id="tur-turno"><option value="570">Mañana 09:30</option><option value="1020">Media tarde 17:00</option></select></label>
       <label>Personas: <input id="ngr" type="number" min="1" value="20"></label>
       <label>Temperatura (°C): <input id="tur-temp" type="number" value="31"></label>
@@ -1674,7 +1828,7 @@ function simTur(){
   turAnimInit();
 }
 
-/* Animación del Renacer sobre su afiche y circuitos ilustrados para San José y Telteca.
+/* Animación del Renacer sobre su afiche y circuito ilustrado para San José.
    Son representaciones didácticas; no se presentan como cartografía real. */
 let turTimer=null, turIdx=0, turPlaying=false, turMoving=false;
 let turPhase=0, turFrameTime=0, turRest=0, turSegment=0;
@@ -1779,73 +1933,7 @@ const TUR_ESCENAS = {
     `,
     labels:[['Escuela',90,201],['Flora',248,190],['Bañado',360,153],['Cementerio',524,112],['Capilla',645,73]]
   },
-  telteca:{
-    viewBox:'760 330',
-    pts:[
-      [98,256],  // recepción
-      [215,228], // cartelería
-      [360,184], // flora y paisaje
-      [560,150], // reloj solar y mural
-      [98,256]   // cierre / preguntas en el punto de partida
-    ],
-    tramos:[
-      'M98 256 C125 246 168 238 215 228',
-      'M215 228 C256 216 309 196 360 184',
-      'M360 184 C420 172 490 160 560 150',
-      'M560 150 C613 244 475 298 330 294 C217 291 143 279 98 256'
-    ],
-    fondo:`
-      <defs>
-        <linearGradient id="te-cielo" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#cfe6ff"/>
-          <stop offset="100%" stop-color="#f6ebd6"/>
-        </linearGradient>
-      </defs>
-      <rect x="0" y="0" width="760" height="330" fill="url(#te-cielo)"/>
-      <circle cx="624" cy="52" r="24" fill="#ffd165"/>
-      <path d="M0 182 Q75 140 150 160 T315 154 T495 138 T760 162 V330 H0Z" fill="#d1b180"/>
-      <path d="M0 232 Q170 189 302 210 T540 185 T760 205 V330 H0Z" fill="#c39a69" opacity=".72"/>
-      <path d="M0 265 Q180 233 330 258 T760 242 V330 H0Z" fill="#ecd39e"/>
-      <path d="M98 256 C165 238 230 220 305 198 S470 158 560 150" fill="none" stroke="#d8a66c" stroke-width="28" stroke-linecap="round" opacity=".96"/>
-      <path d="M560 150 C613 244 475 298 330 294 C217 291 143 279 98 256" fill="none" stroke="#d8a66c" stroke-width="28" stroke-linecap="round" opacity=".96"/>
-      <path d="M98 256 C165 238 230 220 305 198 S470 158 560 150" fill="none" stroke="#fff6e8" stroke-width="4" stroke-dasharray="12 11" stroke-linecap="round"/>
-      <path d="M560 150 C613 244 475 298 330 294 C217 291 143 279 98 256" fill="none" stroke="#fff6e8" stroke-width="4" stroke-dasharray="12 11" stroke-linecap="round"/>
-      <g aria-hidden="true" transform="translate(88 212)">
-        <rect x="-34" y="28" width="92" height="38" rx="4" fill="#f1e2c8" stroke="#91653b" stroke-width="2"/>
-        <path d="M-40 30 L6 2 L64 30 Z" fill="#9d522d"/>
-        <rect x="-6" y="44" width="18" height="22" fill="#486784"/>
-        <text x="12" y="82" font-size="12" text-anchor="middle" font-weight="700" fill="#6f3f17">Acceso</text>
-      </g>
-      <g aria-hidden="true" transform="translate(215 193)">
-        <rect x="-10" y="6" width="12" height="38" fill="#7a5b38"/>
-        <rect x="2" y="6" width="12" height="38" fill="#7a5b38"/>
-        <rect x="-24" y="-6" width="54" height="18" rx="4" fill="#f8f3e6" stroke="#8e6a44" stroke-width="2"/>
-        <path d="M34 44 q8 -12 0 -26" stroke="#8ba852" stroke-width="3" fill="none"/>
-      </g>
-      <g aria-hidden="true" transform="translate(360 152)">
-        <path d="M-70 52 Q-24 14 10 30 T90 18" fill="none" stroke="#8ba94d" stroke-width="5" stroke-linecap="round"/>
-        <path d="M-34 58 q-8 -16 0 -34 M-4 54 q-8 -15 0 -30 M34 52 q-8 -14 0 -29" stroke="#84a34a" stroke-width="4" fill="none"/>
-        <g fill="#7aa04b"><circle cx="-34" cy="20" r="12"/><circle cx="4" cy="18" r="14"/><circle cx="40" cy="22" r="12"/></g>
-        <path d="M72 58 q-8 -14 0 -31" stroke="#8ba852" stroke-width="4" fill="none"/>
-      </g>
-      <g aria-hidden="true" transform="translate(560 106)">
-        <circle cx="-24" cy="42" r="21" fill="none" stroke="#a55b31" stroke-width="4"/>
-        <path d="M-24 42 L-24 18 M-24 42 L-8 32" stroke="#a55b31" stroke-width="4" stroke-linecap="round"/>
-        <path d="M8 62 L72 62 L72 10 L8 10 Z" fill="#e9dbc2" stroke="#8e6540" stroke-width="2"/>
-        <path d="M16 52 Q28 26 40 52 T64 52" fill="none" stroke="#b75f39" stroke-width="5"/>
-        <path d="M20 18 H60 M20 28 H48" stroke="#9a7a57" stroke-width="3"/>
-      </g>
-      <g aria-hidden="true" transform="translate(675 218)">
-        <path d="M0 44 L0 3 M0 24 L-13 11 M0 34 L15 20" stroke="#719047" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="0" cy="2" r="8" fill="#91ae5d"/>
-        <circle cx="-14" cy="11" r="7" fill="#8aa657"/>
-        <circle cx="15" cy="20" r="7" fill="#8aa657"/>
-      </g>
-      <text x="380" y="34" text-anchor="middle" font-family="Arial" font-weight="700" font-size="20" fill="#6d3c12">Propuesta Bosques Telteca</text>
-      <text x="380" y="54" text-anchor="middle" font-family="Arial" font-size="12" fill="#7b5b35">cartelería interpretativa · flora y paisaje · reloj solar · mural</text>
-    `,
-    labels:[['Inicio y cierre',98,187],['Cartelería',216,165],['Flora y paisaje',361,120],['Reloj solar y mural',559,84]]
-  }
+
 };
 function turPos(i,n){
   if(turCirc==='renacer') return TUR_RENACER_POS[i];
@@ -1874,8 +1962,7 @@ function turGrupo(){
   </g>`;
 }
 function turParadasSVG(pts){
-  // Telteca comienza y termina en el mismo sitio: un único marcador 1/5.
-  const cerrada=turCirc==='telteca' && pts.length>1 &&
+  const cerrada=false && pts.length>1 &&
     pts[0][0]===pts[pts.length-1][0] && pts[0][1]===pts[pts.length-1][1];
   return pts.map((p,i)=>{
     if(cerrada && i===pts.length-1) return '';
@@ -1932,10 +2019,10 @@ function turAnimInit(){
     </clipPath></defs>`:'';
   const escuelaFrente=ren?`<image href="img/afiche_circuito_renacer.png" x="0" y="0" width="1024" height="724" preserveAspectRatio="none" clip-path="url(#tur-escuela-clip)" pointer-events="none"/>`:'';
   el.innerHTML=`<div class="escena ${ren?'tur-escena-renacer':''}">
-    <svg id="tur-svg" viewBox="0 0 ${ren?'1024 724':scene.viewBox}" role="img" aria-label="${ren?'Afiche original del Circuito Renacer, con visitantes guiados desde la escuela hasta A: flora autóctona, B: estación ferroviaria, C: taller artesanal y regreso':(turCirc==='sanjose'?'Ilustración del Circuito San José, con visitantes guiados por flora del secano, Bañado, cementerio y capilla, y regreso a la escuela':'Ilustración de la propuesta Bosques Telteca, con visitantes guiados por cartelería interpretativa, flora y paisaje, reloj solar y mural')} ">
+    <svg id="tur-svg" viewBox="0 0 ${ren?'1024 724':scene.viewBox}" role="img" aria-label="${ren?'Afiche original del Circuito Renacer, con visitantes guiados desde la escuela hasta A: flora autóctona, B: estación ferroviaria, C: taller artesanal y regreso':'Ilustración del Circuito San José, con visitantes guiados por flora del secano, Bañado, cementerio y capilla, y regreso a la escuela'} ">
       ${fondo}${ren?turAficheValores():''}${ruta}${rutaInvisible}${ren?'':labels+turParadasSVG(pts)}${mascaraEscuela}${turGrupo()}${escuelaFrente}
     </svg></div>
-    <p class="tur-anim-caption">${ren?'<b>Recorrido sobre el afiche original con datos del formulario:</b> escuela → A (flora autóctona) → B (estación ferroviaria) → C (taller artesanal) → escuela. El afiche también muestra las <b>7 operaciones del servicio</b> (consulta, pago, preparación, recepción, caminata, cierre y documentación); la lista interactiva de abajo presenta las <b>etapas cronometradas de la visita</b>.':(turCirc==='sanjose' ? '<b>Recorrido ilustrado del Circuito San José:</b> escuela → inicio del sendero → flora del secano → Bañado → cementerio → capilla → regreso → cierre. Se mantienen todas las paradas y los tiempos originales del circuito.' : '<b>Recorrido cerrado de la propuesta Bosques Telteca:</b> inicio → cartelería interpretativa → flora y paisaje → reloj solar y mural → regreso al mismo punto de partida para el cierre, las preguntas y la encuesta. Se mantienen las cinco etapas y sus tiempos originales.')} </p>
+    <p class="tur-anim-caption">${ren?'<b>Recorrido sobre el afiche original con datos del formulario:</b> escuela → A (flora autóctona) → B (estación ferroviaria) → C (taller artesanal) → escuela. El afiche también muestra las <b>7 operaciones del servicio</b> (consulta, pago, preparación, recepción, caminata, cierre y documentación); la lista interactiva de abajo presenta las <b>etapas cronometradas de la visita</b>.':('<b>Recorrido ilustrado del Circuito San José:</b> escuela → inicio del sendero → flora del secano → Bañado → cementerio → capilla → regreso → cierre. Se mantienen todas las paradas y los tiempos originales del circuito.')} </p>
     ${ren?turEvaluacionHTML():''}
     ${ren?'<div class="tur-leyenda"><span><b>A</b> Flora autóctona</span><span><b>B</b> Estación ferroviaria</span><span><b>C</b> Taller artesanal</span></div>':(turCirc==='sanjose'?'<div class="tur-leyenda"><span><b>3</b> Flora del secano</span><span><b>4</b> Bañado</span><span><b>5</b> Cementerio</span><span><b>6</b> Capilla San José</span></div>':'<div class="tur-leyenda"><span><b>1/5</b> Inicio y cierre</span><span><b>2</b> Cartelería interpretativa</span><span><b>3</b> Flora y paisaje</span><span><b>4</b> Reloj solar y mural</span></div>')}
     <div class="anim-ctrl noprint"><button type="button" class="btn-imp" id="tur-play">Reproducir</button><button type="button" class="btn-imp" id="tur-reset">Reiniciar</button></div>
@@ -2163,7 +2250,7 @@ function subTurismo(s){
     </div>
     <p>Esta política constituye un marco de referencia para establecer y revisar los objetivos de gestión, y será comunicada, comprendida y aplicada por las personas que participan en las actividades de la organización y puesta a disposición de las partes interesadas pertinentes (ISO 9001:2015, cláusula 5.2).</p>
     <h2>Alcance del sistema (4.3)</h2>
-    <p>Diseño y prestación de servicios de turismo rural y cultural guiados por estudiantes de la Escuela Raíces Huarpes: <b>Circuito Renacer</b> (plaza junto a la escuela) y <b>Circuito San José</b>, desde la consulta y registro del turno hasta el archivo de la documentación de la visita. La ampliación en la Reserva Bosques Telteca (reloj solar y mural) queda fuera del alcance actual y se incorpora como cambio planificado (6.3).</p>`;
+    <p>Diseño y prestación de servicios de turismo rural y cultural guiados por estudiantes de la Escuela Raíces Huarpes: <b>Circuito Renacer</b> (plaza junto a la escuela) y <b>Circuito San José</b>, desde la consulta y registro del turno hasta el archivo de la documentación de la visita.</p>`;
 
   case "legal": return hT("Matriz legal y partes interesadas")+`
     <h2>Normativa nacional</h2>`+tblT(["Norma","Tema","Aplicación al proyecto"],[
@@ -2573,6 +2660,29 @@ render();
   document.addEventListener("keydown",e=>{ if(e.key==="Escape" && !panel.hidden) cerrar(true); });
   document.addEventListener("click",e=>{ if(!panel.hidden && !e.target.closest("#panel-menu") && !e.target.closest("#btn-menu")) cerrar(false); });
 })();
+/* ---------- Voces de los estudiantes de Ingeniería ----------
+   Para cada estudiante: ["Nombre", "turismo" o "cosmetica", "Comentario breve"].
+   Solo se muestran los que tienen texto. */
+const AVATARES = {"Tomás Raby": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\" role=\"img\" aria-label=\"Avatar de Tomás Raby\"><rect width=\"120\" height=\"120\" fill=\"#F5E7CF\"/><rect x=\"102\" y=\"0\" width=\"9\" height=\"9\" fill=\"#B8730F\"/><rect x=\"111\" y=\"0\" width=\"9\" height=\"9\" fill=\"#C23B26\"/><rect x=\"111\" y=\"9\" width=\"9\" height=\"9\" fill=\"#2B5F8A\"/><path d=\"M14 120 C16 96 34 86 60 86 C86 86 104 96 106 120Z\" fill=\"#1E1F22\"/><path d=\"M48 86 L60 100 L72 86Z\" fill=\"#2A2B2E\"/><rect x=\"51\" y=\"72\" width=\"18\" height=\"17\" rx=\"4\" fill=\"#F1C9A5\"/><ellipse cx=\"33.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"86.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"60\" cy=\"53\" rx=\"26\" ry=\"30\" fill=\"#F1C9A5\"/><path d=\"M35 58 C35 74 46 84 60 84 C74 84 85 74 85 58 C82 68 76 72 70 71 C66 70 54 70 50 71 C44 72 38 68 35 58Z\" fill=\"#2E211B\" opacity=\"0.62\"/><path d=\"M35 46 C33 36 36 27 44 22 C48 15 58 12 66 15 C74 14 84 19 86 28 C89 34 88 41 85 46 C83 40 80 36 74 34 C70 37 63 35 60 33 C55 36 49 35 45 33 C40 36 37 40 35 46Z\" fill=\"#2E211B\"/><path d=\"M47 22 Q55 18 61 24 M62 18 Q70 16 76 23 M52 29 Q59 25 66 30\" stroke=\"#000\" stroke-opacity=\".18\" stroke-width=\"1.6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M45 44 Q50 41 55 44 M65 44 Q70 41 75 44\" stroke=\"#2E211B\" stroke-width=\"3.4\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"50\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><circle cx=\"70\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><path d=\"M49 64 Q60 74 71 64 Q60 69 49 64Z\" fill=\"#fff\" stroke=\"#8A3B2E\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/></svg>", "Bernardo Costarelli": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\" role=\"img\" aria-label=\"Avatar de Bernardo Costarelli\"><rect width=\"120\" height=\"120\" fill=\"#E6EBD9\"/><rect x=\"102\" y=\"0\" width=\"9\" height=\"9\" fill=\"#55702A\"/><rect x=\"111\" y=\"0\" width=\"9\" height=\"9\" fill=\"#C23B26\"/><rect x=\"111\" y=\"9\" width=\"9\" height=\"9\" fill=\"#B8730F\"/><path d=\"M14 120 C16 96 34 86 60 86 C86 86 104 96 106 120Z\" fill=\"#233152\"/><path d=\"M38 90 C44 100 76 100 82 90 C76 96 44 96 38 90Z\" fill=\"#2E3D63\"/><path d=\"M30 92 L36 120 M90 92 L84 120\" stroke=\"#2A2D33\" stroke-width=\"6\"/><rect x=\"51\" y=\"72\" width=\"18\" height=\"17\" rx=\"4\" fill=\"#F1C9A5\"/><ellipse cx=\"33.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"86.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"60\" cy=\"53\" rx=\"26\" ry=\"30\" fill=\"#F1C9A5\"/><path d=\"M34 46 C33 26 47 18 61 18 C76 18 88 26 86 46 C83 37 78 33 70 32 C60 31 50 31 43 34 C38 37 35 41 34 46Z\" fill=\"#B58A55\"/><path d=\"M45 44 Q50 41 55 44 M65 44 Q70 41 75 44\" stroke=\"#B58A55\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"50\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><circle cx=\"70\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><path d=\"M49 64 Q60 74 71 64 Q60 69 49 64Z\" fill=\"#fff\" stroke=\"#8A3B2E\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/></svg>", "Franco La Motta": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\" role=\"img\" aria-label=\"Avatar de Franco La Motta\"><rect width=\"120\" height=\"120\" fill=\"#E6EBD9\"/><rect x=\"102\" y=\"0\" width=\"9\" height=\"9\" fill=\"#55702A\"/><rect x=\"111\" y=\"0\" width=\"9\" height=\"9\" fill=\"#C23B26\"/><rect x=\"111\" y=\"9\" width=\"9\" height=\"9\" fill=\"#B8730F\"/><path d=\"M14 120 C16 96 34 86 60 86 C86 86 104 96 106 120Z\" fill=\"#5A2E28\"/><path d=\"M30 92 L36 120 M90 92 L84 120\" stroke=\"#3B3E43\" stroke-width=\"6\"/><rect x=\"51\" y=\"72\" width=\"18\" height=\"17\" rx=\"4\" fill=\"#F1C9A5\"/><ellipse cx=\"33.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"86.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"60\" cy=\"53\" rx=\"26\" ry=\"30\" fill=\"#F1C9A5\"/><path d=\"M32 51 C28 30 40 16 58 15 C78 14 92 26 88 50 C86 44 84 40 79 37 C80 32 74 29 70 31 C66 27 60 30 57 28 C53 30 48 29 46 33 C40 33 37 40 36 44 C34 46 33 48 32 51Z\" fill=\"#2E211A\"/><path d=\"M45 44 Q50 41 55 44 M65 44 Q70 41 75 44\" stroke=\"#2E211A\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"50\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><circle cx=\"70\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><path d=\"M49 64 Q60 74 71 64 Q60 69 49 64Z\" fill=\"#fff\" stroke=\"#8A3B2E\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/></svg>", "Tomás Aliaga": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\" role=\"img\" aria-label=\"Avatar de Tomás Aliaga\"><rect width=\"120\" height=\"120\" fill=\"#E6EBD9\"/><rect x=\"102\" y=\"0\" width=\"9\" height=\"9\" fill=\"#55702A\"/><rect x=\"111\" y=\"0\" width=\"9\" height=\"9\" fill=\"#C23B26\"/><rect x=\"111\" y=\"9\" width=\"9\" height=\"9\" fill=\"#B8730F\"/><path d=\"M14 120 C16 96 34 86 60 86 C86 86 104 96 106 120Z\" fill=\"#1D2A4A\"/><path d=\"M48 86 L60 100 L72 86Z\" fill=\"#141414\"/><path d=\"M22 104 H98 M18 113 H102\" stroke=\"#0E1630\" stroke-width=\"2\" opacity=\".6\"/><rect x=\"51\" y=\"72\" width=\"18\" height=\"17\" rx=\"4\" fill=\"#F1C9A5\"/><ellipse cx=\"33.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"86.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"60\" cy=\"53\" rx=\"26\" ry=\"30\" fill=\"#F1C9A5\"/><path d=\"M35 58 C35 74 46 84 60 84 C74 84 85 74 85 58 C82 68 76 72 70 71 C66 70 54 70 50 71 C44 72 38 68 35 58Z\" fill=\"#241B17\" opacity=\"0.3\"/><path d=\"M33 49 C30 27 46 17 60 17 C76 16 90 26 87 48 C84 39 77 34 66 33 C56 32 47 34 41 38 C37 41 35 45 33 49Z\" fill=\"#241B17\"/><path d=\"M44 30 C54 24 70 24 80 31\" stroke=\"#241B17\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M45 44 Q50 41 55 44 M65 44 Q70 41 75 44\" stroke=\"#241B17\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"50\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><circle cx=\"70\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><path d=\"M49 64 Q60 74 71 64 Q60 69 49 64Z\" fill=\"#fff\" stroke=\"#8A3B2E\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/></svg>", "Andrés Landgrebe": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\" role=\"img\" aria-label=\"Avatar de Andrés Landgrebe\"><rect width=\"120\" height=\"120\" fill=\"#E6EBD9\"/><rect x=\"102\" y=\"0\" width=\"9\" height=\"9\" fill=\"#55702A\"/><rect x=\"111\" y=\"0\" width=\"9\" height=\"9\" fill=\"#C23B26\"/><rect x=\"111\" y=\"9\" width=\"9\" height=\"9\" fill=\"#B8730F\"/><path d=\"M14 120 C16 96 34 86 60 86 C86 86 104 96 106 120Z\" fill=\"#8E9298\"/><path d=\"M48 86 L60 100 L72 86Z\" fill=\"#6E7278\"/><path d=\"M30 92 L36 120 M90 92 L84 120\" stroke=\"#7FA6C9\" stroke-width=\"6\"/><rect x=\"51\" y=\"72\" width=\"18\" height=\"17\" rx=\"4\" fill=\"#F1C9A5\"/><ellipse cx=\"33.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"86.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"60\" cy=\"53\" rx=\"26\" ry=\"30\" fill=\"#F1C9A5\"/><g fill=\"#231915\"><path d=\"M34 46 C33 30 46 22 60 22 C74 22 87 30 86 46 C84 40 80 36 74 35 L46 35 C40 36 36 40 34 46Z\"/><circle cx=\"40\" cy=\"34\" r=\"6.5\"/><circle cx=\"48\" cy=\"27\" r=\"7\"/><circle cx=\"58\" cy=\"23\" r=\"7.5\"/><circle cx=\"68\" cy=\"23\" r=\"7.5\"/><circle cx=\"77\" cy=\"28\" r=\"7\"/><circle cx=\"83\" cy=\"36\" r=\"6\"/><circle cx=\"37\" cy=\"42\" r=\"5\"/></g><path d=\"M45 44 Q50 41 55 44 M65 44 Q70 41 75 44\" stroke=\"#231915\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"50\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><circle cx=\"70\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><path d=\"M49 64 Q60 74 71 64 Q60 69 49 64Z\" fill=\"#fff\" stroke=\"#8A3B2E\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/></svg>", "Sabrina Mataloni": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\" role=\"img\" aria-label=\"Avatar de Sabrina Mataloni\"><rect width=\"120\" height=\"120\" fill=\"#F5E7CF\"/><rect x=\"102\" y=\"0\" width=\"9\" height=\"9\" fill=\"#B8730F\"/><rect x=\"111\" y=\"0\" width=\"9\" height=\"9\" fill=\"#C23B26\"/><rect x=\"111\" y=\"9\" width=\"9\" height=\"9\" fill=\"#2B5F8A\"/><path d=\"M14 120 C16 96 34 86 60 86 C86 86 104 96 106 120Z\" fill=\"#7C8087\"/><path d=\"M38 90 C44 100 76 100 82 90 C76 96 44 96 38 90Z\" fill=\"#C9A47A\"/><path d=\"M30 48 C28 24 46 14 60 14 C76 14 92 24 90 48 L92 104 C84 108 74 104 72 98 L72 80 L48 80 L48 98 C46 104 36 108 28 104Z\" fill=\"#6B4630\"/><rect x=\"51\" y=\"72\" width=\"18\" height=\"17\" rx=\"4\" fill=\"#F1C9A5\"/><ellipse cx=\"33.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"86.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"60\" cy=\"53\" rx=\"26\" ry=\"30\" fill=\"#F1C9A5\"/><circle cx=\"33\" cy=\"66\" r=\"4\" fill=\"none\" stroke=\"#C9A24A\" stroke-width=\"1.8\"/><circle cx=\"87\" cy=\"66\" r=\"4\" fill=\"none\" stroke=\"#C9A24A\" stroke-width=\"1.8\"/><path d=\"M34 54 C31 30 46 19 60 19 C75 19 89 30 86 54 C84 42 79 34 70 31 C66 36 58 38 50 36 C42 38 36 45 34 54Z\" fill=\"#6B4630\"/><path d=\"M45 44 Q50 41 55 44 M65 44 Q70 41 75 44\" stroke=\"#6B4630\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"50\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><circle cx=\"70\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><path d=\"M49 64 Q60 74 71 64 Q60 69 49 64Z\" fill=\"#fff\" stroke=\"#8A3B2E\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/><rect x=\"39\" y=\"45\" width=\"18\" height=\"14\" rx=\"5\" fill=\"#ffffff\" fill-opacity=\".25\" stroke=\"#E4E8EC\" stroke-width=\"2.4\"/><rect x=\"63\" y=\"45\" width=\"18\" height=\"14\" rx=\"5\" fill=\"#ffffff\" fill-opacity=\".25\" stroke=\"#E4E8EC\" stroke-width=\"2.4\"/><path d=\"M57 50 H63\" stroke=\"#E4E8EC\" stroke-width=\"2.4\"/></svg>", "Isabella Morandini": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\" role=\"img\" aria-label=\"Avatar de Isabella Morandini\"><rect width=\"120\" height=\"120\" fill=\"#F5E7CF\"/><rect x=\"102\" y=\"0\" width=\"9\" height=\"9\" fill=\"#B8730F\"/><rect x=\"111\" y=\"0\" width=\"9\" height=\"9\" fill=\"#C23B26\"/><rect x=\"111\" y=\"9\" width=\"9\" height=\"9\" fill=\"#2B5F8A\"/><path d=\"M14 120 C16 96 34 86 60 86 C86 86 104 96 106 120Z\" fill=\"#1E1F22\"/><path d=\"M48 86 L60 100 L72 86Z\" fill=\"#2E8B4A\"/><path d=\"M22 104 H98 M18 113 H102\" stroke=\"#000\" stroke-width=\"2\" opacity=\".6\"/><g fill=\"#9A4A28\"><path d=\"M32 50 C30 26 46 18 60 18 C74 18 90 26 88 50 L88 64 L32 64Z\"/><circle cx=\"31\" cy=\"64\" r=\"8\"/><circle cx=\"28\" cy=\"77\" r=\"8.5\"/><circle cx=\"33\" cy=\"90\" r=\"8.5\"/><circle cx=\"40\" cy=\"100\" r=\"7\"/><circle cx=\"89\" cy=\"64\" r=\"8\"/><circle cx=\"92\" cy=\"77\" r=\"8.5\"/><circle cx=\"87\" cy=\"90\" r=\"8.5\"/><circle cx=\"80\" cy=\"100\" r=\"7\"/></g><rect x=\"51\" y=\"72\" width=\"18\" height=\"17\" rx=\"4\" fill=\"#F1C9A5\"/><ellipse cx=\"33.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"86.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"60\" cy=\"53\" rx=\"26\" ry=\"30\" fill=\"#F1C9A5\"/><path d=\"M34 52 C31 30 45 21 60 21 C75 21 89 30 86 52 C84 41 78 34 68 32 C62 34 55 35 48 34 C40 37 36 44 34 52Z\" fill=\"#9A4A28\"/><path d=\"M60 22 C56 28 52 32 46 35\" stroke=\"#000\" stroke-opacity=\".12\" stroke-width=\"1.5\" fill=\"none\"/><path d=\"M45 44 Q50 41 55 44 M65 44 Q70 41 75 44\" stroke=\"#7A3A20\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"50\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><circle cx=\"70\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><path d=\"M49 64 Q60 74 71 64 Q60 69 49 64Z\" fill=\"#fff\" stroke=\"#8A3B2E\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/></svg>", "Juan Pablo Siracusa": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\" role=\"img\" aria-label=\"Avatar de Juan Pablo Siracusa\"><rect width=\"120\" height=\"120\" fill=\"#F5E7CF\"/><rect x=\"102\" y=\"0\" width=\"9\" height=\"9\" fill=\"#B8730F\"/><rect x=\"111\" y=\"0\" width=\"9\" height=\"9\" fill=\"#C23B26\"/><rect x=\"111\" y=\"9\" width=\"9\" height=\"9\" fill=\"#2B5F8A\"/><path d=\"M14 120 C16 96 34 86 60 86 C86 86 104 96 106 120Z\" fill=\"#8FB3AC\"/><path d=\"M38 90 C44 100 76 100 82 90 C76 96 44 96 38 90Z\" fill=\"#7EA39B\"/><rect x=\"51\" y=\"72\" width=\"18\" height=\"17\" rx=\"4\" fill=\"#F1C9A5\"/><ellipse cx=\"33.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"86.5\" cy=\"56\" rx=\"4.5\" ry=\"6.5\" fill=\"#F1C9A5\"/><ellipse cx=\"60\" cy=\"53\" rx=\"26\" ry=\"30\" fill=\"#F1C9A5\"/><path d=\"M35 58 C35 74 46 84 60 84 C74 84 85 74 85 58 C82 68 76 72 70 71 C66 70 54 70 50 71 C44 72 38 68 35 58Z\" fill=\"#5C4330\" opacity=\"0.45\"/><path d=\"M34 46 C33 26 47 18 61 18 C76 18 88 26 86 46 C83 37 78 33 70 32 C60 31 50 31 43 34 C38 37 35 41 34 46Z\" fill=\"#5C4330\"/><path d=\"M45 44 Q50 41 55 44 M65 44 Q70 41 75 44\" stroke=\"#5C4330\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"50\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><circle cx=\"70\" cy=\"52\" r=\"2.6\" fill=\"#1F2A33\"/><path d=\"M49 64 Q60 74 71 64 Q60 69 49 64Z\" fill=\"#fff\" stroke=\"#8A3B2E\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/><path d=\"M40 47 H56 C57 54 54 60 48 60 C42 60 39 54 40 47Z M64 47 H80 C81 54 78 60 72 60 C66 60 63 54 64 47Z M56 48 Q60 45 64 48 M40 47 L34 49 M80 47 L86 49\" fill=\"#ffffff\" fill-opacity=\".25\" stroke=\"#9AA3AB\" stroke-width=\"1.6\"/></svg>"};
+const VOCES = [
+  ["Sabrina Mataloni","turismo",""],
+  ["Bernardo Costarelli","cosmetica",""],
+  ["Isabella Morandini","turismo","test test"],
+  ["Franco La Motta","cosmetica",""],
+  ["Tomás Raby","turismo",""],
+  ["Tomás Aliaga","cosmetica",""],
+  ["Juan Pablo Siracusa","turismo",""],
+  ["Andrés Landgrebe","cosmetica",""]
+];
+function voces(){
+  const v = VOCES.filter(x=>x[2] && x[2].trim());
+  if(!v.length) return "";
+  const ini = n => n.split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase();
+  const pr = {turismo:"Circuito Turístico",cosmetica:"Cosmética Natural"};
+  return `<h2>Lo que nos dejó la PSE</h2>
+    <p class="voces-intro">Los estudiantes de Ingeniería cuentan, en pocas palabras, cómo vivieron el proyecto.</p>
+    <div class="voces">${v.map(([n,p,t])=>`<figure class="voz ${p}"><blockquote>${t}</blockquote><figcaption>${AVATARES[n]?`<span class="ava" aria-hidden="true">${AVATARES[n]}</span>`:`<span class="ini" aria-hidden="true">${ini(n)}</span>`}<span><b>${n}</b><small>${pr[p]||""}</small></span></figcaption></figure>`).join("")}</div>`;
+}
 </script>
 </body>
 </html>
