@@ -195,6 +195,64 @@
   .iso td.vacio{color:#b3aa9a}
   .iso tr.grupo td{background:#faf8f3;font:700 12px Montserrat,Arial,sans-serif;color:#6b6358;letter-spacing:.02em;padding:8px 12px}
   @media(max-width:760px){.sig-comp,.sig-alcance{grid-template-columns:1fr}}
+
+  /* ---- Proyectos: portada, tablero y navegación lateral ---- */
+  .py-hero{position:relative;border-radius:14px;overflow:hidden;min-height:300px;display:flex;align-items:flex-end;background:#333 center/cover;margin:4px 0 0}
+  .py-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,14,.9),rgba(20,18,14,.45) 55%,rgba(20,18,14,.05))}
+  .py-hero .txt{position:relative;padding:30px 32px;color:#fff;max-width:820px}
+  .py-hero .tipo{display:inline-block;font-size:13px;font-weight:700;background:var(--acc);padding:3px 10px;border-radius:12px;margin-bottom:10px}
+  .py-hero h1{margin:0 0 8px;font-size:40px;line-height:1.1;color:#fff}
+  .py-hero p{margin:0;font-size:17px;line-height:1.5;color:#f3eee4}
+  .py-datos{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--borde);margin:18px 0 26px}
+  .py-datos div{padding:6px 16px 16px 0}
+  .py-datos b{display:block;font:700 24px/1.2 Montserrat,Arial,sans-serif;color:var(--acc-osc)}
+  .py-datos span{font-size:14px;color:#554f45}
+  .py-desc{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start}
+  .py-desc details{margin-top:4px}
+  .py-desc summary{cursor:pointer;color:var(--acc-txt);font-weight:700}
+  .py-etapas{list-style:none;margin:0;padding:0;counter-reset:e;background:#fff;border:1px solid var(--borde);border-radius:12px;padding:16px 18px}
+  .py-etapas h3{margin:0 0 8px;font-size:16px;color:var(--acc-osc)}
+  .py-etapas li{counter-increment:e;display:grid;grid-template-columns:28px 1fr;gap:10px;padding:6px 0;font-size:14.5px;line-height:1.4;border-top:1px solid #f0ebe1}
+  .py-etapas li:first-of-type{border-top:0}
+  .py-etapas li::before{content:counter(e);width:24px;height:24px;border-radius:50%;background:var(--acc-suave);color:var(--acc-osc);font:700 12px/24px Montserrat,Arial,sans-serif;text-align:center}
+  .tablero{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:10px}
+  .col-t h3{margin:0 0 4px;font-size:16px;color:var(--acc-osc)}
+  .doc-c{display:block;background:#fff;border:1px solid var(--borde);border-left:5px solid var(--acc);border-radius:10px;padding:12px 14px;margin-bottom:10px;text-decoration:none;color:var(--texto);transition:box-shadow .15s,transform .15s}
+  .doc-c:hover,.doc-c:focus-visible{box-shadow:0 6px 16px rgba(0,0,0,.1);transform:translateY(-2px)}
+  .doc-c b{display:block;font-size:14.5px;line-height:1.35;color:var(--acc-osc)}
+  .doc-c small{display:block;font-size:12.5px;color:#6b6358;margin-top:3px}
+  .doc-c.comun{border-left-color:#2e5d8a}.doc-c.comun b{color:#1d3f61}
+  .py-layout{display:grid;grid-template-columns:240px 1fr;gap:30px;align-items:start}
+  .py-lado{position:sticky;top:64px;max-height:calc(100vh - 80px);overflow:auto;background:#fff;border:1px solid var(--borde);border-radius:12px;padding:14px 10px}
+  .py-lado .volver-p{display:block;font-weight:700;color:var(--acc-osc);text-decoration:none;padding:4px 8px 10px;border-bottom:1px solid #efe9dd;margin-bottom:6px;font-size:14px}
+  .py-lado h4{margin:10px 8px 4px;font:700 12px Montserrat,Arial,sans-serif;color:#7a7266}
+  .py-lado a.it{display:block;padding:6px 8px;border-radius:6px;font-size:13.5px;line-height:1.3;color:#3a352d;text-decoration:none;border-left:3px solid transparent}
+  .py-lado a.it:hover{background:var(--hov)}
+  .py-lado a.it.actual{background:var(--acc-suave);color:var(--acc-osc);font-weight:700;border-left-color:var(--acc)}
+  .py-sel{display:none}
+  .py-sel .volver-m{display:block;font-weight:700;color:var(--acc-osc);text-decoration:none;margin-bottom:12px;font-size:15px}
+  .py-sel label{display:block}
+  .py-pasos{display:flex;justify-content:space-between;gap:16px;margin-top:40px;padding-top:18px;border-top:1px solid var(--borde)}
+  .py-pasos a{display:block;max-width:48%;text-decoration:none;background:#fff;border:1px solid var(--borde);border-radius:10px;padding:10px 14px;color:var(--acc-osc)}
+  .py-pasos a small{display:block;font-size:12px;color:#7a7266}
+  .py-pasos a.sig-p{margin-left:auto;text-align:right}
+  .py-main{min-width:0}
+  @media(max-width:900px){.tablero{grid-template-columns:1fr 1fr}.py-desc{grid-template-columns:1fr}}
+  @media(max-width:760px){
+    .py-layout{grid-template-columns:1fr}.py-lado{display:none}
+    .py-sel{display:block;margin:0 0 16px}.py-sel label{font-size:13px;font-weight:700;color:var(--acc-osc)}
+    .py-sel select{width:100%;margin-top:4px;padding:10px;font-size:15px;border:1px solid var(--borde);border-radius:8px;background:#fff}
+    .py-datos{grid-template-columns:1fr 1fr}.tablero{grid-template-columns:1fr}.py-hero h1{font-size:30px}.py-hero .txt{padding:22px 20px}
+  }
+
+  .pdca-intro{margin:-4px 0 14px;color:#4a443b}
+  .tablero.pdca .col-t{position:relative}
+  .pdca-cab{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--borde);border-radius:12px;padding:12px 14px;margin-bottom:12px;min-height:84px}
+  .pdca-cab h3{margin:2px 0 2px}.pdca-cab p{margin:0;font-size:13px;color:#6b6358;line-height:1.35}
+  .pdca-l{flex:0 0 40px;height:40px;border-radius:50%;background:var(--acc);color:#fff;font:800 19px/40px Montserrat,Arial,sans-serif;text-align:center}
+  .tablero.pdca .col-t:not(:last-child)::after{content:"→";position:absolute;top:30px;right:-15px;font:700 18px Montserrat,Arial,sans-serif;color:var(--acc);z-index:1}
+  .pdca-vuelta{margin:6px 0 0;font-size:14px;font-weight:600;color:var(--acc-osc)}
+  @media(max-width:900px){.tablero.pdca .col-t::after{display:none}}
   .foto-fig{margin:14px 0}
   .foto-fig img{width:100%;max-height:340px;object-fit:cover;border-radius:8px;border:1px solid var(--borde);display:block}
   .foto-fig figcaption{font-size:13px;color:#4a443b;margin-top:4px}
@@ -363,6 +421,119 @@
     .dd{position:static}
     .dd-menu{left:12px;right:12px;min-width:0;max-width:none}
   }
+
+  /* =====================================================================
+     ESTILO "MOSAICO": identidad tomada de la escuela (mural de la wiphala,
+     piso de mosaicos, carteles pintados a mano) y del secano lavallino.
+     ===================================================================== */
+  @font-face{font-family:"Archivo";src:url("fonts/archivo.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+  @font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/atkinson-400.woff2") format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/atkinson-400i.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+  @font-face{font-family:"Atkinson Hyperlegible";src:url("fonts/atkinson-700.woff2") format("woff2");font-weight:700;font-display:swap}
+  :root{
+    --tinta:#1F2A33; --arena:#EDE4D3; --linea:#D9D2C4; --ladrillo:#C23B26; --ocre:#B8730F; --jarilla:#55702A; --cielo:#2B5F8A;
+    --bg:#ffffff; --texto:#1F2A33; --borde:#D9D2C4;
+    --acc:#55702A; --acc-suave:#E6EBD9; --acc-osc:#3E5420; --acc-txt:#3E5420; --hov:#F1F4EA;
+    --m1:var(--jarilla); --m2:var(--ladrillo); --m3:var(--ocre); --m4:var(--cielo);
+  }
+  body.turismo{--acc:#B8730F;--acc-suave:#F5E7CF;--acc-osc:#7E4E08;--acc-txt:#7E4E08;--hov:#FBF3E6;--borde:#D9D2C4;--bg:#ffffff;--m1:var(--ocre);--m2:var(--ladrillo);--m3:var(--jarilla);--m4:var(--cielo)}
+  body.comun{--acc:#2B5F8A;--acc-suave:#DDE8F2;--acc-osc:#1D4467;--acc-txt:#1D4467;--hov:#EEF4F9;background:#fff;--m1:var(--cielo);--m2:var(--ladrillo);--m3:var(--ocre);--m4:var(--jarilla)}
+  body{font-family:"Atkinson Hyperlegible",Arial,sans-serif;font-size:17px;line-height:1.6;color:var(--tinta);background:#fff}
+  h1,h2,h3,h4,nav,.btn,.logo-txt,.btn-imp,.ver,.btn-mapa,.datos-fila b,.py-datos b,.pdca-l{font-family:"Archivo",Arial,sans-serif}
+  h1.t,.portada h1,.py-hero h1{font-stretch:115%;font-weight:800;letter-spacing:-.01em;color:var(--tinta)}
+  h1.t{font-size:44px;line-height:1.05;margin:4px 0 14px}
+  h2{font-stretch:110%;font-weight:750;font-size:26px;line-height:1.15;color:var(--tinta);margin:40px 0 12px;display:flex;align-items:center;gap:12px}
+  h2::before{content:"";flex:0 0 18px;height:18px;background:conic-gradient(var(--m1) 0 25%,var(--m2) 0 50%,var(--m3) 0 75%,var(--m4) 0)}
+  h3{font-stretch:100%;font-weight:700;color:var(--acc-osc)}
+  .lead{color:#3d4852}
+  /* encabezado y barra: siempre tinta, la identidad del proyecto va en el contenido */
+  header,body.turismo header{background:var(--tinta)}
+  .logo-txt .nom{font-family:"Archivo",Arial,sans-serif;font-stretch:115%;font-weight:800;letter-spacing:0}
+  nav{border-bottom:1px solid var(--linea)}
+  nav button{font-size:15px;font-weight:600;color:var(--tinta);border-bottom-width:4px}
+  nav button:hover{background:transparent;color:var(--acc-osc);border-bottom-color:var(--linea)}
+  nav button.activa{color:var(--tinta);border-bottom-color:var(--acc)}
+  .menu-sitio{border-left:1px solid var(--linea)!important}
+  /* fuera tarjetas genéricas: sin sombras, sin franjas arriba, esquinas rectas */
+  .card,.dato,.puerta,.doc-c,.eq-card,.sig-comp li,.ficha,.dos-col section,.sig-alcance div,.pdca-cab,.py-etapas,.py-lado,.py-pasos a{border-radius:2px!important;box-shadow:none!important}
+  .card:hover,.puerta:hover,.doc-c:hover{transform:none!important;box-shadow:none!important}
+  .card{border:0;border-top:2px solid var(--tinta);padding:16px 0 0;background:transparent}
+  .eq-card{border:0;border-top:2px solid var(--c,var(--tinta));padding:14px 0 0;background:transparent}
+  .eq-card li{border-top:1px solid var(--linea)}
+  .dos-col section,.sig-alcance div{border:0;border-top:2px solid var(--c,var(--tinta));background:transparent;padding:14px 0 0}
+  .dos-col .desafio{--c:var(--ladrillo)}.dos-col .respuesta{--c:var(--cielo)}
+  .ficha{border:0;background:var(--arena);padding:20px 22px}
+  .ficha div{border-bottom-color:#d6cbb6}
+  .tag{display:none}
+  .btn-imp,.btn-mapa,.puerta .ver{border-radius:2px;font-weight:700;font-stretch:105%}
+  .btn-imp{background:transparent;color:var(--tinta);border:1.5px solid var(--tinta);padding:7px 14px}
+  .btn-imp:hover{background:var(--tinta);color:#fff;transform:none;box-shadow:none}
+  body.turismo .btn-imp{background:transparent}
+  /* Inicio: foto al lado del título, sin degradado encima */
+  .portada{display:grid;grid-template-columns:1fr 1.15fr;gap:0;min-height:0;background:var(--arena);border-radius:0;overflow:visible;align-items:stretch}
+  .portada::before{display:none}
+  .portada .txt{position:static;padding:44px 40px 40px 0;margin-left:0;color:var(--tinta);max-width:none;background:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+  .portada h1{font-size:64px;line-height:.98;margin:0 0 18px}
+  .portada p{color:#3d4852;font-size:19px}
+  .portada img{width:100%;height:100%;min-height:420px;object-fit:cover;display:block}
+  .datos-fila{border-top:2px solid var(--tinta);border-bottom:0;margin-top:0;padding-top:14px}
+  .datos-fila b,.py-datos b{font-stretch:112%;font-weight:800;color:var(--tinta)}
+  .puertas{gap:28px}
+  .puerta{border:0;background:transparent}
+  .puerta img{height:240px}
+  .puerta .cuerpo{border-top:0;padding:16px 0 0;position:relative}
+  .puerta .cuerpo::before{content:"";position:absolute;top:-6px;left:0;width:64px;height:6px;background:var(--c)}
+  .puerta .ver{background:var(--tinta)}
+  .puerta:hover h3{text-decoration:underline;text-underline-offset:4px}
+  /* Portada de proyecto */
+  .py-hero{display:grid;align-items:stretch;grid-template-columns:1fr 1.15fr;min-height:0;background:var(--arena)!important;border-radius:0;overflow:visible}
+  .py-hero::before{display:none}
+  .py-hero .txt{position:static;color:var(--tinta);background:#fff;padding:36px 36px 34px 0;display:flex;flex-direction:column;justify-content:flex-end;max-width:none}
+  .py-hero .tipo{background:none;color:var(--acc-osc);padding:0;font-size:15px;font-family:"Archivo",Arial,sans-serif;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .py-hero .tipo::before{content:"";width:18px;height:18px;background:conic-gradient(var(--m1) 0 25%,var(--m2) 0 50%,var(--m3) 0 75%,var(--m4) 0)}
+  .py-hero h1{font-size:54px;line-height:1;color:var(--tinta)}
+  .py-hero p{color:#3d4852}
+  .py-hero img{width:100%;height:100%;min-height:360px;object-fit:cover;display:block}
+  .py-datos{border-top:2px solid var(--tinta);border-bottom:0;padding-top:14px;margin-top:0}
+  .py-etapas{border:0;background:var(--arena);padding:18px 20px}
+  .py-etapas li{border-top-color:#d6cbb6}
+  .py-etapas li::before{border-radius:0;background:var(--acc);color:#fff}
+  .pdca-cab{background:transparent;border:0;border-top:2px solid var(--tinta);padding:12px 0 0;min-height:0}
+  .pdca-l{border-radius:0;background:var(--acc)}
+  .doc-c{border:0;border-left:4px solid var(--acc);background:#F7F5F0;border-radius:0!important}
+  .doc-c:hover,.doc-c:focus-visible{background:var(--hov)}
+  .doc-c.comun{border-left-color:var(--cielo)}
+  .py-lado{border:0;border-right:1px solid var(--linea);background:transparent;padding:4px 14px 4px 0}
+  .py-lado a.it{border-radius:0}
+  table th{background:var(--arena)!important}
+  .sig-comp li{border:0;border-top:2px solid var(--tinta);background:transparent;padding:14px 0 0}
+  .sig-comp li.destacado{border:0;background:var(--arena);padding:20px 22px}
+  .sig-comp .n{border-radius:0}
+  @media(max-width:760px){
+    .portada,.py-hero{grid-template-columns:1fr}
+    .portada img,.py-hero img{min-height:240px;height:240px;order:-1}
+    .portada .txt,.py-hero .txt{padding:22px 0 18px}
+    .portada h1{font-size:40px}.py-hero h1{font-size:36px}h1.t{font-size:34px}
+  }
+
+  /* ---- Menú como panel lateral ---- */
+  #panel-menu{position:fixed;top:0;right:0;bottom:0;left:auto;width:min(400px,92vw);max-height:none;z-index:40;background:#fff;border:0;border-left:1px solid var(--linea);box-shadow:none;overflow-y:auto;animation:pm-entra .22s ease-out}
+  @keyframes pm-entra{from{transform:translateX(100%)}to{transform:none}}
+  body.menu-abierto{overflow:hidden}
+  body.menu-abierto #tabs{z-index:41}
+  body.menu-abierto #tabs::before{content:"";position:fixed;inset:0;background:rgba(31,42,51,.5);z-index:39}
+  #panel-menu .pm-cab{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:18px 22px;background:var(--tinta);color:#fff;font:800 20px "Archivo",Arial,sans-serif;font-stretch:115%}
+  #panel-menu .pm-cerrar{background:none;border:1.5px solid #fff;color:#fff;font:700 14px "Archivo",Arial,sans-serif;padding:6px 12px;border-radius:2px;cursor:pointer}
+  #panel-menu .pm-cerrar:hover{background:#fff;color:var(--tinta)}
+  #panel-menu .cols{display:block;max-width:none;padding:8px 22px 30px}
+  #panel-menu .cols > div{padding:18px 0 4px}
+  #panel-menu h3{font-family:"Archivo",Arial,sans-serif;font-stretch:110%;font-size:16px;border-bottom-width:2px}
+  #panel-menu a{font-size:15.5px;border-radius:0}
+  @media (prefers-reduced-motion:reduce){#panel-menu{animation:none}}
+  @media(max-width:700px){#panel-menu{width:100vw}}
+
+  /* A · Mosaico sobrio: solo el cuadrito en los títulos */
+  header{border-bottom:0}
 </style>
 </head>
 <body>
@@ -518,6 +689,7 @@ const TABS = {
           <h1>Emprender e Innovar</h1>
           <p>Formando competencias educativas, culturales y ambientales en los estudiantes de la Escuela Raíces Huarpes y la comunidad de Lavalle, junto con la Universidad.</p>
         </div>
+        <img src="img/escuela.jpg" alt="Frente de la Escuela Albergue Raíces Huarpes con el mural de la wiphala" style="object-position:70% 40%">
       </section>
       <div class="datos-fila">
         <div><b>67</b><span>alumnos en la Escuela Albergue Raíces Huarpes N° 4-207</span></div>
@@ -699,23 +871,46 @@ const TABS = {
   detalle(){
     validarSub();
     const p = P[proy];
-    const mig = `<div class="mig noprint"><a href="#" data-go="proyectos||">Proyectos</a><span class="sep">›</span>` +
-      (sub ? `<a href="#" data-go="detalle|${proy}|">${p.nombre}</a><span class="sep">›</span><span>${tituloSub(sub)}</span>` : `<span>${p.nombre}</span>`) + `</div>`;
+    const META = {
+      cosmetica:{foto:"img/portada_cosmetica.jpg",tipo:"Proyecto A · Cosmética",
+        datos:[["14 etapas","desde la recolección hasta la liberación del lote"],["600 g","lote de referencia"],["12 envases","de 50 g por lote"],["4 roles","de alumnos: operador, control, registro y calidad"]],
+        cod:{et:"ET-PT-001",proceso:"14 etapas con ficha FTO"}},
+      turismo:{foto:"fotos/turismo/renacer_estacion_ferroviaria.jpg",tipo:"Proyecto B · Turismo",
+        datos:[["80 ± 15 min","Circuito Renacer, tiempo estándar"],["5 a 15","personas por guía"],["≥ 90 %","objetivo de satisfacción (ISV)"],["≥ 95 %","servicios en tiempo estándar (PST)"]],
+        cod:{et:"ET-ST-01",proceso:"P-ST-01 y una FTO por operación",amfe:"PR-SGC-001",objetivos:"ISV y PST"}}
+    }[proy];
+    const GR = [
+      ["Planificar","P","Política, requisitos, diseño del proceso y riesgos",["politica","legal","mapa","et","objetivos","amfe","impactos"]],
+      ["Hacer","H","Ejecución del proceso y control de variables",["proceso","entradas","control"]],
+      ["Verificar","V","Inspección, medición, costos y auditoría",["inspeccion","cartas","costos","auditoria"]],
+      ["Actuar","A","Análisis, decisiones y propuestas de mejora",["sig","qfd","conclusiones"]]
+    ];
+    const disp0 = new Set((proy==="turismo" ? INDICE.filter(x=>x[0]!=="qfd").concat(INDICE_TUR_EXTRA) : INDICE).flatMap(([k,t,h])=>[k].concat((h||[]).map(x=>x[0]))));
+    const disp = new Set([...disp0,"conclusiones"]);
+    const COMUNES = {politica:["sig||","Política y cláusulas ISO","Apartado común de la escuela"],conclusiones:["conclusiones||","Conclusiones y directrices","Lecciones para próximas PSE"]};
+    const titulo = k => COMUNES[k] ? COMUNES[k][1] : tituloSub(k);
+    const go = k => COMUNES[k] ? COMUNES[k][0] : `detalle|${proy}|${k}`;
+    const grupos = GR.map(([g,l,d,ks])=>[g,d,ks.filter(k=>disp.has(k)),l]).filter(x=>x[2].length);
+    const orden = grupos.flatMap(x=>x[2]).filter(k=>!COMUNES[k]);
+
     if(sub){
-      return mig + `<a href="#" class="volver noprint" data-go="detalle|${proy}|">← Volver al índice</a>` + subContent();
+      const i = orden.indexOf(sub), ant = orden[i-1], sig = orden[i+1];
+      const lado = `<aside class="py-lado noprint"><a href="#" class="volver-p" data-go="detalle|${proy}|">← ${p.nombre}</a>${grupos.map(([g,,ks])=>`<h4>${g}</h4>${ks.map(k=>`<a href="#" class="it${k===sub?" actual":""}" data-go="${go(k)}">${titulo(k)}</a>`).join("")}`).join("")}</aside>`;
+      const sel = `<div class="py-sel noprint"><a href="#" class="volver-m" data-go="detalle|${proy}|">← ${p.nombre}</a><label for="py-sel">Documento</label><select id="py-sel" onchange="ir({tab:'detalle',sub:this.value})">${grupos.map(([g,,ks])=>`<optgroup label="${g}">${ks.filter(k=>!COMUNES[k]).map(k=>`<option value="${k}"${k===sub?" selected":""}>${titulo(k)}</option>`).join("")}</optgroup>`).join("")}</select></div>`;
+      const pasos = `<div class="py-pasos noprint" role="navigation" aria-label="Documentos">${ant?`<a href="#" data-go="detalle|${proy}|${ant}"><small>Anterior</small>← ${titulo(ant)}</a>`:""}${sig?`<a href="#" class="sig-p" data-go="detalle|${proy}|${sig}"><small>Siguiente</small>${titulo(sig)} →</a>`:""}</div>`;
+      return `<div class="py-layout">${lado}<div class="py-main">${sel}${subContent()}${pasos}</div></div>`;
     }
-    const enlace = (k,t) => `<a href="#" data-go="${(k==="politica"||k==="clausulas")?"sig||":`detalle|${proy}|${k}`}">${t}</a>`;
-    const indice = `<h2>Índice de documentación</h2><ol class="indice">${(proy==="turismo" ? INDICE.filter(x=>x[0]!=="qfd").concat(INDICE_TUR_EXTRA) : INDICE).map(([k,t,hijos]) =>
-      `<li>${enlace(k,t)}${hijos ? `<ol>${hijos.map(([k2,t2]) => `<li>${enlace(k2,t2)}</li>`).join("")}</ol>` : ""}</li>`
-    ).join("")}</ol>`;
-    return mig + `
-      <span class="tag">${proy==="cosmetica" ? "Proyecto A · Cosmética" : "Proyecto B · Turismo"}</span>
-      <h1 class="t">${p.nombre}</h1>
-      <p class="lead">${p.subtitulo}</p>
-      <h2>Descripción del proyecto</h2>
-      ${DESC[proy].map(t => `<p>${t}</p>`).join("")}
-      ${proy==="turismo" ? `<h2>Etapas del proyecto</h2><ol>${p.proceso.map(x => `<li>${x}</li>`).join("")}</ol>` : ""}
-      ${indice}`;
+    const desc = DESC[proy];
+    return `
+      <section class="py-hero"><div class="txt"><span class="tipo">${META.tipo}</span><h1>${p.nombre}</h1><p>${p.subtitulo}</p></div><img src="${META.foto}" alt=""></section>
+      <div class="py-datos">${META.datos.map(([b,t])=>`<div><b>${b}</b><span>${t}</span></div>`).join("")}</div>
+      <div class="py-desc">
+        <div><h2 style="margin-top:0">Descripción del proyecto</h2>${desc.slice(0,2).map(t=>`<p>${t}</p>`).join("")}
+          ${desc.length>2?`<details><summary>Leer la descripción completa</summary>${desc.slice(2).map(t=>`<p>${t}</p>`).join("")}</details>`:""}</div>
+        ${proy==="turismo" ? `<ol class="py-etapas"><h3>Etapas del proyecto</h3>${p.proceso.map(x=>`<li>${x}</li>`).join("")}</ol>` : `<ol class="py-etapas"><h3>Proceso de elaboración</h3>${p.proceso.map(x=>`<li>${x}</li>`).join("")}</ol>`}
+      </div>
+      <h2>Documentación del sistema: ciclo PDCA</h2>
+      <p class="pdca-intro">La documentación sigue el ciclo de mejora continua de la norma: planificar, hacer, verificar y actuar.</p><div class="tablero pdca">${grupos.map(([g,d,ks,l])=>`<div class="col-t"><div class="pdca-cab"><span class="pdca-l">${l}</span><div><h3>${g}</h3><p>${d}</p></div></div>${ks.map(k=>`<a href="#" class="doc-c${COMUNES[k]?" comun":""}" data-go="${go(k)}"><b>${titulo(k)}</b>${COMUNES[k]?`<small>${COMUNES[k][2]}</small>`:(META.cod[k]?`<small>${META.cod[k]}</small>`:"")}</a>`).join("")}</div>`).join("")}</div><p class="pdca-vuelta">↻ Lo aprendido al actuar vuelve a la planificación del ciclo siguiente.</p>`;
   },
 
   metodo(){
@@ -1111,7 +1306,7 @@ function render(){
   const fn = TABS[tab];
   const cont = document.getElementById("contenido");
   cont.innerHTML = tab==="galeria" ? TABS.galeria(P.cosmetica)+TABS.galeria(P.turismo) : (fn.length ? fn(p) : fn());
-  if(tab !== "proyectos") cont.insertAdjacentHTML(tab==="inicio"?"beforeend":"afterbegin",'<div class="noprint"><button class="btn-imp" onclick="window.print()">Imprimir esta pestaña</button></div>');
+  if(tab !== "proyectos") cont.insertAdjacentHTML((tab==="inicio"||tab==="detalle")?"beforeend":"afterbegin",'<div class="noprint"><button class="btn-imp" onclick="window.print()">Imprimir esta pestaña</button></div>');
   if(tab==="detalle" && sub==="proceso"){ simRun(); if(proy==="cosmetica") cosInit(); else { animInit(); turInit(); } }
   if(tab==="detalle" && proy==="turismo" && sub && sub!=="proceso") turSubInit();
   window.scrollTo(0,0);
@@ -1959,7 +2154,7 @@ render();
   const li=(go,t,cls)=>`<li><a href="#" data-go="${go}"${cls?` class="${cls}"`:""}>${t}</a></li>`;
   const dg=(pr,k)=>(k==="politica"||k==="clausulas")?"sig||":`detalle|${pr}|${k}`;
   const docs=(pr,items)=>items.map(([k,t,h])=>`<li><a href="#" data-go="${dg(pr,k)}">${t}</a>${h?`<ul>${h.map(([k2,t2])=>li(dg(pr,k2),t2)).join("")}</ul>`:""}</li>`).join("");
-  panel.innerHTML=`<div class="cols">
+  panel.innerHTML=`<div class="pm-cab"><span>Menú</span><button type="button" class="pm-cerrar" aria-label="Cerrar menú">Cerrar ✕</button></div><div class="cols">
     <div class="c-sitio"><h3>El sitio</h3><ul>
       ${li("inicio||","Inicio")}${li("escuela||","La Escuela")}${li("sig||","Sistema Integrado de Gestión")}${li("galeria||","Galería")}${li("conclusiones||","Conclusiones y directrices")}${li("contacto||","Equipo y contacto")}
     </ul></div>
@@ -1970,8 +2165,9 @@ render();
       ${li("detalle|turismo|","Descripción del proyecto","principal")}${docs("turismo",INDICE.filter(x=>x[0]!=="qfd").concat(INDICE_TUR_EXTRA))}
     </ul></div>
   </div>`;
-  const cerrar=(volver)=>{panel.hidden=true;btn.setAttribute("aria-expanded","false"); if(volver) btn.focus();};
-  btn.addEventListener("click",()=>{const abrir=panel.hidden;panel.hidden=!abrir;btn.setAttribute("aria-expanded",String(abrir)); if(abrir){const a=panel.querySelector("a"); if(a) a.focus({preventScroll:true});}});
+  const cerrar=(volver)=>{panel.hidden=true;document.body.classList.remove("menu-abierto");btn.setAttribute("aria-expanded","false"); if(volver) btn.focus();};
+  panel.addEventListener("click",e=>{ if(e.target.closest(".pm-cerrar")) cerrar(true); });
+  btn.addEventListener("click",()=>{const abrir=panel.hidden;panel.hidden=!abrir;document.body.classList.toggle("menu-abierto",abrir);btn.setAttribute("aria-expanded",String(abrir)); if(abrir){const a=panel.querySelector("a"); if(a) a.focus({preventScroll:true});}});
   panel.addEventListener("click",e=>{ if(e.target.closest("a[data-go]")) cerrar(false); });
   document.addEventListener("keydown",e=>{ if(e.key==="Escape" && !panel.hidden) cerrar(true); });
   document.addEventListener("click",e=>{ if(!panel.hidden && !e.target.closest("#panel-menu") && !e.target.closest("#btn-menu")) cerrar(false); });
