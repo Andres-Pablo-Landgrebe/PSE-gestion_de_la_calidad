@@ -1779,30 +1779,7 @@ ${T(["Fase","Qué se hace","Responsable","Punto"],[
   <li>Manuales de operación y mantenimiento, con limpieza y sanitización.</li>
   <li>Protocolos de ensayos eléctricos firmados por profesional matriculado.</li>
   <li>Registro del premontaje y constancia de capacitación.</li>
-</ul>
-
-<h2>5. Matriz de verificación</h2>
-${T(["Elemento","Parámetro crítico","Contratista","Inspector del comitente","Criterio de aceptación","Punto"],[
-["Estructura metálica liviana","Resistencia y marcas de ensamble","Diseña, fabrica y hace el montaje de prueba","Supervisa el primer montaje","Sin deformaciones ni juego excesivo; tiempo de armado acordado","WP"],
-["Paneles de cerramiento","Superficie lisa, lavable; juntas selladas","Provee paneles con encastre rápido","Inspecciona acabado y juntas","Sin fisuras; sellador sanitario atóxico","HP"],
-["Piso temporal sanitario","Impermeable, antideslizante","Provee material apto para tránsito y fácil desarme","Controla planimetría y sellado","Sin desniveles ni filtraciones","WP"],
-["Instalaciones eléctricas y de agua","Puesta a tierra, aislación, hermeticidad","Instala y ensaya; entrega protocolo firmado","Verifica continuidad, PAT y fugas","Protocolo firmado; cero pérdidas","HP"],
-["Equipamiento de producción y control","Acero inoxidable, movilidad, instrumentos calibrados","Suministra balanza, termómetro y utensilios","Verifica calibración y facilidad de limpieza","Sin vibraciones anómalas; cumple BPF","WP"],
-["Seguridad del puesto","Apoyos para recipientes calientes, cartelería, EPP","Provee y ubica","Verifica que no se manipulen recipientes calientes sin agarre","Cartelería, apoyos y EPP disponibles","WP"],
-["Almacenamiento y embalaje","Racks, fundas y carros","Provee el kit completo","Comprueba volumen e inventario","Inventario completo; cero daños al desarmar","HP"],
-["Lote piloto","Temperatura, consistencia, masa neta, rotulado","Acompaña","Verifica contra la ET-PT-001","Lote conforme según la ET","WP"]
-])}
-
-<h2>6. Observaciones y no conformidades</h2>
-<ol>
-  <li>El inspector emite un reporte de no conformidad con descripción, ubicación y evidencia.</li>
-  <li>El contratista corrige o reemplaza dentro del plazo fijado en el contrato.</li>
-  <li>El inspector verifica la corrección y deja constancia.</li>
-  <li>Ningún módulo ni equipo se libera sin el levantamiento documentado de la no conformidad.</li>
-</ol>
-
-<h2>7. Recepción y puesta en servicio</h2>
-<p>Se autoriza cuando están levantadas las observaciones, completada la capacitación, entregado el dossier de calidad, aprobada la prueba con lote piloto, verificados el desmontaje y el almacenamiento, y firmada el acta de recepción por ambas partes.</p>`;
+</ul>`;
     }
     default: return h(p.nombre)+`<p class="lead">${p.subtitulo}</p><h2>Diagnóstico y requisito</h2><p>${p.diagnostico}</p><h2>Documentación del proyecto</h2><ul class="docs">${p.docs.map(d=>`<li>${d}</li>`).join("")}</ul>`;
   }
