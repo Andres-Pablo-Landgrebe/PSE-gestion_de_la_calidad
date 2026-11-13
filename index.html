@@ -294,6 +294,63 @@
   @keyframes blink{50%{opacity:.15}}
   .draw{stroke-dasharray:100;stroke-dashoffset:100;animation:draw 1.8s ease forwards}
   @keyframes draw{to{stroke-dashoffset:0}}
+  /* ---------- Animación: armado del laboratorio modular ---------- */
+  .lm-anim{margin:14px 0 20px}
+  .lm-escena{background:#f7f4ec;border:1px solid var(--borde);border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(65,45,19,.10)}
+  .lm-escena svg{display:block;width:100%;height:auto}
+  .lm-cap{position:relative;height:54px;margin:12px 0 0}
+  .lm-cap p{position:absolute;left:0;right:0;top:0;margin:0;font-size:15px;line-height:1.45;opacity:0}
+  .lm-cap b{color:var(--acc-osc)}
+  .lm-barra{height:8px;background:var(--acc-suave);border-radius:6px;overflow:hidden}
+  .lm-barra i{display:block;height:100%;background:var(--acc);transform:scaleX(0);transform-origin:left;animation:lm-barra 20s linear infinite}
+  .lm-pie{font-size:13px;color:#6b6358;margin:8px 0 0}
+  .lm-a2,.lm-a3,.lm-a4,.lm-a5,.lm-a6,.lm-a7,.lm-badge{opacity:0}
+  .lm-a2{animation:lm-a2 20s linear infinite}
+  .lm-a3{animation:lm-a3 20s linear infinite}
+  .lm-a4{animation:lm-a4 20s linear infinite}
+  .lm-a5{animation:lm-a5 20s linear infinite}
+  .lm-a6{animation:lm-a6 20s linear infinite}
+  .lm-a7{animation:lm-a7 20s linear infinite}
+  .lm-w1{animation:lm-w1 20s linear infinite}
+  .lm-w2{animation:lm-w2 20s linear infinite}
+  .lm-w3{animation:lm-w3 20s linear infinite}
+  .lm-w4{animation:lm-w4 20s linear infinite}
+  .lm-w5{animation:lm-w5 20s linear infinite}
+  .lm-w6{animation:lm-w6 20s linear infinite}
+  .lm-w7{animation:lm-w7 20s linear infinite}
+  .lm-w8{animation:lm-w8 20s linear infinite}
+  .lm-vapor path{transform-box:fill-box;transform-origin:50% 100%;animation:lm-vapor 2.4s ease-out infinite}
+  .lm-vapor path:nth-child(2){animation-delay:.8s}
+  .lm-vapor path:nth-child(3){animation-delay:1.6s}
+  .lm-dot{animation:lm-dot 4.5s ease-in-out infinite}
+  .lm-led{animation:lm-led 1.4s ease-in-out infinite}
+  .lm-anim:hover *,.lm-anim:focus-within *{animation-play-state:paused}
+  @keyframes lm-a2{0%,10%{opacity:0;transform:translateY(10px)}14%,87%{opacity:1;transform:none}96%,100%{opacity:0;transform:translateY(10px)}}
+  @keyframes lm-a3{0%,22%{opacity:0;transform:translateY(10px)}26%,87%{opacity:1;transform:none}95%,100%{opacity:0;transform:translateY(10px)}}
+  @keyframes lm-a4{0%,34%{opacity:0;transform:translateY(10px)}38%,87%{opacity:1;transform:none}94%,100%{opacity:0;transform:translateY(10px)}}
+  @keyframes lm-a5{0%,46%{opacity:0;transform:translateY(10px)}50%,87%{opacity:1;transform:none}93%,100%{opacity:0;transform:translateY(10px)}}
+  @keyframes lm-a6{0%,58%{opacity:0;transform:translateY(10px)}62%,87%{opacity:1;transform:none}92%,100%{opacity:0;transform:translateY(10px)}}
+  @keyframes lm-a7{0%,70%{opacity:0}74%,86%{opacity:1}90%,100%{opacity:0}}
+  @keyframes lm-w1{0%,1%{opacity:0}4%,10%{opacity:1}13%,100%{opacity:0}}
+  @keyframes lm-w2{0%,13%{opacity:0}16%,22%{opacity:1}25%,100%{opacity:0}}
+  @keyframes lm-w3{0%,25%{opacity:0}28%,34%{opacity:1}37%,100%{opacity:0}}
+  @keyframes lm-w4{0%,37%{opacity:0}40%,46%{opacity:1}49%,100%{opacity:0}}
+  @keyframes lm-w5{0%,49%{opacity:0}52%,58%{opacity:1}61%,100%{opacity:0}}
+  @keyframes lm-w6{0%,61%{opacity:0}64%,70%{opacity:1}73%,100%{opacity:0}}
+  @keyframes lm-w7{0%,73%{opacity:0}76%,84%{opacity:1}87%,100%{opacity:0}}
+  @keyframes lm-w8{0%,87%{opacity:0}90%,97%{opacity:1}99%,100%{opacity:0}}
+  @keyframes lm-vapor{0%{opacity:0;transform:translateY(8px) scale(.9)}35%{opacity:.75}100%{opacity:0;transform:translateY(-18px) scale(1.2)}}
+  @keyframes lm-dot{0%,4%{transform:translateX(0)}96%,100%{transform:translateX(392px)}}
+  @keyframes lm-led{50%{opacity:.2}}
+  @keyframes lm-barra{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+  @media(max-width:680px){.lm-escena{overflow-x:auto}.lm-escena svg{min-width:640px}.lm-cap{height:92px}.lm-cap p{font-size:14px}}
+  @media(prefers-reduced-motion:reduce){
+    .lm-anim *{animation:none!important}
+    .lm-a2,.lm-a3,.lm-a4,.lm-a5,.lm-a6,.lm-a7{opacity:1}
+    .lm-badge{display:none}
+    .lm-cap{height:auto}.lm-cap p{position:static;opacity:1;margin:0 0 6px}
+    .lm-barra{display:none}
+  }
   #fto-panel .fto table{font-size:13px}
   /* ---------- Menú desplegable de "Proyectos" ---------- */
   .dd{position:relative;display:flex}
@@ -1562,6 +1619,145 @@ ${T(["Necesidad","Qué aporta lo modular"],[
 
 <h2>3. Plan para construirlo: fases y puntos de inspección</h2>
 <p><b>HP</b> (punto de detención): no se avanza sin la aprobación del inspector. <b>WP</b> (punto de presencia): el inspector asiste y verifica.</p>
+<h3>Cómo se arma, paso a paso</h3>
+<div class="lm-anim">
+<div class="lm-escena">
+<svg viewBox="0 0 720 400" role="img" aria-label="Animación del armado del laboratorio modular dentro de un salón de la escuela: piso sanitario, estructura, paneles, servicios, equipamiento, lote piloto y desmontaje">
+  <title>Armado del laboratorio modular</title>
+  <rect x="0" y="0" width="720" height="300" fill="#f0ebde"/>
+  <rect x="0" y="300" width="720" height="100" fill="#e2d8c4"/>
+  <rect x="0" y="294" width="720" height="7" fill="#d6cbb4"/>
+  <rect x="30" y="136" width="80" height="158" fill="#e8dfcb" stroke="#c9bda6" stroke-width="2"/>
+  <circle cx="98" cy="222" r="4" fill="#b7a98d"/>
+  <rect x="598" y="70" width="96" height="86" fill="#dbe9f3" stroke="#c9bda6" stroke-width="2"/>
+  <line x1="646" y1="70" x2="646" y2="156" stroke="#c9bda6" stroke-width="2"/>
+  <line x1="598" y1="113" x2="694" y2="113" stroke="#c9bda6" stroke-width="2"/>
+
+  <g class="lm-a2">
+    <rect x="140" y="282" width="440" height="16" rx="3" fill="#cfd8d2" stroke="#a9b6ae" stroke-width="2"/>
+    <line x1="228" y1="284" x2="228" y2="296" stroke="#a9b6ae"/>
+    <line x1="316" y1="284" x2="316" y2="296" stroke="#a9b6ae"/>
+    <line x1="404" y1="284" x2="404" y2="296" stroke="#a9b6ae"/>
+    <line x1="492" y1="284" x2="492" y2="296" stroke="#a9b6ae"/>
+  </g>
+
+  <g class="lm-a3">
+    <rect x="140" y="110" width="440" height="12" rx="3" fill="#9aa6ad" stroke="#7d8990" stroke-width="2"/>
+    <rect x="146" y="120" width="12" height="166" fill="#9aa6ad" stroke="#7d8990" stroke-width="2"/>
+    <rect x="285" y="120" width="12" height="166" fill="#9aa6ad" stroke="#7d8990" stroke-width="2"/>
+    <rect x="424" y="120" width="12" height="166" fill="#9aa6ad" stroke="#7d8990" stroke-width="2"/>
+    <rect x="563" y="120" width="12" height="166" fill="#9aa6ad" stroke="#7d8990" stroke-width="2"/>
+    <circle cx="152" cy="126" r="5" fill="#fff" stroke="#7d8990" stroke-width="2"/>
+    <circle cx="291" cy="126" r="5" fill="#fff" stroke="#7d8990" stroke-width="2"/>
+    <circle cx="430" cy="126" r="5" fill="#fff" stroke="#7d8990" stroke-width="2"/>
+    <circle cx="569" cy="126" r="5" fill="#fff" stroke="#7d8990" stroke-width="2"/>
+    <circle cx="152" cy="280" r="5" fill="#fff" stroke="#7d8990" stroke-width="2"/>
+    <circle cx="291" cy="280" r="5" fill="#fff" stroke="#7d8990" stroke-width="2"/>
+    <circle cx="430" cy="280" r="5" fill="#fff" stroke="#7d8990" stroke-width="2"/>
+    <circle cx="569" cy="280" r="5" fill="#fff" stroke="#7d8990" stroke-width="2"/>
+  </g>
+
+  <g class="lm-a4">
+    <rect x="158" y="124" width="127" height="162" fill="#f6f8f4" stroke="#cfd8d2" stroke-width="2"/>
+    <rect x="297" y="124" width="127" height="162" fill="#f6f8f4" stroke="#cfd8d2" stroke-width="2"/>
+    <rect x="436" y="124" width="127" height="162" fill="#f6f8f4" stroke="#cfd8d2" stroke-width="2"/>
+  </g>
+
+  <g class="lm-a5">
+    <path d="M0 318 H152 V254" stroke="#2B5F8A" stroke-width="5" fill="none"/>
+    <circle cx="152" cy="250" r="7" fill="#fff" stroke="#2B5F8A" stroke-width="3"/>
+    <path d="M196 290 C196 312 218 312 240 312" stroke="#9aa6ad" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M104 158 H72" stroke="#7d8990" stroke-width="3" fill="none"/>
+    <rect x="104" y="146" width="40" height="52" rx="4" fill="#e9e4d6" stroke="#7d8990" stroke-width="2"/>
+    <circle class="lm-led" cx="116" cy="158" r="4" fill="#6A9624"/>
+    <circle cx="132" cy="158" r="4" fill="#B8730F"/>
+    <text x="124" y="186" text-anchor="middle" font-size="13" font-weight="700" fill="#4a443b">IP65</text>
+    <path d="M124 198 V220" stroke="#7d8990" stroke-width="3"/>
+    <path d="M112 222 H136 M116 228 H132 M120 234 H128" stroke="#7d8990" stroke-width="3"/>
+  </g>
+
+  <g class="lm-a6">
+    <rect x="168" y="222" width="108" height="10" rx="2" fill="#cfd8d2" stroke="#a9b6ae" stroke-width="2"/>
+    <rect x="172" y="232" width="6" height="50" fill="#a9b6ae"/>
+    <rect x="266" y="232" width="6" height="50" fill="#a9b6ae"/>
+    <circle cx="175" cy="286" r="5" fill="#6b6358"/>
+    <circle cx="269" cy="286" r="5" fill="#6b6358"/>
+    <rect x="186" y="194" width="46" height="28" rx="3" fill="#b9c3c8" stroke="#87939a" stroke-width="2"/>
+    <line x1="186" y1="202" x2="232" y2="202" stroke="#87939a" stroke-width="2"/>
+    <rect x="244" y="186" width="6" height="28" rx="3" fill="#fff" stroke="#87939a" stroke-width="2"/>
+    <circle cx="247" cy="218" r="6" fill="#C23B26"/>
+    <rect x="306" y="232" width="108" height="10" rx="2" fill="#cfd8d2" stroke="#a9b6ae" stroke-width="2"/>
+    <rect x="310" y="242" width="6" height="40" fill="#a9b6ae"/>
+    <rect x="404" y="242" width="6" height="40" fill="#a9b6ae"/>
+    <circle cx="313" cy="286" r="5" fill="#6b6358"/>
+    <circle cx="407" cy="286" r="5" fill="#6b6358"/>
+    <rect x="316" y="212" width="40" height="20" rx="2" fill="#e9e4d6" stroke="#7d8990" stroke-width="2"/>
+    <rect x="323" y="217" width="18" height="7" fill="#cfd8d2" stroke="#a9b6ae"/>
+    <rect x="368" y="220" width="10" height="12" rx="2" fill="#EDE4D3" stroke="#B8730F" stroke-width="2"/>
+    <rect x="382" y="220" width="10" height="12" rx="2" fill="#EDE4D3" stroke="#B8730F" stroke-width="2"/>
+    <rect x="396" y="220" width="10" height="12" rx="2" fill="#EDE4D3" stroke="#B8730F" stroke-width="2"/>
+    <rect x="452" y="176" width="96" height="110" fill="none" stroke="#a9b6ae" stroke-width="3"/>
+    <line x1="452" y1="212" x2="548" y2="212" stroke="#a9b6ae" stroke-width="3"/>
+    <line x1="452" y1="248" x2="548" y2="248" stroke="#a9b6ae" stroke-width="3"/>
+    <rect x="462" y="186" width="24" height="24" rx="2" fill="#EDE4D3" stroke="#B8730F" stroke-width="2"/>
+    <rect x="494" y="190" width="20" height="20" rx="2" fill="#EDE4D3" stroke="#B8730F" stroke-width="2"/>
+    <rect x="462" y="224" width="30" height="22" rx="2" fill="#E6EBD9" stroke="#55702A" stroke-width="2"/>
+    <rect x="502" y="226" width="26" height="20" rx="2" fill="#E6EBD9" stroke="#55702A" stroke-width="2"/>
+    <circle cx="460" cy="290" r="5" fill="#6b6358"/>
+    <circle cx="540" cy="290" r="5" fill="#6b6358"/>
+  </g>
+
+  <g class="lm-a7">
+    <g class="lm-vapor" fill="none" stroke="#9aa6ad" stroke-width="3" stroke-linecap="round">
+      <path d="M198 192 C194 184 204 180 200 172"/>
+      <path d="M212 192 C208 184 218 180 214 172"/>
+      <path d="M226 192 C222 184 232 180 228 172"/>
+    </g>
+    <path d="M158 332 H552" stroke="#55702A" stroke-width="3"/>
+    <path d="M552 325 L566 332 L552 339 Z" fill="#55702A"/>
+    <circle class="lm-dot" cx="160" cy="332" r="6" fill="#55702A"/>
+    <line x1="291" y1="326" x2="291" y2="338" stroke="#a9b6ae" stroke-width="2"/>
+    <line x1="430" y1="326" x2="430" y2="338" stroke="#a9b6ae" stroke-width="2"/>
+    <text x="221" y="358" text-anchor="middle" font-size="14" fill="#6b6358">Elaboración</text>
+    <text x="360" y="358" text-anchor="middle" font-size="14" fill="#6b6358">Pesaje y envasado</text>
+    <text x="499" y="358" text-anchor="middle" font-size="14" fill="#6b6358">Control y depósito</text>
+  </g>
+
+  <g class="lm-badge lm-w1">
+    <rect x="408" y="20" width="296" height="38" rx="19" fill="#fff" stroke="#55702A" stroke-width="2"/>
+    <text x="426" y="45" font-size="15" font-weight="700" fill="#3E5420">HP 1 · Diseño y manual aprobados</text>
+  </g>
+  <g class="lm-badge lm-w3">
+    <rect x="408" y="20" width="296" height="38" rx="19" fill="#fff" stroke="#55702A" stroke-width="2"/>
+    <text x="426" y="45" font-size="15" font-weight="700" fill="#3E5420">WP 2 · Primer montaje con el manual</text>
+  </g>
+  <g class="lm-badge lm-w5">
+    <rect x="408" y="20" width="296" height="38" rx="19" fill="#fff" stroke="#55702A" stroke-width="2"/>
+    <text x="426" y="45" font-size="15" font-weight="700" fill="#3E5420">HP 3 · Ensayos eléctricos y de agua</text>
+  </g>
+  <g class="lm-badge lm-w7">
+    <rect x="408" y="20" width="296" height="38" rx="19" fill="#fff" stroke="#55702A" stroke-width="2"/>
+    <text x="426" y="45" font-size="15" font-weight="700" fill="#3E5420">WP · Lote piloto de control</text>
+  </g>
+  <g class="lm-badge lm-w8">
+    <rect x="408" y="20" width="296" height="38" rx="19" fill="#fff" stroke="#55702A" stroke-width="2"/>
+    <text x="426" y="45" font-size="15" font-weight="700" fill="#3E5420">HP 4 · Recepción y acta firmada</text>
+  </g>
+</svg>
+</div>
+<div class="lm-cap">
+  <p class="lm-w1"><b>Antes de empezar.</b> El salón de la escuela, compartido con las clases y el albergue: el laboratorio todavía no está armado.</p>
+  <p class="lm-w2"><b>Fase 3.</b> Se coloca el piso sanitario temporal: impermeable, antideslizante y desmontable.</p>
+  <p class="lm-w3"><b>Fase 3.</b> Estructura metálica liviana con uniones rápidas: la arma el personal de la escuela con el manual de montaje.</p>
+  <p class="lm-w4"><b>Fase 3.</b> Paneles lavables de encastre rápido, con las juntas selladas.</p>
+  <p class="lm-w5"><b>Fase 4.</b> Servicios: tablero estanco con puesta a tierra, agua por conector rápido y desagüe flexible.</p>
+  <p class="lm-w6"><b>Suministro.</b> Equipamiento sobre ruedas con freno: elaboración, pesaje, envasado, control y depósito.</p>
+  <p class="lm-w7"><b>Fase 5.</b> Lote piloto: se controlan temperatura, consistencia, masa neta y rotulado, y el flujo va en un solo sentido.</p>
+  <p class="lm-w8"><b>Fases 7 y 8.</b> Terminada la tanda se desarma, se guarda y se firma el acta: el salón vuelve a quedar libre.</p>
+</div>
+<div class="lm-barra"><i></i></div>
+<p class="lm-pie">La animación se repite sola. Pasá el cursor por encima (o tocá la imagen) para pausarla.</p>
+</div>
 ${T(["Fase","Qué se hace","Responsable","Punto"],[
 ["0. Requisitos","Se fijan capacidad, zonas, equipamiento y criterios de aceptación a partir de la ET-PT-001.","Comitente","—"],
 ["1. Diseño","Planos as-built, diagrama unifilar, ruteo de servicios y manual de montaje y desmontaje.","Contratista","<b>HP 1</b>: el comitente aprueba el diseño y el manual."],
