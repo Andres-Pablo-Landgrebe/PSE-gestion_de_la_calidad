@@ -294,6 +294,20 @@
   @keyframes blink{50%{opacity:.15}}
   .draw{stroke-dasharray:100;stroke-dashoffset:100;animation:draw 1.8s ease forwards}
   @keyframes draw{to{stroke-dashoffset:0}}
+  /* ---------- Laboratorio modular: datos destacados y antes/después ---------- */
+  .lm-datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0}
+  .lm-dato{background:#fff;border:1px solid var(--borde);border-top:5px solid var(--acc);border-radius:10px;padding:14px 16px;text-align:center}
+  .lm-dato b{display:block;font-family:Montserrat,Arial,sans-serif;font-size:34px;line-height:1.1;color:var(--acc-osc)}
+  .lm-dato span{display:block;margin-top:6px;font-size:14px;color:#554f45}
+  .lm-vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 18px}
+  .lm-vs>div{border-radius:10px;padding:14px 18px 8px;border:1px solid var(--borde)}
+  .lm-vs .lm-hoy{background:#fbeeea;border-top:5px solid #b5472d}
+  .lm-vs .lm-lab{background:#eef5e3;border-top:5px solid var(--acc)}
+  .lm-vs h4{margin:0 0 6px;font-size:16px}
+  .lm-vs .lm-hoy h4{color:#9a3420}.lm-vs .lm-lab h4{color:var(--acc-osc)}
+  .lm-vs ul{margin:0 0 6px;padding-left:20px}
+  .lm-vs li{margin:6px 0;font-size:15px;line-height:1.45}
+  @media(max-width:640px){.lm-vs{grid-template-columns:1fr}.lm-dato b{font-size:30px}}
   /* ---------- Animación: armado del laboratorio modular ---------- */
   .lm-anim{margin:14px 0 20px}
   .lm-escena{background:#f7f4ec;border:1px solid var(--borde);border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(65,45,19,.10)}
@@ -1586,6 +1600,11 @@ function subContent(){
 <p class="lead">Un laboratorio modular, desmontable y de hasta 40 m², para elaborar y controlar la crema de jarilla sin ocupar de forma permanente el salón de la escuela. Este plan explica por qué lo necesitamos y cómo se construye, se inspecciona y se recibe.</p>
 <p><b>Comitente:</b> la escuela y el equipo de la PSE. <b>Contratista:</b> el proveedor local que diseña, fabrica e instala. <b>Inspector del comitente:</b> el equipo de calidad de la UNCuyo junto con el docente referente de la escuela.</p>
 
+<div class="lm-datos">
+  <div class="lm-dato"><b>hasta 40 m²</b><span>Un módulo que se arma dentro de un espacio de la escuela</span></div>
+  <div class="lm-dato"><b>5</b><span>Puntos de control: HP 1, WP 2, HP 3, WP del lote piloto y HP 4</span></div>
+  <div class="lm-dato"><b>12 × 50 g</b><span>Lote de referencia: 600 g que rinden 12 envases</span></div>
+</div>
 <h2>1. ¿Por qué un laboratorio modular?</h2>
 <h3>Lo que vimos en la escuela</h3>
 <ul>
@@ -1603,6 +1622,27 @@ ${T(["N.º","Hallazgo"],[["NC-01","No hay registros de cosecha (fecha, zona, vol
   <li><b>ET-PT-001:</b> fusión por debajo de 80 °C con registro de temperatura, masa neta de 50 g por envase, consistencia contra muestra patrón en cada lote y trazabilidad por código de lote.</li>
   <li><b>QFD (TP8):</b> el prototipo está por debajo del producto de referencia en seguridad y estabilidad (3 contra 5) y en etiquetado normativo (3 contra 5).</li>
 </ul>
+<h3>Hoy y con el laboratorio modular</h3>
+<div class="lm-vs">
+  <div class="lm-hoy">
+    <h4>Hoy en la escuela</h4>
+    <ul>
+      <li>La olla caliente se sostiene con la mano y se traslada desde la cocina.</li>
+      <li>Sin termómetro: las cantidades y la temperatura se estiman a ojo.</li>
+      <li>Sin registros de lote, y con rotulado incompleto.</li>
+      <li>Se trabaja en un salón compartido, sin zonas definidas.</li>
+    </ul>
+  </div>
+  <div class="lm-lab">
+    <h4>Con el laboratorio modular</h4>
+    <ul>
+      <li>Apoyos para recipientes calientes, elementos de agarre y cartelería de seguridad.</li>
+      <li>Balanza y termómetro, con registro de temperatura (fusión por debajo de 80 °C).</li>
+      <li>Código de lote, rotulado completo y consistencia controlada contra la muestra patrón.</li>
+      <li>Zonas definidas, flujo en un solo sentido, y el salón queda libre al desarmarlo.</li>
+    </ul>
+  </div>
+</div>
 <h3>Por qué modular y no una obra fija</h3>
 ${T(["Necesidad","Qué aporta lo modular"],[
 ["La escuela es albergue y alterna semanas de primaria y secundaria: el salón es compartido.","Se arma para producir y se desarma y guarda después, liberando el salón."],
