@@ -319,6 +319,28 @@
   .lm-leyenda i{flex:none;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;font:700 13px/24px Arial,sans-serif;text-align:center;font-style:normal}
   .lm-leyenda i.l{background:#2B5F8A}
   @media(max-width:680px){.lm-plano .lm-escena svg{min-width:620px}}
+  /* ---------- Recorrido actual vs. laboratorio modular (3D) ---------- */
+  #hoy3d{display:none;margin:12px 0 14px}
+  #hoy3d.on{display:block}
+  .hoy-modos{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px}
+  #hoy3d-box{position:relative;height:460px;background:linear-gradient(#eef1f5,#f7f4ec);border:1px solid var(--borde);border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(65,45,19,.10);cursor:grab;touch-action:pan-y}
+  #hoy3d-box.drag{cursor:grabbing}
+  #hoy3d-box canvas{display:block;width:100%;height:100%}
+  .hoy-cont{position:absolute;top:10px;left:10px;display:flex;gap:8px;flex-wrap:wrap;pointer-events:none;z-index:2}
+  .hoy-cont span{background:rgba(255,255,255,.92);border:1px solid var(--borde);border-radius:8px;padding:5px 11px;font-size:13px;color:#2e2a24}
+  .hoy-cont b{font-size:19px;color:#9a3420;margin-right:5px}
+  .hoy-cont.cero b{color:var(--acc-osc)}
+  .hoy-pista{position:absolute;left:12px;bottom:10px;font-size:12.5px;color:#55606b;background:rgba(255,255,255,.82);border-radius:6px;padding:3px 9px;pointer-events:none}
+  #hoy3d-cap{margin:12px 0 0;font-size:15.5px;line-height:1.45;min-height:46px}
+  #hoy3d-cap b{color:var(--acc-osc)}
+  #hoy3d-bar{height:8px;background:var(--acc-suave);border-radius:6px;overflow:hidden;margin:4px 0 0}
+  #hoy3d-bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .35s linear}
+  #hoy3d .anim-track{margin:12px 0 0}
+  #hoy3d.lab #hoy3d-pasos,#hoy3d.lab #hoy3d-bar,#hoy3d.lab #hoy3d-play{display:none}
+  .hoy-tabla td:first-child{font-weight:700;color:#3d4852}
+  .hoy-tabla td:nth-child(2){background:#fbeeea}
+  .hoy-tabla td:nth-child(3){background:#eef5e3}
+  @media(max-width:680px){#hoy3d-box{height:340px}#hoy3d-cap{min-height:88px;font-size:14.5px}.hoy-cont span{font-size:12px;padding:4px 8px}.hoy-cont b{font-size:16px}}
   /* ---------- Laboratorio modular en 3D ---------- */
   #lm3d{display:none;margin:14px 0 20px}
   #lm3d.on{display:block}
@@ -1670,6 +1692,34 @@ ${T(["N.º","Hallazgo"],[["NC-01","No hay registros de cosecha (fecha, zona, vol
     </ul>
   </div>
 </div>
+<h3>El recorrido de hoy, comparado con el laboratorio modular</h3>
+<p>Según la 2.ª visita, la mezcla se prepara en el aula, pero el baño María se hace en la cocina, del otro lado del salón. La simulación muestra ese recorrido paso a paso y lo compara con el laboratorio modular.</p>
+<div id="hoy3d">
+  <div class="hoy-modos">
+    <button type="button" class="lm3d-btn" data-modo="hoy">Hoy</button>
+    <button type="button" class="lm3d-btn sec" data-modo="lab">Con el laboratorio modular</button>
+  </div>
+  <div id="hoy3d-box">
+    <div class="hoy-cont" id="hoy3d-cont"><span><b id="hoy3d-c1">0</b>cruces del salón</span><span><b id="hoy3d-c2">0</b>traslados con la olla caliente</span></div>
+    <div class="hoy-pista">Arrastrá para girar · rueda o dos dedos para acercar</div>
+  </div>
+  <p id="hoy3d-cap"></p>
+  <div id="hoy3d-bar"><i></i></div>
+  <div class="anim-ctrl">
+    <button type="button" class="lm3d-btn" id="hoy3d-play">Pausar</button>
+    <button type="button" class="lm3d-btn sec" id="hoy3d-vista">Vista desde arriba</button>
+  </div>
+  <div class="anim-track" id="hoy3d-pasos"></div>
+</div>
+<div class="tscroll"><table class="hoy-tabla">
+  <tr><th>Por lote</th><th>Hoy</th><th>Con el laboratorio modular</th></tr>
+  <tr><td>Espacios que intervienen</td><td>Aula, salón y cocina</td><td>Un solo espacio</td></tr>
+  <tr><td>Cruces del salón</td><td>4 (dos idas y dos vueltas)</td><td>0</td></tr>
+  <tr><td>Traslados con la olla caliente</td><td>2, sin elementos de agarre</td><td>0</td></tr>
+  <tr><td>Temperatura del baño María</td><td>No se mide</td><td>Termómetro y registro, por debajo de 80 °C (ET-PT-001)</td></tr>
+  <tr><td>Contacto con otras actividades</td><td>Se atraviesa el salón entre mesas y personas</td><td>El trabajo queda separado del resto de las actividades</td></tr>
+</table></div>
+<p class="lm-pie">Fuente: 2.ª visita a Lavalle. Las medidas del aula (2,7 × 3,7 m) y el ancho de la cocina (2 m) salen del croquis del grupo; el largo de la cocina y el salón no están medidos, por eso la escena es un esquema. El documento indica que el baño María se repite al agregar la cera de abeja; por eso se cuentan al menos dos idas y dos vueltas.</p>
 <h3>Por qué modular y no una obra fija</h3>
 ${T(["Necesidad","Qué aporta lo modular"],[
 ["La escuela es albergue y alterna semanas de primaria y secundaria: el salón es compartido.","Se arma para producir y se desarma y guarda después, liberando el salón."],
@@ -3346,6 +3396,252 @@ function voces(){
     if(app) app.dispose();
     try{ app=crear(box); }catch(e){ app=null; const c=document.getElementById("lm3d"); if(c) c.classList.remove("on");
       const d=document.querySelector(".lm-anim"); if(d) d.style.display=""; }
+  }
+  new MutationObserver(revisar).observe(document.getElementById("contenido")||document.body,{childList:true,subtree:true});
+  revisar();
+})();
+</script>
+<script type="module">
+/* ===== Recorrido actual (aula · salón · cocina) vs. laboratorio modular, en 3D ===== */
+(async function(){
+  const FUENTES=["./three.module.min.js",
+                 "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js",
+                 "https://unpkg.com/three@0.169.0/build/three.module.min.js"];
+  let THREE=null;
+  for(const u of FUENTES){ try{ THREE=await import(u); break; }catch(e){} }
+  if(!THREE || !window.WebGLRenderingContext) return;
+
+  /* [botón, texto, lugar, cruces, traslados calientes, duración en s] */
+  const PASOS=[
+    ["Los tres espacios","<b>Hoy.</b> La crema se elabora en el aula, pero el calor está en la cocina, del otro lado del salón.","ver",0,0,4.2],
+    ["Preparar en el aula","<b>Aula.</b> Se colocan la vaselina y las hojas de jarilla en la olla.","aula",0,0,3.6],
+    ["Ir a la cocina","<b>Salón.</b> Se cruza el salón con la olla hasta la cocina.","ida",1,0,5.5],
+    ["Baño María","<b>Cocina.</b> Se hierve agua con la pava eléctrica, la cacerola va a la hornalla y la olla encima unos 5 minutos. La olla se sostiene con la mano y no se mide la temperatura.","cocina",1,0,5.0],
+    ["Volver con la olla caliente","<b>Salón.</b> Se vuelve al aula con la olla caliente, sin elementos de agarre, entre mesas y personas.","vuelta",2,1,5.5],
+    ["Reposo y colado","<b>Aula.</b> La mezcla reposa unas dos semanas y se cuela.","aula",2,1,3.6],
+    ["Otra vez a la cocina","<b>Salón.</b> Para agregar la cera de abeja hay que volver a calentar: se cruza el salón de nuevo.","ida",3,1,5.5],
+    ["Baño María con la cera","<b>Cocina.</b> Se repite el baño María, ahora con la cera de abeja.","cocina",3,1,4.2],
+    ["Volver otra vez caliente","<b>Salón.</b> Segundo traslado con la olla caliente hasta el aula.","vuelta",4,2,5.5],
+    ["Terminar en el aula","<b>Aula.</b> Se filtra, se agrega el perfume de limón y se envasa.","aula",4,2,4.0]
+  ];
+  const TXT_LAB="<b>Con el laboratorio modular.</b> Preparación, baño María con termómetro, reposo y envasado en un mismo espacio: no se cruza el salón ni se traslada la olla caliente. Dónde se arma (salón o patio) lo define la escuela.";
+
+  const mat=(c,o)=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.85,metalness:.04},o||{}));
+  const caja=(w,h,p,c,o)=>new THREE.Mesh(new THREE.BoxGeometry(w,h,p),mat(c,o));
+  function etiqueta(txt,color,fondo){
+    const c=document.createElement("canvas"), x=c.getContext("2d");
+    x.font="700 34px Arial"; const an=Math.ceil(x.measureText(txt).width)+30;
+    c.width=an; c.height=58; const g=c.getContext("2d");
+    g.font="700 34px Arial"; g.textBaseline="middle";
+    g.fillStyle=fondo||"rgba(255,255,255,.93)"; g.strokeStyle=color||"#9aa6ad"; g.lineWidth=3;
+    g.beginPath(); g.roundRect(2,2,an-4,54,12); g.fill(); g.stroke();
+    g.fillStyle=color||"#3E5420"; g.fillText(txt,15,30);
+    const t=new THREE.CanvasTexture(c); t.anisotropy=4;
+    const s=new THREE.Sprite(new THREE.SpriteMaterial({map:t,transparent:true,depthTest:false,sizeAttenuation:false}));
+    s.scale.set(an/58*0.05,0.05,1); s.renderOrder=10; return s;
+  }
+  function persona(c){
+    const g=new THREE.Group();
+    const cu=new THREE.Mesh(new THREE.CylinderGeometry(.19,.21,1.18,16),mat(c)); cu.position.y=.64; cu.castShadow=true; g.add(cu);
+    const ca=new THREE.Mesh(new THREE.SphereGeometry(.15,16,12),mat(0xd9c2a8)); ca.position.y=1.38; ca.castShadow=true; g.add(ca);
+    return g;
+  }
+  function mesa(an,pr,al,x,z,c){
+    const g=new THREE.Group(), t=caja(an,.05,pr,c||0xd5ded8); t.position.y=al; t.castShadow=true; t.receiveShadow=true; g.add(t);
+    [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([sx,sz])=>{const p=caja(.06,al,.06,0x8d8778); p.position.set(sx*(an/2-.08),al/2,sz*(pr/2-.08)); g.add(p);});
+    g.position.set(x,0,z); return g;
+  }
+
+  function crear(box){
+    const raiz=document.getElementById("hoy3d"); raiz.classList.add("on");
+    const ren=new THREE.WebGLRenderer({antialias:true,alpha:true});
+    ren.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+    ren.setSize(box.clientWidth||800,box.clientHeight||460);
+    ren.shadowMap.enabled=true; ren.shadowMap.type=THREE.PCFSoftShadowMap;
+    box.appendChild(ren.domElement);
+    const esc=new THREE.Scene();
+    const cam=new THREE.PerspectiveCamera(42,(box.clientWidth||800)/(box.clientHeight||460),.1,200);
+    esc.add(new THREE.HemisphereLight(0xffffff,0xcfc4ad,1.7));
+    const sol=new THREE.DirectionalLight(0xfff6e8,2.4);
+    sol.position.set(6,16,9); sol.castShadow=true; sol.shadow.mapSize.set(2048,2048); sol.shadow.bias=-.0006; sol.shadow.normalBias=.03;
+    const sc=sol.shadow.camera, d=14; sc.left=-d; sc.right=d; sc.top=d; sc.bottom=-d; sc.near=1; sc.far=50; sc.updateProjectionMatrix();
+    esc.add(sol);
+
+    const piso=(w,p,x,z,c,y)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,p),mat(c)); m.rotation.x=-Math.PI/2; m.position.set(x,y||.005,z); m.receiveShadow=true; esc.add(m); return m;};
+    piso(32,24,0,0,0xe6dfd2,-.04);
+    piso(14,10,0,0,0xa58468,.01);
+    piso(2.7,3.7,-8.35,1.5,0xdcd2bd,.01);
+    piso(2.0,3.0,8.0,1.3,0xd3dcd6,.01);
+    const muro=(x1,z1,x2,z2,h,c)=>{const L=Math.hypot(x2-x1,z2-z1); const m=caja(L+.14,h,.14,c||0xf1ece0); m.position.set((x1+x2)/2,h/2,(z1+z2)/2); m.rotation.y=-Math.atan2(z2-z1,x2-x1); m.castShadow=true; m.receiveShadow=true; esc.add(m); return m;};
+    muro(-7,-5,7,-5,3.2);
+    for(let i=0;i<5;i++){const v=new THREE.Mesh(new THREE.PlaneGeometry(2.1,1.5),mat(0xdbe9f3)); v.position.set(-5.2+i*2.6,2.05,-4.92); esc.add(v);}
+    muro(-7,-5,-7,1.95,1.1); muro(-7,2.85,-7,5,1.1);
+    muro(7,-5,7,1.75,1.1); muro(7,2.65,7,5,1.1);
+    muro(-7,5,7,5,.35);
+    muro(-9.7,-.35,-7,-.35,1.1); muro(-9.7,-.35,-9.7,3.35,1.1); muro(-9.7,3.35,-7,3.35,1.1);
+    muro(7,-.2,9,-.2,1.1); muro(9,-.2,9,2.8,1.1); muro(7,2.8,9,2.8,1.1);
+    piso(.3,.9,-7,2.4,0x2fa8e0,.03);
+    piso(.3,.9,7,2.2,0xe23cc8,.03);
+
+    /* aula */
+    esc.add(mesa(1.6,.9,.88,-8.35,1.55,0xd9cdb4));
+    const est=caja(2.3,.8,.35,0xc9bfa6); est.position.set(-8.35,.4,-.08); est.castShadow=true; esc.add(est);
+    /* cocina */
+    const mes1=caja(1.4,.9,.6,0xd2d6d4); mes1.position.set(8.3,.45,.1); mes1.castShadow=true; esc.add(mes1);
+    const mes2=caja(.8,.9,1.9,0xd2d6d4); mes2.position.set(8.6,.45,1.35); mes2.castShadow=true; esc.add(mes2);
+    const horn=caja(.6,.88,.6,0xf4f4f0); horn.position.set(7.32,.44,.1); horn.castShadow=true; esc.add(horn);
+    [[-.14,-.14],[.14,-.14],[-.14,.14],[.14,.14]].forEach(([a,b])=>{const q=new THREE.Mesh(new THREE.CylinderGeometry(.08,.08,.02,16),mat(0x2b2b2b)); q.position.set(7.32+a,.89,.1+b); esc.add(q);});
+    const cace=new THREE.Mesh(new THREE.CylinderGeometry(.21,.2,.18,22),mat(0x8d969b,{metalness:.4,roughness:.4})); cace.position.set(7.32,.99,.1); cace.castShadow=true; esc.add(cace);
+    const pava=new THREE.Mesh(new THREE.CylinderGeometry(.09,.11,.24,16),mat(0x3a3a3a)); pava.position.set(8.1,1.02,.1); esc.add(pava);
+
+    /* salón: mesas y personas */
+    const salon=new THREE.Group(); esc.add(salon);
+    const m1=mesa(.95,3.2,.76,3.2,-.6,0xeceae4); salon.add(m1);
+    const m2=mesa(1.8,.8,.76,-1.4,-2.6,0xeceae4); salon.add(m2);
+    [[-3.6,1.1,0x8a8f96],[-4.4,.3,0xb9a58a],[-2.3,-.4,0x6f7680],[1.7,1.7,0x9a8f84],[4.6,1.5,0x7d8590],[5.3,-1.3,0xa79a8d]].forEach(([x,z,c])=>{const p=persona(c); p.position.set(x,0,z); salon.add(p);});
+
+    /* laboratorio modular (modo comparación) */
+    const lab=new THREE.Group(); lab.visible=false; esc.add(lab);
+    { const LX=8,LZ=5,AL=2.5,CZ=-1.6;
+      const lo=caja(LX,.1,LZ,0xcfd8d2); lo.position.set(0,.05,CZ); lo.receiveShadow=true; lab.add(lo);
+      [-LX/2,0,LX/2].forEach(x=>[-LZ/2,LZ/2].forEach(z=>{const c=caja(.12,AL,.12,0x95a1a8); c.position.set(x,AL/2,CZ+z); c.castShadow=true; lab.add(c);}));
+      [-LZ/2,LZ/2].forEach(z=>{const v=caja(LX+.12,.13,.13,0x8d99a0); v.position.set(0,AL,CZ+z); lab.add(v);});
+      [-LX/2,0,LX/2].forEach(x=>{const v=caja(.13,.13,LZ,0x8d99a0); v.position.set(x,AL,CZ); lab.add(v);});
+      const mp=new THREE.MeshStandardMaterial({color:0xf4f8f4,roughness:.5,transparent:true,opacity:.3,side:THREE.DoubleSide});
+      const pan=(w,x,z,ry)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,2.3),mp); m.position.set(x,1.2,z); m.rotation.y=ry||0; lab.add(m);};
+      pan(LX-.1,0,CZ-LZ/2+.01); pan(LZ-.1,-LX/2+.01,CZ,Math.PI/2); pan(LZ-.1,LX/2-.01,CZ,Math.PI/2);
+      lab.add(mesa(2.2,.8,.9,-.6,CZ-1.6)); lab.add(mesa(2.2,.8,.9,2.4,CZ-1.6)); lab.add(mesa(1.8,.8,.9,2.6,CZ+1.5));
+      const cal=caja(.5,.1,.5,0xe9e4d6); cal.position.set(-1.1,.98,CZ-1.6); lab.add(cal);
+      const rack=caja(1.6,1.6,.5,0xc9bfa6); rack.position.set(-2.9,.8,CZ-1.9); rack.castShadow=true; lab.add(rack);
+      const pil=caja(1.2,.9,.6,0xcfd8d2); pil.position.set(-3.1,.45,CZ+1.8); lab.add(pil);
+      const te=caja(.04,.32,.04,0xfdfdfb); te.position.set(-.75,1.18,CZ-1.6); lab.add(te);
+      for(let i=0;i<5;i++){const po=new THREE.Mesh(new THREE.CylinderGeometry(.055,.055,.09,14),mat(0xEDE4D3)); po.position.set(2.0+i*.17,.97,CZ-1.6); lab.add(po);}
+    }
+
+    /* etiquetas */
+    [["Aula",-8.35,2.0,.6],["Cocina",8.0,2.0,.6],["Salón",-5.0,1.7,-3.5]].forEach(([t,x,y,z])=>{const s=etiqueta(t); s.position.set(x,y,z); esc.add(s);});
+    const eLab=etiqueta("Laboratorio modular"); eLab.position.set(0,3.2,-1.6); lab.add(eLab);
+    const ePuA=etiqueta("Puerta del aula","#1d6f99"); ePuA.position.set(-5.5,.9,3.4); esc.add(ePuA);
+    const ePuC=etiqueta("Puerta de la cocina","#a3238f"); ePuC.position.set(5.4,.9,3.4); esc.add(ePuC);
+
+    /* persona que trabaja y olla */
+    const quien=persona(0x55702A); esc.add(quien);
+    const olla=new THREE.Mesh(new THREE.CylinderGeometry(.16,.15,.17,22),mat(0xb3bec4,{metalness:.35,roughness:.35,emissive:0xff4a1a,emissiveIntensity:0}));
+    olla.castShadow=true; esc.add(olla);
+    const aviso=etiqueta("Olla caliente, sin agarre","#b5472d","rgba(255,243,240,.95)"); aviso.visible=false; esc.add(aviso);
+    const vap=[]; for(let i=0;i<10;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(.05+Math.random()*.04,10,8),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:0})); s.userData.t=i/10; esc.add(s); vap.push(s);}
+
+    const V=(x,z)=>new THREE.Vector3(x,0,z);
+    const P_AULA=V(-8.35,2.35), P_COC=V(7.32,.8), P_LAB=V(-.6,-2.55);
+    const O_AULA=new THREE.Vector3(-8.35,.995,1.5), O_COC=new THREE.Vector3(7.32,1.165,.1), O_LAB=new THREE.Vector3(-1.1,1.12,-3.2);
+    const ida=new THREE.CatmullRomCurve3([P_AULA,V(-7.7,2.4),V(-6.4,2.45),V(-3,3.3),V(1,3.55),V(4.9,3.1),V(6.3,2.25),V(7.6,1.9),P_COC],false,"catmullrom",.3);
+    const vuelta=new THREE.CatmullRomCurve3([P_COC,V(7.7,2.3),V(6.3,2.6),V(4.9,3.65),V(1,4.1),V(-3,3.85),V(-6.4,2.75),V(-7.7,2.6),P_AULA],false,"catmullrom",.3);
+    const tIda=new THREE.Mesh(new THREE.TubeGeometry(ida,120,.05,8,false),mat(0x4f7895,{emissive:0x1d3a52,emissiveIntensity:.3}));
+    const tVue=new THREE.Mesh(new THREE.TubeGeometry(vuelta,120,.05,8,false),mat(0xC23B26,{emissive:0x5a160c,emissiveIntensity:.35}));
+    tIda.position.y=.04; tVue.position.y=.04; tIda.visible=false; tVue.visible=false; esc.add(tIda); esc.add(tVue);
+
+    /* estado */
+    const reduc=window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let modo="hoy", fase=reduc?4:0, jugando=!reduc, acum=reduc?2.75:0, ult=0, vivo=true;
+    const base=()=>{const a=(box.clientWidth||800)/(box.clientHeight||460); return a<1.6?21:15.5;};
+    let rad=base(), th=Math.PI*.05, ph=Math.PI*.3, tRad=rad, tTh=th, tPh=ph, arriba=false;
+    const cap=document.getElementById("hoy3d-cap"), bar=document.querySelector("#hoy3d-bar i"),
+          cPasos=document.getElementById("hoy3d-pasos"), bPlay=document.getElementById("hoy3d-play"),
+          bVista=document.getElementById("hoy3d-vista"), cont=document.getElementById("hoy3d-cont"),
+          c1=document.getElementById("hoy3d-c1"), c2=document.getElementById("hoy3d-c2"),
+          bModos=[...raiz.querySelectorAll("[data-modo]")];
+    cPasos.innerHTML=PASOS.map((p,i)=>'<button type="button" class="anim-paso" data-i="'+i+'"><span class="num">'+(i+1)+'</span>'+p[0]+'</button>').join("");
+    const botones=[...cPasos.querySelectorAll("button")];
+    function pintar(){
+      const enLab=modo==="lab";
+      raiz.classList.toggle("lab",enLab);
+      bModos.forEach(b=>b.classList.toggle("sec",b.dataset.modo!==modo));
+      cap.innerHTML=enLab?TXT_LAB:PASOS[fase][1];
+      c1.textContent=enLab?0:PASOS[fase][3]; c2.textContent=enLab?0:PASOS[fase][4];
+      cont.classList.toggle("cero",enLab);
+      bar.style.width=((fase+1)/PASOS.length*100)+"%";
+      botones.forEach((b,i)=>{b.classList.toggle("activo-anim",i===fase); b.classList.toggle("hecho",i<fase);});
+      salon.visible=!enLab; lab.visible=enLab;
+    }
+    function irA(i){ fase=(i+PASOS.length)%PASOS.length; acum=0; pintar(); }
+    cPasos.addEventListener("click",e=>{const b=e.target.closest("button[data-i]"); if(b){ jugando=false; bPlay.textContent="Reanudar"; irA(+b.dataset.i);} });
+    bPlay.addEventListener("click",()=>{ jugando=!jugando; bPlay.textContent=jugando?"Pausar":"Reanudar"; });
+    bVista.addEventListener("click",()=>{ arriba=!arriba; tPh=arriba?.14:Math.PI*.3; tTh=arriba?0:Math.PI*.05; tRad=arriba?base()*1.05:base(); bVista.textContent=arriba?"Vista en perspectiva":"Vista desde arriba"; });
+    bModos.forEach(b=>b.addEventListener("click",()=>{ modo=b.dataset.modo; acum=0; pintar(); }));
+    pintar(); if(!jugando) bPlay.textContent="Reanudar";
+
+    /* interacción */
+    const pts=new Map(); let dPinza=0;
+    const dn=e=>{pts.set(e.pointerId,{x:e.clientX,y:e.clientY}); box.classList.add("drag"); box.setPointerCapture(e.pointerId);};
+    const mv=e=>{ if(!pts.has(e.pointerId)) return; const a=pts.get(e.pointerId);
+      if(pts.size===2){ const o=[...pts.values()]; const d2=Math.hypot(o[0].x-o[1].x,o[0].y-o[1].y);
+        if(dPinza) tRad=Math.min(40,Math.max(8,tRad*(dPinza/d2))); dPinza=d2; }
+      else { tTh-=(e.clientX-a.x)*.007; tPh=Math.min(1.4,Math.max(.08,tPh-(e.clientY-a.y)*.006)); }
+      a.x=e.clientX; a.y=e.clientY; };
+    const up=e=>{pts.delete(e.pointerId); if(pts.size<2) dPinza=0; if(!pts.size) box.classList.remove("drag");};
+    const wh=e=>{e.preventDefault(); tRad=Math.min(40,Math.max(8,tRad*(1+e.deltaY*.0012)));};
+    box.addEventListener("pointerdown",dn); box.addEventListener("pointermove",mv);
+    box.addEventListener("pointerup",up); box.addEventListener("pointercancel",up);
+    box.addEventListener("wheel",wh,{passive:false});
+    const ro=new ResizeObserver(()=>{const w=box.clientWidth,h=box.clientHeight; if(w&&h){ren.setSize(w,h); cam.aspect=w/h; cam.updateProjectionMatrix();}});
+    ro.observe(box);
+
+    const suave=u=>u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;
+    const tg=new THREE.Vector3();
+    let idp=0;
+    function cuadro(t){
+      if(!vivo) return; idp=requestAnimationFrame(cuadro);
+      const dt=Math.min(.05,(t-ult)/1000||0); ult=t;
+      if(jugando && modo==="hoy"){ acum+=dt; if(acum>PASOS[fase][5]){ acum=0; fase=(fase+1)%PASOS.length; pintar(); } }
+      th+=(tTh-th)*.1; ph+=(tPh-ph)*.1; rad+=(tRad-rad)*.1;
+      cam.position.set(rad*Math.sin(ph)*Math.sin(th),rad*Math.cos(ph)+.3,rad*Math.sin(ph)*Math.cos(th)+.6);
+      cam.lookAt(0,.4,.6);
+
+      let calor=0, lleva=false;
+      if(modo==="lab"){
+        quien.position.copy(P_LAB); quien.rotation.y=Math.PI; olla.position.copy(O_LAB); calor=.75;
+        tIda.visible=false; tVue.visible=false;
+      } else {
+        const lugar=PASOS[fase][2], u=Math.min(1,acum/PASOS[fase][5]);
+        tIda.visible=fase>=2; tVue.visible=fase>=4;
+        if(lugar==="ida"||lugar==="vuelta"){
+          const cur=lugar==="ida"?ida:vuelta, k=suave(u);
+          cur.getPointAt(k,quien.position); cur.getTangentAt(Math.min(.999,k),tg);
+          quien.rotation.y=Math.atan2(tg.x,tg.z); lleva=true;
+          calor=lugar==="vuelta"?1:0;
+        } else if(lugar==="cocina"){
+          quien.position.copy(P_COC); quien.rotation.y=Math.PI; olla.position.copy(O_COC); calor=Math.min(1,u*1.6);
+        } else {
+          quien.position.copy(P_AULA); quien.rotation.y=Math.PI; olla.position.copy(O_AULA);
+          calor=(lugar==="aula"&&(fase===5||fase===9))?Math.max(0,.6-u):0;
+        }
+        if(lleva){ olla.position.set(quien.position.x+Math.sin(quien.rotation.y)*.34,1.0,quien.position.z+Math.cos(quien.rotation.y)*.34); }
+      }
+      olla.material.emissiveIntensity=calor*.85;
+      const conVapor=calor>.15;
+      vap.forEach(s=>{ s.userData.t=(s.userData.t+dt*.4)%1; const k=s.userData.t;
+        s.visible=conVapor; s.position.set(olla.position.x+Math.sin(k*8+s.id)*.07,olla.position.y+.1+k*.6,olla.position.z+Math.cos(k*6)*.07);
+        s.material.opacity=Math.sin(k*Math.PI)*.55*calor; });
+      aviso.visible=modo==="hoy" && PASOS[fase][2]==="vuelta";
+      if(aviso.visible) aviso.position.set(quien.position.x,2.15,quien.position.z);
+      ren.render(esc,cam);
+    }
+    idp=requestAnimationFrame(cuadro);
+
+    return {box:box, dispose(){ vivo=false; cancelAnimationFrame(idp); ro.disconnect();
+      box.removeEventListener("pointerdown",dn); box.removeEventListener("pointermove",mv);
+      box.removeEventListener("pointerup",up); box.removeEventListener("pointercancel",up); box.removeEventListener("wheel",wh);
+      esc.traverse(o=>{ if(o.geometry) o.geometry.dispose(); if(o.material){ (Array.isArray(o.material)?o.material:[o.material]).forEach(m=>{ if(m.map) m.map.dispose(); m.dispose(); }); } });
+      ren.dispose(); if(ren.domElement.parentNode) ren.domElement.parentNode.removeChild(ren.domElement); }};
+  }
+
+  let app=null;
+  function revisar(){
+    const box=document.getElementById("hoy3d-box");
+    if(!box){ if(app){ app.dispose(); app=null; } return; }
+    if(app && app.box===box) return;
+    if(app) app.dispose();
+    try{ app=crear(box); }catch(e){ app=null; const r=document.getElementById("hoy3d"); if(r) r.classList.remove("on"); }
   }
   new MutationObserver(revisar).observe(document.getElementById("contenido")||document.body,{childList:true,subtree:true});
   revisar();
