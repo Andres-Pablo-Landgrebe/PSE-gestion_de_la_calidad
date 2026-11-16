@@ -319,6 +319,22 @@
   .lm-leyenda i{flex:none;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;font:700 13px/24px Arial,sans-serif;text-align:center;font-style:normal}
   .lm-leyenda i.l{background:#2B5F8A}
   @media(max-width:680px){.lm-plano .lm-escena svg{min-width:620px}}
+  /* ---------- Laboratorio modular en 3D ---------- */
+  #lm3d{display:none;margin:14px 0 20px}
+  #lm3d.on{display:block}
+  #lm3d-box{position:relative;height:440px;background:linear-gradient(#eef1f5,#f7f4ec);border:1px solid var(--borde);border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(65,45,19,.10);cursor:grab;touch-action:pan-y}
+  #lm3d-box.drag{cursor:grabbing}
+  #lm3d-box canvas{display:block;width:100%;height:100%}
+  #lm3d-pista{position:absolute;left:12px;bottom:10px;font-size:12.5px;color:#55606b;background:rgba(255,255,255,.82);border-radius:6px;padding:3px 9px;pointer-events:none}
+  #lm3d-cap{margin:12px 0 0;font-size:15.5px;line-height:1.45;min-height:46px}
+  #lm3d-cap b{color:var(--acc-osc)}
+  #lm3d-bar{height:8px;background:var(--acc-suave);border-radius:6px;overflow:hidden;margin:4px 0 0}
+  #lm3d-bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .35s linear}
+  .lm3d-btn{font:inherit;font-size:14px;padding:7px 14px;border-radius:6px;border:1px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer}
+  .lm3d-btn.sec{background:#fff;color:var(--acc-osc)}
+  .lm3d-btn:hover{filter:brightness(1.07)}
+  #lm3d .anim-track{margin:12px 0 0}
+  @media(max-width:680px){#lm3d-box{height:320px}#lm3d-cap{min-height:66px;font-size:14.5px}}
   /* ---------- Animación: armado del laboratorio modular ---------- */
   .lm-anim{margin:14px 0 20px}
   .lm-escena{background:#f7f4ec;border:1px solid var(--borde);border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(65,45,19,.10)}
@@ -1762,6 +1778,17 @@ ${T(["Necesidad","Qué aporta lo modular"],[
 <h2>3. Plan para construirlo: fases y puntos de inspección</h2>
 <p><b>HP</b> (punto de detención): no se avanza sin la aprobación del inspector. <b>WP</b> (punto de presencia): el inspector asiste y verifica.</p>
 <h3>Cómo se arma, paso a paso</h3>
+<div id="lm3d">
+  <div id="lm3d-box"><div id="lm3d-pista">Arrastrá para girar · rueda o dos dedos para acercar</div></div>
+  <p id="lm3d-cap"></p>
+  <div id="lm3d-bar"><i></i></div>
+  <div class="anim-ctrl">
+    <button type="button" class="lm3d-btn" id="lm3d-play">Pausar</button>
+    <button type="button" class="lm3d-btn sec" id="lm3d-vista">Vista desde arriba</button>
+    <button type="button" class="lm3d-btn sec" id="lm3d-2d">Ver animación simple</button>
+  </div>
+  <div class="anim-track" id="lm3d-pasos"></div>
+</div>
 <div class="lm-anim">
 <div class="lm-escena">
 <svg viewBox="0 0 720 400" role="img" aria-label="Animación del armado del laboratorio modular dentro de un salón de la escuela: piso sanitario, estructura, paneles, servicios, equipamiento, lote piloto y desmontaje">
@@ -3104,6 +3131,225 @@ function voces(){
     <p class="voces-intro">Los estudiantes de Ingeniería cuentan cómo vivieron el proyecto.</p>
     <div class="voces">${v.map(([n,p,t])=>`<figure class="voz ${p}"><blockquote>${t.trim().split(/\n\s*\n/).map(x=>`<p>${x.trim()}</p>`).join("")}</blockquote><figcaption>${AVATARES[n]?`<span class="ava" aria-hidden="true">${AVATARES[n]}</span>`:`<span class="ini" aria-hidden="true">${ini(n)}</span>`}<span><b>${n}</b><small>${pr[p]||""}</small></span></figcaption></figure>`).join("")}</div>`;
 }
+</script>
+<script type="module">
+/* ===== Laboratorio modular en 3D · se carga sólo si el navegador y la red lo permiten;
+       si algo falla queda la animación 2D de respaldo ===== */
+(async function(){
+  const FUENTES=["./three.module.min.js",
+                 "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js",
+                 "https://unpkg.com/three@0.169.0/build/three.module.min.js"];
+  let THREE=null;
+  for(const u of FUENTES){ try{ THREE=await import(u); break; }catch(e){} }
+  if(!THREE || !window.WebGLRenderingContext) return;
+
+  const LARGO=8, ANCHO=5, ALTO=2.5;
+  const VIS=[[0,0,0,0,0,0],[1,0,0,0,0,0],[1,1,0,0,0,0],[1,1,1,0,0,0],[1,1,1,1,0,0],[1,1,1,1,1,0],[1,1,1,1,1,1],[0,0,0,0,0,0]];
+  const PASOS=["El salón","Piso sanitario","Estructura","Paneles","Servicios","Equipamiento","Lote piloto","Desmontaje"];
+  const TEXTOS=[
+    "<b>Punto de partida.</b> Un espacio de la escuela, compartido con las clases y el albergue.",
+    "<b>Fase 3.</b> Piso sanitario temporal: impermeable, antideslizante y desmontable.",
+    "<b>Fase 3.</b> Estructura metálica liviana con uniones rápidas, armada con el manual de montaje.",
+    "<b>Fase 3.</b> Paneles lavables de encastre rápido, con las juntas selladas.",
+    "<b>Fase 4.</b> Servicios: tablero estanco con puesta a tierra, agua por conector rápido y desagüe flexible.",
+    "<b>Suministro.</b> Equipamiento sobre ruedas: recepción, pesaje, elaboración, envasado, control y depósito.",
+    "<b>Fase 5.</b> Lote piloto: temperatura, consistencia, masa neta y rotulado, con el flujo en un solo sentido.",
+    "<b>Fases 7 y 8.</b> Terminada la tanda se desarma, se guarda y se firma el acta: el espacio queda libre."
+  ];
+  const mat=(c,o)=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.85,metalness:.04},o||{}));
+  const caja=(w,h,p,c,o)=>new THREE.Mesh(new THREE.BoxGeometry(w,h,p),mat(c,o));
+
+  function etiqueta(txt){
+    const c=document.createElement("canvas"), x=c.getContext("2d");
+    x.font="700 34px Arial"; const an=Math.ceil(x.measureText(txt).width)+30;
+    c.width=an; c.height=58; const g=c.getContext("2d");
+    g.font="700 34px Arial"; g.textBaseline="middle";
+    g.fillStyle="rgba(255,255,255,.93)"; g.strokeStyle="#9aa6ad"; g.lineWidth=2;
+    g.beginPath(); g.roundRect(1,1,an-2,56,12); g.fill(); g.stroke();
+    g.fillStyle="#3E5420"; g.fillText(txt,15,30);
+    const t=new THREE.CanvasTexture(c); t.anisotropy=4;
+    const s=new THREE.Sprite(new THREE.SpriteMaterial({map:t,transparent:true,depthTest:false,sizeAttenuation:false}));
+    s.scale.set(an/58*0.05,0.05,1); return s;
+  }
+  function mesada(an,pr,x,z){
+    const g=new THREE.Group(), t=caja(an,.07,pr,0xc3cfca); t.position.y=.92; t.castShadow=true; g.add(t);
+    [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([sx,sz])=>{
+      const p=caja(.07,.84,.07,0xa9b6ae); p.position.set(sx*(an/2-.1),.5,sz*(pr/2-.08)); g.add(p);
+      const r=new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,.05,12),mat(0x5b5547));
+      r.rotation.z=Math.PI/2; r.position.set(sx*(an/2-.1),.06,sz*(pr/2-.08)); g.add(r);
+    });
+    g.position.set(x,0,z); return g;
+  }
+
+  function crear(box){
+    const cont=document.getElementById("lm3d"); if(cont) cont.classList.add("on");
+    const dosD=document.querySelector(".lm-anim"); if(dosD) dosD.style.display="none";
+    const ren=new THREE.WebGLRenderer({antialias:true,alpha:true});
+    ren.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+    ren.setSize(box.clientWidth||800,box.clientHeight||440);
+    ren.shadowMap.enabled=true; ren.shadowMap.type=THREE.PCFSoftShadowMap;
+    box.appendChild(ren.domElement);
+    const esc=new THREE.Scene();
+    const cam=new THREE.PerspectiveCamera(42,(box.clientWidth||800)/(box.clientHeight||440),.1,200);
+    esc.add(new THREE.HemisphereLight(0xffffff,0xcfc4ad,1.7));
+    const sol=new THREE.DirectionalLight(0xfff6e8,2.5);
+    sol.position.set(8,13,7); sol.castShadow=true; sol.shadow.mapSize.set(1024,1024);
+    const d=10, sc=sol.shadow.camera; sc.left=-d; sc.right=d; sc.top=d; sc.bottom=-d; sc.near=1; sc.far=42; sc.updateProjectionMatrix();
+    esc.add(sol);
+
+    const piso=new THREE.Mesh(new THREE.PlaneGeometry(16,11),mat(0xe2d8c4));
+    piso.rotation.x=-Math.PI/2; piso.receiveShadow=true; esc.add(piso);
+    const mp=mat(0xf0ebde,{side:THREE.DoubleSide});
+    const p1=new THREE.Mesh(new THREE.PlaneGeometry(16,3.4),mp); p1.position.set(0,1.7,-5.5); esc.add(p1);
+    const p2=new THREE.Mesh(new THREE.PlaneGeometry(11,3.4),mp); p2.position.set(-8,1.7,0); p2.rotation.y=Math.PI/2; esc.add(p2);
+    const pu=new THREE.Mesh(new THREE.PlaneGeometry(1.1,2.2),mat(0xd8cdb8)); pu.position.set(-7.96,1.1,2.9); pu.rotation.y=Math.PI/2; esc.add(pu);
+    const ve=new THREE.Mesh(new THREE.PlaneGeometry(2.4,1.3),mat(0xdbe9f3)); ve.position.set(4.2,1.9,-5.46); esc.add(ve);
+
+    const G=[new THREE.Group(),new THREE.Group(),new THREE.Group(),new THREE.Group(),new THREE.Group(),new THREE.Group()];
+    G.forEach(g=>{g.userData.v=0; esc.add(g);});
+    const [gPiso,gEst,gPan,gSer,gEqu,gPro]=G;
+
+    const losa=caja(LARGO,.12,ANCHO,0xcfd8d2); losa.position.y=.06; losa.receiveShadow=true; gPiso.add(losa);
+
+    const XS=[-LARGO/2,-LARGO/6,LARGO/6,LARGO/2], ZS=[-ANCHO/2,ANCHO/2];
+    XS.forEach(x=>ZS.forEach(z=>{
+      const c=caja(.13,ALTO,.13,0x95a1a8); c.position.set(x,ALTO/2,z); c.castShadow=true; gEst.add(c);
+      const n=new THREE.Mesh(new THREE.SphereGeometry(.1,16,12),mat(0xf4f4f0)); n.position.set(x,ALTO,z); gEst.add(n);
+    }));
+    ZS.forEach(z=>{const v=caja(LARGO+.14,.15,.15,0x8d99a0); v.position.set(0,ALTO+.07,z); v.castShadow=true; gEst.add(v);
+                   const b=caja(LARGO+.14,.1,.12,0x8d99a0); b.position.set(0,.17,z); gEst.add(b);});
+    [-LARGO/2,-LARGO/6,LARGO/6,LARGO/2].forEach(x=>{const v=caja(.14,.14,ANCHO,0x8d99a0); v.position.set(x,ALTO+.07,0); v.castShadow=true; gEst.add(v);});
+
+    const etqs=[];
+    const mPan=new THREE.MeshStandardMaterial({color:0xf4f8f4,roughness:.5,transparent:true,opacity:.36,side:THREE.DoubleSide});
+    function panel(an,al,x,y,z,ry){
+      const m=new THREE.Mesh(new THREE.PlaneGeometry(an,al),mPan); m.position.set(x,y,z); if(ry) m.rotation.y=ry; gPan.add(m);
+      const e=new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),new THREE.LineBasicMaterial({color:0x8b979e,transparent:true,opacity:.75}));
+      e.position.copy(m.position); e.rotation.copy(m.rotation); gPan.add(e);
+    }
+    [-LARGO/3,0,LARGO/3].forEach(x=>panel(LARGO/3-.12,2.2,x,1.22,-ANCHO/2+.02,0));
+    panel(LARGO/3-.12,2.2,-LARGO/3,1.22,ANCHO/2-.02,0);
+    panel(LARGO/3-.12,2.2,LARGO/3,1.22,ANCHO/2-.02,0);
+    panel(ANCHO-.14,2.2,-LARGO/2+.02,1.22,0,Math.PI/2);
+    panel(ANCHO-.14,2.2,LARGO/2-.02,1.22,0,Math.PI/2);
+
+    const tab=caja(.42,.52,.2,0xe9e4d6); tab.position.set(-LARGO/2-.18,1.5,-1.2); tab.castShadow=true; gSer.add(tab);
+    [[0x6A9624,-.1],[0xB8730F,.06]].forEach(([c,dx])=>{const l=new THREE.Mesh(new THREE.SphereGeometry(.035,10,8),mat(c,{emissive:c,emissiveIntensity:.5})); l.position.set(-LARGO/2-.29,1.66,-1.2+dx); gSer.add(l);});
+    const tie=new THREE.Mesh(new THREE.CylinderGeometry(.02,.02,1.2,8),mat(0x7d8990)); tie.position.set(-LARGO/2-.18,.62,-1.2); gSer.add(tie);
+    const ag=new THREE.Mesh(new THREE.CylinderGeometry(.055,.055,3.2,12),mat(0x2B5F8A));
+    ag.rotation.z=Math.PI/2; ag.position.set(-LARGO/2-1.6,.1,1.4); gSer.add(ag);
+    const ag2=new THREE.Mesh(new THREE.CylinderGeometry(.055,.055,.7,12),mat(0x2B5F8A)); ag2.position.set(-LARGO/2-.02,.42,1.4); gSer.add(ag2);
+    const cur=new THREE.CatmullRomCurve3([new THREE.Vector3(-2.4,.3,ANCHO/2-.2),new THREE.Vector3(-2.4,.12,ANCHO/2+.5),new THREE.Vector3(-1.4,.08,ANCHO/2+1.1)]);
+    const des=new THREE.Mesh(new THREE.TubeGeometry(cur,24,.075,10,false),mat(0x9aa6ad)); gSer.add(des);
+
+    const m1=mesada(2.0,.8,.1,-1.75); gEqu.add(m1);
+    const olla=new THREE.Mesh(new THREE.CylinderGeometry(.26,.24,.3,22),mat(0xb3bec4,{metalness:.3,roughness:.4}));
+    olla.position.set(-.45,1.12,-1.75); olla.castShadow=true; gEqu.add(olla);
+    const ter=caja(.05,.3,.05,0xfdfdfb); ter.position.set(.15,1.1,-1.75); gEqu.add(ter);
+    const m2=mesada(2.2,.8,3.0,-1.75); gEqu.add(m2);
+    const bal=caja(.44,.14,.34,0xdcd4bf); bal.position.set(2.3,1.02,-1.75); bal.castShadow=true; gEqu.add(bal);
+    for(let i=0;i<5;i++){const po=new THREE.Mesh(new THREE.CylinderGeometry(.055,.055,.09,14),mat(0xEDE4D3)); po.position.set(3.1+i*.16,1,-1.75); gEqu.add(po);}
+    const est=caja(1.4,1.8,.6,0xc9bfa6); est.position.set(-3.1,.9,-1.9); est.castShadow=true; gEqu.add(est);
+    const rack=new THREE.Group();
+    [-.85,.85].forEach(x=>[-.3,.3].forEach(z=>{const p=caja(.07,1.6,.07,0xa9b6ae); p.position.set(x,.8,z); rack.add(p);}));
+    [.45,.95,1.45].forEach(y=>{const s=caja(1.8,.05,.62,0xc3cfca); s.position.y=y; s.castShadow=true; rack.add(s);});
+    [[-.5,.5,0xEDE4D3],[.3,.5,0xE6EBD9],[-.3,1,0xEDE4D3],[.5,1,0xE6EBD9]].forEach(([x,y,c])=>{const b=caja(.5,.35,.4,c); b.position.set(x,y+.2,0); rack.add(b);});
+    rack.position.set(.6,0,1.85); gEqu.add(rack);
+    const m3=mesada(1.9,.8,3.0,1.85); gEqu.add(m3);
+    const mu=new THREE.Mesh(new THREE.CylinderGeometry(.11,.11,.14,18),mat(0xEDE4D3)); mu.position.set(3.4,1.02,1.85); gEqu.add(mu);
+    const pil=caja(1.3,.9,.7,0xcfd8d2); pil.position.set(-3.1,.45,1.85); pil.castShadow=true; gEqu.add(pil);
+    const bac=caja(1.0,.12,.5,0x9aa6ad); bac.position.set(-3.1,.88,1.85); gEqu.add(bac);
+    [["Recepción",-3.1,1.8,-2.3],["Elaboración",-.3,1.6,-2.3],["Envasado",2.9,1.8,-2.3],["Control",3.1,1.5,2.2],["Depósito",.6,2.05,2.2],["Lavado",-3.1,1.25,2.2]]
+      .forEach(([t,x,y,z])=>{const s=etiqueta(t); s.position.set(x,y,z); s.visible=false; gEqu.add(s); etqs.push(s);});
+
+    const ruta=new THREE.CatmullRomCurve3([new THREE.Vector3(-3.1,.14,-1.2),new THREE.Vector3(-1,.14,-1),new THREE.Vector3(1.6,.14,-1),new THREE.Vector3(3.3,.14,-.8),new THREE.Vector3(3.4,.14,1),new THREE.Vector3(2.4,.14,1.5),new THREE.Vector3(.6,.14,1.2)]);
+    gPro.add(new THREE.Mesh(new THREE.TubeGeometry(ruta,90,.05,8,false),mat(0x55702A,{emissive:0x2c3c12,emissiveIntensity:.3})));
+    const bolita=new THREE.Mesh(new THREE.SphereGeometry(.14,18,14),mat(0x6A9624,{emissive:0x44651a,emissiveIntensity:.6})); gPro.add(bolita);
+    const vap=[]; const mv=new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.5});
+    for(let i=0;i<9;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(.07+Math.random()*.05,10,8),mv.clone()); s.userData.t=i/9; gPro.add(s); vap.push(s);}
+
+    /* ----- estado y cámara ----- */
+    const reduc=window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let fase=reduc?6:0, jugando=!reduc, arrastre=false, ult=0, acum=0, vivo=true;
+    let rad=11.8, th=Math.PI*.23, ph=Math.PI*.37, tRad=rad, tTh=th, tPh=ph;
+    const cap=document.getElementById("lm3d-cap"), bar=document.querySelector("#lm3d-bar i"),
+          cPasos=document.getElementById("lm3d-pasos"), bPlay=document.getElementById("lm3d-play"),
+          bVista=document.getElementById("lm3d-vista"), b2d=document.getElementById("lm3d-2d");
+    cPasos.innerHTML=PASOS.map((t,i)=>'<button type="button" class="anim-paso" data-i="'+i+'"><span class="num">'+(i+1)+'</span>'+t+'</button>').join("");
+    const botones=[...cPasos.querySelectorAll("button")];
+    function pintar(){
+      cap.innerHTML=TEXTOS[fase]; bar.style.width=((fase+1)/8*100)+"%";
+      botones.forEach((b,i)=>{b.classList.toggle("activo-anim",i===fase); b.classList.toggle("hecho",i<fase);});
+    }
+    function irA(i){ fase=(i+8)%8; acum=0; pintar(); }
+    cPasos.addEventListener("click",e=>{const b=e.target.closest("button[data-i]"); if(b){ jugando=false; bPlay.textContent="Reanudar"; irA(+b.dataset.i);} });
+    bPlay.addEventListener("click",()=>{ jugando=!jugando; bPlay.textContent=jugando?"Pausar":"Reanudar"; });
+    bVista.addEventListener("click",()=>{ const arriba=tPh<.45; tPh=arriba?Math.PI*.37:.2; tTh=arriba?Math.PI*.23:0; tRad=arriba?11.8:12.2; bVista.textContent=arriba?"Vista desde arriba":"Vista en perspectiva"; });
+    b2d.addEventListener("click",()=>{ document.getElementById("lm3d").classList.remove("on"); if(dosD) dosD.style.display=""; });
+    pintar(); if(!jugando) bPlay.textContent="Reanudar";
+
+    /* ----- interacción ----- */
+    const pts=new Map(); let dPinza=0;
+    const dn=e=>{pts.set(e.pointerId,{x:e.clientX,y:e.clientY}); arrastre=true; box.classList.add("drag"); box.setPointerCapture(e.pointerId);};
+    const mv2=e=>{ if(!pts.has(e.pointerId)) return; const a=pts.get(e.pointerId);
+      if(pts.size===2){ const o=[...pts.values()]; const d2=Math.hypot(o[0].x-o[1].x,o[0].y-o[1].y);
+        if(dPinza) tRad=Math.min(30,Math.max(7,tRad*(dPinza/d2))); dPinza=d2; }
+      else { tTh-=(e.clientX-a.x)*.007; tPh=Math.min(1.42,Math.max(.1,tPh-(e.clientY-a.y)*.006)); }
+      a.x=e.clientX; a.y=e.clientY; };
+    const up=e=>{pts.delete(e.pointerId); if(pts.size<2) dPinza=0; if(!pts.size){arrastre=false; box.classList.remove("drag");}};
+    const wh=e=>{e.preventDefault(); tRad=Math.min(30,Math.max(7,tRad*(1+e.deltaY*.0012)));};
+    box.addEventListener("pointerdown",dn); box.addEventListener("pointermove",mv2);
+    box.addEventListener("pointerup",up); box.addEventListener("pointercancel",up);
+    box.addEventListener("wheel",wh,{passive:false});
+    const ro=new ResizeObserver(()=>{const w=box.clientWidth,h=box.clientHeight; if(w&&h){ren.setSize(w,h); cam.aspect=w/h; cam.updateProjectionMatrix();}});
+    ro.observe(box);
+
+    /* ----- bucle ----- */
+    let idp=0;
+    function cuadro(t){
+      if(!vivo) return; idp=requestAnimationFrame(cuadro);
+      const dt=Math.min(.05,(t-ult)/1000||0); ult=t;
+      if(jugando && !reduc){ acum+=dt; if(acum>3.8){ acum=0; fase=(fase+1)%8; pintar(); } tTh+=dt*.05; }
+      th+=(tTh-th)*.12; ph+=(tPh-ph)*.12; rad+=(tRad-rad)*.12;
+      cam.position.set(rad*Math.sin(ph)*Math.sin(th),rad*Math.cos(ph)+.2,rad*Math.sin(ph)*Math.cos(th));
+      cam.lookAt(0,.95,0);
+      const verEtq=ph<.6; etqs.forEach(s=>{s.visible=verEtq;});
+      const obj=VIS[fase];
+      G.forEach((g,i)=>{ g.userData.v+=((obj[i]?1:0)-g.userData.v)*Math.min(1,dt*4.5);
+        const v=g.userData.v; g.visible=v>.02;
+        if(i===1){ g.scale.y=Math.max(.02,v); }
+        else { g.position.y=(1-v)*-.25; }
+        g.traverse(o=>{ if(o.material && o.material.opacity!==undefined && o!==g){
+          const base=o.material.userData.base!==undefined?o.material.userData.base:(o.material.userData.base=o.material.opacity);
+          o.material.transparent=true; o.material.opacity=base*v; } });
+      });
+      if(gPro.visible){ const u=(t/4200)%1; ruta.getPointAt(Math.min(.999,u),bolita.position); bolita.position.y=.22;
+        vap.forEach(s=>{ s.userData.t=(s.userData.t+dt*.33)%1; const k=s.userData.t;
+          s.position.set(-.45+Math.sin(k*7)*.1,1.3+k*.9,-1.75+Math.cos(k*5)*.08);
+          s.material.opacity=Math.sin(k*Math.PI)*.55*gPro.userData.v; }); }
+      ren.render(esc,cam);
+    }
+    idp=requestAnimationFrame(cuadro);
+
+    return {box:box, dispose(){ vivo=false; cancelAnimationFrame(idp); ro.disconnect();
+      box.removeEventListener("pointerdown",dn); box.removeEventListener("pointermove",mv2);
+      box.removeEventListener("pointerup",up); box.removeEventListener("pointercancel",up); box.removeEventListener("wheel",wh);
+      esc.traverse(o=>{ if(o.geometry) o.geometry.dispose(); if(o.material){ (Array.isArray(o.material)?o.material:[o.material]).forEach(m=>{ if(m.map) m.map.dispose(); m.dispose(); }); } });
+      ren.dispose(); if(ren.domElement.parentNode) ren.domElement.parentNode.removeChild(ren.domElement); }};
+  }
+
+  let app=null;
+  function revisar(){
+    const box=document.getElementById("lm3d-box");
+    if(!box){ if(app){ app.dispose(); app=null; } return; }
+    if(app && app.box===box) return;
+    if(app) app.dispose();
+    try{ app=crear(box); }catch(e){ app=null; const c=document.getElementById("lm3d"); if(c) c.classList.remove("on");
+      const d=document.querySelector(".lm-anim"); if(d) d.style.display=""; }
+  }
+  new MutationObserver(revisar).observe(document.getElementById("contenido")||document.body,{childList:true,subtree:true});
+  revisar();
+})();
 </script>
 </body>
 </html>
