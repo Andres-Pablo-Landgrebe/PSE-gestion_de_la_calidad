@@ -1139,8 +1139,8 @@ const TABS = {
     const GR = [
       ["Planificar","P","Política, requisitos, diseño del proceso y riesgos",["politica","legal","mapa","et","objetivos","amfe","impactos"]],
       ["Hacer","H","Ejecución del proceso y control de variables",["proceso","entradas","control"]],
-      ["Verificar","V","Inspección, medición y costos de la calidad",["inspeccion","cartas","costos"]],
-      ["Actuar","A","Análisis, decisiones y propuestas de mejora",["sig","qfd","conclusiones"]]
+      ["Verificar","V","Inspección, medición y costos de la calidad",proy==="turismo"?["inspeccion","cartas","costos"]:["cartas","costos"]],
+      ["Actuar","A","Análisis, decisiones y propuestas de mejora",proy==="turismo"?["sig","qfd","conclusiones"]:["sig","qfd","inspeccion","conclusiones"]]
     ];
     const disp0 = new Set((proy==="turismo" ? INDICE.filter(x=>x[0]!=="qfd").concat(INDICE_TUR_EXTRA) : INDICE).flatMap(([k,t,h])=>[k].concat((h||[]).map(x=>x[0]))));
     const disp = new Set([...disp0,"conclusiones"]);
@@ -1560,10 +1560,10 @@ const INDICE = [
   ["proceso","Proceso productivo con fichas FTO",[["entradas","Entradas y Salidas circuito operativo, control de variables"],["control","Plan de Control/Aseguramiento de la Calidad"]]],
   ["qfd","Herramientas de Análisis y Toma de decisiones: QFD"],
   ["costos","Costos de Calidad"],
-  ["inspeccion","Plan de Inspección: laboratorio modular"]
+  ["inspeccion","Propuesta de mejora: laboratorio modular"]
 ];
 const CLAVES = INDICE.flatMap(([k,t,h]) => [[k,t]].concat(h||[]));
-function tituloSub(k){ const x = CLAVES.find(c => c[0]===k); return x ? x[1] : ""; }
+function tituloSub(k){ if(k==="inspeccion" && proy==="turismo") return "Plan de Inspección: laboratorio modular"; const x = CLAVES.find(c => c[0]===k); return x ? x[1] : ""; }
 
 /* Descripción extendida de cada proyecto (solo datos ya presentes en el sitio) */
 const DESC = {
@@ -1623,16 +1623,16 @@ function subContent(){
     case "auditoria": return h("Auditoría")+cards(docCard("Auditoría de 2° parte (TG9)","Plan y check-list de auditoría a Centro Médico Palmares, como ejercicio de la materia.","docs/TG9_auditoria_CMP.pdf"));
     case "inspeccion": {
       const T = tblT;
-      return h("Plan de inspección: laboratorio modular")+`
-<p class="lead">Un laboratorio modular, desmontable y de hasta 40 m², para elaborar y controlar la crema de jarilla sin ocupar de forma permanente el salón de la escuela. Este plan explica por qué lo necesitamos y cómo se construye, se inspecciona y se recibe.</p>
-<p><b>Comitente:</b> la escuela y el equipo de la PSE. <b>Contratista:</b> el proveedor local que diseña, fabrica e instala. <b>Inspector del comitente:</b> el equipo de calidad de la UNCuyo junto con el docente referente de la escuela.</p>
+      return h("Propuesta de mejora: laboratorio modular")+`
+<p class="lead">Un laboratorio modular, desmontable y de hasta 40 m², para elaborar y controlar la crema de jarilla sin ocupar de forma permanente el salón de la escuela. Esta propuesta explica por qué lo proponemos y cómo se construiría, con puntos de control en cada etapa hasta su recepción.</p>
+<p>Roles propuestos para construirlo. <b>Comitente:</b> la escuela y el equipo de la PSE. <b>Contratista:</b> el proveedor local que diseña, fabrica e instala. <b>Inspector del comitente:</b> el equipo de calidad de la UNCuyo junto con el docente referente de la escuela.</p>
 
 <div class="lm-datos">
   <div class="lm-dato"><b>hasta 40 m²</b><span>Un módulo que se arma dentro de un espacio de la escuela</span></div>
   <div class="lm-dato"><b>5</b><span>Puntos de control: HP 1, WP 2, HP 3, WP del lote piloto y HP 4</span></div>
   <div class="lm-dato"><b>12 × 50 g</b><span>Lote de referencia: 600 g que rinden 12 envases</span></div>
 </div>
-<h2>1. ¿Por qué un laboratorio modular?</h2>
+<h2>1. ¿Por qué proponemos un laboratorio modular?</h2>
 <h3>Lo que vimos en la escuela</h3>
 <ul>
   <li>En la 2.ª visita a Lavalle, el agua hirviendo se maneja sin elementos de agarre: la olla se sostiene con la mano mientras se mezcla.</li>
@@ -1775,7 +1775,7 @@ ${T(["Necesidad","Qué aporta lo modular"],[
 <p class="lm-pie">La línea verde marca el recorrido del producto, siempre en un solo sentido.</p>
 </div>
 
-<h2>3. Plan para construirlo: fases y puntos de inspección</h2>
+<h2>3. Cómo se construiría: fases y puntos de control</h2>
 <p><b>HP</b> (punto de detención): no se avanza sin la aprobación del inspector. <b>WP</b> (punto de presencia): el inspector asiste y verifica.</p>
 <h3>Cómo se arma, paso a paso</h3>
 <div id="lm3d">
@@ -3098,7 +3098,7 @@ render();
       ${li("detalle|cosmetica|","Descripción del proyecto","principal")}${docs("cosmetica",INDICE)}
     </ul></div>
     <div class="c-tur"><h3>Circuito Turístico</h3><ul>
-      ${li("detalle|turismo|","Descripción del proyecto","principal")}${docs("turismo",INDICE.filter(x=>x[0]!=="qfd").concat(INDICE_TUR_EXTRA))}
+      ${li("detalle|turismo|","Descripción del proyecto","principal")}${docs("turismo",INDICE.filter(x=>x[0]!=="qfd").map(x=>x[0]==="inspeccion"?["inspeccion","Plan de Inspección: laboratorio modular"]:x).concat(INDICE_TUR_EXTRA))}
     </ul></div>
   </div>`;
   const cerrar=(volver)=>{panel.hidden=true;document.body.classList.remove("menu-abierto");btn.setAttribute("aria-expanded","false"); if(volver) btn.focus();};
