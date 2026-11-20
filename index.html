@@ -817,6 +817,37 @@
   .gal-tit{margin-top:34px}
   .gal-tit.cos{--m1:#55702A;--m2:#C23B26;--m3:#B8730F;--m4:#2B5F8A;color:#3E5420}
   .gal-tit.tur{--m1:#B8730F;--m2:#C23B26;--m3:#55702A;--m4:#2B5F8A;color:#7E4E08}
+  /* ---- Aportes interdisciplinarios (FAD) ---- */
+  .ap-intro{font-size:18px;line-height:1.6;color:#3a352d;margin:0 0 18px}
+  #contenido .ap-pasos{list-style:none;margin:0 0 30px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:ap}
+  .ap-pasos li{background:#fff;border:1px solid var(--borde);border-radius:12px;padding:16px 18px;display:grid;grid-template-columns:34px 1fr;gap:2px 12px;align-items:start}
+  .ap-pasos li::before{counter-increment:ap;content:counter(ap);grid-row:span 2;width:34px;height:34px;border-radius:50%;background:var(--acc);color:#fff;font:700 16px/34px Montserrat,Arial,sans-serif;text-align:center}
+  .ap-pasos a{font-weight:700;color:var(--acc-osc);text-decoration:none;font-size:16px}
+  .ap-pasos a:hover{text-decoration:underline}
+  .ap-pasos span{font-size:14px;color:#554f45;line-height:1.45}
+  .ap-carpeta{background:#fff;border:1px solid var(--borde);border-top:5px solid var(--c,#2e5d8a);border-radius:12px;padding:20px 22px 22px;margin:0 0 26px;scroll-margin-top:90px}
+  .ap-carpeta.boc{--c:#B8730F} .ap-carpeta.eti{--c:#6A9624} .ap-carpeta.moc{--c:#2e5d8a}
+  .ap-cab{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0 0 6px}
+  .ap-cab h2{margin:0;font-size:22px}
+  .ap-cab .ap-n{font:700 12px Montserrat,Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#6b6358;background:#f3efe6;border-radius:12px;padding:3px 10px}
+  .ap-carpeta > p{margin:0 0 14px;color:#3a352d;line-height:1.55}
+  .ap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+  .ap-grid.dos{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+  .ap-grid figure{margin:0;border:1px solid #efe9dd;border-radius:10px;overflow:hidden;background:#faf8f3;display:flex;flex-direction:column}
+  .ap-grid a{display:flex;align-items:center;justify-content:center;height:240px;background:#f4f1ea;padding:10px}
+  .ap-grid img{max-width:100%;max-height:100%;object-fit:contain;display:block;transition:transform .2s}
+  .ap-grid a:hover img{transform:scale(1.03)}
+  .ap-grid figcaption{font-size:14px;line-height:1.45;padding:10px 12px;color:#4a443b;border-top:1px solid #efe9dd;background:#fff;flex:1}
+  .ap-grid figcaption b{display:block;color:#2e2a24;margin-bottom:2px}
+  .ap-mock{display:grid;grid-template-columns:minmax(0,.9fr) 1.1fr;gap:22px;align-items:center}
+  .ap-mock a{display:block;border-radius:10px;overflow:hidden;background:#f4f1ea}
+  .ap-mock img{width:100%;display:block}
+  .ap-mock ul{margin:8px 0 0;padding-left:20px;line-height:1.55}
+  .ap-drive{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--acc-suave);border-radius:12px;padding:16px 20px;margin:4px 0 10px}
+  .ap-drive p{margin:0;color:var(--acc-osc)}
+  .ap-nota{font-size:13px;color:#6b6358;margin:6px 0 0}
+  @media(max-width:760px){#contenido .ap-pasos,.ap-mock{grid-template-columns:1fr}.ap-grid a{height:200px}}
+
 </style>
 </head>
 <body>
@@ -849,6 +880,7 @@
     </div>
     <button data-tab="galeria">Galería</button>
     <button data-tab="conclusiones">Conclusiones y directrices</button>
+    <button data-tab="aportes">Aportes interdisciplinarios</button>
     <button data-tab="contacto">Equipo y contacto</button>
     <button class="menu-sitio" id="btn-menu" aria-expanded="false" aria-controls="panel-menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span>Menú</span></button>
   </div>
@@ -1294,6 +1326,62 @@ const TABS = {
       </table></div>`;
   },
 
+  aportes(){
+    const IMG = "img/aportes/";
+    const fig = (f,t,d)=>`<figure><a href="${IMG}${f}" target="_blank" rel="noopener" title="Ver imagen completa"><img src="${IMG}${f}" alt="${t}: ${d}" loading="lazy" decoding="async"></a><figcaption><b>${t}</b>${d}</figcaption></figure>`;
+    return `
+      <span class="tag">Apartado común</span>
+      <h1 class="t">Aportes interdisciplinarios</h1>
+      <p class="ap-intro">Estudiantes de la Facultad de Artes y Diseño (FAD) de la UNCuyo trabajaron junto al proyecto de Cosmética Natural en la identidad visual de los productos de la escuela. El material está organizado en tres carpetas que muestran el recorrido del diseño: de las primeras ideas dibujadas a mano hasta la simulación del producto terminado.</p>
+
+      <ol class="ap-pasos">
+        <li><a href="#ap-bocetos" class="ap-ir">Bocetos</a><span>Ideas iniciales a mano: forma de la etiqueta, motivo floral y tipografía.</span></li>
+        <li><a href="#ap-etiquetas" class="ap-ir">Etiquetas</a><span>Diseños digitales para el ungüento y el repelente.</span></li>
+        <li><a href="#ap-mockup" class="ap-ir">Mockup</a><span>Cómo se verían las etiquetas aplicadas a los envases.</span></li>
+      </ol>
+
+      <section class="ap-carpeta boc" id="ap-bocetos">
+        <div class="ap-cab"><h2>1. Bocetos</h2><span class="ap-n">Carpeta BOCETOS · 4 imágenes</span></div>
+        <p>Primeras propuestas dibujadas en papel. En ellas se exploran distintos formatos de etiqueta (circular, de borde arqueado y colgante) y se define el motivo floral y los textos que se mantienen en el diseño final: «Cosmética Natural», el tipo de producto y la Escuela 4-207 «Raíces Huarpes».</p>
+        <div class="ap-grid">
+          ${fig("boceto_1.jpg","Motivo floral","Dibujo en tinta de una flor con rama y hojas, con la marca, la palabra «ungüento» y el nombre de la escuela debajo.")}
+          ${fig("boceto_3.jpg","Etiqueta circular","Versión redonda en tinta, con la flor al centro y el nombre de la escuela en arco. Es el antecedente de la etiqueta del ungüento.")}
+          ${fig("boceto_2.jpg","Etiqueta de borde arqueado","Prueba de color con lápices amarillos sobre un formato recto arriba y redondeado abajo, el mismo que luego toma la etiqueta del repelente.")}
+          ${fig("boceto_4.jpg","Etiqueta colgante","Tarjeta de cartulina con hilo, con flores dibujadas en el borde superior: una alternativa para colgar del envase.")}
+        </div>
+      </section>
+
+      <section class="ap-carpeta eti" id="ap-etiquetas">
+        <div class="ap-cab"><h2>2. Etiquetas</h2><span class="ap-n">Carpeta ETIQUETAS · 2 diseños (versión 1)</span></div>
+        <p>Los bocetos se pasaron a formato digital con una paleta común: fondo crema, flor en amarillo dorado y tipografía negra de trazo manual. Así los dos productos se reconocen como parte de la misma línea.</p>
+        <div class="ap-grid dos">
+          ${fig("etiqueta_crema_v1.jpg","Etiqueta del ungüento (crema)","Formato circular para la tapa del pote, con el nombre de la escuela en arco sobre la flor.")}
+          ${fig("etiqueta_repelente_v1.jpg","Etiqueta del repelente","Formato de borde arqueado para el frasco, con la marca arriba y la flor en la parte inferior.")}
+        </div>
+      </section>
+
+      <section class="ap-carpeta moc" id="ap-mockup">
+        <div class="ap-cab"><h2>3. Mockup</h2><span class="ap-n">Carpeta MOCKUP · versión 2</span></div>
+        <div class="ap-mock">
+          <a href="${IMG}mockup_v2.jpg" target="_blank" rel="noopener" title="Ver imagen completa"><img src="${IMG}mockup_v2.jpg" alt="Mockup: pote blanco con la etiqueta circular del ungüento y frasco ámbar con la etiqueta del repelente" loading="lazy" decoding="async"></a>
+          <div>
+            <p>Simulación de las dos etiquetas aplicadas a sus envases, para evaluar cómo se ve la línea completa antes de imprimir:</p>
+            <ul>
+              <li><b>Ungüento:</b> pote blanco con la etiqueta circular en la tapa.</li>
+              <li><b>Repelente:</b> frasco de vidrio ámbar con tapa negra y la etiqueta de borde arqueado.</li>
+            </ul>
+            <p>El mockup permite revisar proporciones, legibilidad y contraste de cada etiqueta sobre el material real del envase.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="ap-drive noprint">
+        <p>Las imágenes originales, en su resolución completa, están en la carpeta compartida de la FAD.</p>
+        <a class="btn-mapa" href="https://drive.google.com/drive/folders/1yu86z-KLqSe464JjBBIk-exRyhZBQyOQ" target="_blank" rel="noopener">Abrir carpeta en Google Drive</a>
+      </div>
+      <p class="ap-nota">Tocá cualquier imagen para verla en tamaño completo.</p>`;
+  },
+
   contacto(){
     const card=(cls,tit,inst,personas)=>`<div class="eq-card ${cls}"><h3>${tit}</h3>${inst?`<p class="inst">${inst}</p>`:""}<ul>${personas.map(([n,r,m])=>`<li>${n}${r?`<span>${r}</span>`:""}${m?`<a class="eq-mail" href="mailto:${m}">${m}</a>`:""}</li>`).join("")}</ul></div>`;
     return `
@@ -1565,7 +1653,7 @@ function cosInit(){
   cosPaint();
 }
 
-const COMUN = ["inicio","escuela","sig","proyectos","proyecto","metodo","conclusiones","contacto"];
+const COMUN = ["inicio","escuela","sig","proyectos","proyecto","metodo","conclusiones","aportes","contacto"];
 let proy = "cosmetica", tab = "inicio", sub = null;
 
 /* Índice de documentación de cada proyecto: [clave, título, subítems opcionales] */
@@ -2089,6 +2177,13 @@ document.addEventListener("click", e=>{
     ir({tab:b.dataset.tab, sub:null});
     if(b.closest(".dd")){ dd.classList.add("cerrado"); if(e.detail) b.blur(); }
   }
+});
+document.addEventListener("click", e=>{
+  const a = e.target.closest("a.ap-ir");
+  if(!a) return;
+  e.preventDefault();
+  const t = document.querySelector(a.getAttribute("href"));
+  if(t) t.scrollIntoView({behavior:"smooth", block:"start"});
 });
 document.addEventListener("keydown", e=>{
   if((e.key==="Enter" || e.key===" ") && e.target.matches && e.target.matches("[data-go][role=link]")){ e.preventDefault(); e.target.click(); }
@@ -3164,7 +3259,7 @@ render();
   const docs=(pr,items)=>items.map(([k,t,h])=>`<li><a href="#" data-go="${dg(pr,k)}">${t}</a>${h?`<ul>${h.map(([k2,t2])=>li(dg(pr,k2),t2)).join("")}</ul>`:""}</li>`).join("");
   panel.innerHTML=`<div class="pm-cab"><span>Menú</span><button type="button" class="pm-cerrar" aria-label="Cerrar menú">Cerrar ✕</button></div><div class="cols">
     <div class="c-sitio"><h3>El sitio</h3><ul>
-      ${li("inicio||","Inicio")}${li("escuela||","La Escuela")}${li("sig||","Sistema Integrado de Gestión")}${li("galeria||","Galería")}${li("conclusiones||","Conclusiones y directrices")}${li("contacto||","Equipo y contacto")}
+      ${li("inicio||","Inicio")}${li("escuela||","La Escuela")}${li("sig||","Sistema Integrado de Gestión")}${li("galeria||","Galería")}${li("conclusiones||","Conclusiones y directrices")}${li("aportes||","Aportes interdisciplinarios")}${li("contacto||","Equipo y contacto")}
     </ul></div>
     <div class="c-cos"><h3>Cosmética Natural de Jarilla</h3><ul>
       ${li("detalle|cosmetica|","Descripción del proyecto","principal")}${docs("cosmetica",INDICE)}
@@ -3192,7 +3287,7 @@ const VOCES = [
   ["Tomás Raby","turismo","En lo personal, considero que fue una experiencia muy enriquecedora, que me permitió conocer realidades diferentes a la mía y aportar, desde nuestro lugar, una posible herramienta para que los chicos puedan desarrollar una actividad económica en el futuro. Sin embargo, también tuvo sus dificultades, principalmente porque desde un principio la propuesta no despertaba demasiado interés en los alumnos. Esto hizo que por momentos el trabajo resultara frustrante, ya que no siempre encontrábamos la respuesta que esperábamos. De todas formas, creo que estas situaciones también forman parte de la realidad y que fue importante aprender a trabajar con ellas.\n\nEn cuanto a la gestión de la calidad, fue un desafío importante porque prácticamente no contábamos con información, documentación ni un sistema previo sobre el cual trabajar, por lo que tuvimos que desarrollar todo desde cero. Si bien esto complicó bastante el trabajo, también fue una de las partes más interesantes, porque nos obligó a pensar en todos los aspectos de los procesos y a buscar por nuestra cuenta cómo organizarlos y controlarlos. Creo que eso nos ayudó a comprender mucho mejor la magnitud y la importancia de implementar un sistema de gestión de la calidad, más allá de lo que habíamos visto en clase.\n\nEn general, me llevo una experiencia muy positiva, con muchos aprendizajes tanto desde lo académico como desde lo personal. A pesar de las dificultades, estoy contento de haber participado y de haber tenido la oportunidad de aplicar nuestros conocimientos en una situación real."],
   ["Tomás Aliaga","cosmetica","La PSE fue una muy buena experiencia, y parte de lo que me dejó tiene que ver con cómo fue cambiando a lo largo del semestre. En la primera visita todavía nos estábamos conociendo: los chicos participaban poco y contestaban lo justo, algo entendible cuando entran cuatro desconocidos a su escuela a proponerles algo. Me volví con la sensación de que iba a costar, pero también con ganas de volver.\n\nLa segunda visita cambió completamente mi forma de ver las cosas. Se soltaron, nos mostraron cómo preparan la crema, nos explicaron cada paso y nos contaron qué les costaba y qué les salía bien. Ahí entendí que no había sido falta de interés, sino que hacía falta tiempo y confianza. Ver el proceso con nuestros propios ojos nos dio mucha más información que cualquier documento, y recién entonces pudimos pensar propuestas que tuvieran sentido para ellos y no solo en el papel.\n\nMe llevo el aprendizaje de que la gestión de la calidad no se trata de aplicar una norma de memoria, sino de entender dónde se trabaja y con qué recursos se cuenta. Trabajar en un lugar con tan pocos medios nos obligó a buscar soluciones realistas, y eso fue lo más valioso. Estoy contento de haber participado y de haber podido aplicar lo que estudiamos en una situación real."],
   ["Juan Pablo Siracusa","turismo","Visité la Escuela Raíces Huarpes varias veces desde principio de año, y la imagen que más conservo es la de los chicos y nosotros sentados en ronda, haciendo las dinámicas para conocernos y animándonos de a poco a abrirnos. Ese momento resume bastante lo que fue la experiencia: nosotros éramos algo desconocido para ellos, y ellos lo eran para nosotros. Desde lo académico, el mayor desafío fue adaptar la norma ISO 9001 a un servicio turístico que todavía no existía como tal, y hacerlo mientras la estábamos aprendiendo. Un circuito turístico puede tomar muchas formas según lo que quieran las personas que viven en el lugar, y entendimos que no nos correspondía definirlo solos. En ese proceso, el AMFE fue la herramienta que más me marcó: pensar qué podía fallar en el Circuito Renacer, como una salida con viento Zonda, un grupo sin agua suficiente o un sendero en mal estado, dejó de ser un ejercicio de clase y se convirtió en una forma concreta de cuidar a los chicos y a quienes los visiten.\n\nAl terminar, siento que dejamos al menos una herramienta que la escuela podrá usar si en algún momento lo necesita. Pero lo que más espero es haber dejado una manera de pensar: cómo encarar algo desconocido, ordenarlo y anticiparse a lo que puede salir mal. Ese aprendizaje fue de ida y vuelta, porque nosotros también aprendimos de ellos. Si tuviera que empezar de nuevo, armaría el proyecto junto con los chicos desde el primer día, para que fuera tan suyo como nuestro, y buscaría el apoyo de alguien que nos ayudara a comunicarnos mejor, porque a veces nos costaba entendernos. Me llevo una enseñanza que excede la materia: frente a un entorno distinto al propio, el primer paso no es proponer soluciones sino escuchar, y desde ahí ayudar con lo que uno tenga, siempre con respeto."],
-  ["Andrés Landgrebe","cosmetica","Nuestra formación tiene un enfoque social, y eso nos obliga a salir de los libros y trabajar con personas, instituciones y problemas concretos. Lo más valioso de esa experiencia fue poder comparar entornos completamente distintos que, sin embargo, tienen puntos de vista en común. En la pasantía, por ejemplo, fui una persona externa, con poco tiempo dentro de la organización y sin mucho conocimiento de su funcionamiento interno. Tuve que buscar estrategias para recopilar información sin ser invasivo, pero cumpliendo con el trabajo asignado. Esa misma necesidad la viví en la PSE, donde llegar a una comunidad exige ganarse la confianza antes de poder aportar algo. Las estrategias que aprendí en la PSE me sirvieron en la empresa, y a la inversa. Eso me demostró que las herramientas que vemos en la facultad sirven para cualquier entorno, siempre que tengamos criterio para aplicarlas. La PSE también nos permitió aprender otras disciplinas, trabajar en equipos interdisciplinarios y romper la barrera con los docentes. Dejamos de vernos desde un rol de superioridad y pasamos a trabajar como colegas o pares. Al eliminar el miedo, surge una actitud más cooperativa y colaborativa.\n\nTenemos que pensar en un futuro no tan lejano en el que varios de nosotros ocupemos puestos de mayor responsabilidad y tomemos decisiones que impactan en comunidades, organizaciones y en el medio ambiente. Por eso considero que todos los estudiantes deberían atravesar un proceso de trabajo conjunto con una PSE. Esa experiencia nos permite entender que las decisiones no pueden guiarse únicamente por el aspecto económico, y que antes de decidir hay que escuchar a quienes van a vivir sus consecuencias.\n\nSi queremos avanzar hacia un futuro sostenible, tener en cuenta solo la rentabilidad no alcanza. Es un requisito fundamental considerar también el aspecto social y el ambiental, de manera equilibrada. Una decisión puede ser eficiente en lo económico y, sin embargo, generar exclusión, deterioro del entorno o conflictos con la comunidad. Trabajar en una PSE nos enseña a identificar esas dimensiones, a dialogar con actores con intereses distintos y a construir soluciones viables sin dejar de lado a las personas ni al ambiente. Por eso, esta experiencia no debería ser una opción aislada, sino una parte integral de la formación. Además, la llegada de nuevas tecnologías, aunque facilita muchas tareas, no nos exime de exigirnos más. Al contrario, nos da una mayor responsabilidad sobre cómo las usamos. No debemos bajar la vara por el simple hecho de que nadie nos obligue a subirla: la conciencia de excelencia tiene que nacer de nosotros mismos. Cuantas más herramientas tenemos, más altos deben ser nuestros estándares y nuestro cumplimiento, para que sus beneficios no favorezcan solo a unos pocos, sino que generen un impacto positivo en muchas personas."]
+  ["Andrés Landgrebe","cosmetica","Nuestra formación tiene un enfoque social, y eso nos obliga a salir de los libros y trabajar con personas, instituciones y problemas concretos. Lo más valioso de esa experiencia fue poder comparar entornos completamente distintos que, sin embargo, tienen puntos de vista en común. Personalmente he experimentado en la pasantía, por ejemplo, al principio era muy nuevo y te sentís externo a esa cultura organizacional y sin mucho conocimiento de su funcionamiento interno. Tuve que buscar estrategias para recopilar información sin ser invasivo, pero cumpliendo con el trabajo asignado. Esa misma necesidad la viví en la PSE, donde llegar a una comunidad exige ganarse la confianza antes de poder aportar algo. Las estrategias que aprendí en la PSE me sirvieron en la empresa, y a la inversa. Eso me demostró que las herramientas que vemos en la facultad sirven para cualquier entorno, siempre que tengamos criterio para aplicarlas. La PSE también permitió aprender de otras disciplinas, trabajar en equipos interdisciplinarios y romper barreras con los docentes. Dejamos de verlos desde un rol de superioridad y pasamos a trabajar como colegas o pares. Al eliminar el miedo, surge una actitud más cooperativa y colaborativa.\n\nTenemos que pensar en un futuro no tan lejano en el que varios de nosotros ocupemos puestos de mayor responsabilidad y tomemos decisiones que impactan en comunidades, organizaciones y en el medio ambiente. Por eso considero que todos los estudiantes deberían atravesar un proceso de trabajo conjunto con una PSE. Esa experiencia permite entender que las decisiones no pueden guiarse únicamente por el aspecto económico, y que antes de decidir hay que escuchar a quienes van a vivir sus consecuencias.\n\nSi queremos avanzar hacia un futuro sostenible, tener en cuenta solo la rentabilidad no alcanza. Considerar también el aspecto social y el ambiental es importante para alcanzar la verdadera sostenibilidad. Una decisión puede ser eficiente en lo económico y, sin embargo, generar exclusión, deterioro del entorno o conflictos con la comunidad. Trabajar en una PSE nos enseña a identificar esas dimensiones, a dialogar con actores con intereses distintos y a construir soluciones viables sin dejar de lado a las personas ni al ambiente. Por eso, esta experiencia no debería ser una opción aislada, sino una parte integral de la formación. Además, la llegada de nuevas tecnologías, aunque facilita muchas tareas, no nos exime de exigirnos más. Al contrario, nos da una mayor responsabilidad sobre cómo las usamos. No debemos bajar la vara por el simple hecho de que nadie nos obligue a subirla: la conciencia de excelencia tiene que nacer de nosotros mismos. Cuantas más herramientas tenemos, más altos deben ser nuestros estándares y nuestro compromiso, para que generen un impacto positivo en muchas personas."]
 ];
 function voces(){
   const v = VOCES.filter(x=>x[2] && x[2].trim());
